@@ -32,7 +32,7 @@ import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
 import { fetchAsignaturaCompleta, fetchModulo, fetchRandomPreguntasByAsignatura } from '@services/quizDataService';
-import { shuffleQuestionOptions } from '@utils/quizUtils';
+import {shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
 
 export default function QuizPage() {
   const { asignaturaId, moduloId } = useParams();
@@ -61,63 +61,66 @@ export default function QuizPage() {
   const preguntaActiva = preguntas[preguntaActual] || null;
   const tieneRespuestaActual = preguntaActiva ? respuestas[preguntaActiva.id] !== undefined : false;
 
-  useEffect(() => {
-    let mounted = true;
 
-    const cargarQuiz = async () => {
-      try {
-        setCargando(true);
+useEffect(() => {
+  let mounted = true;
 
-        // Cargar datos de la asignatura
-        const asignaturaData = await fetchAsignaturaCompleta(asigId);
+  const cargarQuiz = async () => {
+    try {
+      setCargando(true);
+
+      // Cargar datos de la asignatura
+      const asignaturaData = await fetchAsignaturaCompleta(asigId);
+
+      if (!mounted) return;
+
+      setAsignatura(asignaturaData);
+
+      // Cargar preguntas según el modo (específico o todos)
+      let quizQuestions = [];
+
+      if (modId === 'todos') {
+        // Modo todos: cargar 100 preguntas aleatorias de todos los módulos
+        const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 100);
 
         if (!mounted) return;
 
-        setAsignatura(asignaturaData);
+        quizQuestions = preguntasAleatorias;
+        setModoTodos(true);
+      } else {
+        // Modo específico: cargar preguntas de un módulo
+        const moduloData = await fetchModulo(asigId, modId);
 
-        // Cargar preguntas según el modo (específico o todos)
-        let quizQuestions = [];
+        if (!mounted) return;
 
-        if (modId === 'todos') {
-          // Modo todos: cargar 100 preguntas aleatorias de todos los módulos
-          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 100);
+        setModulo(moduloData);
 
-          if (!mounted) return;
 
-          quizQuestions = preguntasAleatorias;
-          setModoTodos(true);
-        } else {
-          // Modo específico: cargar preguntas de un módulo
-          const moduloData = await fetchModulo(asigId, modId);
-
-          if (!mounted) return;
-
-          setModulo(moduloData);
-          quizQuestions = moduloData.preguntas || [];
-        }
-
-        // Mezclar las opciones de cada pregunta
-        const preguntasConOpcionesMezcladas = quizQuestions.map(
-          pregunta => shuffleQuestionOptions(pregunta)
-        );
-
-        setPreguntas(preguntasConOpcionesMezcladas);
-        setCargando(false);
-      } catch (err) {
-        console.error("Error al cargar datos del quiz:", err);
-        if (mounted) {
-          setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
-          setCargando(false);
-        }
+        quizQuestions = shuffleArray([...(moduloData.preguntas || [])]);
       }
-    };
 
-    cargarQuiz();
+      // Mezclar las opciones de cada pregunta
+      const preguntasConOpcionesMezcladas = quizQuestions.map(
+        pregunta => shuffleQuestionOptions(pregunta)
+      );
 
-    return () => {
-      mounted = false;
-    };
-  }, [asigId, modId]);
+      setPreguntas(preguntasConOpcionesMezcladas);
+      setCargando(false);
+    } catch (err) {
+      console.error("Error al cargar datos del quiz:", err);
+      if (mounted) {
+        setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
+        setCargando(false);
+      }
+    }
+  };
+
+  cargarQuiz();
+
+  return () => {
+    mounted = false;
+  };
+}, [asigId, modId]);
 
   const handleSelectAnswer = (preguntaId, respuestaIndex) => {
     setRespuestas(prev => ({

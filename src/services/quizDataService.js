@@ -76,6 +76,11 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           import('../data/asignaturas/sistemasInformaticos')
             .then(module => resolve(module.default))
             .catch(error => reject(error));
+        }else if(id === 3){
+          // Programación
+          import('../data/asignaturas/programacion')
+            .then(module => resolve(module.default))
+            .catch(error => reject(error));
         } else {
           // Otras asignaturas (por ahora solo tenemos placeholder)
           const asignatura = asignaturas.find(a => a.id === id);

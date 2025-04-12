@@ -5,10 +5,10 @@ import { asignaturas } from './asignaturas';
 
 // Importación de la asignatura Sistemas Informáticos (completa con módulos)
 import sistemasInformaticos from './asignaturas/sistemasInformaticos';
+import programacion from './asignaturas/programacion';
 
 // Aquí irían las importaciones de las demás asignaturas cuando estén implementadas
 // import basesDeDatos from './asignaturas/basesDeDatos';
-// import programacion from './asignaturas/programacion';
 // import entornosDesarrollo from './asignaturas/entornosDesarrollo';
 // import lenguajesMarcas from './asignaturas/lenguajesMarcas';
 // import itinerarioEmpleabilidad from './asignaturas/itinerarioEmpleabilidad';
@@ -25,7 +25,6 @@ const crearAsignaturaPlaceholder = (id, nombre) => ({
 
 // Asignaturas placeholder para las que aún no se han implementado
 const basesDeDatos = crearAsignaturaPlaceholder(2, "Bases de datos");
-const programacion = crearAsignaturaPlaceholder(3, "Programación");
 const entornosDesarrollo = crearAsignaturaPlaceholder(4, "Entornos de desarrollo");
 const lenguajesMarcas = crearAsignaturaPlaceholder(5, "Lenguajes de marcas y sistemas de gestión de información");
 const itinerarioEmpleabilidad = crearAsignaturaPlaceholder(6, "Itinerario para la empleabilidad");

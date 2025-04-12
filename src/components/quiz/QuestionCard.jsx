@@ -27,14 +27,53 @@
  *   onSelectAnswer={(id, index) => console.log(`Pregunta ${id}, opción ${index} seleccionada`)}
  * />
  */
+// src/components/quiz/QuestionCard.jsx
 import { Card } from '@components/common';
 import { useTheme } from '@hooks/useTheme';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import ImageResource from './ImageResource';
 
 export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelectAnswer }) {
-  const theme = useTheme();
-  const darkMode = theme ? theme.darkMode : false;
+  const { darkMode } = useTheme();
 
   if (!pregunta) return null;
+
+  // Función para renderizar el recurso (imagen o código)
+  const renderRecurso = () => {
+    if (!pregunta.recurso) return null;
+
+    switch (pregunta.recurso.tipo) {
+      case 'imagen':
+        return (
+          <div className="my-4 flex justify-center">
+            <img
+              src={pregunta.recurso.contenido}
+              alt={pregunta.recurso.altText || "Imagen de la pregunta"}
+              className="max-w-full rounded-lg border border-gray-200 dark:border-gray-700 shadow-md"
+            />
+          </div>
+        );
+      case 'codigo':
+        return (
+          <div className="my-4 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-md">
+            <SyntaxHighlighter
+              language={pregunta.recurso.lenguaje || 'text'}
+              style={darkMode ? dark : docco}
+              customStyle={{
+                borderRadius: '0.5rem',
+                margin: 0,
+                padding: '1rem'
+              }}
+            >
+              {pregunta.recurso.contenido}
+            </SyntaxHighlighter>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   // Estilos inline para garantizar la visibilidad del texto
   const optionTextStyle = {
@@ -44,7 +83,10 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
 
   return (
     <Card className="mb-6">
-      <h2 className="text-xl font-semibold mb-6 dark:text-white">{pregunta.pregunta}</h2>
+      <h2 className="text-xl font-semibold mb-4 dark:text-white">{pregunta.pregunta}</h2>
+
+      {/* Renderizar recurso si existe */}
+      {renderRecurso()}
 
       <div className="space-y-3">
         {pregunta.opciones.map((opcion, index) => {
@@ -70,7 +112,6 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
                     <div className="h-2 w-2 rounded-full bg-white"></div>
                   )}
                 </div>
-                {/* Aplicar clase y estilo inline para garantizar el color correcto */}
                 <span
                   className="quiz-option-text text-gray-900 dark:text-white"
                   style={optionTextStyle}

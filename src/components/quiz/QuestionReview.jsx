@@ -27,8 +27,51 @@
  *   respuestaUsuario={1}
  * />
  */
+import { useTheme } from '@hooks/useTheme';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import ImageResource from './ImageResource';
+
 export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
+  const { darkMode } = useTheme();
   const isCorrect = respuestaUsuario === pregunta.respuestaCorrecta;
+
+  // Función para renderizar el recurso (imagen o código)
+  const renderRecurso = () => {
+    if (!pregunta.recurso) return null;
+
+    switch (pregunta.recurso.tipo) {
+      case 'imagen':
+        return (
+          <div className="my-3 flex justify-center">
+            <ImageResource
+              src={pregunta.recurso.contenido}
+              alt={pregunta.recurso.altText}
+              className="max-w-[250px] md:max-w-[350px]" // Tamaño más pequeño en la revisión
+            />
+          </div>
+        );
+      case 'codigo':
+        return (
+          <div className="my-3 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
+            <SyntaxHighlighter
+              language={pregunta.recurso.lenguaje || 'text'}
+              style={darkMode ? dark : docco}
+              customStyle={{
+                borderRadius: '0.5rem',
+                margin: 0,
+                padding: '0.75rem',
+                fontSize: '0.9rem'
+              }}
+            >
+              {pregunta.recurso.contenido}
+            </SyntaxHighlighter>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <div
@@ -41,6 +84,9 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
       <h4 className="font-medium mb-2 dark:text-white">
         {index + 1}. {pregunta.pregunta}
       </h4>
+
+      {/* Renderizar recurso si existe */}
+      {renderRecurso()}
 
       <div className="ml-4 mb-3">
         <p className="font-medium dark:text-gray-300">Tu respuesta:

@@ -6,6 +6,7 @@
  */
 
 import { asignaturas } from '../data/asignaturas';
+import { shuffleArray } from '@utils/quizUtils';
 
 /**
  * Obtiene la lista completa de asignaturas disponibles.
@@ -256,4 +257,31 @@ export const obtenerHistorialResultados = () => {
       resolve(historicoResultados);
     }, 300);
   });
+};
+
+/**
+ * Obtiene un número limitado de preguntas aleatorias de una asignatura
+ *
+ * @async
+ * @function fetchRandomPreguntasByAsignatura
+ * @param {string|number} asignaturaId - Identificador de la asignatura
+ * @param {number} [limit=100] - Número máximo de preguntas a retornar
+ * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias
+ * @throws {Error} Si la asignatura no existe o hay error al cargar sus módulos
+ */
+export const fetchRandomPreguntasByAsignatura = async (asignaturaId, limit = 100) => {
+  try {
+    // Obtenemos todas las preguntas de la asignatura
+    const todasPreguntas = await fetchAllPreguntasByAsignatura(asignaturaId);
+
+    // Mezclamos las preguntas usando la función shuffleArray
+    const preguntasMezcladas = shuffleArray([...todasPreguntas]);
+
+    // Limitamos la cantidad de preguntas (tomamos como máximo 'limit' preguntas)
+    // Si hay menos preguntas que el límite, se devolverán todas
+    return preguntasMezcladas.slice(0, limit);
+  } catch (error) {
+    console.error("Error cargando preguntas aleatorias:", error);
+    throw error;
+  }
 };

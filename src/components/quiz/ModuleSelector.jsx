@@ -25,6 +25,9 @@ import { Card, Button } from '@components/common';
 export default function ModuleSelector({ modulos, asignaturaId }) {
   const navigate = useNavigate();
 
+  // Calculamos el total de preguntas en todos los módulos
+  const totalPreguntas = modulos.reduce((sum, modulo) => sum + modulo.preguntas.length, 0);
+
   const handleSelectModule = (moduloId) => {
     navigate(`/quiz/${asignaturaId}/${moduloId}`);
   };
@@ -64,8 +67,13 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
           fullWidth
           onClick={handleSelectAllModules}
         >
-          Mezclar preguntas de todos los módulos
+          100 preguntas aleatorias de todos los módulos
         </Button>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">
+          {totalPreguntas > 100
+            ? `Se seleccionarán 100 preguntas aleatorias de un total de ${totalPreguntas}`
+            : `Se seleccionarán todas las ${totalPreguntas} preguntas disponibles`}
+        </p>
       </Card>
 
       <Button

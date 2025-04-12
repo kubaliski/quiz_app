@@ -31,7 +31,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
-import { fetchAsignaturaCompleta, fetchModulo, fetchAllPreguntasByAsignatura } from '@services/quizDataService';
+import { fetchAsignaturaCompleta, fetchModulo, fetchAllPreguntasByAsignatura, fetchRandomPreguntasByAsignatura } from '@services/quizDataService';
 import { shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
 
 export default function QuizPage() {
@@ -79,12 +79,12 @@ export default function QuizPage() {
         let quizQuestions = [];
 
         if (modId === 'todos') {
-          // Modo todos: cargar y mezclar todas las preguntas
-          const todasPreguntas = await fetchAllPreguntasByAsignatura(asigId);
+          // Modo todos: cargar 100 preguntas aleatorias de todos los módulos
+          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 100);
 
           if (!mounted) return;
 
-          quizQuestions = todasPreguntas;
+          quizQuestions = preguntasAleatorias;
           setModoTodos(true);
         } else {
           // Modo específico: cargar preguntas de un módulo
@@ -96,11 +96,8 @@ export default function QuizPage() {
           quizQuestions = moduloData.preguntas || [];
         }
 
-        // Mezclar el orden de las preguntas
-        const preguntasMezcladas = shuffleArray([...quizQuestions]);
-
         // Mezclar las opciones de cada pregunta
-        const preguntasConOpcionesMezcladas = preguntasMezcladas.map(
+        const preguntasConOpcionesMezcladas = quizQuestions.map(
           pregunta => shuffleQuestionOptions(pregunta)
         );
 

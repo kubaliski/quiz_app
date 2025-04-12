@@ -10,9 +10,6 @@ export const info = {
       "Familiarizarse con la configuración de servidores",
       "Conocer las herramientas de monitorización y diagnóstico"
     ],
-    docente: "Nombre del Profesor", // Opcional
-    duracion: "150 horas", // Opcional
-    nivel: "Intermedio" // Opcional
   };
 
   export default info;

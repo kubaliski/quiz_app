@@ -1,3 +1,31 @@
+/**
+ * Página que presenta el quiz al usuario con las preguntas y opciones de respuesta.
+ *
+ * Funcionalidades principales:
+ * - Carga preguntas de un módulo específico o de todos los módulos de una asignatura
+ * - Mezcla aleatoriamente las preguntas y las opciones de respuesta
+ * - Permite navegar entre preguntas (adelante/atrás)
+ * - Guarda las respuestas seleccionadas por el usuario
+ * - Muestra una barra de progreso con el avance del quiz
+ * - Permite salir del quiz con confirmación para evitar pérdida accidental de progreso
+ * - Redirige a la página de resultados al completar todas las preguntas
+ *
+ * @component
+ * @param {Object} props - Las propiedades del componente
+ * @returns {JSX.Element} Componente QuizPage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="/quiz/:asignaturaId/:moduloId" element={<QuizPage />} />
+ *
+ * @example
+ * // URL para acceder a un módulo específico
+ * // /quiz/1/101 - Asignatura ID 1, Módulo ID 101 (Linux)
+ *
+ * @example
+ * // URL para acceder a todos los módulos de una asignatura
+ * // /quiz/1/todos - Todas las preguntas de la Asignatura ID 1
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';

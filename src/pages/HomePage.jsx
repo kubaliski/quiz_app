@@ -1,3 +1,14 @@
+/**
+ * Página principal de la aplicación que muestra el selector de asignaturas.
+ * Carga la lista de asignaturas disponibles y gestiona los estados de carga y error.
+ *
+ * @component
+ * @returns {JSX.Element} Componente HomePage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="/" element={<HomePage />} />
+ */
 import { useEffect, useState } from 'react';
 import { Layout, PageHeader } from '@components/layout';
 import { SubjectSelector } from '@components/quiz';

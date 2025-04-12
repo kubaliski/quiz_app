@@ -1,3 +1,14 @@
+/**
+ * Página de información sobre colaboración que muestra cómo contribuir al proyecto.
+ * Incluye secciones con instrucciones sobre GitHub, creación de tests y otras formas de contribución.
+ *
+ * @component
+ * @returns {JSX.Element} Componente AboutPage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="/about" element={<AboutPage />} />
+ */
 import { Layout, PageHeader } from '@components/layout';
 import { Card, Button } from '@components/common';
 

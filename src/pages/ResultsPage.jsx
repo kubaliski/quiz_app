@@ -1,3 +1,27 @@
+/**
+ * Página que muestra los resultados de un quiz completado.
+ *
+ * Funcionalidades principales:
+ * - Recupera los datos del quiz (preguntas y respuestas) desde sessionStorage
+ * - Calcula la puntuación obtenida (respuestas correctas, total y porcentaje)
+ * - Muestra un resumen visual con el porcentaje de acierto
+ * - Presenta una revisión detallada de cada pregunta, indicando si la respuesta fue correcta
+ * - Para respuestas incorrectas, muestra la opción correcta y su explicación
+ * - Guarda los resultados del quiz usando el servicio quizDataService
+ * - Ofrece opciones para reintentar el mismo quiz o volver a la selección de módulos
+ *
+ * @component
+ * @param {Object} props - Las propiedades del componente
+ * @returns {JSX.Element} Componente ResultsPage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="/resultados/:asignaturaId/:moduloId" element={<ResultsPage />} />
+ *
+ * @example
+ * // URL para acceder a los resultados de un módulo específico
+ * // /resultados/1/101 - Resultados de Asignatura ID 1, Módulo ID 101
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';

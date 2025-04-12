@@ -1,3 +1,14 @@
+/**
+ * Página de error 404 que se muestra cuando el usuario navega a una ruta inexistente.
+ * Proporciona un enlace para volver a la página principal.
+ *
+ * @component
+ * @returns {JSX.Element} Componente NotFoundPage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="*" element={<NotFoundPage />} />
+ */
 import { Link } from 'react-router-dom';
 import { Layout } from '@components/layout';
 import { Button } from '@components/common';

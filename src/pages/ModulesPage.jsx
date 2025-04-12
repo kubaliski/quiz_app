@@ -1,3 +1,14 @@
+/**
+ * Página que muestra los módulos disponibles para una asignatura seleccionada.
+ * Carga la información completa de la asignatura y permite al usuario seleccionar un módulo para el quiz.
+ *
+ * @component
+ * @returns {JSX.Element} Componente ModulesPage renderizado
+ *
+ * @example
+ * // En un componente Router
+ * <Route path="/asignaturas/:asignaturaId" element={<ModulesPage />} />
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';

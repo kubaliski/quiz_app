@@ -28,6 +28,7 @@
 import info from "./info.js";
 import moduloLinux from "./modulos/linux.js";
 import moduloRedes from "./modulos/redes.js";
+import moduloCienPreguntas from "./modulos/cienPreguntas.js";
 
 
 
@@ -36,6 +37,7 @@ export const sisteasInformaticos = {
     modulos: [
         moduloLinux,
         moduloRedes,
+        moduloCienPreguntas,
     ],
 };
 

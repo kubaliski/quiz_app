@@ -6,6 +6,7 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
 
 - 📚 Organización por asignaturas y módulos
 - 🔄 Preguntas y respuestas con orden aleatorio
+- 🖼️ Soporte para recursos visuales (imágenes y bloques de código)
 - 🌙 Modo oscuro/claro
 - 📱 Diseño responsive para todos los dispositivos
 - 📊 Resumen de resultados con explicaciones detalladas
@@ -58,6 +59,8 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
 ```
 quiz-app/
 ├── public/               # Archivos estáticos
+│   └── images/           # Imágenes para preguntas
+│       └── [modulo]/     # Carpetas específicas por módulo
 ├── src/
 │   ├── components/       # Componentes React
 │   │   ├── common/       # Componentes reutilizables (Button, Card, etc.)
@@ -75,6 +78,85 @@ quiz-app/
 ├── package.json
 └── README.md
 ```
+
+## Cómo añadir recursos a las preguntas
+
+La aplicación soporta la inclusión de recursos visuales (imágenes y bloques de código) en las preguntas, lo que permite crear contenido más interactivo y educativo.
+
+### Estructura de recursos
+
+Los recursos se definen dentro del objeto de la pregunta usando la propiedad `recurso`:
+
+```js
+{
+  id: 1001,
+  moduloId: 101,
+  pregunta: "¿Qué muestra la siguiente imagen?",
+  recurso: {
+    tipo: "imagen",                              // Tipo de recurso: "imagen" o "codigo"
+    contenido: "/images/modulo/pregunta1.png",   // Ruta relativa a la carpeta public
+    altText: "Descripción de la imagen"          // Texto alternativo para accesibilidad
+  },
+  opciones: ["Opción 1", "Opción 2", "Opción 3", "Opción 4"],
+  respuestaCorrecta: 2,
+  explicacion: "Explicación detallada de la respuesta correcta."
+}
+```
+
+### Organización de imágenes
+
+Las imágenes deben colocarse en la siguiente estructura para mantener el proyecto organizado:
+
+```
+public/
+└── images/
+    └── [nombre-modulo]/           # Carpeta específica del módulo
+        └── preguntaXX.png         # Donde XX es el número o identificador de la pregunta
+```
+
+Por ejemplo:
+
+- `/images/linux/comando-ls.png`
+- `/images/redes/topologia-estrella.png`
+- `/images/cienPreguntas/pregunta32.png`
+
+### Uso de bloques de código
+
+También puedes incluir bloques de código con resaltado de sintaxis:
+
+```js
+{
+  id: 2001,
+  moduloId: 102,
+  pregunta: "¿Qué hace el siguiente código JavaScript?",
+  recurso: {
+    tipo: "codigo",
+    contenido: `function sumar(a, b) {
+  return a + b;
+}
+console.log(sumar(5, 3));`,
+    lenguaje: "javascript"  // Especifica el lenguaje para el resaltado de sintaxis
+  },
+  opciones: ["Resta dos números", "Suma dos números", "Multiplica dos números", "Divide dos números"],
+  respuestaCorrecta: 1,
+  explicacion: "El código define una función 'sumar' que recibe dos parámetros y devuelve su suma. Luego imprime el resultado de sumar 5 + 3, que es 8."
+}
+```
+
+### Lenguajes soportados para el resaltado de sintaxis
+
+Algunos de los lenguajes soportados incluyen:
+
+- `javascript`, `js`
+- `python`
+- `java`
+- `html`
+- `css`
+- `bash`, `shell`
+- `sql`
+- `csharp`, `cs`
+- `php`
+- `ruby`
 
 ## Cómo añadir un nuevo módulo de preguntas
 
@@ -106,16 +188,21 @@ export const moduloHardware = {
     {
       id: 3002,
       moduloId: 103,
-      pregunta: "¿Qué componente es conocido como el 'cerebro' del ordenador?",
+      pregunta: "¿Qué muestra la siguiente imagen de una placa base?",
+      recurso: {
+        tipo: "imagen",
+        contenido: "/images/hardware/placa-base.png",
+        altText: "Imagen de una placa base con componentes señalados",
+      },
       opciones: [
         "Memoria RAM",
         "CPU",
         "Tarjeta madre",
         "Fuente de alimentación",
       ],
-      respuestaCorrecta: 1,
+      respuestaCorrecta: 2,
       explicacion:
-        "La CPU (Unidad Central de Procesamiento) es considerada el 'cerebro' del ordenador ya que procesa las instrucciones y realiza los cálculos necesarios para el funcionamiento del sistema.",
+        "La imagen muestra una placa base o tarjeta madre, que es el circuito principal del ordenador donde se conectan todos los demás componentes.",
     },
     // Añade más preguntas siguiendo la misma estructura
   ],
@@ -155,6 +242,7 @@ export default sistemasInformaticos;
   - `id`: Identificador único para la pregunta.
   - `moduloId`: Debe coincidir con el ID del módulo.
   - `pregunta`: El texto de la pregunta.
+  - `recurso`: (Opcional) Objeto con información del recurso visual.
   - `opciones`: Array de strings con las posibles respuestas.
   - `respuestaCorrecta`: Índice (base 0) de la opción correcta en el array.
   - `explicacion`: Texto explicativo de la respuesta correcta.

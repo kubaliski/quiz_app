@@ -31,8 +31,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
-import { fetchAsignaturaCompleta, fetchModulo, fetchAllPreguntasByAsignatura, fetchRandomPreguntasByAsignatura } from '@services/quizDataService';
-import { shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
+import { fetchAsignaturaCompleta, fetchModulo, fetchRandomPreguntasByAsignatura } from '@services/quizDataService';
+import { shuffleQuestionOptions } from '@utils/quizUtils';
 
 export default function QuizPage() {
   const { asignaturaId, moduloId } = useParams();

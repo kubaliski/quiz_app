@@ -33,6 +33,8 @@
  *   }
  * />
  */
+import { Link } from 'react-router-dom';
+
 export default function PageHeader({
   title,
   subtitle,
@@ -47,7 +49,6 @@ export default function PageHeader({
             <ol className="flex items-center space-x-1 text-sm">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
-
                 return (
                   <li key={index} className="flex items-center">
                     {index > 0 && (
@@ -64,14 +65,13 @@ export default function PageHeader({
                         />
                       </svg>
                     )}
-
                     {crumb.to ? (
-                      <a
-                        href={crumb.to}
+                      <Link
+                        to={crumb.to}
                         className={`${isLast ? 'text-gray-700 dark:text-gray-300 font-medium' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'} transition-colors duration-200`}
                       >
                         {crumb.label}
-                      </a>
+                      </Link>
                     ) : (
                       <span className={`${isLast ? 'text-gray-700 dark:text-gray-300 font-medium' : 'text-gray-500 dark:text-gray-400'}`}>
                         {crumb.label}
@@ -83,7 +83,6 @@ export default function PageHeader({
             </ol>
           </nav>
         )}
-
         <div className="md:flex md:items-center md:justify-between">
           <div className="flex-1 min-w-0">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -95,7 +94,6 @@ export default function PageHeader({
               </p>
             )}
           </div>
-
           {actions && (
             <div className="mt-4 md:mt-0 md:ml-4">
               {actions}

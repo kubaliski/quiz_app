@@ -5,8 +5,8 @@
  * @module quizDataService
  */
 
-import { asignaturas } from '../data/asignaturas';
-import { shuffleArray } from '@utils/quizUtils';
+import { asignaturas } from "../data/asignaturas";
+import { shuffleArray } from "@utils/quizUtils";
 
 /**
  * Obtiene la lista completa de asignaturas disponibles.
@@ -73,29 +73,34 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
         const id = parseInt(asignaturaId, 10);
         if (id === 1) {
           // Sistemas Informáticos
-          import('../data/asignaturas/sistemasInformaticos')
-            .then(module => resolve(module.default))
-            .catch(error => reject(error));
-        } else if(id === 2){
+          import("../data/asignaturas/sistemasInformaticos")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
+        } else if (id === 2) {
           // Bases de Datos
-          import('../data/asignaturas/basesDeDatos')
-            .then(module => resolve(module.default))
-            .catch(error => reject(error));
-        }else if(id === 3){
+          import("../data/asignaturas/basesDeDatos")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
+        } else if (id === 3) {
           // Programación
-          import('../data/asignaturas/programacion')
-            .then(module => resolve(module.default))
-            .catch(error => reject(error));
+          import("../data/asignaturas/programacion")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
+        } else if (id === 4) {
+          //Entornos De Desarrollo
+          import("../data/asignaturas/entornosDeDesarrollo")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
         } else {
           // Otras asignaturas (por ahora solo tenemos placeholder)
-          const asignatura = asignaturas.find(a => a.id === id);
+          const asignatura = asignaturas.find((a) => a.id === id);
           if (!asignatura) {
             reject(new Error("Asignatura no encontrada"));
           } else {
             // Creamos un objeto básico con la estructura esperada
             resolve({
               ...asignatura,
-              modulos: []
+              modulos: [],
             });
           }
         }
@@ -134,7 +139,9 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
 export const fetchModulo = async (asignaturaId, moduloId) => {
   try {
     const asignatura = await fetchAsignaturaCompleta(asignaturaId);
-    const modulo = asignatura.modulos.find(m => m.id === parseInt(moduloId, 10));
+    const modulo = asignatura.modulos.find(
+      (m) => m.id === parseInt(moduloId, 10)
+    );
 
     if (!modulo) {
       throw new Error("Módulo no encontrado");
@@ -173,7 +180,7 @@ export const fetchModulo = async (asignaturaId, moduloId) => {
 export const fetchAllPreguntasByAsignatura = async (asignaturaId) => {
   try {
     const asignatura = await fetchAsignaturaCompleta(asignaturaId);
-    return asignatura.modulos.flatMap(m => m.preguntas);
+    return asignatura.modulos.flatMap((m) => m.preguntas);
   } catch (error) {
     console.error("Error cargando preguntas:", error);
     throw error;
@@ -217,14 +224,18 @@ export const fetchAllPreguntasByAsignatura = async (asignaturaId) => {
  */
 export const guardarResultadosQuiz = (resultados) => {
   return new Promise((resolve) => {
-
     setTimeout(() => {
-      const historicoResultados = JSON.parse(localStorage.getItem('quiz_historico') || '[]');
+      const historicoResultados = JSON.parse(
+        localStorage.getItem("quiz_historico") || "[]"
+      );
       historicoResultados.push({
         ...resultados,
-        fecha: new Date().toISOString()
+        fecha: new Date().toISOString(),
       });
-      localStorage.setItem('quiz_historico', JSON.stringify(historicoResultados));
+      localStorage.setItem(
+        "quiz_historico",
+        JSON.stringify(historicoResultados)
+      );
 
       resolve({ success: true, message: "Resultados guardados correctamente" });
     }, 300);
@@ -263,7 +274,9 @@ export const guardarResultadosQuiz = (resultados) => {
 export const obtenerHistorialResultados = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const historicoResultados = JSON.parse(localStorage.getItem('quiz_historico') || '[]');
+      const historicoResultados = JSON.parse(
+        localStorage.getItem("quiz_historico") || "[]"
+      );
       resolve(historicoResultados);
     }, 300);
   });
@@ -279,7 +292,10 @@ export const obtenerHistorialResultados = () => {
  * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias
  * @throws {Error} Si la asignatura no existe o hay error al cargar sus módulos
  */
-export const fetchRandomPreguntasByAsignatura = async (asignaturaId, limit = 100) => {
+export const fetchRandomPreguntasByAsignatura = async (
+  asignaturaId,
+  limit = 100
+) => {
   try {
     // Obtenemos todas las preguntas de la asignatura
     const todasPreguntas = await fetchAllPreguntasByAsignatura(asignaturaId);

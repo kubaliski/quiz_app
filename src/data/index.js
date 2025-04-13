@@ -1,12 +1,13 @@
 // src/data/index.js
 
 // Importación de la lista básica de asignaturas
-import { asignaturas } from './asignaturas';
+import { asignaturas } from "./asignaturas";
 
 // Importación de la asignatura Sistemas Informáticos (completa con módulos)
-import sistemasInformaticos from './asignaturas/sistemasInformaticos';
-import programacion from './asignaturas/programacion';
-import basesDeDatos from './asignaturas/basesDeDatos';
+import sistemasInformaticos from "./asignaturas/sistemasInformaticos";
+import programacion from "./asignaturas/programacion";
+import basesDeDatos from "./asignaturas/basesDeDatos";
+import entornosDeDesarrollo from "./asignaturas/entornosDeDesarrollo";
 
 // Aquí irían las importaciones de las demás asignaturas cuando estén implementadas
 // import basesDeDatos from './asignaturas/basesDeDatos';
@@ -21,14 +22,22 @@ const crearAsignaturaPlaceholder = (id, nombre) => ({
   id,
   nombre,
   descripcion: `Contenido de ${nombre} en desarrollo`,
-  modulos: []
+  modulos: [],
 });
 
 // Asignaturas placeholder para las que aún no se han implementado
-const entornosDesarrollo = crearAsignaturaPlaceholder(4, "Entornos de desarrollo");
-const lenguajesMarcas = crearAsignaturaPlaceholder(5, "Lenguajes de marcas y sistemas de gestión de información");
-const itinerarioEmpleabilidad = crearAsignaturaPlaceholder(6, "Itinerario para la empleabilidad");
-const moduloOptativo = crearAsignaturaPlaceholder(7, "Módulo Profesional Optativo");
+const lenguajesMarcas = crearAsignaturaPlaceholder(
+  5,
+  "Lenguajes de marcas y sistemas de gestión de información"
+);
+const itinerarioEmpleabilidad = crearAsignaturaPlaceholder(
+  6,
+  "Itinerario para la empleabilidad"
+);
+const moduloOptativo = crearAsignaturaPlaceholder(
+  7,
+  "Módulo Profesional Optativo"
+);
 
 // Exporta la lista simple de asignaturas (solo metadatos)
 export { asignaturas };
@@ -38,21 +47,21 @@ export const asignaturasCompletas = [
   sistemasInformaticos,
   basesDeDatos,
   programacion,
-  entornosDesarrollo,
+  entornosDeDesarrollo,
   lenguajesMarcas,
   itinerarioEmpleabilidad,
-  moduloOptativo
+  moduloOptativo,
 ];
 
 // Función auxiliar para obtener una asignatura por su ID
 export const obtenerAsignaturaPorId = (id) => {
-  return asignaturasCompletas.find(asignatura => asignatura.id === id);
+  return asignaturasCompletas.find((asignatura) => asignatura.id === id);
 };
 
 // Función auxiliar para obtener un módulo por su ID
 export const obtenerModuloPorId = (moduloId) => {
   for (const asignatura of asignaturasCompletas) {
-    const modulo = asignatura.modulos.find(m => m.id === moduloId);
+    const modulo = asignatura.modulos.find((m) => m.id === moduloId);
     if (modulo) return modulo;
   }
   return null;
@@ -69,7 +78,7 @@ export const quizData = {
   asignaturas: asignaturasCompletas,
   obtenerAsignaturaPorId,
   obtenerModuloPorId,
-  obtenerModulosPorAsignatura
+  obtenerModulosPorAsignatura,
 };
 
 export default quizData;

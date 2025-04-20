@@ -1,5 +1,5 @@
 export const info = {
-  id: 4,
+  id: 5,
   nombre: "Entornos de Desarrollo",
   descripcion:
     "Estudio de herramientas y metodologías para el desarrollo de software eficiente y de calidad.",

@@ -45,15 +45,15 @@ export const asignaturas = [
     },
     {
       id: 4,
-      nombre: "Entornos de desarrollo",
-      descripcion: "Herramientas y metodologías para el desarrollo de software",
-      icono: "terminal"
-    },
-    {
-      id: 5,
       nombre: "Lenguajes de marcas y sistemas de gestión de información",
       descripcion: "HTML,CSS, XML, JS y tecnologías relacionadas",
       icono: "file-code"
+    },
+    {
+      id: 5,
+      nombre: "Entornos de desarrollo",
+      descripcion: "Herramientas y metodologías para el desarrollo de software",
+      icono: "terminal"
     },
     {
       id: 6,

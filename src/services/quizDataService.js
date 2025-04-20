@@ -86,7 +86,12 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           import("../data/asignaturas/programacion")
             .then((module) => resolve(module.default))
             .catch((error) => reject(error));
-        } else if (id === 4) {
+        }else if (id === 4) {
+          // Lenguajes de Marcas y Sistemas de Gestión de Información
+          import("../data/asignaturas/lenguajeDeMarcas")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
+        } else if (id === 5) {
           //Entornos De Desarrollo
           import("../data/asignaturas/entornosDeDesarrollo")
             .then((module) => resolve(module.default))

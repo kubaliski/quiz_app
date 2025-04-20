@@ -8,6 +8,7 @@ import sistemasInformaticos from "./asignaturas/sistemasInformaticos";
 import programacion from "./asignaturas/programacion";
 import basesDeDatos from "./asignaturas/basesDeDatos";
 import entornosDeDesarrollo from "./asignaturas/entornosDeDesarrollo";
+import lenguajesMarcas from "./asignaturas/lenguajeDeMarcas";
 
 // Aquí irían las importaciones de las demás asignaturas cuando estén implementadas
 // import basesDeDatos from './asignaturas/basesDeDatos';
@@ -25,11 +26,6 @@ const crearAsignaturaPlaceholder = (id, nombre) => ({
   modulos: [],
 });
 
-// Asignaturas placeholder para las que aún no se han implementado
-const lenguajesMarcas = crearAsignaturaPlaceholder(
-  5,
-  "Lenguajes de marcas y sistemas de gestión de información"
-);
 const itinerarioEmpleabilidad = crearAsignaturaPlaceholder(
   6,
   "Itinerario para la empleabilidad"
@@ -47,8 +43,8 @@ export const asignaturasCompletas = [
   sistemasInformaticos,
   basesDeDatos,
   programacion,
-  entornosDeDesarrollo,
   lenguajesMarcas,
+  entornosDeDesarrollo,
   itinerarioEmpleabilidad,
   moduloOptativo,
 ];

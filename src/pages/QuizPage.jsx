@@ -81,7 +81,7 @@ useEffect(() => {
 
       if (modId === 'todos') {
         // Modo todos: cargar 100 preguntas aleatorias de todos los módulos
-        const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 100);
+        const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 
         if (!mounted) return;
 

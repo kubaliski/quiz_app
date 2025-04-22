@@ -293,7 +293,7 @@ export const obtenerHistorialResultados = () => {
  * @async
  * @function fetchRandomPreguntasByAsignatura
  * @param {string|number} asignaturaId - Identificador de la asignatura
- * @param {number} [limit=100] - Número máximo de preguntas a retornar
+ * @param {number} [limit=40] - Número máximo de preguntas a retornar
  * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias
  * @throws {Error} Si la asignatura no existe o hay error al cargar sus módulos
  */

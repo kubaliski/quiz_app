@@ -299,7 +299,7 @@ export const obtenerHistorialResultados = () => {
  */
 export const fetchRandomPreguntasByAsignatura = async (
   asignaturaId,
-  limit = 100
+  limit = 40
 ) => {
   try {
     // Obtenemos todas las preguntas de la asignatura

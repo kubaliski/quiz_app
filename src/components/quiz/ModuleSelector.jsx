@@ -67,11 +67,11 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
           fullWidth
           onClick={handleSelectAllModules}
         >
-          100 preguntas aleatorias de todos los módulos
+          40 preguntas aleatorias de todos los módulos
         </Button>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">
-          {totalPreguntas > 100
-            ? `Se seleccionarán 100 preguntas aleatorias de un total de ${totalPreguntas}`
+          {totalPreguntas > 40
+            ? `Se seleccionarán 40 preguntas aleatorias de un total de ${totalPreguntas}`
             : `Se seleccionarán todas las ${totalPreguntas} preguntas disponibles`}
         </p>
       </Card>

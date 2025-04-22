@@ -1,4 +1,3 @@
-// src/utils/quizUtils.js
 // Mezclar un array usando el algoritmo Fisher-Yates
 export const shuffleArray = (array) => {
   const newArray = [...array];
@@ -82,18 +81,33 @@ export const esRespuestaCorrecta = (pregunta, respuestaUsuario) => {
   return respuestaUsuario === pregunta.respuestaCorrecta;
 };
 
-// Calcular puntuación de un quiz (duplicado aquí por seguridad)
+// Calcular puntuación de un quiz con penalización por respuestas incorrectas
 export const calcularPuntuacion = (preguntas, respuestas) => {
   let correctas = 0;
+  let incorrectas = 0;
   let total = preguntas.length;
+
   preguntas.forEach(pregunta => {
+    // Si la respuesta es undefined, se considera incorrecta
     if (respuestas[pregunta.id] === pregunta.respuestaCorrecta) {
       correctas++;
+    } else {
+      incorrectas++;
     }
   });
+
+  // Calculamos la penalización: cada 3 incorrectas restamos 1 correcta
+  const penalizacion = Math.floor(incorrectas / 3);
+
+  // Aplicamos la penalización, pero nunca menos de 0
+  const puntuacionFinal = Math.max(0, correctas - penalizacion);
+
   return {
-    correctas,
+    correctas: puntuacionFinal,
+    incorrectas,
+    penalizacion,
     total,
-    porcentaje: total > 0 ? Math.round((correctas / total) * 100) : 0
+    aciertosOriginales: correctas,
+    porcentaje: total > 0 ? Math.round((puntuacionFinal / total) * 100) : 0
   };
 };

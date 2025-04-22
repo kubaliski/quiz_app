@@ -325,16 +325,20 @@ export const moduloJavaScript = {
       {
         id: 4221,
         moduloId: 402,
-        pregunta: "¿Qué valor devuelve document.querySelector('input[name=\"x\"]:checked') si no hay selección?",
+        pregunta: "¿Qué valor devuelve la siguiente expresión JavaScript si no hay selección?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `document.querySelector('input[name="x"]:checked')`,
+          lenguaje: "javascript"
+        },
         opciones: [
           "\"\"",
           "\"undefined\"",
           "null",
-          "false",
+          "false"
         ],
         respuestaCorrecta: 2,
-        explicacion:
-          "Cuando no hay ningún elemento que coincida con el selector especificado, document.querySelector() devuelve null. En este caso, si no hay ningún input con name=\"x\" que esté seleccionado (checked), la función devolverá null. Este comportamiento es importante de considerar al trabajar con selectores en JavaScript, ya que intentar acceder a propiedades o métodos de un valor null resultará en un error (TypeError: Cannot read property of null). Por lo tanto, es una buena práctica verificar si el resultado de querySelector es null antes de intentar operar con él, por ejemplo: const checkedInput = document.querySelector('input[name=\"x\"]:checked'); if (checkedInput) { /* hacer algo con checkedInput */ }.",
+        explicacion: "Cuando no hay ningún elemento que coincida con el selector especificado, document.querySelector() devuelve null. En este caso, si no hay ningún input con name=\"x\" que esté seleccionado (checked), la función devolverá null. Este comportamiento es importante de considerar al trabajar con selectores en JavaScript, ya que intentar acceder a propiedades o métodos de un valor null resultará en un error (TypeError: Cannot read property of null). Por lo tanto, es una buena práctica verificar si el resultado de querySelector es null antes de intentar operar con él, por ejemplo: const checkedInput = document.querySelector('input[name=\"x\"]:checked'); if (checkedInput) { /* hacer algo con checkedInput */ }."
       },
       {
         id: 4222,

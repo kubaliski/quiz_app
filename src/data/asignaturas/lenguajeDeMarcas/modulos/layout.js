@@ -59,16 +59,25 @@ export const moduloHTMLCSSLayout = {
       {
         id: 4902,
         moduloId: 409,
-        pregunta: "En el siguiente código, ¿qué falta para que el nav se muestre correctamente?\n\n<nav>\n    <ul>\n        <li><a href=\"#\">Inicio</a></li>\n        <li><a href=\"#\">Servicios</a></li>\n    </ul>\n</nav>",
+        pregunta: "En el siguiente código, ¿qué falta para que el nav se muestre correctamente?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `<nav>
+          <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Servicios</a></li>
+          </ul>
+      </nav>`,
+          lenguaje: "html"
+        },
         opciones: [
           "Falta la etiqueta <menu>",
           "Nada, el código es correcto",
           "Falta la etiqueta <header>",
-          "Falta display: flex; en CSS",
+          "Falta display: flex; en CSS"
         ],
         respuestaCorrecta: 1,
-        explicacion:
-          "El código HTML proporcionado para el menú de navegación es sintácticamente correcto y completo desde el punto de vista de la estructura HTML. Utiliza la etiqueta semántica <nav> para indicar que es una sección de navegación, contiene una lista no ordenada <ul> con elementos de lista <li>, cada uno con un enlace <a>. Esta es una estructura estándar y válida para crear menús de navegación en HTML. No es necesario incluir la etiqueta <nav> dentro de un <header> (aunque es común hacerlo), ni se requiere una etiqueta <menu> (que tiene un propósito diferente). En cuanto a estilos, aunque display: flex; en CSS sería útil para mejorar la apariencia del menú (por ejemplo, para mostrar los elementos horizontalmente en lugar de verticalmente), no es un requisito para que el HTML sea válido o funcional; es una cuestión de presentación, no de estructura.",
+        explicacion: "El código HTML proporcionado para el menú de navegación es sintácticamente correcto y completo desde el punto de vista de la estructura HTML. Utiliza la etiqueta semántica <nav> para indicar que es una sección de navegación, contiene una lista no ordenada <ul> con elementos de lista <li>, cada uno con un enlace <a>. Esta es una estructura estándar y válida para crear menús de navegación en HTML. No es necesario incluir la etiqueta <nav> dentro de un <header> (aunque es común hacerlo), ni se requiere una etiqueta <menu> (que tiene un propósito diferente). En cuanto a estilos, aunque display: flex; en CSS sería útil para mejorar la apariencia del menú (por ejemplo, para mostrar los elementos horizontalmente en lugar de verticalmente), no es un requisito para que el HTML sea válido o funcional; es una cuestión de presentación, no de estructura."
       },
       {
         id: 4903,
@@ -213,16 +222,23 @@ export const moduloHTMLCSSLayout = {
       {
         id: 4913,
         moduloId: 409,
-        pregunta: "¿Cuál es la diferencia entre fr y % en CSS Grid?",
+        pregunta: "En el siguiente código, ¿qué elemento ocupará más espacio?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `.grid-container {
+          display: grid;
+          grid-template-columns: 1fr 2fr 1fr;
+      }`,
+          lenguaje: "css"
+        },
         opciones: [
-          "fr ajusta automáticamente el espacio disponible entre columnas",
-          "% siempre ocupa todo el ancho de la pantalla",
-          "fr es relativo al tamaño de la ventana del navegador",
-          "No hay diferencia, ambos hacen lo mismo",
+          "El primer elemento",
+          "Todos ocupan el mismo tamaño",
+          "El tercer elemento",
+          "El segundo elemento"
         ],
-        respuestaCorrecta: 0,
-        explicacion:
-          "La principal diferencia entre la unidad fr (fracción) y % (porcentaje) en CSS Grid es que fr ajusta automáticamente el espacio disponible entre columnas o filas después de considerar el tamaño de elementos con dimensiones fijas. La unidad fr representa una fracción del espacio libre disponible, no del tamaño total del contenedor. Por ejemplo, en grid-template-columns: 100px 1fr 2fr;, primero se asignan 100px a la primera columna, y luego el espacio restante se divide en 3 partes (1+2), asignando 1/3 a la segunda columna y 2/3 a la tercera. En contraste, los porcentajes son relativos al tamaño total del contenedor y no se ajustan automáticamente en función de otros elementos. Esto hace que fr sea más flexible y conveniente para diseños responsivos donde el espacio disponible puede cambiar.",
+        respuestaCorrecta: 3,
+        explicacion: "En el código dado, el segundo elemento ocupará más espacio. La declaración grid-template-columns: 1fr 2fr 1fr; define tres columnas donde la segunda columna tiene el doble de ancho que las otras dos. La unidad fr (fracción) en CSS Grid representa una parte proporcional del espacio disponible. En este caso, el espacio total se divide en 4 partes (1+2+1), y se asigna 1/4 del espacio a la primera columna, 2/4 (o 1/2) a la segunda, y 1/4 a la tercera. Por lo tanto, el elemento que se coloque en la segunda columna ocupará más espacio horizontal que los elementos en la primera o tercera columna. Si imaginamos un contenedor de 1000px, la distribución aproximada sería: primera columna 250px, segunda columna 500px, tercera columna 250px."
       },
       {
         id: 4914,

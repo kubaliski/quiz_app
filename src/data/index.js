@@ -9,6 +9,7 @@ import programacion from "./asignaturas/programacion";
 import basesDeDatos from "./asignaturas/basesDeDatos";
 import entornosDeDesarrollo from "./asignaturas/entornosDeDesarrollo";
 import lenguajesMarcas from "./asignaturas/lenguajeDeMarcas";
+import itinerarioEmpleabilidad from "./asignaturas/itinerarioParaLaEmpleabilidad";
 
 // Aquí irían las importaciones de las demás asignaturas cuando estén implementadas
 // import basesDeDatos from './asignaturas/basesDeDatos';
@@ -26,10 +27,6 @@ const crearAsignaturaPlaceholder = (id, nombre) => ({
   modulos: [],
 });
 
-const itinerarioEmpleabilidad = crearAsignaturaPlaceholder(
-  6,
-  "Itinerario para la empleabilidad"
-);
 const moduloOptativo = crearAsignaturaPlaceholder(
   7,
   "Módulo Profesional Optativo"

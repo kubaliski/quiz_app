@@ -96,6 +96,11 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           import("../data/asignaturas/entornosDeDesarrollo")
             .then((module) => resolve(module.default))
             .catch((error) => reject(error));
+        }else if (id === 6) {
+          // Itinerario para la Empleabilidad
+          import("../data/asignaturas/itinerarioParaLaEmpleabilidad")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
         } else {
           // Otras asignaturas (por ahora solo tenemos placeholder)
           const asignatura = asignaturas.find((a) => a.id === id);

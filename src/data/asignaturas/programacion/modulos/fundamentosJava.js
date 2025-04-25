@@ -39,6 +39,7 @@ export const moduloFundamentosJava = {
     id: 303,
     nombre: "Fundamentos de Java (Bloque 1)",
     asignaturaId: 3,
+    esExamen: false,
     descripcion: "Estructuras de control, arrays, strings, métodos y funciones en Java, incluyendo sus operaciones y usos principales.",
     preguntas: [
       // Sección 1: Estructuras de Control en Java

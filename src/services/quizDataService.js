@@ -321,3 +321,35 @@ export const fetchRandomPreguntasByAsignatura = async (
     throw error;
   }
 };
+
+/**
+ * Obtiene un número limitado de preguntas aleatorias de los módulos de examen de una asignatura
+ *
+ * @async
+ * @function fetchRandomPreguntasByAsignaturaExamen
+ * @param {string|number} asignaturaId - Identificador de la asignatura
+ * @param {number} [limit=40] - Número máximo de preguntas a retornar
+ * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias de examen
+ * @throws {Error} Si la asignatura no existe o hay error al cargar sus módulos
+ */
+export const fetchRandomPreguntasByAsignaturaExamen = async (
+  asignaturaId,
+  limit = 40
+) => {
+  try {
+    const asignatura = await fetchAsignaturaCompleta(asignaturaId);
+
+    // Filtramos solo los módulos de examen
+    const modulosExamen = asignatura.modulos.filter(m => m.esExamen);
+
+    // Obtenemos todas las preguntas de esos módulos
+    const todasPreguntas = modulosExamen.flatMap(m => m.preguntas);
+
+    // Mezclamos y limitamos
+    const preguntasMezcladas = shuffleArray([...todasPreguntas]);
+    return preguntasMezcladas.slice(0, limit);
+  } catch (error) {
+    console.error("Error cargando preguntas de examen:", error);
+    throw error;
+  }
+};

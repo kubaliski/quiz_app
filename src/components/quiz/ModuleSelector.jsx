@@ -64,7 +64,7 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
             >
               <div className="flex flex-col">
                 <span className="font-semibold">
-                  {modulo.esExamen ? "📝 " : ""}{modulo.nombre}
+                  {modulo.nombre}
                 </span>
                 <span className="text-sm opacity-80">
                   {modulo.preguntas.length} preguntas

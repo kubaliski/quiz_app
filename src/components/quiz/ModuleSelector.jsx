@@ -65,6 +65,7 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
         <Button
           variant="primary"
           fullWidth
+          rainbow={true}
           onClick={handleSelectAllModules}
         >
           40 preguntas aleatorias de todos los módulos
@@ -79,6 +80,7 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
       <Button
         variant="secondary"
         fullWidth
+
         onClick={handleBack}
       >
         Volver a asignaturas

@@ -1,5 +1,8 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+
 /**
- * Componente de botón reutilizable con diferentes variantes, tamaños y estados.
+ * Componente de botón reutilizable con diferentes variantes, tamaños, estados y borde animado arcoíris.
  *
  * @component
  * @param {Object} props - Propiedades del componente
@@ -10,22 +13,8 @@
  * @param {boolean} [props.fullWidth=false] - Si es true, el botón ocupará todo el ancho disponible
  * @param {boolean} [props.disabled=false] - Si es true, el botón estará deshabilitado
  * @param {('button'|'submit'|'reset')} [props.type='button'] - Tipo HTML del botón
+ * @param {boolean} [props.rainbow=false] - Si es true, muestra el borde animado de arcoíris
  * @returns {JSX.Element} Componente Button renderizado
- *
- * @example
- * // Botón primario básico
- * <Button onClick={() => console.log('Clicked!')}>Aceptar</Button>
- *
- * @example
- * // Botón de peligro grande y deshabilitado
- * <Button
- *   variant="danger"
- *   size="large"
- *   disabled={true}
- *   onClick={handleDelete}
- * >
- *   Eliminar
- * </Button>
  */
 export default function Button({
   children,
@@ -34,13 +23,24 @@ export default function Button({
   size = 'medium',
   fullWidth = false,
   disabled = false,
-  type = 'button'
+  type = 'button',
+  rainbow = false
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   const variantStyles = {
-    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white focus:ring-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-800',
-    secondary: 'bg-gray-500 hover:bg-gray-600 text-white focus:ring-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700',
-    danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 dark:bg-red-700 dark:hover:bg-red-800',
-    success: 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500 dark:bg-green-700 dark:hover:bg-green-800'
+    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-indigo-700 dark:hover:bg-indigo-800',
+    secondary: 'bg-gray-500 hover:bg-gray-600 text-white dark:bg-gray-600 dark:hover:bg-gray-700',
+    danger: 'bg-red-600 hover:bg-red-700 text-white dark:bg-red-700 dark:hover:bg-red-800',
+    success: 'bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-800'
   };
 
   const sizeStyles = {
@@ -55,20 +55,104 @@ export default function Button({
 
   const widthStyles = fullWidth ? 'w-full' : '';
 
-  const className = `
-    inline-flex items-center justify-center rounded-lg font-medium
-    transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
-    dark:focus:ring-offset-gray-800
+  const buttonClassName = `
+    relative z-10 inline-flex items-center justify-center font-medium
+    transition duration-200 focus:outline-none
     ${variantStyles[variant]}
     ${sizeStyles[size]}
     ${disabledStyles}
     ${widthStyles}
+    rounded-lg
   `;
 
+  if (rainbow) {
+    return (
+      <div
+        className={`relative ${fullWidth ? 'w-full' : 'inline-block'}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Tag "NEW" rotando por el borde del botón */}
+        <div
+          className={`absolute bg-yellow-400 text-black text-xs px-2 py-0.5 rounded-md font-bold transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20`}
+          style={{
+            animation: isHovered ? 'orbit-new 8s linear infinite' : 'none',
+          }}
+        >
+          NEW
+        </div>
+
+        {/* Contenedor con borde arcoíris giratorio */}
+        <div className="relative p-0.5 rounded-lg overflow-hidden">
+          {/* Fondo animado arcoíris giratorio */}
+          <div
+            className={`absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              backgroundSize: '200% 200%',
+              animation: isHovered ? 'gradient-shift 6s linear infinite' : 'none'
+            }}
+          />
+
+          {/* Botón real */}
+          <button
+            type={type}
+            className={`${buttonClassName} relative z-10 w-full`}
+            onClick={onClick}
+            disabled={disabled}
+          >
+            {children}
+          </button>
+        </div>
+
+        {/* Tag "FANCY" rotando por el borde del botón */}
+        <div
+          className={`absolute bg-pink-500 text-white text-xs px-2 py-0.5 rounded-md font-bold transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20`}
+          style={{
+            animation: isHovered ? 'orbit-fancy 8s linear infinite' : 'none',
+          }}
+        >
+          FANCY
+        </div>
+
+        {/* Estilos para las animaciones */}
+        <style jsx>{`
+          @keyframes gradient-shift {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+
+          @keyframes orbit-new {
+            0% { top: -20px; left: 50%; transform: translateX(-50%); }
+            25% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+            50% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+            75% { top: 50%; left: -20px; transform: translateY(-50%); }
+            100% { top: -20px; left: 50%; transform: translateX(-50%); }
+          }
+
+          @keyframes orbit-fancy {
+            0% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+            25% { top: 50%; left: -20px; transform: translateY(-50%); }
+            50% { top: -20px; left: 50%; transform: translateX(-50%); }
+            75% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+            100% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  // Versión normal del botón (sin arcoíris)
   return (
     <button
       type={type}
-      className={className}
+      className={`${buttonClassName} focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-${variant === 'primary' ? 'indigo' : variant === 'secondary' ? 'gray' : variant === 'danger' ? 'red' : 'green'}-500`}
       onClick={onClick}
       disabled={disabled}
     >

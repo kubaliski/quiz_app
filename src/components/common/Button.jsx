@@ -82,6 +82,16 @@ export default function Button({
           NEW
         </div>
 
+        {/* Tag "WOW" rotando por el borde del botón */}
+        <div
+          className={`absolute bg-cyan-500 text-white text-xs px-2 py-0.5 rounded-md font-bold transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20`}
+          style={{
+            animation: isHovered ? 'orbit-wow 8s linear infinite' : 'none',
+          }}
+        >
+          WOW
+        </div>
+
         {/* Contenedor con borde arcoíris giratorio */}
         <div className="relative p-0.5 rounded-lg overflow-hidden">
           {/* Fondo animado arcoíris giratorio */}
@@ -142,6 +152,14 @@ export default function Button({
             50% { top: -20px; left: 50%; transform: translateX(-50%); }
             75% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
             100% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+          }
+
+          @keyframes orbit-wow {
+            0% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+            25% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+            50% { top: 50%; left: -20px; transform: translateY(-50%); }
+            75% { top: -20px; left: 50%; transform: translateX(-50%); }
+            100% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
           }
         `}</style>
       </div>

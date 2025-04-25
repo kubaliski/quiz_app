@@ -12,29 +12,23 @@
  *
  * @component
  * @param {Object} props - Las propiedades del componente
+ * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen)
  * @returns {JSX.Element} Componente QuizPage renderizado
- *
- * @example
- * // En un componente Router
- * <Route path="/quiz/:asignaturaId/:moduloId" element={<QuizPage />} />
- *
- * @example
- * // URL para acceder a un módulo específico
- * // /quiz/1/101 - Asignatura ID 1, Módulo ID 101 (Linux)
- *
- * @example
- * // URL para acceder a todos los módulos de una asignatura
- * // /quiz/1/todos - Todas las preguntas de la Asignatura ID 1
  */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
-import { fetchAsignaturaCompleta, fetchModulo, fetchRandomPreguntasByAsignatura } from '@services/quizDataService';
-import {shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
+import {
+  fetchAsignaturaCompleta,
+  fetchModulo,
+  fetchRandomPreguntasByAsignatura,
+  fetchRandomPreguntasByAsignaturaExamen
+} from '@services/quizDataService';
+import { shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
 
-export default function QuizPage() {
+export default function QuizPage({ tipo }) {
   const { asignaturaId, moduloId } = useParams();
   const navigate = useNavigate();
 
@@ -47,13 +41,16 @@ export default function QuizPage() {
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState(null);
   const [modoTodos, setModoTodos] = useState(false);
+  const [modoExamen, setModoExamen] = useState(false);
 
   // Estado para controlar la visualización del diálogo
   const [dialogOpen, setDialogOpen] = useState(false);
 
   // Convertir a número los IDs de la URL
   const asigId = parseInt(asignaturaId, 10);
-  const modId = moduloId === 'todos' ? 'todos' : parseInt(moduloId, 10);
+  const modId = moduloId === 'todos' || moduloId === 'examen'
+    ? moduloId
+    : parseInt(moduloId, 10);
 
   // Propiedades calculadas
   const totalPreguntas = preguntas.length;
@@ -61,66 +58,77 @@ export default function QuizPage() {
   const preguntaActiva = preguntas[preguntaActual] || null;
   const tieneRespuestaActual = preguntaActiva ? respuestas[preguntaActiva.id] !== undefined : false;
 
+  useEffect(() => {
+    let mounted = true;
 
-useEffect(() => {
-  let mounted = true;
+    const cargarQuiz = async () => {
+      try {
+        setCargando(true);
 
-  const cargarQuiz = async () => {
-    try {
-      setCargando(true);
-
-      // Cargar datos de la asignatura
-      const asignaturaData = await fetchAsignaturaCompleta(asigId);
-
-      if (!mounted) return;
-
-      setAsignatura(asignaturaData);
-
-      // Cargar preguntas según el modo (específico o todos)
-      let quizQuestions = [];
-
-      if (modId === 'todos') {
-        // Modo todos: cargar 100 preguntas aleatorias de todos los módulos
-        const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
+        // Cargar datos de la asignatura
+        const asignaturaData = await fetchAsignaturaCompleta(asigId);
 
         if (!mounted) return;
 
-        quizQuestions = preguntasAleatorias;
-        setModoTodos(true);
-      } else {
-        // Modo específico: cargar preguntas de un módulo
-        const moduloData = await fetchModulo(asigId, modId);
+        setAsignatura(asignaturaData);
 
-        if (!mounted) return;
+        // Cargar preguntas según el modo
+        let quizQuestions = [];
 
-        setModulo(moduloData);
+        if (tipo === 'examen' || moduloId === 'examen') {
+          // Modo examen: cargar preguntas aleatorias de módulos de examen
+          const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
 
+          if (!mounted) return;
 
-        quizQuestions = shuffleArray([...(moduloData.preguntas || [])]);
-      }
+          quizQuestions = preguntasExamen;
+          setModoTodos(true);
+          setModoExamen(true);
+        } else if (moduloId === 'todos') {
+          // Modo todos: cargar preguntas aleatorias de todos los módulos
+          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 
-      // Mezclar las opciones de cada pregunta
-      const preguntasConOpcionesMezcladas = quizQuestions.map(
-        pregunta => shuffleQuestionOptions(pregunta)
-      );
+          if (!mounted) return;
 
-      setPreguntas(preguntasConOpcionesMezcladas);
-      setCargando(false);
-    } catch (err) {
-      console.error("Error al cargar datos del quiz:", err);
-      if (mounted) {
-        setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
+          quizQuestions = preguntasAleatorias;
+          setModoTodos(true);
+        } else {
+          // Modo específico: cargar preguntas de un módulo
+          const moduloData = await fetchModulo(asigId, modId);
+
+          if (!mounted) return;
+
+          setModulo(moduloData);
+          quizQuestions = shuffleArray([...(moduloData.preguntas || [])]);
+
+          // Verificar si es un módulo de examen
+          if (moduloData.esExamen) {
+            setModoExamen(true);
+          }
+        }
+
+        // Mezclar las opciones de cada pregunta
+        const preguntasConOpcionesMezcladas = quizQuestions.map(
+          pregunta => shuffleQuestionOptions(pregunta)
+        );
+
+        setPreguntas(preguntasConOpcionesMezcladas);
         setCargando(false);
+      } catch (err) {
+        console.error("Error al cargar datos del quiz:", err);
+        if (mounted) {
+          setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
+          setCargando(false);
+        }
       }
-    }
-  };
+    };
 
-  cargarQuiz();
+    cargarQuiz();
 
-  return () => {
-    mounted = false;
-  };
-}, [asigId, modId]);
+    return () => {
+      mounted = false;
+    };
+  }, [asigId, modId, tipo, moduloId]);
 
   const handleSelectAnswer = (preguntaId, respuestaIndex) => {
     setRespuestas(prev => ({
@@ -144,7 +152,13 @@ useEffect(() => {
       if (modulo) {
         sessionStorage.setItem('quiz_modulo', JSON.stringify({
           id: modulo.id,
-          nombre: modulo.nombre
+          nombre: modulo.nombre,
+          esExamen: modulo.esExamen
+        }));
+      } else if (modoExamen) {
+        sessionStorage.setItem('quiz_modulo', JSON.stringify({
+          id: 'examen',
+          nombre: 'Preguntas de examen'
         }));
       } else {
         sessionStorage.setItem('quiz_modulo', JSON.stringify({
@@ -196,13 +210,9 @@ useEffect(() => {
   }
 
   const getNombreModulo = () => {
-    if (modoTodos) return "Todos los módulos";
+    if (modoExamen || tipo === 'examen' || moduloId === 'examen') return "Preguntas de examen";
+    if (modoTodos || moduloId === 'todos') return "Todos los módulos";
     if (modulo) return modulo.nombre;
-    if (preguntas.length > 0 && preguntas[0].moduloId === modId) {
-      // Obtener nombre del módulo basado en su ID
-      if (modId === 101) return "Linux";
-      if (modId === 102) return "Redes";
-    }
     return "Módulo";
   };
 
@@ -236,9 +246,18 @@ useEffect(() => {
               <div className="text-sm font-medium bg-indigo-100 text-indigo-800 py-1 px-3 rounded-full">
                 Pregunta {preguntaActual + 1} de {totalPreguntas}
               </div>
+
+              {modoExamen && (
+                <div className="text-sm font-medium bg-red-100 text-red-800 py-1 px-3 rounded-full">
+                  Modo examen
+                </div>
+              )}
             </div>
 
-            <ProgressBar progreso={progreso} className="mb-6" />
+            <ProgressBar
+              progreso={progreso}
+              className={`mb-6 ${modoExamen ? 'bg-red-600' : 'bg-indigo-600'}`}
+            />
 
             {preguntaActiva && (
               <>

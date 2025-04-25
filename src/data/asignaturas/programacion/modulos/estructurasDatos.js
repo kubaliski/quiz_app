@@ -39,6 +39,7 @@ export const moduloEstructurasDatos = {
     id: 302,
     nombre: "Estructuras de Datos en Java",
     asignaturaId: 3,
+    esExamen: false,
     descripcion: "Colecciones, arrays, listas, pilas, colas y otras estructuras de datos en Java, incluyendo sus operaciones y usos principales.",
     preguntas: [
       {

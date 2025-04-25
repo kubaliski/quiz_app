@@ -39,6 +39,7 @@ export const moduloPOO = {
     id: 301,
     nombre: "Programación Orientada a Objetos",
     asignaturaId: 3,
+    esExamen: false,
     descripcion: "Introducción a la programación orientada a objetos, incluyendo clases, objetos, herencia y polimorfismo.",
     preguntas: [
       {

@@ -5,3 +5,4 @@ export { default as LayoutWithSidebar } from './LayoutWithSidebar';
 export { default as PageHeader } from './PageHeader';
 export { default as ThemeToggle } from './ThemeToggle';
 export { default as MobileMenu } from './MobileMenu';
+export { default as PWAInstallPrompt } from './PWAInstallPrompt';

@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { VitePWA } from 'vite-plugin-pwa'
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +27,41 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    tailwindcss()
+    tailwindcss(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'Quiz App',
+        short_name: 'QuizApp',
+        description: 'Una aplicación para crear y responder cuestionarios',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        orientation: 'portrait',
+        start_url: '/',
+        icons: [
+          {
+            src: 'android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
+      },
+      devOptions: {
+        enabled: true
+      }
+    })
   ],
 })

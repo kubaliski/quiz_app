@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloIntroduccion = {
     id: 404,
     nombre: "modulo 1 - Introducción al Desarrollo Web",
+    esExamen: false,
     asignaturaId: 4,
     descripcion:
       "Conceptos básicos y herramientas fundamentales para el desarrollo web, incluyendo inspección de elementos, editores de código y tecnologías web esenciales.",

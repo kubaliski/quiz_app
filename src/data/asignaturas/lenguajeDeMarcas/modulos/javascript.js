@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen o no
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloJavaScript = {
     id: 402,
     nombre: "JavaScript",
+    esExamen: false,
     asignaturaId: 4,
     descripcion:
       "Fundamentos y técnicas de JavaScript para manipulación del DOM, manejo de eventos, estructuras de control y manipulación de datos.",

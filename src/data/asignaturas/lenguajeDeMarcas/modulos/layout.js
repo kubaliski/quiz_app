@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen (true) o un módulo normal (false)
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloHTMLCSSLayout = {
     id: 409,
     nombre: "HTML y CSS Layout",
+    esExamen: false,
     asignaturaId: 4,
     descripcion:
       "Estructura HTML semántica, etiquetas principales y sistemas de layout en CSS, incluyendo Flexbox y Grid para la maquetación de páginas web modernas.",

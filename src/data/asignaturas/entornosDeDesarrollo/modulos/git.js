@@ -6,6 +6,7 @@
  * @type {Object}
  * @property {number} id - ID del módulo.
  * @property {string} nombre - Nombre del módulo.
+ * @property {boolean} esExamen - Indica si el módulo es un examen (true) o no (false).
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece el módulo.
  * @property {string} descripcion - Descripción del módulo.
  * @property {Array<Object>} preguntas - Array de preguntas del módulo.
@@ -22,6 +23,7 @@ const moduloGit = {
     id: 504,
     nombre: "Git y GitHub",
     asignaturaId: 5,
+    esExamen: false,
     descripcion: "Este módulo cubre conceptos básicos del uso de Git y GitHub incluyendo autenticación SSH, ramas, conflictos y Pull Requests.",
     preguntas: [
       {

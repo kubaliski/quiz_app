@@ -4,14 +4,15 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
 
 ## Características
 
-- 📚 Organización por asignaturas y módulos
-- 🔄 Preguntas y respuestas con orden aleatorio
-- 🖼️ Soporte para recursos visuales (imágenes y bloques de código)
-- 🌙 Modo oscuro/claro
-- 📱 Diseño responsive para todos los dispositivos
-- 📊 Resumen de resultados con explicaciones detalladas
-- 📈 Historial de resultados
-- 🧩 Fácilmente extensible con nuevos módulos y preguntas
+- Organización por asignaturas y módulos
+- Preguntas y respuestas con orden aleatorio
+- Soporte para recursos visuales (imágenes y bloques de código)
+- Modo oscuro/claro
+- Diseño responsive para todos los dispositivos
+- Resumen de resultados con explicaciones detalladas
+- Historial de resultados
+- Fácilmente extensible con nuevos módulos y preguntas
+- Modo examen para módulos específicos
 
 ## Configuración del proyecto
 
@@ -45,7 +46,7 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
    yarn dev
    ```
 
-4. Abre tu navegador en `http://localhost:3000`
+4. Abre tu navegador en `http://localhost:5173`
 
 ### Scripts disponibles
 
@@ -174,6 +175,7 @@ export const moduloHardware = {
   nombre: "Hardware",
   asignaturaId: 1, // ID de la asignatura a la que pertenece
   descripcion: "Componentes físicos del ordenador y su funcionamiento",
+  esExamen: false, // Marca como false para módulos regulares, true para módulos de examen
   preguntas: [
     {
       id: 3001, // Asigna un ID único para la pregunta
@@ -251,7 +253,44 @@ export default sistemasInformaticos;
   - `nombre`: Nombre visible del módulo.
   - `asignaturaId`: ID de la asignatura a la que pertenece.
   - `descripcion`: Breve descripción del módulo.
+  - `esExamen`: Booleano que indica si el módulo es de tipo examen.
   - `preguntas`: Array de objetos de preguntas.
+
+## Configuración de módulos de examen
+
+La aplicación permite marcar módulos específicos como exámenes, lo que habilita funcionalidades adicionales para simular situaciones de evaluación real.
+
+### 1. Marcar un módulo como examen
+
+Para marcar un módulo como examen, añade la propiedad `esExamen: true` al objeto del módulo:
+
+```js
+// src/data/asignaturas/modulos/examenFinal.js
+
+export const moduloExamenFinal = {
+  id: 104,
+  nombre: "Examen Final",
+  asignaturaId: 1,
+  descripcion: "Preguntas del examen final de la asignatura",
+  esExamen: true, // Marca este módulo como examen
+  preguntas: [
+    // ... preguntas del examen
+  ],
+};
+```
+
+### 2. Características de los módulos de examen
+
+Los módulos marcados como examen tienen las siguientes características especiales:
+
+- **Visualización distintiva**: Se muestran con un color rojo en la interfaz para diferenciarlos de los módulos regulares.
+- **Práctica específica**: La aplicación incluye un botón especial "40 preguntas aleatorias de examen" que permite practicar exclusivamente con preguntas de los módulos marcados como examen.
+
+### 3. Consideraciones para módulos de examen
+
+- Se recomienda marcar como examen aquellos módulos que contengan preguntas representativas de evaluaciones (28 de abril en adelante).
+- Las preguntas de los módulos de examen también aparecerán en los quizzes normales de la asignatura, a menos que se implementen filtros adicionales.
+- Los resultados de las prácticas en modo examen se almacenan en el historial, identificados específicamente como ejercicios de examen.
 
 ## Cómo crear una nueva asignatura
 
@@ -300,10 +339,11 @@ import info from "./info.js";
 import moduloHTML from "./modulos/html.js";
 import moduloCSS from "./modulos/css.js";
 import moduloJS from "./modulos/javascript.js";
+import moduloExamen from "./modulos/examenFinal.js"; // Importar módulo de examen
 
 export const programacionWeb = {
   ...info,
-  modulos: [moduloHTML, moduloCSS, moduloJS],
+  modulos: [moduloHTML, moduloCSS, moduloJS, moduloExamen],
 };
 
 export default programacionWeb;

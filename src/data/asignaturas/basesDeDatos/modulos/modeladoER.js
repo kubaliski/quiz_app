@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen (true) o no (false)
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloModeladoER = {
     id: 202,
     nombre: "Modelado Entidad-Relación",
+    esExamen: false,
     asignaturaId: 2,
     descripcion: "Diseño de modelos entidad-relación y transformación al modelo relacional. Entidades, atributos, relaciones, cardinalidad y paso a tablas.",
     preguntas: [

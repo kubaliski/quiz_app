@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloPruebasSoftware = {
   id: 501,
   nombre: "Pruebas de Software",
+  esExamen: false,
   asignaturaId: 5,
   descripcion:
     "Fundamentos, tipos y técnicas de pruebas de software, incluyendo pruebas de caja negra, caja blanca, análisis de complejidad ciclomática y manejo de excepciones.",

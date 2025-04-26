@@ -1,8 +1,24 @@
-// src/data/asignaturas/modulos/cienPreguntas.js
-
+/**
+ * Modulo de 100 preguntas para la asignatura de Sistemas Informáticos
+ * Incluye preguntas sobre hardware, software, redes y sistemas operativos.
+ *
+ * @type {Object}
+ * @property {number} id - ID del módulo
+ * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen
+ * @property {number} asignaturaId - ID de la asignatura a la que pertenece
+ * @property {string} descripcion - Descripción del módulo
+ * @property {Array} preguntas - Array de preguntas que contiene el módulo
+ * @property {Object} recurso - Recurso adicional (opcional)
+ * @property {string} recurso.tipo - Tipo de recurso (imagen, video, etc.)
+ * @property {string} recurso.contenido - Contenido del recurso (ruta o URL)
+ * @property {string} recurso.altText - Texto alternativo para el recurso (opcional)
+ *
+ */
 export const moduloCienPreguntas = {
     id: 103,
     nombre: "100 Preguntas Sistemas Informáticos",
+    esExamen: false,
     asignaturaId: 1, // ID de Sistemas Informáticos
     descripcion: "Conjunto completo de 100 preguntas para evaluar conocimientos de Sistemas Informáticos",
     preguntas: [

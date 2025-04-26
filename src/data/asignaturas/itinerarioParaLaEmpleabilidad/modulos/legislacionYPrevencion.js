@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -12,6 +13,7 @@
 export const moduloLegislacionLaboral = {
     id: 601,
     nombre: "Test Unidades 1-6",
+    esExamen: false,
     asignaturaId: 6,
     descripcion: "Conceptos fundamentales sobre legislación laboral española, derechos y obligaciones de trabajadores y empresarios, y prevención de riesgos laborales.",
     preguntas: [

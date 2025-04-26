@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen (true) o no (false)
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloMantenimientoCodigo = {
     id: 503,
     nombre: "Mantenimiento y Refactorización de Código",
+    esExamen: false,
     asignaturaId: 5,
     descripcion:
       "Conceptos fundamentales sobre mantenimiento de software, refactorización, detección de 'code smells' y mejora de la calidad del código.",

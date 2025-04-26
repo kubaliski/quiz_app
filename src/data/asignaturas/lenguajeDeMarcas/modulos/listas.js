@@ -5,6 +5,7 @@
  * @type {Object}
  * @property {number} id - Identificador único del módulo
  * @property {string} nombre - Nombre del módulo
+ * @property {boolean} esExamen - Indica si el módulo es un examen (true) o no (false)
  * @property {number} asignaturaId - ID de la asignatura a la que pertenece
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
@@ -38,6 +39,7 @@
 export const moduloHTMLListas = {
     id: 407,
     nombre: "modulo 4 - HTML Listas",
+    esExamen: false,
     asignaturaId: 4,
     descripcion:
       "Creación y personalización de diferentes tipos de listas en HTML, incluyendo ordenadas, desordenadas y de definición, así como sus atributos y propiedades.",

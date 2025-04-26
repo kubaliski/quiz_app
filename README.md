@@ -13,6 +13,7 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
 - Historial de resultados
 - Fácilmente extensible con nuevos módulos y preguntas
 - Modo examen para módulos específicos
+- **Instalable como aplicación de escritorio y móvil (PWA)**
 
 ## Configuración del proyecto
 
@@ -60,8 +61,11 @@ Aplicación educativa para crear y realizar tests de diferentes asignaturas y m�
 ```
 quiz-app/
 ├── public/               # Archivos estáticos
-│   └── images/           # Imágenes para preguntas
-│       └── [modulo]/     # Carpetas específicas por módulo
+│   ├── images/           # Imágenes para preguntas
+│   │   └── [modulo]/     # Carpetas específicas por módulo
+│   ├── pwa-192x192.png   # Iconos para PWA
+│   ├── pwa-512x512.png   # Iconos para PWA
+│   └── apple-touch-icon.png # Icono para dispositivos Apple
 ├── src/
 │   ├── components/       # Componentes React
 │   │   ├── common/       # Componentes reutilizables (Button, Card, etc.)
@@ -78,6 +82,58 @@ quiz-app/
 │   └── utils/            # Utilidades y funciones auxiliares
 ├── package.json
 └── README.md
+```
+
+## Instalación como aplicación (PWA)
+
+Quiz App es una Progressive Web App (PWA) que permite instalarla como una aplicación en dispositivos móviles y ordenadores, ofreciendo una experiencia más integrada y la posibilidad de usar la aplicación sin conexión.
+
+### Características de la PWA
+
+- **Instalable en dispositivos**: La aplicación puede instalarse en la pantalla de inicio de dispositivos móviles o en el escritorio de ordenadores sin necesidad de tiendas de aplicaciones.
+- **Funcionamiento offline**: Permite usar la aplicación incluso sin conexión a internet.
+- **Experiencia tipo app**: Se ejecuta a pantalla completa sin barras de navegador, proporcionando una experiencia similar a las aplicaciones nativas.
+- **Actualizaciones automáticas**: Recibe actualizaciones automáticamente cuando hay nuevas versiones disponibles.
+
+### Cómo instalar Quiz App en tu dispositivo
+
+#### En dispositivos móviles (Android/iOS):
+
+1. Abre Quiz App en tu navegador móvil (Chrome, Safari, etc.)
+2. En Android:
+   - Aparecerá automáticamente un banner "Añadir a la pantalla de inicio"
+   - O busca el menú de tres puntos y selecciona "Instalar aplicación"
+3. En iOS (Safari):
+   - Toca el icono de compartir en la barra de navegación
+   - Desplázate y selecciona "Añadir a la pantalla de inicio"
+   - Confirma pulsando "Añadir"
+
+#### En ordenadores (Windows/Mac/Linux):
+
+1. Abre Quiz App en Chrome, Edge o cualquier navegador basado en Chromium
+2. Verás un icono de instalación ("+") en la barra de direcciones
+3. Haz clic en él y selecciona "Instalar"
+4. O busca en el menú del navegador la opción "Instalar Quiz App"
+
+### Desarrollo y configuración de la PWA
+
+Si estás contribuyendo al proyecto y necesitas modificar la configuración PWA:
+
+1. La configuración se encuentra en `vite.config.js` usando el plugin VitePWA
+2. Los iconos y recursos de la PWA están en la carpeta `public/`
+3. Para modificar los iconos, deberás actualizar los archivos:
+   - `pwa-192x192.png`
+   - `pwa-512x512.png`
+   - `apple-touch-icon.png`
+
+Para desarrolladores que quieran añadir o modificar la funcionalidad PWA:
+
+```bash
+# Instalar el plugin VitePWA si no está instalado
+npm install vite-plugin-pwa -D
+
+# Generar iconos a partir del logo existente
+npx pwa-asset-generator ./src/assets/ico.svg ./public -i ./index.html
 ```
 
 ## Cómo añadir recursos a las preguntas

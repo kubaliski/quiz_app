@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import {
   shuffleArray,
   shuffleQuestionOptions,
-  shuffleQuizQuestions,
   formatPorcentaje,
   getColorClasePorcentaje,
   getBackgroundColorClass,

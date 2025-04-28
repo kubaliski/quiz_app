@@ -10,9 +10,9 @@ import {
 } from './pages';
 import { PWAInstallPrompt } from '@components/layout';
 
-export default function App({ RouterComponent = BrowserRouter }) {
+export default function App() {
   return (
-    <RouterComponent>
+    <BrowserRouter>
       <PWAInstallPrompt />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -24,6 +24,6 @@ export default function App({ RouterComponent = BrowserRouter }) {
         <Route path="/resultados/:asignaturaId/:moduloId" element={<ResultsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </RouterComponent>
+    </BrowserRouter>
   );
 }

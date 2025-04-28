@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button, Card } from '@components/common';
-
+import { useTheme } from '@hooks/useTheme';
 
 /**
  * Componente que muestra un prompt para instalar la aplicación como PWA.
@@ -12,6 +12,7 @@ const PWAInstallPrompt = () => {
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isAppInstalled, setIsAppInstalled] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     // Comprobar si la aplicación ya está instalada
@@ -103,7 +104,12 @@ const PWAInstallPrompt = () => {
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd" />
             </svg>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-300">
+          <p
+            className={`text-sm font-medium ${
+              darkMode ? 'text-indigo-300' : 'text-indigo-700'
+            }`}
+            style={{ color: darkMode ? 'rgb(165, 180, 252)' : 'rgb(67, 56, 202)' }}
+          >
             Instala Quiz App en tu dispositivo para acceder rápidamente y practicar tus tests sin conexión.
           </p>
         </div>

@@ -10,27 +10,10 @@ import basesDeDatos from "./asignaturas/basesDeDatos";
 import entornosDeDesarrollo from "./asignaturas/entornosDeDesarrollo";
 import lenguajesMarcas from "./asignaturas/lenguajeDeMarcas";
 import itinerarioEmpleabilidad from "./asignaturas/itinerarioParaLaEmpleabilidad";
+import moduloProfesionalOptativo from "./asignaturas/moduloProfesionalOptativo";
 
-// Aquí irían las importaciones de las demás asignaturas cuando estén implementadas
-// import basesDeDatos from './asignaturas/basesDeDatos';
-// import entornosDesarrollo from './asignaturas/entornosDesarrollo';
-// import lenguajesMarcas from './asignaturas/lenguajesMarcas';
-// import itinerarioEmpleabilidad from './asignaturas/itinerarioEmpleabilidad';
-// import moduloOptativo from './asignaturas/moduloOptativo';
 
-// Para que la aplicación funcione mientras se desarrolla, creamos un placeholder
-// para las asignaturas que aún no hemos implementado
-const crearAsignaturaPlaceholder = (id, nombre) => ({
-  id,
-  nombre,
-  descripcion: `Contenido de ${nombre} en desarrollo`,
-  modulos: [],
-});
 
-const moduloOptativo = crearAsignaturaPlaceholder(
-  7,
-  "Módulo Profesional Optativo"
-);
 
 // Exporta la lista simple de asignaturas (solo metadatos)
 export { asignaturas };
@@ -43,7 +26,7 @@ export const asignaturasCompletas = [
   lenguajesMarcas,
   entornosDeDesarrollo,
   itinerarioEmpleabilidad,
-  moduloOptativo,
+  moduloProfesionalOptativo,
 ];
 
 // Función auxiliar para obtener una asignatura por su ID

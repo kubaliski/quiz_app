@@ -1,3 +1,4 @@
+// App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
   HomePage,
@@ -12,14 +13,11 @@ import { PWAInstallPrompt } from '@components/layout';
 export default function App() {
   return (
     <BrowserRouter>
-      {/* PWAInstallPrompt fuera de Routes pero dentro de BrowserRouter */}
       <PWAInstallPrompt />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/asignaturas/:asignaturaId" element={<ModulesPage />} />
-        {/* Rutas para quiz */}
         <Route path="/quiz/:asignaturaId/:moduloId" element={<QuizPage />} />
         <Route path="/quiz/:asignaturaId/todos" element={<QuizPage />} />
         <Route path="/quiz/:asignaturaId/examen" element={<QuizPage tipo="examen" />} />

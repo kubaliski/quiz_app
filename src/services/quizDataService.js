@@ -101,6 +101,11 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           import("../data/asignaturas/itinerarioParaLaEmpleabilidad")
             .then((module) => resolve(module.default))
             .catch((error) => reject(error));
+        } else if (id === 7) {
+          // Módulo Profesional Optativo
+          import("../data/asignaturas/moduloProfesionalOptativo")
+            .then((module) => resolve(module.default))
+            .catch((error) => reject(error));
         } else {
           // Otras asignaturas (por ahora solo tenemos placeholder)
           const asignatura = asignaturas.find((a) => a.id === id);

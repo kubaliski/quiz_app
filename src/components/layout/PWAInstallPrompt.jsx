@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button, Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
+
 
 /**
  * Componente que muestra un prompt para instalar la aplicación como PWA.
@@ -12,7 +12,6 @@ const PWAInstallPrompt = () => {
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isAppInstalled, setIsAppInstalled] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const { darkMode } = useTheme();
 
   useEffect(() => {
     // Comprobar si la aplicación ya está instalada

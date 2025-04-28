@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /**
  * Componente de botón reutilizable con diferentes variantes, tamaños, estados y borde animado arcoíris.

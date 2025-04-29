@@ -83,7 +83,17 @@ export default function ResultsPage() {
   }, [asignaturaId, moduloId]);
 
   const handleRetry = () => {
-    navigate(`/quiz/${asignaturaId}/${moduloId}`);
+    // Recuperamos el tipo de quiz de sessionStorage
+    const tipoQuiz = sessionStorage.getItem('quiz_tipo') || 'regular';
+
+    // Si el tipo es examen o todos, usamos rutas especiales
+    if (moduloId === 'examen' || tipoQuiz === 'examen') {
+      navigate(`/quiz/${asignaturaId}/examen`);
+    } else if (moduloId === 'todos' || tipoQuiz === 'todos') {
+      navigate(`/quiz/${asignaturaId}/todos`);
+    } else {
+      navigate(`/quiz/${asignaturaId}/${moduloId}`);
+    }
   };
 
   const handleBackToModules = () => {
@@ -116,7 +126,12 @@ export default function ResultsPage() {
   const breadcrumbs = [
     { label: 'Inicio', to: '/' },
     { label: asignatura?.nombre || 'Asignatura', to: `/asignaturas/${asignaturaId}` },
-    { label: modulo?.nombre || 'Módulo', to: `/quiz/${asignaturaId}/${moduloId}` },
+    {
+      label: modulo?.nombre || 'Módulo',
+      to: modulo?.id === 'todos' || modulo?.id === 'examen'
+        ? `/quiz/${asignaturaId}/${modulo.id}`
+        : `/quiz/${asignaturaId}/${modulo?.id || ''}`
+    },
     { label: 'Resultados' }
   ];
 

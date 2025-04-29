@@ -46,6 +46,9 @@ export default function QuizPage({ tipo }) {
   // Estado para controlar la visualización del diálogo
   const [dialogOpen, setDialogOpen] = useState(false);
 
+  // Establecer tipo de quiz basado en props o moduloId
+  const tipoQuiz = tipo || (moduloId === 'todos' ? 'todos' : (moduloId === 'examen' ? 'examen' : null));
+
   // Convertir a número los IDs de la URL
   const asigId = parseInt(asignaturaId, 10);
   const modId = moduloId === 'todos' || moduloId === 'examen'
@@ -75,7 +78,7 @@ export default function QuizPage({ tipo }) {
         // Cargar preguntas según el modo
         let quizQuestions = [];
 
-        if (tipo === 'examen' || moduloId === 'examen') {
+        if (tipoQuiz === 'examen' || moduloId === 'examen') {
           // Modo examen: cargar preguntas aleatorias de módulos de examen
           const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
 
@@ -84,7 +87,7 @@ export default function QuizPage({ tipo }) {
           quizQuestions = preguntasExamen;
           setModoTodos(true);
           setModoExamen(true);
-        } else if (tipo === 'todos') {
+        } else if (tipoQuiz === 'todos' || moduloId === 'todos') {
           // Modo todos: cargar preguntas aleatorias de todos los módulos
           const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 
@@ -128,7 +131,7 @@ export default function QuizPage({ tipo }) {
     return () => {
       mounted = false;
     };
-  }, [asigId, modId, tipo, moduloId]);
+  }, [asigId, modId, tipoQuiz, moduloId]);
 
   const handleSelectAnswer = (preguntaId, respuestaIndex) => {
     setRespuestas(prev => ({
@@ -149,25 +152,35 @@ export default function QuizPage({ tipo }) {
         nombre: asignatura?.nombre || 'Asignatura'
       }));
 
+      // Guardar información sobre el tipo de quiz
+      sessionStorage.setItem('quiz_tipo', tipoQuiz || 'regular');
+
       if (modulo) {
         sessionStorage.setItem('quiz_modulo', JSON.stringify({
           id: modulo.id,
           nombre: modulo.nombre,
           esExamen: modulo.esExamen
         }));
-      } else if (modoExamen) {
+
+        // Navegación a módulo específico
+        navigate(`/resultados/${asignaturaId}/${modulo.id}`);
+      } else if (modoExamen || tipoQuiz === 'examen') {
         sessionStorage.setItem('quiz_modulo', JSON.stringify({
           id: 'examen',
           nombre: 'Preguntas de examen'
         }));
+
+        // Navegación a modo examen
+        navigate(`/resultados/${asignaturaId}/examen`);
       } else {
         sessionStorage.setItem('quiz_modulo', JSON.stringify({
           id: 'todos',
           nombre: 'Todos los módulos'
         }));
-      }
 
-      navigate(`/resultados/${asignaturaId}/${moduloId}`);
+        // Navegación a modo todos
+        navigate(`/resultados/${asignaturaId}/todos`);
+      }
     }
   };
 
@@ -210,8 +223,8 @@ export default function QuizPage({ tipo }) {
   }
 
   const getNombreModulo = () => {
-    if (modoExamen || tipo === 'examen' || moduloId === 'examen') return "Preguntas de examen";
-    if (modoTodos || moduloId === 'todos') return "Todos los módulos";
+    if (modoExamen || tipoQuiz === 'examen' || moduloId === 'examen') return "Preguntas de examen";
+    if (modoTodos || tipoQuiz === 'todos' || moduloId === 'todos') return "Todos los módulos";
     if (modulo) return modulo.nombre;
     return "Módulo";
   };

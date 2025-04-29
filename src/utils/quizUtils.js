@@ -102,12 +102,22 @@ export const calcularPuntuacion = (preguntas, respuestas) => {
   // Aplicamos la penalización, pero nunca menos de 0
   const puntuacionFinal = Math.max(0, correctas - penalizacion);
 
+  // Calculamos el porcentaje sin redondear
+  const porcentajeSinRedondear = total > 0 ? (puntuacionFinal / total) * 100 : 0;
+
+  // Calculamos la nota sobre 10 (proporción directa)
+  const notaSobre10SinRedondear = total > 0 ? (puntuacionFinal / total) * 10 : 0;
+
+
+  const notaRedondeada = notaSobre10SinRedondear % 1 >= 0.5 ? Math.ceil(notaSobre10SinRedondear) : Math.floor(notaSobre10SinRedondear);
+
   return {
     correctas: puntuacionFinal,
     incorrectas,
     penalizacion,
     total,
     aciertosOriginales: correctas,
-    porcentaje: total > 0 ? Math.round((puntuacionFinal / total) * 100) : 0
+    porcentaje: Math.round(porcentajeSinRedondear), // Mantenemos el porcentaje como antes
+    notaSobre10: notaRedondeada // Nueva propiedad con la nota sobre 10 redondeada
   };
 };

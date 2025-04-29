@@ -91,7 +91,6 @@ const PWAInstallPrompt = () => {
               variant="primary"
               size="small"
               onClick={handleInstallClick}
-              rainbow={false}
             >
               Instalar
             </Button>

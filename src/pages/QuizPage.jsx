@@ -84,7 +84,7 @@ export default function QuizPage({ tipo }) {
           quizQuestions = preguntasExamen;
           setModoTodos(true);
           setModoExamen(true);
-        } else if (moduloId === 'todos') {
+        } else if (tipo === 'todos') {
           // Modo todos: cargar preguntas aleatorias de todos los módulos
           const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 

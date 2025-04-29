@@ -94,20 +94,20 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
           {/* Botón para solo módulos de examen, solo si hay alguno */}
           {modulosExamen.length > 0 && (
             <>
-              <Button
-                variant="primary"
-                fullWidth
-                rainbow={true}
-                className="bg-red-600 hover:bg-red-700 focus:ring-red-500 dark:bg-red-700 dark:hover:bg-red-800"
-                onClick={handleSelectExamenModules}
-              >
-                40 preguntas aleatorias de test de examen
-              </Button>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 text-center">
-                {totalPreguntasExamen > 40
-                  ? `Se seleccionarán 40 preguntas aleatorias de un total de ${totalPreguntasExamen} (solo módulos de examen)`
-                  : `Se seleccionarán todas las ${totalPreguntasExamen} preguntas disponibles (solo módulos de examen)`}
-              </p>
+            <Button
+              variant="primary"
+              fullWidth
+              rainbow
+              className="bg-red-600 hover:bg-red-700 focus:ring-red-500 dark:bg-red-700 dark:hover:bg-red-800"
+              onClick={handleSelectExamenModules}
+            >
+              40 preguntas aleatorias de test de examen
+            </Button>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 text-center">
+              {totalPreguntasExamen > 40
+                ? `Se seleccionarán 40 preguntas aleatorias de un total de ${totalPreguntasExamen} (solo módulos de examen)`
+                : `Se seleccionarán todas las ${totalPreguntasExamen} preguntas disponibles (solo módulos de examen)`}
+            </p>
             </>
           )}
         </div>

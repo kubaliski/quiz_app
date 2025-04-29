@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
  * Componente de botón reutilizable con diferentes variantes, tamaños, estados y borde animado arcoíris.
@@ -14,6 +14,7 @@ import { useState } from 'react';
  * @param {boolean} [props.disabled=false] - Si es true, el botón estará deshabilitado
  * @param {('button'|'submit'|'reset')} [props.type='button'] - Tipo HTML del botón
  * @param {boolean} [props.rainbow=false] - Si es true, muestra el borde animado de arcoíris
+ * @param {string} [props.className] - Clases CSS adicionales
  * @returns {JSX.Element} Componente Button renderizado
  */
 export default function Button({
@@ -24,7 +25,8 @@ export default function Button({
   fullWidth = false,
   disabled = false,
   type = 'button',
-  rainbow = false
+  rainbow = false,
+  className = ''
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -36,6 +38,10 @@ export default function Button({
     setIsHovered(false);
   };
 
+  // Base styles for all variants
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition duration-200 focus:outline-none rounded-lg';
+
+  // Variant-specific styles
   const variantStyles = {
     primary: 'bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-indigo-700 dark:hover:bg-indigo-800',
     secondary: 'bg-gray-500 hover:bg-gray-600 text-white dark:bg-gray-600 dark:hover:bg-gray-700',
@@ -43,34 +49,97 @@ export default function Button({
     success: 'bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-800'
   };
 
+  // Size-specific styles
   const sizeStyles = {
     small: 'py-1 px-3 text-sm',
     medium: 'py-2 px-4',
     large: 'py-3 px-6 text-lg'
   };
 
+  // Disabled styles
   const disabledStyles = disabled
     ? 'opacity-50 cursor-not-allowed'
     : 'hover:shadow-md';
 
+  // Width styles
   const widthStyles = fullWidth ? 'w-full' : '';
 
+  // Focus ring styles
+  const focusRingStyle = `focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-${
+    variant === 'primary' ? 'indigo' :
+    variant === 'secondary' ? 'gray' :
+    variant === 'danger' ? 'red' : 'green'
+  }-500`;
+
+  // Combine all styles
   const buttonClassName = `
-    relative z-10 inline-flex items-center justify-center font-medium
-    transition duration-200 focus:outline-none
+    ${baseStyles}
     ${variantStyles[variant]}
     ${sizeStyles[size]}
     ${disabledStyles}
     ${widthStyles}
-    rounded-lg
+    ${className}
   `;
 
+  // Agregar estilos de keyframes globalmente si es necesario
+  // Esto evita problemas con el atributo jsx
+  useEffect(() => {
+    // Solo procedemos si el botón es de tipo rainbow
+    if (!rainbow) return;
+
+    // Definimos los estilos aquí dentro del efecto para evitar la dependencia
+    const keyframesStyles = `
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes orbit-new {
+        0% { top: -20px; left: 50%; transform: translateX(-50%); }
+        25% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+        50% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+        75% { top: 50%; left: -20px; transform: translateY(-50%); }
+        100% { top: -20px; left: 50%; transform: translateX(-50%); }
+      }
+
+      @keyframes orbit-fancy {
+        0% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+        25% { top: 50%; left: -20px; transform: translateY(-50%); }
+        50% { top: -20px; left: 50%; transform: translateX(-50%); }
+        75% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+        100% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+      }
+
+      @keyframes orbit-wow {
+        0% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+        25% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
+        50% { top: 50%; left: -20px; transform: translateY(-50%); }
+        75% { top: -20px; left: 50%; transform: translateX(-50%); }
+        100% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
+      }
+    `;
+
+    // Solo agregamos los estilos si no existen ya
+    if (!document.getElementById('rainbow-button-styles')) {
+      const styleEl = document.createElement('style');
+      styleEl.id = 'rainbow-button-styles';
+      styleEl.textContent = keyframesStyles;
+      document.head.appendChild(styleEl);
+    }
+
+    // No es necesario limpiar este efecto ya que solo se ejecuta una vez
+    // y los estilos deben permanecer mientras la aplicación esté en uso
+  }, [rainbow]); // Solo depende de la prop rainbow
+
+  // Render with rainbow effect if specified
   if (rainbow) {
     return (
       <div
         className={`relative ${fullWidth ? 'w-full' : 'inline-block'}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        data-rainbow="true"
       >
         {/* Tag "NEW" rotando por el borde del botón */}
         <div
@@ -123,45 +192,6 @@ export default function Button({
         >
           FANCY
         </div>
-
-        {/* Estilos para las animaciones */}
-        <style jsx>{`
-          @keyframes gradient-shift {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-
-          @keyframes orbit-new {
-            0% { top: -20px; left: 50%; transform: translateX(-50%); }
-            25% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
-            50% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
-            75% { top: 50%; left: -20px; transform: translateY(-50%); }
-            100% { top: -20px; left: 50%; transform: translateX(-50%); }
-          }
-
-          @keyframes orbit-fancy {
-            0% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
-            25% { top: 50%; left: -20px; transform: translateY(-50%); }
-            50% { top: -20px; left: 50%; transform: translateX(-50%); }
-            75% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
-            100% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
-          }
-
-          @keyframes orbit-wow {
-            0% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
-            25% { top: calc(100% + 20px); left: 50%; transform: translateX(-50%); }
-            50% { top: 50%; left: -20px; transform: translateY(-50%); }
-            75% { top: -20px; left: 50%; transform: translateX(-50%); }
-            100% { top: 50%; left: calc(100% + 20px); transform: translateY(-50%); }
-          }
-        `}</style>
       </div>
     );
   }
@@ -170,7 +200,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`${buttonClassName} focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-${variant === 'primary' ? 'indigo' : variant === 'secondary' ? 'gray' : variant === 'danger' ? 'red' : 'green'}-500`}
+      className={`${buttonClassName} ${focusRingStyle}`}
       onClick={onClick}
       disabled={disabled}
     >

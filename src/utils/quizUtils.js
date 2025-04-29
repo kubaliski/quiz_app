@@ -108,8 +108,7 @@ export const calcularPuntuacion = (preguntas, respuestas) => {
   // Calculamos la nota sobre 10 (proporción directa)
   const notaSobre10SinRedondear = total > 0 ? (puntuacionFinal / total) * 10 : 0;
 
-  // Redondeamos la nota según la regla específica
-  const notaSobre10 = Math.round(notaSobre10SinRedondear * 10) / 10; // Primero redondeamos a 1 decimal
+
   const notaRedondeada = notaSobre10SinRedondear % 1 >= 0.5 ? Math.ceil(notaSobre10SinRedondear) : Math.floor(notaSobre10SinRedondear);
 
   return {

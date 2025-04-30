@@ -14,7 +14,7 @@ export const moduloJavaVirtualLab = {
     id: 305,
     nombre: "Test 40 preguntas virtual lab",
     asignaturaId: 3,
-    esExamen: true,
+    esExamen: false,
     descripcion: "Conceptos fundamentales de POO en Java: clases, objetos, herencia, polimorfismo, encapsulamiento, interfaces y excepciones.",
     preguntas: [
       {

@@ -37,7 +37,7 @@
  * }
  */
 export const moduloModeladoER = {
-    id: 202,
+    id: 201,
     nombre: "Modelado Entidad-Relación",
     esExamen: false,
     asignaturaId: 2,

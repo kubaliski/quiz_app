@@ -37,7 +37,7 @@
  * }
  */
 export const moduloDDLDML = {
-    id: 201,
+    id: 200,
     nombre: "SQL: DDL y DML",
     esExamen: false,
     asignaturaId: 2,

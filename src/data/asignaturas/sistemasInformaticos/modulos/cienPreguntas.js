@@ -444,22 +444,22 @@ export const moduloCienPreguntas = {
         explicacion: "El componente número 1 en la imagen es el conector de alimentación principal ATX, que proporciona energía a la placa base desde la fuente de alimentación."
       },
       {
-        id: 3033,
-        moduloId: 103,
-        pregunta: "¿Qué representan los elementos numerados como 2?",
-        recurso: {
-          tipo: "imagen",
-          contenido: "/images/cienPreguntas/pregunta32.png",
-          altText: "Imagen de una placa base con componentes numerados"
+        "id": 3033,
+        "moduloId": 103,
+        "pregunta": "¿Qué representan los elementos numerados como 2?",
+        "recurso": {
+          "tipo": "imagen",
+          "contenido": "/images/cienPreguntas/pregunta32.png",
+          "altText": "Imagen de una placa base con componentes numerados"
         },
-        opciones: [
+        "opciones": [
           "Ranuras PCIe",
           "Ranuras de memoria RAM DDR",
-          "Puertos USB",
+          "Chipset Norte y Sur",
           "Conectores SATA"
         ],
-        respuestaCorrecta: 1,
-        explicacion: "Los elementos numerados como 2 en la imagen son las ranuras de memoria RAM DDR, utilizadas para instalar los módulos de memoria RAM."
+        "respuestaCorrecta": 2,
+        "explicacion": "Los elementos numerados como 2 en la imagen representan el Chipset Norte y Sur. Estos chipsets son conjuntos de circuitos integrados que controlan la comunicación entre el procesador y otros componentes del sistema. El Chipset Norte (o puente norte) se comunica directamente con la CPU, la memoria RAM y la tarjeta gráfica, mientras que el Chipset Sur (o puente sur) gestiona los dispositivos periféricos y otros componentes de menor velocidad."
       },
       {
         id: 3034,
@@ -480,22 +480,22 @@ export const moduloCienPreguntas = {
         explicacion: "El componente marcado con el número 3 corresponde a los conectores SATA, utilizados para conectar discos duros y unidades SSD a la placa base."
       },
       {
-        id: 3035,
-        moduloId: 103,
-        pregunta: "¿Qué parte indica el número 4?",
-        recurso: {
-          tipo: "imagen",
-          contenido: "/images/cienPreguntas/pregunta32.png",
-          altText: "Imagen de una placa base con componentes numerados"
+        "id": 3035,
+        "moduloId": 103,
+        "pregunta": "¿Qué parte indica el número 4?",
+        "recurso": {
+          "tipo": "imagen",
+          "contenido": "/images/cienPreguntas/pregunta32.png",
+          "altText": "Imagen de una placa base con componentes numerados"
         },
-        opciones: [
+        "opciones": [
           "Fuente de alimentación",
           "Batería CMOS",
           "BIOS",
           "Chipset"
         ],
-        respuestaCorrecta: 0,
-        explicacion: "El número 4 en la imagen indica la fuente de alimentación, componente que proporciona energía a todos los dispositivos internos del ordenador."
+        "respuestaCorrecta": 1,
+        "explicacion": "El número 4 en la imagen indica la batería CMOS. Esta batería proporciona la energía necesaria para mantener los datos de configuración del sistema (como la fecha y hora) cuando el equipo está apagado. La batería CMOS es un componente pequeño y circular que se encuentra en la placa base."
       },
       {
         id: 3036,
@@ -530,8 +530,8 @@ export const moduloCienPreguntas = {
           "BIOS",
           "Zócalo de CPU"
         ],
-        respuestaCorrecta: 2,
-        explicacion: "El número 6 muestra la BIOS (Basic Input/Output System), un chip que contiene el firmware básico que inicia el hardware durante el arranque del sistema."
+        respuestaCorrecta: 0,
+        explicacion: "El número 6 muestra las ranuras PCI para tarjetas de expansión. Estas ranuras permiten conectar diversos componentes adicionales como tarjetas gráficas, tarjetas de sonido, tarjetas de red y otros periféricos que amplían la funcionalidad del equipo."
       },
       {
         id: 3038,

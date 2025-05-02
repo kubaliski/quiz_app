@@ -5,11 +5,13 @@
  * @component
  * @param {Object} props - Propiedades del componente
  * @param {Object} props.puntuacion - Objeto con la información de la puntuación
- * @param {number} props.puntuacion.correctas - Número de respuestas correctas (después de penalización)
+ * @param {number} props.puntuacion.correctas - Número de respuestas correctas
  * @param {number} props.puntuacion.incorrectas - Número de respuestas incorrectas
- * @param {number} props.puntuacion.penalizacion - Penalización aplicada
- * @param {number} props.puntuacion.aciertosOriginales - Aciertos antes de aplicar penalización
+ * @param {number} props.puntuacion.sinResponder - Número de preguntas sin responder
  * @param {number} props.puntuacion.total - Número total de preguntas
+ * @param {number} props.puntuacion.puntosTotales - Puntos totales obtenidos
+ * @param {number} props.puntuacion.puntosPorCorrectas - Puntos ganados por respuestas correctas
+ * @param {number} props.puntuacion.puntosPorIncorrectas - Puntos perdidos por respuestas incorrectas
  * @param {number} props.puntuacion.porcentaje - Porcentaje de acierto (0-100)
  * @param {number} props.puntuacion.notaSobre10 - Nota sobre 10 con redondeo específico
  * @returns {JSX.Element} Componente ResultSummary renderizado
@@ -45,11 +47,38 @@ export default function ResultSummary({ puntuacion }) {
   const { color, message } = getResultClass();
   const backgroundClass = getBackgroundClass();
 
+  // Formatear puntos para mostrar con 2 decimales
+  const formatearPuntos = (puntos) => {
+    // Verificar si el valor es un número válido antes de formatearlo
+    if (puntos === undefined || puntos === null || isNaN(puntos)) {
+      return '0.00';
+    }
+    return Number(puntos).toFixed(2);
+  };
+
+  // Calcular puntos máximos posibles (0.25 por cada pregunta)
+  const puntosTotalesMaximos = puntuacion.total * 0.25;
+
+  // Calcular puntos por correctas si no están disponibles
+  const puntosPorCorrectas = puntuacion.puntosPorCorrectas !== undefined && !isNaN(puntuacion.puntosPorCorrectas)
+    ? puntuacion.puntosPorCorrectas
+    : puntuacion.correctas * 0.25;
+
+  // Calcular puntos por incorrectas si no están disponibles
+  const puntosPorIncorrectas = puntuacion.puntosPorIncorrectas !== undefined && !isNaN(puntuacion.puntosPorIncorrectas)
+    ? puntuacion.puntosPorIncorrectas
+    : puntuacion.incorrectas * -0.0833;
+
+  // Calcular puntos totales si no están disponibles
+  const puntosTotales = puntuacion.puntosTotales !== undefined && !isNaN(puntuacion.puntosTotales)
+    ? puntuacion.puntosTotales
+    : Math.max(0, puntosPorCorrectas + puntosPorIncorrectas);
+
   return (
     <Card className="mb-6">
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 dark:text-white">
-          Tu puntuación: {puntuacion.correctas}/{puntuacion.total} ({puntuacion.porcentaje}%)
+          Tu puntuación: {formatearPuntos(puntosTotales)}/{formatearPuntos(puntosTotalesMaximos)} puntos ({puntuacion.porcentaje}%)
         </h2>
 
         {/* Visualización del porcentaje y nota sobre 10 */}
@@ -72,7 +101,7 @@ export default function ResultSummary({ puntuacion }) {
 
           {/* Nota sobre 10 */}
           <div>
-            <p className="text-gray-600 dark:text-gray-400 mb-2">Nota sobre 10</p>
+            <p className="text-gray-600 dark:text-gray-400 mb-2">Nota sobre 10 (recuerda el redondeo)</p>
             <div className="flex items-center justify-center">
               <div className={`w-20 h-20 rounded-full ${color} flex items-center justify-center`}>
                 <span className="text-3xl font-bold text-white">{puntuacion.notaSobre10}</span>
@@ -86,18 +115,23 @@ export default function ResultSummary({ puntuacion }) {
         <div className={`mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-left ${backgroundClass} p-4 rounded-lg`}>
           <div>
             <p className="text-gray-700 dark:text-gray-300">
-              <span className="font-medium">Aciertos iniciales:</span> {puntuacion.aciertosOriginales}/{puntuacion.total}
+              <span className="font-medium">Respuestas correctas:</span> {puntuacion.correctas}/{puntuacion.total} (+{formatearPuntos(puntosPorCorrectas)} puntos)
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              <span className="font-medium">Errores:</span> {puntuacion.incorrectas}/{puntuacion.total}
+              <span className="font-medium">Respuestas incorrectas:</span> {puntuacion.incorrectas}/{puntuacion.total} ({formatearPuntos(puntosPorIncorrectas)} puntos)
             </p>
+            {(puntuacion.sinResponder > 0 || puntuacion.total - puntuacion.correctas - puntuacion.incorrectas > 0) && (
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-medium">Sin responder:</span> {puntuacion.sinResponder || (puntuacion.total - puntuacion.correctas - puntuacion.incorrectas)}/{puntuacion.total} (0 puntos)
+              </p>
+            )}
           </div>
           <div>
-            <p className="text-amber-600 dark:text-amber-400">
-              <span className="font-medium">Penalización:</span> -{puntuacion.penalizacion} puntos
+            <p className="text-gray-700 dark:text-gray-300">
+              <span className="font-medium">Puntuación total:</span> {formatearPuntos(puntosTotales)}/{formatearPuntos(puntosTotalesMaximos)} puntos
             </p>
             <p className="text-gray-700 dark:text-gray-300 text-sm italic">
-              (1 punto menos por cada 3 errores)
+              (Cada respuesta correcta suma 0.25 puntos y cada incorrecta resta 0.0833 puntos)
             </p>
           </div>
         </div>

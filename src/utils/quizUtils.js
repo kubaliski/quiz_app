@@ -83,41 +83,80 @@ export const esRespuestaCorrecta = (pregunta, respuestaUsuario) => {
 
 // Calcular puntuación de un quiz con penalización por respuestas incorrectas
 export const calcularPuntuacion = (preguntas, respuestas) => {
+  // Verificar que tengamos datos válidos
+  if (!preguntas || !Array.isArray(preguntas) || preguntas.length === 0) {
+    return {
+      correctas: 0,
+      incorrectas: 0,
+      sinResponder: 0,
+      total: 0,
+      puntosTotales: 0,
+      puntosPorCorrectas: 0,
+      puntosPorIncorrectas: 0,
+      porcentaje: 0,
+      notaSobre10: 0
+    };
+  }
+
   let correctas = 0;
   let incorrectas = 0;
+  let sinResponder = 0;
   let total = preguntas.length;
 
+  // Valor de cada respuesta según las nuevas reglas
+  const valorRespuestaCorrecta = 0.25;
+  const valorRespuestaIncorrecta = -0.0833; // Un tercio del valor de una correcta, en negativo
+
+  // Asegurar que respuestas sea un objeto válido
+  const respuestasObj = respuestas || {};
+
   preguntas.forEach(pregunta => {
-    // Si la respuesta es undefined, se considera incorrecta
-    if (respuestas[pregunta.id] === pregunta.respuestaCorrecta) {
-      correctas++;
+    // Verificamos si la pregunta tiene un ID válido
+    const preguntaId = pregunta?.id;
+    if (preguntaId === undefined) return;
+
+    // Verificamos si la pregunta fue respondida
+    if (respuestasObj[preguntaId] !== undefined) {
+      // Si la respuesta es correcta
+      if (respuestasObj[preguntaId] === pregunta.respuestaCorrecta) {
+        correctas++;
+      } else {
+        incorrectas++;
+      }
     } else {
-      incorrectas++;
+      // Pregunta sin responder
+      sinResponder++;
     }
   });
 
-  // Calculamos la penalización: cada 3 incorrectas restamos 1 correcta
-  const penalizacion = Math.floor(incorrectas / 3);
+  // Calculamos los puntos obtenidos según la nueva fórmula
+  const puntosPorCorrectas = correctas * valorRespuestaCorrecta;
+  const puntosPorIncorrectas = incorrectas * valorRespuestaIncorrecta;
+  const puntosTotales = Math.max(0, puntosPorCorrectas + puntosPorIncorrectas);
 
-  // Aplicamos la penalización, pero nunca menos de 0
-  const puntuacionFinal = Math.max(0, correctas - penalizacion);
+  // Calculamos el porcentaje (sobre el máximo posible que sería total * valorRespuestaCorrecta)
+  const maximoPosible = total * valorRespuestaCorrecta;
+  const porcentajeSinRedondear = maximoPosible > 0 ? (puntosTotales / maximoPosible) * 100 : 0;
+  const porcentajeRedondeado = Math.round(porcentajeSinRedondear);
 
-  // Calculamos el porcentaje sin redondear
-  const porcentajeSinRedondear = total > 0 ? (puntuacionFinal / total) * 100 : 0;
+  // Calculamos la nota sobre 10
+  const notaSobre10SinRedondear = maximoPosible > 0 ? (puntosTotales / maximoPosible) * 10 : 0;
 
-  // Calculamos la nota sobre 10 (proporción directa)
-  const notaSobre10SinRedondear = total > 0 ? (puntuacionFinal / total) * 10 : 0;
-
-
-  const notaRedondeada = notaSobre10SinRedondear % 1 >= 0.5 ? Math.ceil(notaSobre10SinRedondear) : Math.floor(notaSobre10SinRedondear);
+  // Redondeamos la nota al entero más cercano, con el .5 redondeando hacia arriba
+  const notaRedondeada = isNaN(notaSobre10SinRedondear) ? 0 :
+                         notaSobre10SinRedondear % 1 >= 0.5 ?
+                         Math.ceil(notaSobre10SinRedondear) :
+                         Math.floor(notaSobre10SinRedondear);
 
   return {
-    correctas: puntuacionFinal,
+    correctas,
     incorrectas,
-    penalizacion,
+    sinResponder,
     total,
-    aciertosOriginales: correctas,
-    porcentaje: Math.round(porcentajeSinRedondear), // Mantenemos el porcentaje como antes
-    notaSobre10: notaRedondeada // Nueva propiedad con la nota sobre 10 redondeada
+    puntosTotales,
+    puntosPorCorrectas,
+    puntosPorIncorrectas,
+    porcentaje: porcentajeRedondeado,
+    notaSobre10: notaRedondeada
   };
 };

@@ -221,25 +221,25 @@ export const moduloJavaVirtualLab = {
         explicacion: "Este código implementa un algoritmo para intercambiar valores sin usar una variable temporal. Inicialmente x=5 y y=10. Después de x=x+y, tenemos x=15 y y=10. Luego, y=x-y da y=5. Finalmente, x=x-y da x=10. Por lo tanto, los valores se intercambian: x ahora es 10 e y es 5."
       },
       {
-        id: 3511,
-        moduloId: 305,
-        pregunta: "¿Cuál es la salida del siguiente código?",
-        recurso: {
-          tipo: "codigo",
-          contenido: `String pattern = "a*b";
-  String text = "aaaaab";
-  boolean match = text.matches(pattern);
-  System.out.println(match);`,
-          lenguaje: "java"
+        "id": 3511,
+        "moduloId": 305,
+        "pregunta": "¿Cuál es la salida del siguiente código?",
+        "recurso": {
+          "tipo": "codigo",
+          "contenido": `String pattern = "a*b";
+      String text = "aaaaab";
+      boolean match = text.matches(pattern);
+      System.out.println(match);`,
+          "lenguaje": "java"
         },
-        opciones: [
+        "opciones": [
           "false",
           "aaaaab",
           "Error de compilación",
           "true"
         ],
-        respuestaCorrecta: 0,
-        explicacion: "El método matches() en Java compara un String con un patrón de expresión regular. En este caso, 'a*b' en expresiones regulares significa 'cero o más caracteres 'a' seguidos de un 'b''. Sin embargo, en Java, * es un cuantificador que se aplica al carácter anterior. El patrón correcto para hacer coincidir 'aaaaab' debería ser 'a+b' o 'a.*b'. Por lo tanto, la salida es false porque el patrón no coincide correctamente."
+        "respuestaCorrecta": 3,
+        "explicacion": "El método matches() en Java compara un String con un patrón de expresión regular. En este caso, 'a*b' en expresiones regulares significa 'cero o más caracteres 'a' seguidos de un 'b''. El patrón 'a*b' coincide exactamente con la cadena 'aaaaab' que tiene cinco caracteres 'a' seguidos de un 'b'. Por lo tanto, la salida es true porque el patrón coincide correctamente con toda la cadena."
       },
       {
         id: 3512,

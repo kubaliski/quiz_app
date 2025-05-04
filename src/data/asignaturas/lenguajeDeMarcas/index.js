@@ -8,6 +8,7 @@ import moduloHTMLTablas from "./modulos/tablas";
 import moduloHTMLListas from "./modulos/listas";
 import moduloHTMLFormularios from "./modulos/formularios";
 import moduloHTMLCSSLayout from "./modulos/layout";
+import moduloSimulacroMayo from "./modulos/simulacromayo";
 
 export const lenguajesMarcas = {
     ...info,
@@ -21,6 +22,7 @@ export const lenguajesMarcas = {
         moduloHTMLListas,
         moduloHTMLFormularios,
         moduloHTMLCSSLayout,
+        moduloSimulacroMayo
     ],
     };
 export default lenguajesMarcas;

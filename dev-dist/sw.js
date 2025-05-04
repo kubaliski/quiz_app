@@ -22,7 +22,7 @@ if (!self.define) {
   const singleRequire = (uri, parentUri) => {
     uri = new URL(uri + ".js", parentUri).href;
     return registry[uri] || (
-      
+
         new Promise(resolve => {
           if ("document" in self) {
             const script = document.createElement("script");
@@ -35,7 +35,7 @@ if (!self.define) {
             resolve();
           }
         })
-      
+
       .then(() => {
         let promise = registry[uri];
         if (!promise) {
@@ -82,7 +82,7 @@ define(['./workbox-54d0af47'], (function (workbox) { 'use strict';
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
     "url": "index.html",
-    "revision": "0.ht3po8dsdc"
+    "revision": "0.7n8n2sshaug"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {

@@ -99,11 +99,18 @@ describe('quizUtils', () => {
 
       const puntuacion = calcularPuntuacion(preguntas, respuestas);
 
+      // Nueva lógica: 4 correctas * 0.25 = 1 punto total
       expect(puntuacion.correctas).toBe(4);
       expect(puntuacion.incorrectas).toBe(0);
-      expect(puntuacion.penalizacion).toBe(0);
+
+      // En lugar de verificar el valor exacto, verificamos que Math.abs() del valor es 0
+      // Esto maneja tanto +0 como -0
+      expect(Math.abs(puntuacion.puntosPorIncorrectas)).toBe(0);
+
       expect(puntuacion.total).toBe(4);
-      expect(puntuacion.porcentaje).toBe(100);
+      expect(puntuacion.porcentaje).toBe(100); // (1/1) * 100 = 100%
+      expect(puntuacion.puntosTotales).toBe(1); // 4 * 0.25 = 1
+      expect(puntuacion.puntosPorCorrectas).toBe(1); // 4 * 0.25 = 1
     });
 
     it('calcula correctamente la puntuación con penalización', () => {
@@ -133,16 +140,22 @@ describe('quizUtils', () => {
 
       const puntuacion = calcularPuntuacion(preguntas, respuestas);
 
-      // 5 correctas, 4 incorrectas
-      // Penalización: Math.floor(4/3) = 1
-      // Puntuación final: 5 - 1 = 4
+      // Nueva lógica:
+      // 5 correctas * 0.25 = 1.25 puntos por correctas
+      // 4 incorrectas * -0.0833 = -0.3332 puntos por incorrectas
+      // Total: 1.25 - 0.3332 = 0.9168 puntos
 
-      expect(puntuacion.correctas).toBe(4);
-      expect(puntuacion.incorrectas).toBe(4);
-      expect(puntuacion.penalizacion).toBe(1);
-      expect(puntuacion.aciertosOriginales).toBe(5);
-      expect(puntuacion.total).toBe(9);
-      expect(puntuacion.porcentaje).toBe(44); // (4/9) * 100 = 44.44... redondeado a 44
+      expect(puntuacion.correctas).toBe(5); // 5 respuestas correctas
+      expect(puntuacion.incorrectas).toBe(4); // 4 respuestas incorrectas
+      expect(puntuacion.total).toBe(9); // 9 preguntas en total
+
+      // El porcentaje real es 41% con la nueva lógica
+      expect(puntuacion.porcentaje).toBe(41);
+
+      // Comprobamos que los puntos son correctos (con cierta tolerancia por redondeo)
+      expect(puntuacion.puntosPorCorrectas).toBeCloseTo(1.25, 2);
+      expect(puntuacion.puntosPorIncorrectas).toBeCloseTo(-0.3332, 2);
+      expect(puntuacion.puntosTotales).toBeCloseTo(0.9168, 2);
     });
 
     it('nunca devuelve una puntuación negativa', () => {
@@ -160,16 +173,20 @@ describe('quizUtils', () => {
 
       const puntuacion = calcularPuntuacion(preguntas, respuestas);
 
-      // 0 correctas, 3 incorrectas
-      // Penalización: Math.floor(3/3) = 1
-      // Puntuación final: 0 - 1 = -1, pero se ajusta a 0
+      // Nueva lógica:
+      // 0 correctas * 0.25 = 0 puntos por correctas
+      // 3 incorrectas * -0.0833 = -0.2499 puntos por incorrectas
+      // Total: 0 - 0.2499 = -0.2499, pero se ajusta a 0
 
       expect(puntuacion.correctas).toBe(0);
       expect(puntuacion.incorrectas).toBe(3);
-      expect(puntuacion.penalizacion).toBe(1);
-      expect(puntuacion.aciertosOriginales).toBe(0);
       expect(puntuacion.total).toBe(3);
       expect(puntuacion.porcentaje).toBe(0);
+
+      // Usar Math.abs para verificar que es 0, ya sea +0 o -0
+      expect(Math.abs(puntuacion.puntosPorCorrectas)).toBe(0);
+      expect(puntuacion.puntosPorIncorrectas).toBeCloseTo(-0.2499, 2);
+      expect(Math.abs(puntuacion.puntosTotales)).toBe(0); // Se ajusta a 0 (nunca negativo)
     });
   });
 });

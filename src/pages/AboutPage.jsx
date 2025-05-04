@@ -57,7 +57,7 @@ export default function AboutPage() {
                   Clona tu fork a tu máquina local usando el comando:
                 </p>
                 <div className="bg-gray-100 dark:bg-gray-800 p-2 mt-1 rounded font-mono text-sm text-gray-800 dark:text-gray-200">
-                  git clone https://github.com/kubaliski/quiz-app.git
+                  git clone https://github.com/tu-usuarioK/quiz-app.git
                 </div>
               </li>
               <li>

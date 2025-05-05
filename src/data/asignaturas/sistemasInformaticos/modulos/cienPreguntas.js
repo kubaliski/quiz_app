@@ -23,7 +23,7 @@ export const moduloCienPreguntas = {
     descripcion: "Conjunto completo de 100 preguntas para evaluar conocimientos de Sistemas Informáticos",
     preguntas: [
       {
-        id: 3001,
+        id: 1301,
         moduloId: 103,
         pregunta: "¿Qué define mejor un Sistema de Información (SSII)?",
         opciones: [
@@ -36,7 +36,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un Sistema de Información (SSII) se define como un sistema que almacena, procesa y distribuye información para apoyar la toma de decisiones y el control en una organización."
       },
       {
-        id: 3002,
+        id: 1302,
         moduloId: 103,
         pregunta: "¿Qué característica distingue al firmware del hardware y software?",
         opciones: [
@@ -49,7 +49,7 @@ export const moduloCienPreguntas = {
         explicacion: "El firmware es un programa que gestiona el hardware a bajo nivel. A diferencia del software, está integrado en los dispositivos hardware y controla su funcionamiento básico."
       },
       {
-        id: 3003,
+        id: 1303,
         moduloId: 103,
         pregunta: "¿Qué reemplazó a los tubos de vacío en la evolución de los ordenadores?",
         opciones: [
@@ -62,7 +62,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los transistores reemplazaron a los tubos de vacío en la evolución de los ordenadores, marcando el inicio de la segunda generación de computadoras. Esto permitió reducir significativamente el tamaño, consumo energético y calor generado."
       },
       {
-        id: 3004,
+        id: 1304,
         moduloId: 103,
         pregunta: "¿Cómo se clasifican comúnmente los SSII?",
         opciones: [
@@ -75,7 +75,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los Sistemas de Información (SSII) se clasifican comúnmente en centralizados y distribuidos según su arquitectura. Los centralizados tienen todos los componentes en una ubicación única, mientras que los distribuidos reparten sus componentes en diferentes ubicaciones."
       },
       {
-        id: 3005,
+        id: 1305,
         moduloId: 103,
         pregunta: "¿Qué define a un cliente ligero?",
         opciones: [
@@ -88,7 +88,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un cliente ligero se define como un dispositivo que depende principalmente de un servidor para el procesamiento de datos. Tiene capacidades limitadas y actúa como terminal de acceso a servicios proporcionados por un servidor central."
       },
       {
-        id: 3006,
+        id: 1306,
         moduloId: 103,
         pregunta: "¿Qué componente NO forma parte de la arquitectura básica de un ordenador?",
         opciones: [
@@ -101,7 +101,7 @@ export const moduloCienPreguntas = {
         explicacion: "El software de usuario no forma parte de la arquitectura básica de un ordenador. La arquitectura básica incluye componentes hardware como CPU, memoria y dispositivos de entrada/salida, junto con el firmware básico, pero no el software de aplicación."
       },
       {
-        id: 3007,
+        id: 1307,
         moduloId: 103,
         pregunta: "¿Cuántos MB hay en 3 GB?",
         opciones: [
@@ -114,7 +114,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 3 GB hay 3072 MB. Esto se calcula multiplicando 3 por 1024, ya que 1 GB = 1024 MB."
       },
       {
-        id: 3008,
+        id: 1308,
         moduloId: 103,
         pregunta: "¿Qué componente conecta la CPU con la memoria RAM?",
         opciones: [
@@ -127,7 +127,7 @@ export const moduloCienPreguntas = {
         explicacion: "El puente norte (North Bridge) es el componente del chipset que conecta la CPU con la memoria RAM y con las tarjetas gráficas a través del bus de alta velocidad."
       },
       {
-        id: 3009,
+        id: 1309,
         moduloId: 103,
         pregunta: "¿Qué hace la ALU en un ordenador?",
         opciones: [
@@ -140,7 +140,7 @@ export const moduloCienPreguntas = {
         explicacion: "La Unidad Aritmético-Lógica (ALU) realiza operaciones matemáticas (suma, resta, multiplicación, división) y operaciones lógicas (AND, OR, NOT) sobre los datos dentro de la CPU."
       },
       {
-        id: 3010,
+        id: 1310,
         moduloId: 103,
         pregunta: "¿Qué es un disco de red?",
         opciones: [
@@ -153,7 +153,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un disco de red es un almacenamiento que se accede a través de una red de computadoras, en lugar de estar conectado directamente al ordenador. Permite compartir espacio de almacenamiento entre múltiples usuarios."
       },
       {
-        id: 3011,
+        id: 1311,
         moduloId: 103,
         pregunta: "¿Qué es un proceso en un sistema operativo?",
         opciones: [
@@ -166,7 +166,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un proceso en un sistema operativo es una instancia de un programa en ejecución. Incluye el código del programa, sus datos y su estado actual de ejecución."
       },
       {
-        id: 3012,
+        id: 1312,
         moduloId: 103,
         pregunta: "¿Qué son los servicios en Windows?",
         opciones: [
@@ -179,7 +179,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los servicios en Windows son procesos que se ejecutan en segundo plano y no requieren interacción del usuario. Realizan tareas del sistema o proporcionan funcionalidades a otros programas."
       },
       {
-        id: 3013,
+        id: 1313,
         moduloId: 103,
         pregunta: "¿Cuál es una ventaja de los discos SSHD sobre los HDD?",
         opciones: [
@@ -192,7 +192,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los discos SSHD (Solid State Hybrid Drive) combinan un disco duro tradicional (HDD) con memoria flash (SSD), ofreciendo un rendimiento superior al almacenar los datos más frecuentemente utilizados en la parte SSD para acceso rápido."
       },
       {
-        id: 3014,
+        id: 1314,
         moduloId: 103,
         pregunta: "¿Qué es un sistema operativo?",
         opciones: [
@@ -205,7 +205,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un sistema operativo es un programa que gestiona el hardware y el software del sistema, actuando como intermediario entre las aplicaciones y el hardware del ordenador."
       },
       {
-        id: 3015,
+        id: 1315,
         moduloId: 103,
         pregunta: "¿Qué función cumple el núcleo (kernel) en un sistema operativo?",
         opciones: [
@@ -218,7 +218,7 @@ export const moduloCienPreguntas = {
         explicacion: "El núcleo o kernel es la parte central de un sistema operativo que se encarga de gestionar la memoria, los procesos y el hardware. Proporciona servicios esenciales para el funcionamiento del sistema."
       },
       {
-        id: 3016,
+        id: 1316,
         moduloId: 103,
         pregunta: "¿Cuántos megabytes (MB) hay en 5 gigabytes (GB)?",
         opciones: [
@@ -231,7 +231,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 5 GB hay 5120 MB. Esto se calcula multiplicando 5 por 1024, ya que 1 GB = 1024 MB."
       },
       {
-        id: 3017,
+        id: 1317,
         moduloId: 103,
         pregunta: "¿Cuántos gigabytes (GB) hay en 8192 megabytes (MB)?",
         opciones: [
@@ -244,7 +244,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 8192 MB hay 8 GB. Esto se calcula dividiendo 8192 entre 1024, ya que 1 GB = 1024 MB."
       },
       {
-        id: 3018,
+        id: 1318,
         moduloId: 103,
         pregunta: "¿Cuántos terabytes (TB) hay en 2048 gigabytes (GB)?",
         opciones: [
@@ -257,7 +257,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 2048 GB hay 2 TB. Esto se calcula dividiendo 2048 entre 1024, ya que 1 TB = 1024 GB."
       },
       {
-        id: 3019,
+        id: 1319,
         moduloId: 103,
         pregunta: "Convierte el número decimal 15 a binario.",
         opciones: [
@@ -270,7 +270,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número decimal 15 en binario es 1111. Esto se obtiene al realizar divisiones sucesivas por 2: 15÷2=7 con resto 1, 7÷2=3 con resto 1, 3÷2=1 con resto 1, 1÷2=0 con resto 1, dando como resultado 1111."
       },
       {
-        id: 3020,
+        id: 1320,
         moduloId: 103,
         pregunta: "Convierte el número binario 1010 a decimal.",
         opciones: [
@@ -283,7 +283,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número binario 1010 en decimal es 10. Se calcula como: 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 8 + 0 + 2 + 0 = 10."
       },
       {
-        id: 3021,
+        id: 1321,
         moduloId: 103,
         pregunta: "¿Cuántos kilobytes (KB) hay en 2 megabytes (MB)?",
         opciones: [
@@ -296,7 +296,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 2 MB hay 2048 KB. Esto se calcula multiplicando 2 por 1024, ya que 1 MB = 1024 KB."
       },
       {
-        id: 3022,
+        id: 1322,
         moduloId: 103,
         pregunta: "Convierte 0.5 terabytes (TB) a gigabytes (GB).",
         opciones: [
@@ -309,7 +309,7 @@ export const moduloCienPreguntas = {
         explicacion: "0.5 TB equivale a 512 GB. Esto se calcula multiplicando 0.5 por 1024, ya que 1 TB = 1024 GB."
       },
       {
-        id: 3023,
+        id: 1323,
         moduloId: 103,
         pregunta: "Convierte 4096 kilobytes (KB) a megabytes (MB).",
         opciones: [
@@ -322,7 +322,7 @@ export const moduloCienPreguntas = {
         explicacion: "4096 KB equivale a 4 MB. Esto se calcula dividiendo 4096 entre 1024, ya que 1 MB = 1024 KB."
       },
       {
-        id: 3024,
+        id: 1324,
         moduloId: 103,
         pregunta: "Convierte el número decimal 255 a binario.",
         opciones: [
@@ -335,7 +335,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número decimal 255 en binario es 11111111. Representa 8 bits con todos los valores en 1, equivalente a 2⁸-1."
       },
       {
-        id: 3025,
+        id: 1325,
         moduloId: 103,
         pregunta: "¿Cuántos terabytes (TB) hay en 10,240 gigabytes (GB)?",
         opciones: [
@@ -348,7 +348,7 @@ export const moduloCienPreguntas = {
         explicacion: "En 10,240 GB hay 10 TB. Esto se calcula dividiendo 10,240 entre 1024, ya que 1 TB = 1024 GB."
       },
       {
-        id: 3026,
+        id: 1326,
         moduloId: 103,
         pregunta: "Convierte el número binario 1101 a decimal.",
         opciones: [
@@ -361,7 +361,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número binario 1101 en decimal es 13. Se calcula como: 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = 13."
       },
       {
-        id: 3027,
+        id: 1327,
         moduloId: 103,
         pregunta: "Convierte 1.5 terabytes (TB) a gigabytes (GB).",
         opciones: [
@@ -374,7 +374,7 @@ export const moduloCienPreguntas = {
         explicacion: "1.5 TB equivale a 1536 GB. Esto se calcula multiplicando 1.5 por 1024, ya que 1 TB = 1024 GB."
       },
       {
-        id: 3028,
+        id: 1328,
         moduloId: 103,
         pregunta: "Convierte el número decimal 64 a binario.",
         opciones: [
@@ -387,7 +387,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número decimal 64 en binario es 1000000. Es una potencia exacta de 2 (2⁶), por lo que se representa como un 1 seguido de seis ceros."
       },
       {
-        id: 3029,
+        id: 1329,
         moduloId: 103,
         pregunta: "Convierte 20480 kilobytes (KB) a megabytes (MB).",
         opciones: [
@@ -400,7 +400,7 @@ export const moduloCienPreguntas = {
         explicacion: "20480 KB equivale a 20 MB. Esto se calcula dividiendo 20480 entre 1024, ya que 1 MB = 1024 KB."
       },
       {
-        id: 3030,
+        id: 1330,
         moduloId: 103,
         pregunta: "Convierte 256 megabytes (MB) a gigabytes (GB).",
         opciones: [
@@ -413,7 +413,7 @@ export const moduloCienPreguntas = {
         explicacion: "256 MB equivale a 0.25 GB. Esto se calcula dividiendo 256 entre 1024, ya que 1 GB = 1024 MB."
       },
       {
-        id: 3031,
+        id: 1331,
         moduloId: 103,
         pregunta: "Convierte el número binario 1001 a decimal.",
         opciones: [
@@ -426,7 +426,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número binario 1001 en decimal es 9. Se calcula como: 1×2³ + 0×2² + 0×2¹ + 1×2⁰ = 8 + 0 + 0 + 1 = 9."
       },
       {
-        id: 3032,
+        id: 1332,
         moduloId: 103,
         pregunta: "¿Qué componente representa el número 1 en la imagen?",
         recurso: {
@@ -444,25 +444,25 @@ export const moduloCienPreguntas = {
         explicacion: "El componente número 1 en la imagen es el conector de alimentación principal ATX, que proporciona energía a la placa base desde la fuente de alimentación."
       },
       {
-        "id": 3033,
-        "moduloId": 103,
-        "pregunta": "¿Qué representan los elementos numerados como 2?",
-        "recurso": {
-          "tipo": "imagen",
-          "contenido": "/images/cienPreguntas/pregunta32.png",
-          "altText": "Imagen de una placa base con componentes numerados"
+        id: 1333,
+        moduloId: 103,
+        pregunta: "¿Qué representan los elementos numerados como 2?",
+        recurso: {
+          tipo: "imagen",
+          contenido: "/images/cienPreguntas/pregunta32.png",
+          altText: "Imagen de una placa base con componentes numerados"
         },
-        "opciones": [
+        opciones: [
           "Ranuras PCIe",
           "Ranuras de memoria RAM DDR",
           "Chipset Norte y Sur",
           "Conectores SATA"
         ],
-        "respuestaCorrecta": 2,
-        "explicacion": "Los elementos numerados como 2 en la imagen representan el Chipset Norte y Sur. Estos chipsets son conjuntos de circuitos integrados que controlan la comunicación entre el procesador y otros componentes del sistema. El Chipset Norte (o puente norte) se comunica directamente con la CPU, la memoria RAM y la tarjeta gráfica, mientras que el Chipset Sur (o puente sur) gestiona los dispositivos periféricos y otros componentes de menor velocidad."
+        respuestaCorrecta: 2,
+        explicacion: "Los elementos numerados como 2 en la imagen representan el Chipset Norte y Sur. Estos chipsets son conjuntos de circuitos integrados que controlan la comunicación entre el procesador y otros componentes del sistema. El Chipset Norte (o puente norte) se comunica directamente con la CPU, la memoria RAM y la tarjeta gráfica, mientras que el Chipset Sur (o puente sur) gestiona los dispositivos periféricos y otros componentes de menor velocidad."
       },
       {
-        id: 3034,
+        id: 1334,
         moduloId: 103,
         pregunta: "¿Qué componente se encuentra marcado con el número 3?",
         recurso: {
@@ -480,25 +480,25 @@ export const moduloCienPreguntas = {
         explicacion: "El componente marcado con el número 3 corresponde a los conectores SATA, utilizados para conectar discos duros y unidades SSD a la placa base."
       },
       {
-        "id": 3035,
-        "moduloId": 103,
-        "pregunta": "¿Qué parte indica el número 4?",
-        "recurso": {
-          "tipo": "imagen",
-          "contenido": "/images/cienPreguntas/pregunta32.png",
-          "altText": "Imagen de una placa base con componentes numerados"
+        id: 1335,
+        moduloId: 103,
+        pregunta: "¿Qué parte indica el número 4?",
+        recurso: {
+          tipo: "imagen",
+          contenido: "/images/cienPreguntas/pregunta32.png",
+          altText: "Imagen de una placa base con componentes numerados"
         },
-        "opciones": [
+        opciones: [
           "Fuente de alimentación",
           "Batería CMOS",
           "BIOS",
           "Chipset"
         ],
-        "respuestaCorrecta": 1,
-        "explicacion": "El número 4 en la imagen indica la batería CMOS. Esta batería proporciona la energía necesaria para mantener los datos de configuración del sistema (como la fecha y hora) cuando el equipo está apagado. La batería CMOS es un componente pequeño y circular que se encuentra en la placa base."
+        respuestaCorrecta: 1,
+        explicacion: "El número 4 en la imagen indica la batería CMOS. Esta batería proporciona la energía necesaria para mantener los datos de configuración del sistema (como la fecha y hora) cuando el equipo está apagado. La batería CMOS es un componente pequeño y circular que se encuentra en la placa base."
       },
       {
-        id: 3036,
+        id: 1336,
         moduloId: 103,
         pregunta: "¿Qué funcionalidad tiene el componente 5?",
         recurso: {
@@ -516,7 +516,7 @@ export const moduloCienPreguntas = {
         explicacion: "El componente 5 es el conector para unidades de disquete (FDD), un tipo de conector heredado que se utilizaba para conectar unidades de disquete de 3.5 pulgadas."
       },
       {
-        id: 3037,
+        id: 1337,
         moduloId: 103,
         pregunta: "¿Qué componente muestra el número 6?",
         recurso: {
@@ -534,7 +534,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número 6 muestra la bios (Basic Input/Output System), que es un firmware almacenado en la placa base. La BIOS inicializa el hardware del ordenador y proporciona una interfaz entre el sistema operativo y el hardware."
       },
       {
-        id: 3038,
+        id: 1338,
         moduloId: 103,
         pregunta: "¿Qué indican los elementos marcados con el número 7?",
         recurso: {
@@ -552,7 +552,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los elementos marcados con el número 7 son las ranuras para tarjetas de expansión, que permiten añadir funcionalidades adicionales al ordenador como tarjetas gráficas, tarjetas de sonido, etc."
       },
       {
-        id: 3039,
+        id: 1339,
         moduloId: 103,
         pregunta: "¿Qué representa el componente número 8?",
         recurso: {
@@ -570,7 +570,7 @@ export const moduloCienPreguntas = {
         explicacion: "El componente número 8 es una ranura PCIe x16, diseñada específicamente para tarjetas gráficas. Ofrece mayor ancho de banda que las ranuras PCI estándar."
       },
       {
-        id: 3040,
+        id: 1340,
         moduloId: 103,
         pregunta: "¿Qué parte indica el número 9?",
         recurso: {
@@ -588,7 +588,7 @@ export const moduloCienPreguntas = {
         explicacion: "El número 9 indica los puertos traseros de entrada/salida (E/S), que incluyen puertos USB, Ethernet, audio, y otros conectores externos de la placa base."
       },
       {
-        id: 3041,
+        id: 1341,
         moduloId: 103,
         pregunta: "¿Qué componente es el número 10?",
         recurso: {
@@ -606,7 +606,7 @@ export const moduloCienPreguntas = {
         explicacion: "El componente número 10 es el zócalo de CPU, donde se instala el procesador. Este componente conecta la CPU con el resto de la placa base."
       },
       {
-        id: 3042,
+        id: 1342,
         moduloId: 103,
         pregunta: "¿Qué función cumplen los componentes número 11?",
         recurso: {
@@ -624,7 +624,7 @@ export const moduloCienPreguntas = {
         explicacion: "Los componentes número 11 son los mecanismos de fijación que aseguran los módulos de memoria RAM en sus ranuras correspondientes, impidiendo que se suelten."
       },
       {
-        id: 3043,
+        id: 1343,
         moduloId: 103,
         pregunta: "¿Qué es la virtualización en el ámbito informático?",
         opciones: [
@@ -637,7 +637,7 @@ export const moduloCienPreguntas = {
         explicacion: "La virtualización en el ámbito informático es la simulación de recursos de hardware mediante software, permitiendo crear múltiples entornos virtuales que funcionan independientemente sobre un mismo hardware físico."
       },
       {
-        id: 3044,
+        id: 1344,
         moduloId: 103,
         pregunta: "¿Cuál es una ventaja clave de la virtualización?",
         opciones: [
@@ -650,7 +650,7 @@ export const moduloCienPreguntas = {
         explicacion: "Una ventaja clave de la virtualización es la reducción de costos operativos, gracias a la consolidación de múltiples servidores virtuales en menos hardware físico, menor consumo energético y mejor aprovechamiento de recursos."
       },
       {
-        id: 3045,
+        id: 1345,
         moduloId: 103,
         pregunta: "¿Qué componente gestiona las máquinas virtuales en un entorno virtualizado?",
         opciones: [
@@ -663,7 +663,7 @@ export const moduloCienPreguntas = {
         explicacion: "El hipervisor es el componente que gestiona las máquinas virtuales en un entorno virtualizado. Actúa como una capa entre el hardware físico y las máquinas virtuales, asignando recursos y garantizando el aislamiento entre ellas."
       },
       {
-        id: 3046,
+        id: 1346,
         moduloId: 103,
         pregunta: "¿Qué tipo de hipervisor se ejecuta directamente sobre el hardware?",
         opciones: [
@@ -676,7 +676,7 @@ export const moduloCienPreguntas = {
         explicacion: "La principal diferencia entre IPv4 e IPv6 es la longitud de la dirección: IPv4 usa direcciones de 32 bits (4 bytes) que permiten aproximadamente 4.3 mil millones de direcciones, mientras que IPv6 usa direcciones de 128 bits (16 bytes) que permiten un número prácticamente ilimitado de direcciones."
         },
         {
-        id: 3094,
+        id: 1394,
         moduloId: 103,
         pregunta: "¿Cuál es un beneficio de IPv6 sobre IPv4?",
         opciones: [
@@ -690,7 +690,7 @@ export const moduloCienPreguntas = {
       explicacion: "El hipervisor de tipo 1 (o nativo) se ejecuta directamente sobre el hardware físico sin necesidad de un sistema operativo anfitrión. Ejemplos incluyen VMware ESXi, Microsoft Hyper-V Server y Citrix XenServer."
     },
     {
-      id: 3047,
+      id: 1347,
       moduloId: 103,
       pregunta: "¿Qué se entiende por \"máquina virtual\" (VM)?",
       opciones: [
@@ -703,7 +703,7 @@ export const moduloCienPreguntas = {
       explicacion: "Una máquina virtual (VM) es un entorno de software que emula un sistema informático completo, incluyendo hardware virtual, sistema operativo y aplicaciones, todo funcionando de manera aislada dentro de un sistema anfitrión."
     },
     {
-      id: 3048,
+      id: 1348,
       moduloId: 103,
       pregunta: "¿Qué es la virtualización de servidores?",
       opciones: [
@@ -716,7 +716,7 @@ export const moduloCienPreguntas = {
       explicacion: "La virtualización de servidores es la consolidación de múltiples servidores físicos en servidores virtuales que se ejecutan en un número menor de máquinas físicas, optimizando así el uso de recursos y reduciendo costos."
     },
     {
-      id: 3049,
+      id: 1349,
       moduloId: 103,
       pregunta: "¿Cuál de los siguientes NO es un beneficio de la virtualización?",
       opciones: [
@@ -729,7 +729,7 @@ export const moduloCienPreguntas = {
       explicacion: "El aumento del consumo energético no es un beneficio de la virtualización; de hecho, uno de sus principales beneficios es reducir el consumo energético al utilizar menos hardware físico para realizar el mismo trabajo."
     },
     {
-      id: 3050,
+      id: 1350,
       moduloId: 103,
       pregunta: "¿Qué tipo de virtualización permite ejecutar un sistema operativo distinto sobre otro?",
       opciones: [
@@ -742,7 +742,7 @@ export const moduloCienPreguntas = {
       explicacion: "La virtualización de escritorio permite ejecutar un sistema operativo completo diferente sobre otro sistema operativo base. Esto facilita el acceso remoto a entornos de trabajo y la ejecución de sistemas operativos incompatibles con el hardware actual."
     },
     {
-      id: 3051,
+      id: 1351,
       moduloId: 103,
       pregunta: "¿Qué ventaja ofrece la virtualización para pruebas de software?",
       opciones: [
@@ -755,7 +755,7 @@ export const moduloCienPreguntas = {
       explicacion: "La virtualización ofrece como ventaja para pruebas de software la posibilidad de crear rápidamente entornos aislados, lo que permite probar aplicaciones en diferentes configuraciones sin afectar al sistema principal y poder revertir cambios fácilmente."
     },
     {
-      id: 3052,
+      id: 1352,
       moduloId: 103,
       pregunta: "¿Qué tecnología permite ejecutar aplicaciones en entornos virtuales sin crear una máquina virtual completa?",
       opciones: [
@@ -768,7 +768,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los contenedores (como Docker o Kubernetes) permiten ejecutar aplicaciones en entornos virtuales aislados sin necesidad de crear una máquina virtual completa, compartiendo el kernel del sistema operativo anfitrión para mayor eficiencia."
     },
     {
-      id: 3053,
+      id: 1353,
       moduloId: 103,
       pregunta: "¿Qué describe mejor un entorno \"sandbox\" en virtualización?",
       opciones: [
@@ -781,7 +781,7 @@ export const moduloCienPreguntas = {
       explicacion: "Un entorno \"sandbox\" en virtualización es un entorno seguro y aislado donde se pueden realizar pruebas, ejecutar código potencialmente peligroso o experimentar con configuraciones sin riesgo de afectar al sistema principal."
     },
     {
-      id: 3054,
+      id: 1354,
       moduloId: 103,
       pregunta: "¿Qué protocolo facilita la conexión remota a máquinas virtuales?",
       opciones: [
@@ -794,7 +794,7 @@ export const moduloCienPreguntas = {
       explicacion: "El protocolo RDP (Remote Desktop Protocol) facilita la conexión remota a máquinas virtuales, especialmente en entornos Windows. Permite a los usuarios interactuar con el escritorio de la máquina virtual como si estuvieran sentados frente a ella."
     },
     {
-      id: 3055,
+      id: 1355,
       moduloId: 103,
       pregunta: "¿Qué factor es crítico para la eficiencia en entornos virtualizados?",
       opciones: [
@@ -807,7 +807,7 @@ export const moduloCienPreguntas = {
       explicacion: "La cantidad de memoria RAM disponible es un factor crítico para la eficiencia en entornos virtualizados, ya que cada máquina virtual requiere su propia asignación de memoria para funcionar correctamente."
     },
     {
-      id: 3056,
+      id: 1356,
       moduloId: 103,
       pregunta: "¿Qué es la virtualización en la nube?",
       opciones: [
@@ -820,7 +820,7 @@ export const moduloCienPreguntas = {
       explicacion: "La virtualización en la nube consiste en ejecutar máquinas virtuales en servidores de terceros (proveedores de servicios en la nube) a través de Internet, eliminando la necesidad de mantener hardware propio."
     },
     {
-      id: 3057,
+      id: 1357,
       moduloId: 103,
       pregunta: "¿Qué plataforma de virtualización es conocida por su código abierto?",
       opciones: [
@@ -833,7 +833,7 @@ export const moduloCienPreguntas = {
       explicacion: "Oracle VirtualBox es conocida por ser una plataforma de virtualización de código abierto (bajo licencia GPL), lo que permite a cualquiera acceder, modificar y distribuir su código fuente."
     },
     {
-      id: 3058,
+      id: 1358,
       moduloId: 103,
       pregunta: "¿Cuál es la función principal de la Unidad Lógica y Aritmética (ALU)?",
       opciones: [
@@ -846,7 +846,7 @@ export const moduloCienPreguntas = {
       explicacion: "La función principal de la Unidad Lógica y Aritmética (ALU) es realizar operaciones matemáticas (como suma, resta, multiplicación y división) y operaciones lógicas (como AND, OR y NOT) dentro del procesador."
     },
     {
-      id: 3059,
+      id: 1359,
       moduloId: 103,
       pregunta: "¿Qué operaciones realiza la ALU además de sumas y restas?",
       opciones: [
@@ -859,7 +859,7 @@ export const moduloCienPreguntas = {
       explicacion: "Además de sumas y restas, la ALU realiza operaciones lógicas como AND, OR y NOT, que son fundamentales para la manipulación de datos a nivel de bits y la toma de decisiones dentro del procesador."
     },
     {
-      id: 3060,
+      id: 1360,
       moduloId: 103,
       pregunta: "¿Qué tipo de memoria es volátil?",
       opciones: [
@@ -872,7 +872,7 @@ export const moduloCienPreguntas = {
       explicacion: "La memoria RAM (Random Access Memory) es volátil, lo que significa que pierde toda la información almacenada cuando se corta la alimentación eléctrica. Por eso se usa como memoria temporal durante la ejecución de programas."
     },
     {
-      id: 3061,
+      id: 1361,
       moduloId: 103,
       pregunta: "¿Qué tipo de memoria es utilizada para almacenar el firmware del sistema?",
       opciones: [
@@ -885,7 +885,7 @@ export const moduloCienPreguntas = {
       explicacion: "La memoria ROM (Read-Only Memory) se utiliza para almacenar el firmware del sistema, como la BIOS o UEFI. Es no volátil y retiene la información incluso sin alimentación eléctrica."
     },
     {
-      id: 3062,
+      id: 1362,
       moduloId: 103,
       pregunta: "¿Qué memoria es más rápida pero tiene menor capacidad?",
       opciones: [
@@ -898,7 +898,7 @@ export const moduloCienPreguntas = {
       explicacion: "La memoria caché es más rápida que otros tipos de memoria pero tiene menor capacidad. Actúa como intermediaria entre la CPU y la RAM para acelerar el acceso a datos frecuentemente utilizados."
     },
     {
-      id: 3063,
+      id: 1363,
       moduloId: 103,
       pregunta: "¿Qué tipo de memoria se usa para el almacenamiento a largo plazo?",
       opciones: [
@@ -911,7 +911,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los discos duros (HDD) se utilizan principalmente para el almacenamiento a largo plazo de datos, ya que son no volátiles y mantienen la información incluso cuando el equipo está apagado."
     },
     {
-      id: 3064,
+      id: 1364,
       moduloId: 103,
       pregunta: "¿Cuál es una ventaja de los SSD sobre los HDD?",
       opciones: [
@@ -924,7 +924,7 @@ export const moduloCienPreguntas = {
       explicacion: "Una ventaja principal de los SSD (Solid State Drives) sobre los HDD (Hard Disk Drives) es su mayor velocidad de lectura y escritura, lo que permite tiempos de arranque más rápidos y mejor rendimiento general del sistema."
     },
     {
-      id: 3065,
+      id: 1365,
       moduloId: 103,
       pregunta: "¿Qué característica distingue a los discos duros HDD?",
       opciones: [
@@ -937,7 +937,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los discos duros HDD se distinguen por usar platos giratorios magnéticos y cabezales de lectura/escritura mecánicos para almacenar y acceder a los datos, a diferencia de los SSD que utilizan memoria flash sin partes móviles."
     },
     {
-      id: 3066,
+      id: 1366,
       moduloId: 103,
       pregunta: "¿Cuál es el principal factor que hace a los HDD más económicos que los SSD?",
       opciones: [
@@ -950,7 +950,7 @@ export const moduloCienPreguntas = {
       explicacion: "El principal factor que hace a los HDD más económicos que los SSD es su tecnología de fabricación más simple y madura, que lleva décadas en el mercado, mientras que la tecnología de estado sólido es más compleja y costosa de producir."
     },
     {
-      id: 3067,
+      id: 1367,
       moduloId: 103,
       pregunta: "¿Qué disco es más adecuado para almacenar grandes volúmenes de datos de bajo acceso?",
       opciones: [
@@ -963,7 +963,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los discos duros HDD son más adecuados para almacenar grandes volúmenes de datos de bajo acceso debido a su menor costo por GB, aunque sean más lentos que los SSD, lo que los hace ideales para archivos que no necesitan acceso frecuente o rápido."
     },
     {
-      id: 3068,
+      id: 1368,
       moduloId: 103,
       pregunta: "¿Cuál de las siguientes opciones tiene un menor tiempo de arranque del sistema operativo?",
       opciones: [
@@ -976,7 +976,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los SSD (Solid State Drives) ofrecen un menor tiempo de arranque del sistema operativo debido a su acceso aleatorio más rápido y ausencia de latencia mecánica, lo que permite cargar archivos del sistema mucho más rápido que con un HDD."
     },
     {
-      id: 3069,
+      id: 1369,
       moduloId: 103,
       pregunta: "¿Qué factor influye directamente en la vida útil de un SSD?",
       opciones: [
@@ -989,7 +989,7 @@ export const moduloCienPreguntas = {
       explicacion: "El número de ciclos de lectura/escritura influye directamente en la vida útil de un SSD. Cada celda de memoria flash puede soportar un número limitado de escrituras antes de fallar, lo que afecta a la longevidad total del dispositivo."
     },
     {
-      id: 3070,
+      id: 1370,
       moduloId: 103,
       pregunta: "¿Qué tipo de disco es más resistente a golpes y caídas?",
       opciones: [
@@ -1002,7 +1002,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los SSD son más resistentes a golpes y caídas porque no tienen partes móviles, a diferencia de los HDD que tienen platos giratorios y cabezales que pueden dañarse con los impactos."
     },
     {
-      id: 3071,
+      id: 1371,
       moduloId: 103,
       pregunta: "¿Qué tecnología permite a un SSD ser más eficiente energéticamente que un HDD?",
       opciones: [
@@ -1015,7 +1015,7 @@ export const moduloCienPreguntas = {
       explicacion: "La tecnología de memoria flash NAND utilizada en los SSD permite un consumo energético mucho menor que los HDD, ya que no requiere mover partes mecánicas (como platos giratorios o cabezales) para leer o escribir datos."
     },
     {
-      id: 3072,
+      id: 1372,
       moduloId: 103,
       pregunta: "¿Qué disco es recomendable para sistemas operativos y aplicaciones que requieren alta velocidad?",
       opciones: [
@@ -1028,7 +1028,7 @@ export const moduloCienPreguntas = {
       explicacion: "Los SSD son recomendables para sistemas operativos y aplicaciones que requieren alta velocidad, ya que ofrecen tiempos de acceso y transferencia mucho más rápidos que los HDD tradicionales, mejorando notablemente el rendimiento general del sistema."
     },
     {
-      id: 3073,
+      id: 1373,
       moduloId: 103,
       pregunta: "¿Qué es el CMD en Windows?",
       opciones: [
@@ -1041,7 +1041,7 @@ export const moduloCienPreguntas = {
       explicacion: "CMD (Command Prompt) en Windows es un intérprete de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos de texto en lugar de la interfaz gráfica."
     },
     {
-      id: 3074,
+      id: 1374,
       moduloId: 103,
       pregunta: "¿Qué comando se utiliza para ver la dirección IP en CMD?",
       opciones: [
@@ -1054,7 +1054,7 @@ export const moduloCienPreguntas = {
       explicacion: "El comando 'ipconfig' se utiliza en CMD para mostrar información sobre la configuración de red del sistema, incluyendo direcciones IP, máscaras de subred y puertas de enlace."
     },
     {
-      id: 3075,
+      id: 1375,
       moduloId: 103,
       pregunta: "¿Qué comando sirve para verificar la conectividad a una dirección en CMD?",
       opciones: [
@@ -1067,7 +1067,7 @@ export const moduloCienPreguntas = {
       explicacion: "El comando 'ping' se utiliza para verificar la conectividad entre el equipo local y un destino específico (como un servidor o sitio web) enviando paquetes de datos y midiendo el tiempo de respuesta."
     },
     {
-      id: 3076,
+      id: 1376,
       moduloId: 103,
       pregunta: "¿Qué comando se usa para listar archivos y carpetas en el directorio actual?",
       opciones: [
@@ -1080,7 +1080,7 @@ export const moduloCienPreguntas = {
       explicacion: "El comando 'dir' (directory) se usa para listar los archivos y carpetas contenidos en el directorio actual o en una ruta específica en el símbolo del sistema de Windows."
     },
     {
-      id: 3077,
+      id: 1377,
       moduloId: 103,
       pregunta: "¿Qué comando se usa para cambiar de directorio en CMD?",
       opciones: [
@@ -1093,7 +1093,7 @@ export const moduloCienPreguntas = {
       explicacion: "El comando 'cd' (change directory) se usa para cambiar el directorio actual en el símbolo del sistema de Windows. Por ejemplo, 'cd Documents' cambia al directorio Documents."
     },
     {
-      id: 3078,
+      id: 1378,
       moduloId: 103,
       pregunta: "¿Cómo se accede a la página de Servicios en Windows?",
       opciones: [
@@ -1106,7 +1106,7 @@ export const moduloCienPreguntas = {
       explicacion: "Para acceder a la página de Servicios en Windows, se debe ejecutar 'services.msc' en el cuadro de diálogo Ejecutar (Win+R) o en el menú Inicio. Esta herramienta permite administrar los servicios del sistema."
     },
     {
-      id: 3079,
+      id: 1379,
       moduloId: 103,
       pregunta: "¿Qué estado indica que un servicio de Windows se está ejecutando?",
       opciones: [
@@ -1119,7 +1119,7 @@ export const moduloCienPreguntas = {
       explicacion: "El estado 'En ejecución' indica que un servicio de Windows está activo y funcionando correctamente. Este estado se muestra en la columna de Estado del Administrador de servicios."
     },
     {
-      id: 3080,
+      id: 1380,
       moduloId: 103,
       pregunta: "¿Qué tipo de inicio permite que un servicio se ejecute al arrancar el sistema?",
       opciones: [
@@ -1132,7 +1132,7 @@ export const moduloCienPreguntas = {
       explicacion: "El tipo de inicio 'Automático' permite que un servicio se ejecute inmediatamente al arrancar el sistema, sin intervención del usuario. Es útil para servicios esenciales o que necesitan estar disponibles desde el inicio."
     },
     {
-      id: 3081,
+      id: 1381,
       moduloId: 103,
       pregunta: "¿Qué herramienta de Windows muestra el uso de CPU y memoria en tiempo real?",
       opciones: [
@@ -1145,7 +1145,7 @@ export const moduloCienPreguntas = {
       explicacion: "El Administrador de Tareas de Windows muestra el uso de CPU, memoria, disco y red en tiempo real, permitiendo a los usuarios monitorear el rendimiento del sistema y cerrar aplicaciones que no responden."
     },
     {
-      id: 3082,
+      id: 1382,
       moduloId: 103,
       pregunta: "¿Qué pestaña del Administrador de Tareas muestra los procesos en ejecución?",
       opciones: [
@@ -1158,7 +1158,7 @@ export const moduloCienPreguntas = {
       explicacion: "La pestaña 'Procesos' del Administrador de Tareas muestra todos los procesos en ejecución, incluyendo aplicaciones, procesos en segundo plano y procesos del sistema, junto con su uso de recursos."
     },
     {
-      id: 3083,
+      id: 1383,
       moduloId: 103,
       pregunta: "¿Qué unidad se utiliza para medir el uso de la CPU en el Administrador de Tareas?",
       opciones: [
@@ -1171,7 +1171,7 @@ export const moduloCienPreguntas = {
       explicacion: "El uso de la CPU en el Administrador de Tareas se mide en porcentaje (%), donde 0% indica que la CPU está inactiva y 100% indica que está completamente utilizada."
     },
     {
-      id: 3084,
+      id: 1384,
       moduloId: 103,
       pregunta: "¿Qué representa el uso de memoria en el Administrador de Tareas?",
       opciones: [
@@ -1184,7 +1184,7 @@ export const moduloCienPreguntas = {
       explicacion: "El uso de memoria en el Administrador de Tareas representa el total de memoria física (RAM) utilizada actualmente por el sistema operativo y las aplicaciones en ejecución."
     },
     {
-      id: 3085,
+      id: 1385,
       moduloId: 103,
       pregunta: "¿Qué acción se puede realizar desde el Administrador de Tareas para cerrar un programa que no responde?",
       opciones: [
@@ -1197,7 +1197,7 @@ export const moduloCienPreguntas = {
       explicacion: "La acción 'Finalizar tarea' en el Administrador de Tareas permite cerrar forzadamente un programa que no responde o se ha bloqueado, terminando inmediatamente su proceso."
     },
     {
-      id: 3086,
+      id: 1386,
       moduloId: 103,
       pregunta: "¿Qué pestaña del Administrador de Tareas permite ver el uso de red?",
       opciones: [
@@ -1210,7 +1210,7 @@ export const moduloCienPreguntas = {
       explicacion: "La pestaña 'Rendimiento' del Administrador de Tareas permite ver el uso de red, junto con otras métricas de rendimiento como CPU, memoria y disco, mostrando gráficos en tiempo real."
     },
     {
-      id: 3087,
+      id: 1387,
       moduloId: 103,
       pregunta: "¿Qué opción del Administrador de Tareas se utiliza para ver el impacto de las aplicaciones al inicio?",
       opciones: [
@@ -1223,7 +1223,7 @@ export const moduloCienPreguntas = {
       explicacion: "La pestaña 'Inicio' del Administrador de Tareas muestra las aplicaciones que se inician automáticamente cuando Windows arranca y su impacto en el tiempo de inicio del sistema."
     },
     {
-      id: 3088,
+      id: 1388,
       moduloId: 103,
       pregunta: "¿Cuál es la función principal de la máscara de red?",
       opciones: [
@@ -1236,7 +1236,7 @@ export const moduloCienPreguntas = {
       explicacion: "La función principal de la máscara de red es identificar qué parte de una dirección IP corresponde a la red (network ID) y qué parte corresponde al host, permitiendo así la segmentación y el enrutamiento correcto de las redes IP."
     },
     {
-      id: 3089,
+      id: 1389,
       moduloId: 103,
       pregunta: "¿Qué máscara de red corresponde a /24?",
       opciones: [
@@ -1249,7 +1249,7 @@ export const moduloCienPreguntas = {
       explicacion: "La máscara de red /24 corresponde a 255.255.255.0, lo que significa que los primeros 24 bits (3 octetos) identifican la red y los últimos 8 bits (1 octeto) identifican el host dentro de esa red."
     },
     {
-      id: 3090,
+      id: 1390,
       moduloId: 103,
       pregunta: "¿Cuál de las siguientes máscaras permite más hosts?",
       opciones: [
@@ -1262,7 +1262,7 @@ export const moduloCienPreguntas = {
       explicacion: "La máscara 255.255.0.0 (/16) permite más hosts porque destina 16 bits para identificar hosts (2^16 - 2 = 65.534 hosts posibles), mientras que las otras máscaras reservan menos bits para hosts."
     },
     {
-      id: 3091,
+      id: 1391,
       moduloId: 103,
       pregunta: "¿Cuántos bits tiene una dirección IPv4?",
       opciones: [
@@ -1275,7 +1275,7 @@ export const moduloCienPreguntas = {
       explicacion: "Una dirección IPv4 tiene 32 bits, divididos en cuatro octetos (bloques de 8 bits) separados por puntos. Cada octeto puede representar un valor entre 0 y 255."
     },
     {
-      id: 3092,
+      id: 1392,
       moduloId: 103,
       pregunta: "¿Cuál es un ejemplo válido de una dirección IPv4?",
       opciones: [
@@ -1288,7 +1288,7 @@ export const moduloCienPreguntas = {
       explicacion: "192.168.1.1 es un ejemplo válido de una dirección IPv4. Contiene cuatro octetos separados por puntos, y cada octeto está dentro del rango válido de 0-255."
     },
     {
-      id: 3093,
+      id: 1393,
       moduloId: 103,
       pregunta: "¿Cuál es la principal diferencia entre IPv4 e IPv6?",
       opciones: [
@@ -1301,7 +1301,7 @@ export const moduloCienPreguntas = {
         explicacion: "Un beneficio clave de IPv6 sobre IPv4 es la disponibilidad de más direcciones (2^128 frente a 2^32), lo que resuelve el problema de agotamiento de direcciones IPv4 y permite asignar direcciones únicas a un número prácticamente ilimitado de dispositivos."
         },
         {
-        id: 3095,
+        id: 1395,
         moduloId: 103,
         pregunta: "¿Qué es una dirección de broadcast?",
         opciones: [
@@ -1314,7 +1314,7 @@ export const moduloCienPreguntas = {
         explicacion: "Una dirección de broadcast es la última dirección válida de una red y se utiliza para enviar paquetes a todos los dispositivos de esa red simultáneamente. En una red IPv4, normalmente termina en .255 (para una red /24)."
         },
         {
-        id: 3096,
+        id: 1396,
         moduloId: 103,
         pregunta: "¿Cuál es la dirección de broadcast para la red 192.168.1.0/24?",
         opciones: [
@@ -1327,7 +1327,7 @@ export const moduloCienPreguntas = {
         explicacion: "La dirección de broadcast para la red 192.168.1.0/24 es 192.168.1.255. Esta dirección se utiliza para enviar paquetes a todos los dispositivos dentro de esa red."
         },
         {
-        id: 3097,
+        id: 1397,
         moduloId: 103,
         pregunta: "¿Qué define una subred?",
         opciones: [
@@ -1340,7 +1340,7 @@ export const moduloCienPreguntas = {
         explicacion: "Una subred es un segmento de red que comparte la misma máscara de red y la misma dirección de red. Es una subdivisión lógica de una red IP más grande para mejorar el rendimiento y la seguridad."
         },
         {
-        id: 3098,
+        id: 1398,
         moduloId: 103,
         pregunta: "¿Cuántas subredes se pueden crear usando una máscara /26?",
         opciones: [
@@ -1353,7 +1353,7 @@ export const moduloCienPreguntas = {
         explicacion: "Usando una máscara /26 para subdividir una red /24, se pueden crear 4 subredes. Esto es porque se toman 2 bits adicionales para la parte de red (2^2 = 4)."
         },
         {
-        id: 3099,
+        id: 1399,
         moduloId: 103,
         pregunta: "¿Qué máscara se usa para crear 4 subredes de igual tamaño a partir de una red /24?",
         opciones: [
@@ -1366,7 +1366,7 @@ export const moduloCienPreguntas = {
         explicacion: "Para crear 4 subredes de igual tamaño a partir de una red /24, se usa la máscara /26. Esto añade 2 bits a la porción de red (2^2 = 4 subredes) y deja 6 bits para hosts (2^6 - 2 = 62 hosts por subred)."
         },
         {
-        id: 3100,
+        id: 1400,
         moduloId: 103,
         pregunta: "¿Por qué es importante que un estudiante de DAM (Desarrollo de Aplicaciones Multiplataforma) y DAW (Desarrollo de Aplicaciones Web) comprenda el funcionamiento de las direcciones IP?",
         opciones: [

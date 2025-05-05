@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="md:flex md:items-center md:justify-between">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm">
-              &copy; {currentYear} Quiz App. Para gente amante de THE POWER
+              &copy; {currentYear} Quiz App.
             </p>
           </div>
           <div className="flex justify-center md:justify-end space-x-6">

@@ -2,6 +2,10 @@
 
 Aplicación educativa para crear y realizar tests de diferentes asignaturas y módulos. Diseñada con React y Tailwind CSS, ofrece una interfaz intuitiva para practicar conocimientos a través de cuestionarios interactivos.
 
+## Propósito Educativo
+
+Este proyecto ha sido desarrollado sin ánimo de lucro y con el único objetivo de facilitar el estudio y aprendizaje. Quiz App está destinada a ser una herramienta educativa gratuita para estudiantes . Todos los materiales, preguntas y contenidos se proporcionan exclusivamente con fines formativos.
+
 ## Características
 
 - Organización por asignaturas y módulos

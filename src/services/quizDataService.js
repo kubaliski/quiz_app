@@ -1,6 +1,6 @@
 /**
  * Servicios para la gestión de datos relacionados con quizzes, asignaturas y módulos.
- * Implementa manejo de errores mejorado para importaciones dinámicas.
+ * Implementa importaciones estáticas para mayor compatibilidad con Vite y entornos de producción.
  * @module quizDataService
  */
 
@@ -8,48 +8,24 @@ import { asignaturas } from "../data/asignaturas";
 import { shuffleArray } from "@utils/quizUtils";
 import { isModuleLoadError } from "./swService";
 
-// Caché en memoria para versiones de módulos
-const moduleVersions = {};
+// Importaciones estáticas de todos los módulos de asignaturas
+import sistemasInformaticos from '../data/asignaturas/sistemasInformaticos';
+import basesDeDatos from '../data/asignaturas/basesDeDatos';
+import programacion from '../data/asignaturas/programacion';
+import lenguajeDeMarcas from '../data/asignaturas/lenguajeDeMarcas';
+import entornosDeDesarrollo from '../data/asignaturas/entornosDeDesarrollo';
+import itinerarioParaLaEmpleabilidad from '../data/asignaturas/itinerarioParaLaEmpleabilidad';
+import moduloProfesionalOptativo from '../data/asignaturas/moduloProfesionalOptativo';
 
-/**
- * Ayudante para intentar importar un módulo con reintentos
- * @async
- * @function safeImport
- * @param {string} path - Ruta del módulo a importar
- * @param {number} [retries=2] - Número de reintentos
- * @returns {Promise<Object>} Promesa que resuelve con el módulo importado
- * @throws {Error} Si todos los reintentos fallan
- */
-const safeImport = async (path, retries = 2) => {
-  try {
-    // Usar comentario para suprimir advertencia de Vite
-    const module = await import(/* @vite-ignore */ path);
-
-    // Registrar versión para futura referencia
-    const moduleKey = path.split('/').pop();
-    moduleVersions[moduleKey] = Date.now();
-
-    return module;
-  } catch (error) {
-    if (retries > 0) {
-      console.warn(`Reintentando importar ${path}. Reintentos restantes: ${retries}`);
-
-      // Esperar un poco antes de reintentar
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      return safeImport(path, retries - 1);
-    }
-
-    // Registrar error y propagarlo
-    console.error(`Error importando el módulo ${path}:`, error);
-
-    // Marcar el error como relacionado con SW si aplica
-    if (isModuleLoadError(error)) {
-      error.swUpdateAvailable = true;
-    }
-
-    throw error;
-  }
+// Mapa de módulos para acceso rápido por ID
+const modulosMap = {
+  1: sistemasInformaticos,
+  2: basesDeDatos,
+  3: programacion,
+  4: lenguajeDeMarcas,
+  5: entornosDeDesarrollo,
+  6: itinerarioParaLaEmpleabilidad,
+  7: moduloProfesionalOptativo
 };
 
 /**
@@ -69,75 +45,37 @@ export const fetchAsignaturas = () => {
 
 /**
  * Obtiene una asignatura completa con todos sus módulos.
- * Implementa manejo de errores mejorado para problemas con el Service Worker.
+ * Utiliza importaciones estáticas para mayor compatibilidad.
  *
  * @async
  * @function fetchAsignaturaCompleta
  * @param {string|number} asignaturaId - Identificador de la asignatura a obtener
  * @returns {Promise<Object>} Promesa que resuelve con el objeto de asignatura completo
- * @throws {Error} Si la asignatura solicitada no existe o hay un error de carga
+ * @throws {Error} Si la asignatura solicitada no existe
  */
 export const fetchAsignaturaCompleta = async (asignaturaId) => {
   return new Promise((resolve, reject) => {
-    setTimeout(async () => {
+    setTimeout(() => {
       try {
         const id = parseInt(asignaturaId, 10);
-        let modulePath = "";
 
-        switch(id) {
-          case 1:
-            modulePath = "../data/asignaturas/sistemasInformaticos";
-            break;
-          case 2:
-            modulePath = "../data/asignaturas/basesDeDatos";
-            break;
-          case 3:
-            modulePath = "../data/asignaturas/programacion";
-            break;
-          case 4:
-            modulePath = "../data/asignaturas/lenguajeDeMarcas";
-            break;
-          case 5:
-            modulePath = "../data/asignaturas/entornosDeDesarrollo";
-            break;
-          case 6:
-            modulePath = "../data/asignaturas/itinerarioParaLaEmpleabilidad";
-            break;
-          case 7:
-            modulePath = "../data/asignaturas/moduloProfesionalOptativo";
-            break;
-          default:
-            {
-              // Otras asignaturas (placeholder)
-              const asignatura = asignaturas.find((a) => a.id === id);
-              if (!asignatura) {
-                reject(new Error("Asignatura no encontrada"));
-              } else {
-                resolve({
-                  ...asignatura,
-                  modulos: [],
-                });
-              }
-            }
-            return;
-        }
-
-        try {
-          // Usar el ayudante para importación segura
-          const module = await safeImport(modulePath);
-          resolve(module.default);
-        } catch (error) {
-          // Ya no intentamos recuperación con fetch ya que no funciona fiablemente en producción
-          console.warn(`Error al importar ${modulePath}, activando mecanismo de recuperación...`);
-
-          // Crear un error con contexto para el SW
-          const enhancedError = new Error(`No se pudo cargar la asignatura ${id}. Prueba a recargar la página.`);
-          enhancedError.swUpdateAvailable = true;
-          enhancedError.originalError = error;
-
-          reject(enhancedError);
+        if (modulosMap[id]) {
+          // Usar el módulo pre-importado
+          resolve(modulosMap[id]);
+        } else {
+          // Otras asignaturas (placeholder)
+          const asignatura = asignaturas.find((a) => a.id === id);
+          if (!asignatura) {
+            reject(new Error("Asignatura no encontrada"));
+          } else {
+            resolve({
+              ...asignatura,
+              modulos: [],
+            });
+          }
         }
       } catch (error) {
+        console.error("Error cargando asignatura:", error);
         reject(error);
       }
     }, 300);
@@ -145,14 +83,14 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
 };
 
 /**
- * Obtiene un módulo específico de una asignatura con manejo mejorado de errores.
+ * Obtiene un módulo específico de una asignatura.
  *
  * @async
  * @function fetchModulo
  * @param {string|number} asignaturaId - Identificador de la asignatura
  * @param {string|number} moduloId - Identificador del módulo a obtener
  * @returns {Promise<Object>} Promesa que resuelve con el objeto del módulo
- * @throws {Error} Si la asignatura o el módulo no existen o hay error de carga
+ * @throws {Error} Si la asignatura o el módulo no existen
  */
 export const fetchModulo = async (asignaturaId, moduloId) => {
   try {
@@ -168,8 +106,6 @@ export const fetchModulo = async (asignaturaId, moduloId) => {
     return modulo;
   } catch (error) {
     console.error("Error cargando módulo:", error);
-
-    // Propagar el error enriquecido
     throw error;
   }
 };

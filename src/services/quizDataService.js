@@ -6,7 +6,6 @@
 
 import { asignaturas } from "../data/asignaturas";
 import { shuffleArray } from "@utils/quizUtils";
-import { isModuleLoadError } from "./swService";
 
 // Importaciones estáticas de todos los módulos de asignaturas
 import sistemasInformaticos from '../data/asignaturas/sistemasInformaticos';

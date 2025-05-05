@@ -9,13 +9,14 @@
  * - Muestra una barra de progreso con el avance del quiz
  * - Permite salir del quiz con confirmación para evitar pérdida accidental de progreso
  * - Redirige a la página de resultados al completar todas las preguntas
+ * - Permite navegación con teclas izquierda/derecha del teclado
  *
  * @component
  * @param {Object} props - Las propiedades del componente
  * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen)
  * @returns {JSX.Element} Componente QuizPage renderizado
  */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
@@ -60,6 +61,95 @@ export default function QuizPage({ tipo }) {
   const progreso = totalPreguntas ? ((preguntaActual + 1) / totalPreguntas) * 100 : 0;
   const preguntaActiva = preguntas[preguntaActual] || null;
   const tieneRespuestaActual = preguntaActiva ? respuestas[preguntaActiva.id] !== undefined : false;
+
+  // Manejar funciones de navegación
+  const handleNext = useCallback(() => {
+    if (preguntaActual < totalPreguntas - 1) {
+      setPreguntaActual(preguntaActual + 1);
+    } else {
+      // Guardar resultados en sessionStorage para la página de resultados
+      sessionStorage.setItem('quiz_respuestas', JSON.stringify(respuestas));
+      sessionStorage.setItem('quiz_preguntas', JSON.stringify(preguntas));
+      sessionStorage.setItem('quiz_asignatura', JSON.stringify({
+        id: asigId,
+        nombre: asignatura?.nombre || 'Asignatura'
+      }));
+
+      // Guardar información sobre el tipo de quiz
+      sessionStorage.setItem('quiz_tipo', tipoQuiz || 'regular');
+
+      if (modulo) {
+        sessionStorage.setItem('quiz_modulo', JSON.stringify({
+          id: modulo.id,
+          nombre: modulo.nombre,
+          esExamen: modulo.esExamen
+        }));
+
+        // Navegación a módulo específico
+        navigate(`/resultados/${asignaturaId}/${modulo.id}`);
+      } else if (modoExamen || tipoQuiz === 'examen') {
+        sessionStorage.setItem('quiz_modulo', JSON.stringify({
+          id: 'examen',
+          nombre: 'Preguntas de examen'
+        }));
+
+        // Navegación a modo examen
+        navigate(`/resultados/${asignaturaId}/examen`);
+      } else {
+        sessionStorage.setItem('quiz_modulo', JSON.stringify({
+          id: 'todos',
+          nombre: 'Todos los módulos'
+        }));
+
+        // Navegación a modo todos
+        navigate(`/resultados/${asignaturaId}/todos`);
+      }
+    }
+  }, [preguntaActual, totalPreguntas, respuestas, preguntas, asigId, asignatura, tipoQuiz, modulo, modoExamen, asignaturaId, navigate]);
+
+  const handlePrevious = useCallback(() => {
+    if (preguntaActual > 0) {
+      setPreguntaActual(preguntaActual - 1);
+    }
+  }, [preguntaActual]);
+
+  // Manejador de teclas para navegación con teclado
+  const handleKeyDown = useCallback((event) => {
+
+    // Solo manejar eventos de teclado si no hay diálogo abierto y el quiz está cargado
+    if (dialogOpen || cargando || preguntas.length === 0) {
+      return;
+    }
+
+    // Verificar qué tecla se presionó
+    if (event.key === 'ArrowRight') {
+      // Permitir navegar a la siguiente pregunta aunque no haya respuesta seleccionada
+      if (preguntaActual < totalPreguntas - 1) {
+        event.preventDefault(); // Prevenir comportamiento por defecto
+        setPreguntaActual(preguntaActual + 1);
+      }
+    } else if (event.key === 'ArrowLeft') {
+      // Tecla izquierda: ir a pregunta anterior si no es la primera
+      if (preguntaActual > 0) {
+        event.preventDefault(); // Prevenir comportamiento por defecto
+        setPreguntaActual(preguntaActual - 1);
+      }
+    }
+  }, [dialogOpen, cargando, preguntas.length, preguntaActual, totalPreguntas]);
+
+  // Efecto para manejar eventos de teclado
+  useEffect(() => {
+    // Añadir el event listener cuando el componente se monta
+    document.addEventListener('keydown', handleKeyDown);
+
+
+
+    // Limpiar el event listener cuando el componente se desmonta
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+
+    };
+  }, [handleKeyDown]); // Dependencias para recrear el efecto cuando cambien estas variables
 
   useEffect(() => {
     let mounted = true;
@@ -138,56 +228,6 @@ export default function QuizPage({ tipo }) {
       ...prev,
       [preguntaId]: respuestaIndex
     }));
-  };
-
-  const handleNext = () => {
-    if (preguntaActual < totalPreguntas - 1) {
-      setPreguntaActual(preguntaActual + 1);
-    } else {
-      // Guardar resultados en sessionStorage para la página de resultados
-      sessionStorage.setItem('quiz_respuestas', JSON.stringify(respuestas));
-      sessionStorage.setItem('quiz_preguntas', JSON.stringify(preguntas));
-      sessionStorage.setItem('quiz_asignatura', JSON.stringify({
-        id: asigId,
-        nombre: asignatura?.nombre || 'Asignatura'
-      }));
-
-      // Guardar información sobre el tipo de quiz
-      sessionStorage.setItem('quiz_tipo', tipoQuiz || 'regular');
-
-      if (modulo) {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: modulo.id,
-          nombre: modulo.nombre,
-          esExamen: modulo.esExamen
-        }));
-
-        // Navegación a módulo específico
-        navigate(`/resultados/${asignaturaId}/${modulo.id}`);
-      } else if (modoExamen || tipoQuiz === 'examen') {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: 'examen',
-          nombre: 'Preguntas de examen'
-        }));
-
-        // Navegación a modo examen
-        navigate(`/resultados/${asignaturaId}/examen`);
-      } else {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: 'todos',
-          nombre: 'Todos los módulos'
-        }));
-
-        // Navegación a modo todos
-        navigate(`/resultados/${asignaturaId}/todos`);
-      }
-    }
-  };
-
-  const handlePrevious = () => {
-    if (preguntaActual > 0) {
-      setPreguntaActual(preguntaActual - 1);
-    }
   };
 
   const handleExit = () => {
@@ -287,6 +327,14 @@ export default function QuizPage({ tipo }) {
                   onPrevious={handlePrevious}
                   onNext={handleNext}
                 />
+
+                {/* Añadimos una pequeña nota sobre la navegación por teclado */}
+                <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                  <span className="inline-block mx-1 font-medium">←</span> Anterior
+                  <span className="mx-2">|</span>
+                  Siguiente
+                  <span className="inline-block mx-1 font-medium">→</span>
+                </div>
               </>
             )}
           </>

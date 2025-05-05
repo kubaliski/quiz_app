@@ -2,7 +2,6 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-
 export default [
   // Archivos a ignorar
   { ignores: [
@@ -18,6 +17,7 @@ export default [
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
+        ...globals.node, // Añadido para reconocer globals de Node.js como require, process, __dirname
         vi: 'readonly', // Añadido para reconocer 'vi' de Vitest
       },
       parserOptions: {
@@ -43,6 +43,15 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  // Configuración específica para los archivos de scripts en Node.js
+  {
+    files: ['**/generate-version.js', '**/netlify-postbuild.js', '**/scripts/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node, // Reconocer todos los globales de Node.js
+      },
     },
   },
   // Configuración específica para los archivos de pruebas

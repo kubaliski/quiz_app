@@ -22,8 +22,8 @@ const moduleVersions = {};
  */
 const safeImport = async (path, retries = 2) => {
   try {
-    // Añadir timestamp para evitar caché en caso de problemas
-    const module = await import(`${path}?v=${Date.now()}`);
+    // Usar comentario para suprimir advertencia de Vite
+    const module = await import(/* @vite-ignore */ path);
 
     // Registrar versión para futura referencia
     const moduleKey = path.split('/').pop();
@@ -107,19 +107,19 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
             modulePath = "../data/asignaturas/moduloProfesionalOptativo";
             break;
           default:
+            {
               // Otras asignaturas (placeholder)
-              {
-                const asignatura = asignaturas.find((a) => a.id === id);
-                if (!asignatura) {
-                  reject(new Error("Asignatura no encontrada"));
-                } else {
-                  resolve({
-                    ...asignatura,
-                    modulos: [],
-                  });
-                }
+              const asignatura = asignaturas.find((a) => a.id === id);
+              if (!asignatura) {
+                reject(new Error("Asignatura no encontrada"));
+              } else {
+                resolve({
+                  ...asignatura,
+                  modulos: [],
+                });
               }
-              return;
+            }
+            return;
         }
 
         try {
@@ -127,28 +127,15 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           const module = await safeImport(modulePath);
           resolve(module.default);
         } catch (error) {
-          // Intento de recuperación - intentar importar sin caché
-          console.warn(`Error al importar ${modulePath}, intentando recuperación...`);
+          // Ya no intentamos recuperación con fetch ya que no funciona fiablemente en producción
+          console.warn(`Error al importar ${modulePath}, activando mecanismo de recuperación...`);
 
-          try {
-            // Intento final: usar fetch directamente para obtener el módulo
-            const response = await fetch(`${modulePath}.js?nocache=${Date.now()}`);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          // Crear un error con contexto para el SW
+          const enhancedError = new Error(`No se pudo cargar la asignatura ${id}. Prueba a recargar la página.`);
+          enhancedError.swUpdateAvailable = true;
+          enhancedError.originalError = error;
 
-            console.log('Recuperación con fetch exitosa, recargando aplicación...');
-            // Si tenemos el recurso, forzar recarga para usar la nueva versión
-            window.location.reload();
-            return;
-          } catch (fetchError) {
-            console.error('Falló el intento de recuperación con fetch:', fetchError);
-
-            // Crear un error con contexto para el SW
-            const enhancedError = new Error(`No se pudo cargar la asignatura ${id}. Prueba a recargar la página.`);
-            enhancedError.swUpdateAvailable = true;
-            enhancedError.originalError = error;
-
-            reject(enhancedError);
-          }
+          reject(enhancedError);
         }
       } catch (error) {
         reject(error);

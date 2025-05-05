@@ -5,6 +5,9 @@
  * @module swService
  */
 
+// Detectar si estamos en desarrollo
+const isDevelopment = import.meta.env ? import.meta.env.DEV === true : false;
+
 /**
  * Comprueba si hay actualizaciones disponibles para el Service Worker
  * @async
@@ -40,9 +43,14 @@ export const checkForUpdates = async () => {
           // Comunicar al worker en waiting que debe activarse
           registration.waiting.postMessage({ type: 'SKIP_WAITING' });
 
-          // Recargar la página para usar la nueva versión
-          window.location.reload();
-          return true;
+          // Esperar a que el nuevo service worker tome el control
+          return new Promise((resolve) => {
+            // Cuando el controlador cambie (nuevo SW activo), resolver
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('Nuevo Service Worker activo');
+              resolve(true);
+            }, { once: true });
+          });
         }
       } catch (error) {
         console.error('Error al aplicar actualizaciones del SW:', error);
@@ -81,6 +89,12 @@ export const checkForUpdates = async () => {
   };
 
   /**
+   * Variable global para almacenar el callback de actualización
+   * @private
+   */
+  let _updateCallback = null;
+
+  /**
    * Registra un evento para manejar actualizaciones del Service Worker
    * @function registerSWUpdateHandler
    * @param {Function} onUpdateFound - Callback a ejecutar cuando se encuentra una actualización
@@ -90,6 +104,9 @@ export const checkForUpdates = async () => {
     if (!('serviceWorker' in navigator)) {
       return () => {}; // No-op si no hay soporte para SW
     }
+
+    // Guardar el callback para usarlo en otras funciones
+    _updateCallback = onUpdateFound;
 
     // Manejador de eventos para detectar actualizaciones
     const handleUpdate = (registration) => {
@@ -122,8 +139,8 @@ export const checkForUpdates = async () => {
     // Registrar manejadores para workers existentes y futuros
     navigator.serviceWorker.ready.then(handleUpdate);
 
-    // Programar comprobaciones periódicas
-    const interval = setInterval(() => {
+    // Programar comprobaciones periódicas del service worker
+    const swInterval = setInterval(() => {
       navigator.serviceWorker.getRegistration().then(registration => {
         if (registration) {
           registration.update();
@@ -131,9 +148,24 @@ export const checkForUpdates = async () => {
       });
     }, 60 * 60 * 1000); // Comprobar cada hora
 
+    // Programar comprobaciones periódicas de version.json solo en producción
+    let versionInterval;
+    if (!isDevelopment) {
+      versionInterval = setInterval(() => {
+        checkAppVersionUpdate();
+      }, 15 * 60 * 1000); // Comprobar cada 15 minutos
+    }
+
+    // Comprobar la versión inmediatamente al iniciar solo en producción
+    if (!isDevelopment) {
+      checkAppVersionUpdate();
+    }
+
     // Devolver función para limpiar
     return () => {
-      clearInterval(interval);
+      _updateCallback = null;
+      clearInterval(swInterval);
+      if (versionInterval) clearInterval(versionInterval);
     };
   };
 
@@ -188,4 +220,104 @@ export const checkForUpdates = async () => {
       error.message?.includes('ChunkLoadError') ||
       error.message?.includes('NetworkError') ||
       !!error.swUpdateAvailable;
+  };
+
+  /**
+   * Verifica si hay una nueva versión de la app comparando con version.json
+   * Limpia caché, fuerza el update y recarga si es necesario.
+   * @function checkAppVersionUpdate
+   * @returns {Promise<void>}
+   */
+  export const checkAppVersionUpdate = async () => {
+    // No ejecutar en desarrollo para evitar errores
+    if (isDevelopment) {
+      console.log('Verificación de versión omitida en entorno de desarrollo');
+      return;
+    }
+
+    try {
+      const abortController = new AbortController();
+      const timeoutId = setTimeout(() => abortController.abort(), 5000); // 5 segundos de timeout
+
+      const res = await fetch('/version.json', {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        },
+        signal: abortController.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        console.warn('No se pudo obtener version.json (status:', res.status, ')');
+        return;
+      }
+
+      // Primero obtener el texto para verificar que es un JSON válido
+      const text = await res.text();
+
+      // Verificar que tenemos un JSON válido antes de parsearlo
+      if (!text || text.trim() === '' || !text.trim().startsWith('{')) {
+        console.warn('version.json no contiene un JSON válido:',
+          text.length > 50 ? text.substring(0, 50) + '...' : text);
+        return;
+      }
+
+      // Ahora intentar parsearlo
+      const data = JSON.parse(text);
+
+      if (!data.version) {
+        console.warn('version.json no contiene una propiedad "version"');
+        return;
+      }
+
+      const version = data.version;
+      const localVersion = localStorage.getItem('app_version');
+
+      // Si no hay versión local guardada, guardamos la actual
+      if (!localVersion) {
+        localStorage.setItem('app_version', version);
+        return;
+      }
+
+      // Si la versión cambió, actualizamos la app
+      if (localVersion !== version) {
+        console.log(`Nueva versión detectada (${localVersion} → ${version})`);
+
+        // Guardar nueva versión localmente
+        localStorage.setItem('app_version', version);
+
+        // Notificar al componente que hay una actualización disponible
+        if (_updateCallback) {
+          _updateCallback();
+        }
+
+        // Si estamos en una ruta de módulo, podríamos necesitar recarga inmediata
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/quiz/') || currentPath.includes('/asignaturas/')) {
+          // Limpiar caché antigua
+          await clearModulesCache();
+
+          // Forzar actualización del SW si hay uno esperando
+          const updated = await applyUpdates();
+
+          // Si se aplicó la actualización, recargar
+          if (updated) {
+            window.location.reload(true);
+          }
+        }
+      }
+    } catch (error) {
+      // Si el error es por timeout o abort, mostrar un mensaje más amigable
+      if (error.name === 'AbortError') {
+        console.warn('Timeout al intentar obtener version.json');
+      } else if (error instanceof SyntaxError) {
+        console.warn('Error de sintaxis al parsear version.json');
+      } else {
+        console.error('Error al comprobar versión de la app:', error);
+      }
+    }
   };

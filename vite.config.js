@@ -5,10 +5,49 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { VitePWA } from 'vite-plugin-pwa'
-
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Función para generar version.json en tiempo de construcción
+function generateVersionPlugin() {
+  return {
+    name: 'vite-plugin-generate-version',
+    buildEnd: async () => {
+      // Asegurarse de que el directorio dist existe
+      const outputDir = path.resolve(__dirname, 'dist');
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+
+      // Leer version del package.json
+      const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+      let version = packageJson.version || '1.0.0';
+
+      // Intentar añadir hash de git si está disponible
+      try {
+        const { execSync } = await import('child_process');
+        const gitHash = execSync('git rev-parse --short HEAD').toString().trim();
+        version = `${version}-${gitHash}`;
+      } catch (error) {
+        console.warn('No se pudo obtener hash de Git:', error.message);
+      }
+
+      // Crear objeto de versión
+      const versionData = {
+        version,
+        buildDate: new Date().toISOString(),
+        notes: process.env.VERSION_NOTES || 'Actualización de la aplicación'
+      };
+
+      // Escribir archivo version.json
+      const versionFilePath = path.join(outputDir, 'version.json');
+      fs.writeFileSync(versionFilePath, JSON.stringify(versionData, null, 2));
+      console.log(`✅ Archivo version.json generado con versión: ${versionData.version}`);
+    }
+  };
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -66,6 +105,19 @@ export default defineConfig({
       workbox: {
         // Personalizar la gestión del caché
         runtimeCaching: [
+          {
+            // Regla para version.json - nunca cachear
+            urlPattern: /\/version\.json$/i,
+            handler: 'NetworkOnly',
+            options: {
+              backgroundSync: {
+                name: 'version-check-queue',
+                options: {
+                  maxRetentionTime: 24 * 60 // Retento por 24 horas máximo
+                }
+              }
+            }
+          },
           {
             // Regla para archivos de módulos de asignaturas
             urlPattern: /\/modulos\/.*\.js$/i,
@@ -129,6 +181,24 @@ export default defineConfig({
         skipWaiting: false, // Lo gestionamos manualmente desde nuestro componente
         clientsClaim: true,
       },
-    })
+    }),
+    generateVersionPlugin(),
   ],
+  build: {
+    // Asegurarse de que el contenido hash cambie cuando se actualiza el contenido
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Separar los módulos de las asignaturas en chunks independientes
+          if (id.includes('/modulos/')) {
+            return `modulo-${id.split('/modulos/')[1].split('.')[0]}`;
+          }
+        },
+        // Generar nombres de archivo con hash para evitar problemas de caché
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
+  },
 })

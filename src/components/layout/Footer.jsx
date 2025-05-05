@@ -1,5 +1,6 @@
 /**
- * Componente de pie de página que muestra información de copyright y enlaces de navegación.
+ * Componente de pie de página que muestra información de copyright, enlaces de navegación
+ * y la versión actual de la aplicación.
  *
  * @component
  * @returns {JSX.Element} Componente Footer renderizado
@@ -8,9 +9,85 @@
  * <Footer />
  */
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+// Detectar si estamos en entorno de desarrollo
+const isDevelopment = import.meta.env ? import.meta.env.DEV === true : false;
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [versionInfo, setVersionInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Función para obtener la información de versión
+    const fetchVersionInfo = async () => {
+      try {
+        setIsLoading(true);
+
+        // En desarrollo, usamos una versión fija
+        if (isDevelopment) {
+          setVersionInfo({
+            version: '1.1.0-dev'
+          });
+          setIsLoading(false);
+          return;
+        }
+
+        // En producción, intentamos obtener version.json
+        const abortController = new AbortController();
+        const timeoutId = setTimeout(() => abortController.abort(), 3000); // 3 segundos de timeout
+
+        const response = await fetch('/version.json', {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          },
+          signal: abortController.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+          // Primero obtenemos el texto para verificar
+          const text = await response.text();
+
+          // Verificar que tenemos un JSON válido
+          if (text && text.trim() !== '' && text.trim().startsWith('{')) {
+            try {
+              const data = JSON.parse(text);
+              setVersionInfo(data);
+            } catch (parseError) {
+              console.warn('Error al parsear version.json:', parseError);
+              setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+            }
+          } else {
+            console.warn('Respuesta no es un JSON válido');
+            setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+          }
+        } else {
+          console.warn('No se pudo obtener la información de versión');
+          setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+        }
+      } catch (error) {
+        console.error('Error al obtener información de versión:', error);
+        setVersionInfo({ version: '1.1.0' }); // Versión por defecto en caso de error
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchVersionInfo();
+  }, []);
+
+  // Extraer solo la parte principal de la versión (sin el hash de git)
+  const getCleanVersion = (fullVersion) => {
+    if (!fullVersion) return "1.1.0"; // Versión por defecto
+    // Si la versión incluye un guión (por ejemplo "1.1.0-a3b4c5"), tomar solo la primera parte
+    return fullVersion.split('-')[0];
+  };
 
   return (
     <footer className="bg-gray-800 text-white dark:bg-gray-900">
@@ -18,7 +95,13 @@ export default function Footer() {
         <div className="md:flex md:items-center md:justify-between">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm">
-              &copy; {currentYear} Quiz App.
+              &copy; {currentYear} Quiz App
+              {!isLoading && versionInfo && (
+                <span className="ml-2 text-xs text-gray-400">
+                  v{getCleanVersion(versionInfo.version)}
+                  {isDevelopment && <span className="ml-1 text-amber-500">dev</span>}
+                </span>
+              )}
             </p>
           </div>
           <div className="flex justify-center md:justify-end space-x-6">

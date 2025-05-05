@@ -95,7 +95,7 @@ export const checkForUpdates = async () => {
     const handleUpdate = (registration) => {
       // Comprobar si ya hay un worker esperando
       if (registration.waiting) {
-        onUpdateFound(registration.waiting);
+        onUpdateFound();
         return;
       }
 
@@ -108,7 +108,7 @@ export const checkForUpdates = async () => {
           // Si el nuevo worker está instalado pero esperando activación
           if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
             console.log('Nueva versión disponible!');
-            onUpdateFound(newWorker);
+            onUpdateFound();
           }
         };
 

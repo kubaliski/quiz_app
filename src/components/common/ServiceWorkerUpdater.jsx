@@ -11,15 +11,13 @@ import { registerSWUpdateHandler, applyUpdates } from '@services/swService';
 
 export default function ServiceWorkerUpdater() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
-  const [waitingWorker, setWaitingWorker] = useState(null);
 
   useEffect(() => {
     // Solo ejecutar lógica si el Service Worker está disponible
     if ('serviceWorker' in navigator) {
       // Registrar el manejador de actualizaciones
-      const unregisterHandler = registerSWUpdateHandler((waitingWorker) => {
+      const unregisterHandler = registerSWUpdateHandler(() => {
         setUpdateAvailable(true);
-        setWaitingWorker(waitingWorker);
       });
 
       // Configurar evento para cuando el SW notifica de actualización de contenido
@@ -51,8 +49,8 @@ export default function ServiceWorkerUpdater() {
     applyUpdates();
   };
 
-   // Si hay una actualización disponible, mostrar un banner
-   if (updateAvailable) {
+  // Si hay una actualización disponible, mostrar un banner
+  if (updateAvailable) {
     return (
       <div className="fixed top-0 left-0 right-0 bg-indigo-600 text-white p-3 flex justify-between items-center shadow-lg z-50">
         <span>¡Hay una nueva versión disponible!</span>

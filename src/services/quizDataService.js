@@ -107,17 +107,19 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
             modulePath = "../data/asignaturas/moduloProfesionalOptativo";
             break;
           default:
-            // Otras asignaturas (placeholder)
-            const asignatura = asignaturas.find((a) => a.id === id);
-            if (!asignatura) {
-              reject(new Error("Asignatura no encontrada"));
-            } else {
-              resolve({
-                ...asignatura,
-                modulos: [],
-              });
-            }
-            return;
+              // Otras asignaturas (placeholder)
+              {
+                const asignatura = asignaturas.find((a) => a.id === id);
+                if (!asignatura) {
+                  reject(new Error("Asignatura no encontrada"));
+                } else {
+                  resolve({
+                    ...asignatura,
+                    modulos: [],
+                  });
+                }
+              }
+              return;
         }
 
         try {

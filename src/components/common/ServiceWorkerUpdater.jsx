@@ -76,6 +76,14 @@ export default function ServiceWorkerUpdater() {
       navigator.serviceWorker.addEventListener('message', handleSWMessage);
     }
 
+    // Configurar evento para cuando el controlador cambia (nuevo SW activo)
+    const handleControllerChange = () => {
+      console.log('Service Worker Controller ha cambiado - recargando la página');
+      window.location.reload();
+    };
+
+    navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange);
+
     // Limpiar manejadores al desmontar el componente
     return () => {
       unregisterHandler();
@@ -83,6 +91,8 @@ export default function ServiceWorkerUpdater() {
       if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.removeEventListener('message', handleSWMessage);
       }
+
+      navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange);
     };
   }, []);
 
@@ -92,15 +102,18 @@ export default function ServiceWorkerUpdater() {
 
     try {
       // Usar el servicio para aplicar actualizaciones
-      const updated = await applyUpdates();
+      await applyUpdates();
 
-      // Si se aplicó la actualización, recargar la página
-      if (updated) {
+      // Nota: No hacemos un reload aquí, porque el evento 'controllerchange'
+      // se disparará cuando el nuevo Service Worker tome el control y
+      // ese evento ya tiene un listener que recargará la página
+
+      // Establece un timeout de seguridad por si acaso no se dispara el evento
+      setTimeout(() => {
+        console.log('Timeout de seguridad - recargando la página');
         window.location.reload();
-      } else {
-        // Si no había un SW pendiente, simplemente recargar
-        window.location.reload();
-      }
+      }, 3000);
+
     } catch (error) {
       console.error('Error al aplicar actualización:', error);
       // En caso de error, recargar de todas formas

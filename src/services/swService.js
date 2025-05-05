@@ -30,30 +30,51 @@ export const checkForUpdates = async () => {
   };
 
   /**
-   * Aplica las actualizaciones del Service Worker disponibles
-   * @async
-   * @function applyUpdates
-   * @returns {Promise<boolean>} Promesa que indica si se aplicaron actualizaciones
-   */
-  export const applyUpdates = async () => {
+ * Aplica las actualizaciones del Service Worker disponibles
+ * @async
+ * @function applyUpdates
+ * @returns {Promise<boolean>} Promesa que indica si se aplicaron actualizaciones
+ */
+export const applyUpdates = async () => {
     if ('serviceWorker' in navigator) {
       try {
         const registration = await navigator.serviceWorker.getRegistration();
         if (registration && registration.waiting) {
+          console.log('Aplicando actualización del Service Worker...');
+
+          // Promise que se resolverá cuando el service worker tome el control
+          const controllerChangePromise = new Promise((resolve) => {
+            // Esta función se activará cuando el nuevo service worker tome el control
+            const onControllerChange = () => {
+              console.log('Nuevo Service Worker activo (controllerchange)');
+              navigator.serviceWorker.removeEventListener('controllerchange', onControllerChange);
+              resolve(true);
+            };
+
+            // Registrar el listener para el evento controllerchange
+            navigator.serviceWorker.addEventListener('controllerchange', onControllerChange);
+
+            // Timeout de seguridad: si después de 5 segundos no hay cambio de controlador,
+            // resolvemos la promesa de todas formas
+            setTimeout(() => {
+              console.log('Timeout en espera de controllerchange');
+              navigator.serviceWorker.removeEventListener('controllerchange', onControllerChange);
+              resolve(false);
+            }, 5000);
+          });
+
           // Comunicar al worker en waiting que debe activarse
           registration.waiting.postMessage({ type: 'SKIP_WAITING' });
 
           // Esperar a que el nuevo service worker tome el control
-          return new Promise((resolve) => {
-            // Cuando el controlador cambie (nuevo SW activo), resolver
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-              console.log('Nuevo Service Worker activo');
-              resolve(true);
-            }, { once: true });
-          });
+          return await controllerChangePromise;
+        } else {
+          console.log('No hay Service Worker en espera para aplicar');
+          return false;
         }
       } catch (error) {
         console.error('Error al aplicar actualizaciones del SW:', error);
+        return false;
       }
     }
     return false;

@@ -1,30 +1,29 @@
 /**
  * Página que muestra los módulos disponibles para una asignatura seleccionada.
  * Carga la información completa de la asignatura y permite al usuario seleccionar un módulo para el quiz.
+ * Gestiona errores relacionados con el Service Worker y caché.
  *
  * @component
  * @returns {JSX.Element} Componente ModulesPage renderizado
- *
- * @example
- * // En un componente Router
- * <Route path="/asignaturas/:asignaturaId" element={<ModulesPage />} />
  */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { ModuleSelector } from '@components/quiz';
-import { LoadingSpinner, ErrorMessage, Button } from '@components/common';
+import { LoadingSpinner, Button, SWErrorHandler } from '@components/common';
 import { fetchAsignaturaCompleta } from '@services/quizDataService';
+import { checkForUpdates } from '@services/swService';
 
 export default function ModulesPage() {
   const { asignaturaId } = useParams();
   const navigate = useNavigate();
 
-  // Usamos estado local en lugar del contexto
+  // Estado local
   const [asignatura, setAsignatura] = useState(null);
   const [modulos, setModulos] = useState([]);
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState(null);
+  const [reloadCount, setReloadCount] = useState(0); // Contador de reintentos
 
   // Convertir a número el ID de la URL
   const asigId = parseInt(asignaturaId, 10);
@@ -36,6 +35,13 @@ export default function ModulesPage() {
       if (!asignatura || asignatura.id !== asigId) {
         try {
           setCargando(true);
+
+          // Comprobar actualizaciones del Service Worker
+          const hasUpdates = await checkForUpdates();
+          if (hasUpdates) {
+            console.log('Hay actualizaciones del Service Worker disponibles');
+          }
+
           const asignaturaData = await fetchAsignaturaCompleta(asigId);
 
           if (!asignaturaData) {
@@ -46,12 +52,13 @@ export default function ModulesPage() {
           if (mounted) {
             setAsignatura(asignaturaData);
             setModulos(asignaturaData.modulos || []);
+            setError(null); // Limpiamos cualquier error previo
             setCargando(false);
           }
         } catch (err) {
           console.error("Error al cargar asignatura:", err);
           if (mounted) {
-            setError("No se pudo cargar la asignatura seleccionada. Por favor, inténtelo de nuevo.");
+            setError(err);
             setCargando(false);
           }
         }
@@ -64,18 +71,36 @@ export default function ModulesPage() {
     return () => {
       mounted = false;
     };
-  }, [asigId, asignatura]);
+  }, [asigId, asignatura, reloadCount]); // Añadimos reloadCount para forzar recarga
 
   const handleBack = () => {
     navigate('/');
   };
 
+  const handleRetry = () => {
+    // Incrementar contador para forzar recarga sin limpiar caché
+    setReloadCount(prev => prev + 1);
+  };
+
+  // Manejo de errores relacionados con Service Worker
   if (error) {
     return (
       <Layout>
-        <ErrorMessage message={error} />
-        <div className="flex justify-center mt-6">
-          <Button onClick={handleBack} variant="secondary">Volver a asignaturas</Button>
+        <PageHeader
+          title="Error al cargar módulos"
+          subtitle="Se ha producido un problema al cargar la información de la asignatura"
+          breadcrumbs={[
+            { label: 'Inicio', to: '/' },
+            { label: 'Error' }
+          ]}
+        />
+
+        <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <SWErrorHandler
+            error={error}
+            onRetry={handleRetry}
+            onReset={handleBack}
+          />
         </div>
       </Layout>
     );

@@ -29,7 +29,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt', // Cambiado de 'autoUpdate' a 'prompt' para tener más control
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Quiz App',
@@ -61,7 +61,74 @@ export default defineConfig({
       },
       devOptions: {
         enabled: true
-      }
+      },
+      // Estrategias de cacheo personalizadas
+      workbox: {
+        // Personalizar la gestión del caché
+        runtimeCaching: [
+          {
+            // Regla para archivos de módulos de asignaturas
+            urlPattern: /\/modulos\/.*\.js$/i,
+            handler: 'NetworkFirst', // Prioriza la red sobre el caché
+            options: {
+              cacheName: 'quiz-dynamic-modules',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24, // 1 día
+              },
+              // Estrategia para determinar si una respuesta de red se considera "fresca"
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              // Broadcast update cuando hay cambios en el contenido
+              broadcastUpdate: {
+                channelName: 'module-updates',
+                options: {
+                  headersToCheck: ['ETag', 'Last-Modified'],
+                }
+              },
+            },
+          },
+          {
+            // Para el resto de assets estáticos
+            urlPattern: /\.(?:js|css|woff2?|png|jpg|jpeg|svg|gif)$/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'quiz-static-resources',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 7, // 1 semana
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            // Para las solicitudes de API o datos
+            urlPattern: /\/data\/|\/services\//,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'quiz-api-data',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 5, // 5 minutos
+              },
+              networkTimeoutSeconds: 5, // Timeout de red
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+        // Ignorar algunos patrones de URL para no cachear
+        navigateFallbackDenylist: [
+          // Patrones que nunca deberían ser cacheados (si los hay)
+        ],
+        // Configuración de skipWaiting para activación automática o manual
+        skipWaiting: false, // Lo gestionamos manualmente desde nuestro componente
+        clientsClaim: true,
+      },
     })
   ],
 })

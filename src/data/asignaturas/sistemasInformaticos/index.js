@@ -29,6 +29,7 @@ import info from "./info.js";
 import moduloLinux from "./modulos/linux.js";
 import moduloRedes from "./modulos/redes.js";
 import moduloCienPreguntas from "./modulos/cienPreguntas.js";
+import moduloSimulacroUnoSistemas from "./modulos/simulacroUnoSistemas.js";
 
 
 
@@ -38,6 +39,7 @@ export const sisteasInformaticos = {
         moduloLinux,
         moduloRedes,
         moduloCienPreguntas,
+        moduloSimulacroUnoSistemas,
     ],
 };
 

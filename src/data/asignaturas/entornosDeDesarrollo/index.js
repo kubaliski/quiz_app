@@ -4,6 +4,7 @@ import moduloMaquinasVirtuales from "./modulos/maquitavirtual.js";
 import moduloMantenimientoCodigo from "./modulos/mantenimiento.js";
 import moduloUML from "./modulos/uml.js";
 import moduloGit from "./modulos/git.js";
+import moduloSimulacroEntornos from "./modulos/SimulacroEntornosUno.js";
 
 export const entornosDeDesarrollo = {
   ...info,
@@ -13,6 +14,7 @@ export const entornosDeDesarrollo = {
     moduloMantenimientoCodigo,
     moduloGit,
     moduloUML,
+    moduloSimulacroEntornos,
   ],
 };
 export default entornosDeDesarrollo;

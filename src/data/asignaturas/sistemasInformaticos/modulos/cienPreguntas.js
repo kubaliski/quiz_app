@@ -530,8 +530,8 @@ export const moduloCienPreguntas = {
           "BIOS",
           "Zócalo de CPU"
         ],
-        respuestaCorrecta: 0,
-        explicacion: "El número 6 muestra las ranuras PCI para tarjetas de expansión. Estas ranuras permiten conectar diversos componentes adicionales como tarjetas gráficas, tarjetas de sonido, tarjetas de red y otros periféricos que amplían la funcionalidad del equipo."
+        respuestaCorrecta: 2,
+        explicacion: "El número 6 muestra la bios (Basic Input/Output System), que es un firmware almacenado en la placa base. La BIOS inicializa el hardware del ordenador y proporciona una interfaz entre el sistema operativo y el hardware."
       },
       {
         id: 3038,

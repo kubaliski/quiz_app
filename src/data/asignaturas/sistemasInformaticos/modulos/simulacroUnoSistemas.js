@@ -75,7 +75,7 @@ export const moduloSimulacroUnoSistemas = {
         id: 1407,
         moduloId: 104,
         pregunta: "¿Cuál es la dirección de red de 192.168.50.123/26?",
-        opciones: ["192.168.50.64", "192.168.50.64", "192.168.50.128", "192.168.50.0"],
+        opciones: ["192.168.50.64", "192.168.50.96", "192.168.50.128", "192.168.50.0"],
         respuestaCorrecta: 0,
         explicacion: "Con una máscara /26, los primeros 26 bits identifican la red. Para calcular la dirección de red, se aplica una operación AND entre la IP y la máscara. Para 192.168.50.123/26, la dirección de red es 192.168.50.64."
       },

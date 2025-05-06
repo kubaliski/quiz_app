@@ -51,7 +51,7 @@ export const moduloPruebasSoftware = {
       pregunta:
         "¿Qué tipo de comprobaciones se llevan a cabo con el código en ejecución?",
       opciones: [
-        "¿Qué tipo de comprobaciones se llevan a cabo con el código en ejecución?",
+        "Comprobaciones estáticas",
         "Comprobaciones dinámicas",
         "Validación de requisitos",
         "Revisión de código",

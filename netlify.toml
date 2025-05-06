@@ -1,24 +1,24 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+command = "npm run build && node netlify-postbuild.js"
+publish = "dist"
 
 # Configuración de headers para la detección de versiones
 [[headers]]
-  for = "/version.json"
-  [headers.values]
-    # No permitir caché para version.json
-    Cache-Control = "no-cache, no-store, must-revalidate"
-    Pragma = "no-cache"
-    Expires = "0"
+for = "/version.json"
+[headers.values]
+# No permitir caché para version.json
+Cache-Control = "no-cache, no-store, must-revalidate"
+Pragma = "no-cache"
+Expires = "0"
 
 # Configuración para el Service Worker
 [[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
+for = "/sw.js"
+[headers.values]
+Cache-Control = "no-cache, no-store, must-revalidate"
 
 # Redirects para SPA
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200

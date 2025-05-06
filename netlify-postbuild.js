@@ -2,9 +2,15 @@
  * Script de post-procesamiento para Netlify
  * Genera el archivo version.json después del build
  */
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { execSync } from 'child_process';
+
+// Obtener información del archivo actual
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Configuración - ajústala según necesites
 const config = {

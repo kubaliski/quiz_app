@@ -244,101 +244,112 @@ export const applyUpdates = async () => {
   };
 
   /**
-   * Verifica si hay una nueva versión de la app comparando con version.json
-   * Limpia caché, fuerza el update y recarga si es necesario.
-   * @function checkAppVersionUpdate
-   * @returns {Promise<void>}
-   */
-  export const checkAppVersionUpdate = async () => {
-    // No ejecutar en desarrollo para evitar errores
-    if (isDevelopment) {
-      console.log('Verificación de versión omitida en entorno de desarrollo');
+ * Verifica si hay una nueva versión de la app comparando con version.json
+ * Limpia caché, fuerza el update y recarga si es necesario.
+ * @function checkAppVersionUpdate
+ * @returns {Promise<void>}
+ */
+export const checkAppVersionUpdate = async () => {
+  // No ejecutar en desarrollo para evitar errores
+  if (isDevelopment) {
+    console.log('Verificación de versión omitida en entorno de desarrollo');
+    return;
+  }
+
+  try {
+    const abortController = new AbortController();
+    const timeoutId = setTimeout(() => abortController.abort(), 5000); // 5 segundos de timeout
+
+    // Añadir timestamp para evitar caching
+    const timestamp = new Date().getTime();
+    const res = await fetch(`/version.json?_t=${timestamp}`, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      },
+      signal: abortController.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!res.ok) {
+      console.warn(`No se pudo obtener version.json (status: ${res.status})`);
       return;
     }
 
-    try {
-      const abortController = new AbortController();
-      const timeoutId = setTimeout(() => abortController.abort(), 5000); // 5 segundos de timeout
+    // Primero obtener el texto para verificar que es un JSON válido
+    const text = await res.text();
 
-      const res = await fetch('/version.json', {
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        },
-        signal: abortController.signal
-      });
+    // Verificar que tenemos un JSON válido antes de parsearlo
+    if (!text || text.trim() === '' || !text.trim().startsWith('{')) {
+      console.warn('version.json no contiene un JSON válido:',
+        text.length > 50 ? text.substring(0, 50) + '...' : text);
+      return;
+    }
 
-      clearTimeout(timeoutId);
+    // Ahora intentar parsearlo
+    const data = JSON.parse(text);
 
-      if (!res.ok) {
-        console.warn('No se pudo obtener version.json (status:', res.status, ')');
-        return;
+    if (!data.version) {
+      console.warn('version.json no contiene una propiedad "version"');
+      return;
+    }
+
+    // Verificar explícitamente que no es versión de desarrollo
+    if (data.version.includes('-dev')) {
+      console.warn('Detectada versión de desarrollo en entorno de producción:', data.version);
+      // Opcional: puedes decidir si quieres continuar o no con la actualización
+    }
+
+    const version = data.version;
+    const localVersion = localStorage.getItem('app_version');
+
+    // Registrar en consola para debug
+    console.log(`Versión actual: ${localVersion}, Versión detectada: ${version}`);
+
+    // Si no hay versión local guardada, guardamos la actual
+    if (!localVersion) {
+      localStorage.setItem('app_version', version);
+      return;
+    }
+
+    // Si la versión cambió, actualizamos la app
+    if (localVersion !== version) {
+      console.log(`Nueva versión detectada (${localVersion} → ${version})`);
+
+      // Guardar nueva versión localmente
+      localStorage.setItem('app_version', version);
+
+      // Notificar al componente que hay una actualización disponible
+      if (_updateCallback) {
+        _updateCallback();
       }
 
-      // Primero obtener el texto para verificar que es un JSON válido
-      const text = await res.text();
+      // Si estamos en una ruta de módulo, podríamos necesitar recarga inmediata
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/quiz/') || currentPath.includes('/asignaturas/')) {
+        // Limpiar caché antigua
+        await clearModulesCache();
 
-      // Verificar que tenemos un JSON válido antes de parsearlo
-      if (!text || text.trim() === '' || !text.trim().startsWith('{')) {
-        console.warn('version.json no contiene un JSON válido:',
-          text.length > 50 ? text.substring(0, 50) + '...' : text);
-        return;
-      }
+        // Forzar actualización del SW si hay uno esperando
+        const updated = await applyUpdates();
 
-      // Ahora intentar parsearlo
-      const data = JSON.parse(text);
-
-      if (!data.version) {
-        console.warn('version.json no contiene una propiedad "version"');
-        return;
-      }
-
-      const version = data.version;
-      const localVersion = localStorage.getItem('app_version');
-
-      // Si no hay versión local guardada, guardamos la actual
-      if (!localVersion) {
-        localStorage.setItem('app_version', version);
-        return;
-      }
-
-      // Si la versión cambió, actualizamos la app
-      if (localVersion !== version) {
-        console.log(`Nueva versión detectada (${localVersion} → ${version})`);
-
-        // Guardar nueva versión localmente
-        localStorage.setItem('app_version', version);
-
-        // Notificar al componente que hay una actualización disponible
-        if (_updateCallback) {
-          _updateCallback();
+        // Si se aplicó la actualización, recargar
+        if (updated) {
+          window.location.reload(true);
         }
-
-        // Si estamos en una ruta de módulo, podríamos necesitar recarga inmediata
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/quiz/') || currentPath.includes('/asignaturas/')) {
-          // Limpiar caché antigua
-          await clearModulesCache();
-
-          // Forzar actualización del SW si hay uno esperando
-          const updated = await applyUpdates();
-
-          // Si se aplicó la actualización, recargar
-          if (updated) {
-            window.location.reload(true);
-          }
-        }
-      }
-    } catch (error) {
-      // Si el error es por timeout o abort, mostrar un mensaje más amigable
-      if (error.name === 'AbortError') {
-        console.warn('Timeout al intentar obtener version.json');
-      } else if (error instanceof SyntaxError) {
-        console.warn('Error de sintaxis al parsear version.json');
-      } else {
-        console.error('Error al comprobar versión de la app:', error);
       }
     }
-  };
+  } catch (error) {
+    // Si el error es por timeout o abort, mostrar un mensaje más amigable
+    if (error.name === 'AbortError') {
+      console.warn('Timeout al intentar obtener version.json');
+    } else if (error instanceof SyntaxError) {
+      console.warn('Error de sintaxis al parsear version.json');
+    } else {
+      console.error('Error al comprobar versión de la app:', error);
+    }
+  }
+};

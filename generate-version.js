@@ -2,9 +2,15 @@
  * Script para generar automáticamente el archivo version.json
  * Debe ejecutarse como parte del proceso de construcción
  */
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { execSync } from 'child_process';
+
+// Obtener información del archivo actual
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Directorio de salida, asumiendo que es 'dist' para Vite
 const outputDir = path.resolve(__dirname, 'dist');
@@ -26,11 +32,14 @@ try {
   console.warn('No se pudo obtener el hash de Git:', error.message);
 }
 
-// Crear objeto de versión
+// Crear objeto de versión con entorno claramente marcado
+// Asegurarse de que nunca incluya '-dev' en producción
+const isProduction = process.env.NODE_ENV === 'production';
 const versionData = {
-  version: version + (gitHash ? `-${gitHash}` : ''),
+  version: version + (gitHash ? `-${gitHash}` : '') + (isProduction ? '' : '-dev'),
   buildDate: new Date().toISOString(),
-  notes: process.env.VERSION_NOTES || 'Actualización de la aplicación'
+  environment: isProduction ? 'production' : 'development',
+  notes: process.env.VERSION_NOTES || (isProduction ? 'Actualización de la aplicación' : 'Versión de desarrollo')
 };
 
 // Escribir archivo version.json
@@ -38,3 +47,4 @@ const versionFilePath = path.join(outputDir, 'version.json');
 fs.writeFileSync(versionFilePath, JSON.stringify(versionData, null, 2));
 
 console.log(`✅ Archivo version.json generado con versión: ${versionData.version}`);
+console.log(`📂 Entorno: ${versionData.environment}`);

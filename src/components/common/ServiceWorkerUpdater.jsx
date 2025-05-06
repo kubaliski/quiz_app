@@ -19,20 +19,27 @@ export default function ServiceWorkerUpdater() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const [updateInfo, setUpdateInfo] = useState(null);
   const [isApplying, setIsApplying] = useState(false);
+  const [debugInfo, setDebugInfo] = useState(null);
 
   useEffect(() => {
     // Solo ejecutar si estamos en producción y el Service Worker está disponible
     if (isDevelopment || !('serviceWorker' in navigator)) {
+      if (isDevelopment) console.log('ServiceWorkerUpdater: En modo desarrollo, no se registra');
       return;
     }
 
+    console.log('ServiceWorkerUpdater: Inicializando en modo producción');
+
     // Registrar el manejador de actualizaciones
     const unregisterHandler = registerSWUpdateHandler(async () => {
+      console.log('ServiceWorkerUpdater: Actualización detectada');
       setUpdateAvailable(true);
 
       // Intentar obtener información de la versión
       try {
-        const response = await fetch('/version.json', {
+        // Añadir timestamp para evitar caching
+        const timestamp = new Date().getTime();
+        const response = await fetch(`/version.json?_t=${timestamp}`, {
           cache: 'no-store',
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -43,15 +50,28 @@ export default function ServiceWorkerUpdater() {
 
         if (response.ok) {
           const text = await response.text();
+          console.log('ServiceWorkerUpdater: Contenido de version.json:', text);
 
           if (text && text.trim() !== '' && text.trim().startsWith('{')) {
             try {
               const data = JSON.parse(text);
               setUpdateInfo(data);
+
+              // Para debug
+              setDebugInfo({
+                currentAppVersion: localStorage.getItem('app_version') || 'No disponible',
+                newVersion: data.version,
+                buildDate: data.buildDate,
+                isDevelopmentVersion: data.version.includes('-dev')
+              });
+
+              console.log('ServiceWorkerUpdater: Nueva versión detectada', data);
             } catch (error) {
               console.warn('Error al parsear información de versión:', error);
             }
           }
+        } else {
+          console.warn(`Error al obtener version.json: ${response.status}`);
         }
       } catch (error) {
         console.error('Error al obtener información de versión:', error);
@@ -134,6 +154,17 @@ export default function ServiceWorkerUpdater() {
           <span className="font-medium">¡Hay una nueva versión disponible!</span>
           {updateInfo && updateInfo.notes && (
             <p className="text-sm opacity-90 mt-1">{updateInfo.notes}</p>
+          )}
+          {/* Mostrar información de debug solo en entornos staging o similares */}
+          {debugInfo && new URLSearchParams(window.location.search).has('debug') && (
+            <div className="text-xs opacity-75 mt-1">
+              Versión actual: {debugInfo.currentAppVersion} |
+              Nueva versión: {debugInfo.newVersion} |
+              Fecha: {new Date(debugInfo.buildDate).toLocaleString('es-ES')}
+              {debugInfo.isDevelopmentVersion &&
+                <span className="text-yellow-300 ml-1">(Versión de desarrollo)</span>
+              }
+            </div>
           )}
         </div>
         <button

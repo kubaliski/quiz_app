@@ -670,30 +670,38 @@ export const moduloMopeVL = {
       {
         id: 7446,
         moduloId: 704,
-        pregunta: "¿Qué hace esta consulta? SELECT DISTINCT brand FROM products;",
+        pregunta: "¿Qué devuelve esta consulta SQL?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `SELECT DISTINCT brand FROM products;`,
+          lenguaje: "sql"
+        },
         opciones: [
           "Muestra todas las marcas repetidas de productos.",
           "Muestra todas las marcas, sin repetir.",
           "Elimina la columna marca de productos.",
-          "Muestra solo productos cuyo nombre es distinto.",
+          "Muestra solo productos cuyo nombre es distinto."
         ],
         respuestaCorrecta: 1,
-        explicacion:
-          "DISTINCT elimina registros duplicados, mostrando cada marca única una sola vez en el resultado."
+        explicacion: "DISTINCT elimina registros duplicados, mostrando cada marca única una sola vez en el resultado."
       },
       {
         id: 7447,
         moduloId: 704,
-        pregunta: "¿Cuál es el resultado de esta consulta? SELECT AVG(price) FROM products;",
+        pregunta: "¿Qué devuelve esta consulta SQL?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `SELECT AVG(price) FROM products;`,
+          lenguaje: "sql"
+        },
         opciones: [
           "Suma todos los precios de productos.",
           "Calcula el precio más bajo entre todos los productos.",
           "Calcula la media de los precios de todos los productos.",
-          "Devuelve el precio más alto de la tabla productos.",
+          "Devuelve el precio más alto de la tabla productos."
         ],
         respuestaCorrecta: 2,
-        explicacion:
-          "AVG() calcula el promedio (media aritmética) de todos los valores de la columna price."
+        explicacion: "AVG() calcula el promedio (media aritmética) de todos los valores de la columna price."
       },
       {
         id: 7448,
@@ -740,16 +748,20 @@ export const moduloMopeVL = {
       {
         id: 7451,
         moduloId: 704,
-        pregunta: "¿Qué hace la siguiente consulta SQL? SELECT name FROM clients WHERE address IS NULL;",
+        pregunta: "¿Qué devuelve esta consulta SQL?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `SELECT name FROM clients WHERE address IS NULL;`,
+          lenguaje: "sql"
+        },
         opciones: [
           "Devuelve clientes que no tienen un email.",
           "Devuelve clientes sin dirección de envío registrada.",
           "Devuelve todos los clientes.",
-          "Devuelve clientes cuyo nombre es NULL.",
+          "Devuelve clientes cuyo nombre es NULL."
         ],
         respuestaCorrecta: 1,
-        explicacion:
-          "La condición WHERE address IS NULL selecciona solo aquellos registros donde la dirección no tiene valor asignado."
+        explicacion: "La condición WHERE address IS NULL selecciona solo aquellos registros donde la dirección no tiene valor asignado."
       },
       {
         id: 7452,
@@ -880,16 +892,22 @@ export const moduloMopeVL = {
       {
         id: 7461,
         moduloId: 704,
-        pregunta: "¿Qué hace esta consulta? SELECT name, SUM(quantity) FROM sales GROUP BY name HAVING SUM(quantity) >= 100;",
+        pregunta: "¿Qué devuelve esta consulta SQL?",
+        recurso: {
+          tipo: "codigo",
+          contenido: `SELECT name, SUM(quantity) FROM sales
+      GROUP BY name
+      HAVING SUM(quantity) >= 100;`,
+          lenguaje: "sql"
+        },
         opciones: [
           "Muestra nombres y cantidades de ventas donde el total vendido es igual o mayor a 100.",
           "Muestra todos los nombres de clientes.",
           "Agrupa ventas por nombre de cliente, sin filtros.",
-          "Suma el precio total de cada venta.",
+          "Suma el precio total de cada venta."
         ],
         respuestaCorrecta: 0,
-        explicacion:
-          "Esta consulta agrupa por nombre, suma las cantidades y muestra solo aquellos con suma total igual o mayor a 100."
+        explicacion: "Esta consulta agrupa por nombre, suma las cantidades y muestra solo aquellos con suma total igual o mayor a 100."
       },
       {
         id: 7462,

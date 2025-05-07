@@ -342,3 +342,81 @@ footer {
 html.dark footer {
   background-color: rgb(17, 24, 39) !important; /* dark:bg-gray-900 */
 }
+
+/* quiz-responsive.css - Estilos responsivos para componentes del quiz GRACIAS EUGENIO */
+
+/* Estilos generales para opciones de quiz */
+.quiz-option-text {
+  transition: font-size 0.2s ease-in-out;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Media queries para adaptación responsiva */
+@media (max-width: 640px) {
+  /* Reducir tamaño de todas las fuentes en móvil */
+  .quiz-option-text {
+    font-size: 0.875rem !important; /* 14px por defecto en móvil */
+  }
+
+  /* Clase para opciones muy largas */
+  .quiz-option-text.text-xs {
+    font-size: 0.75rem !important; /* 12px */
+    line-height: 1.25 !important;
+  }
+
+  /* Ajustar padding en opciones para optimizar espacio */
+  button .quiz-option-text {
+    padding-right: 0.5rem;
+  }
+
+  /* Reducir padding en tarjetas de preguntas */
+  .card {
+    padding: 1rem !important;
+  }
+
+  /* Ajustes para QuestionReview */
+  #question-review-container .review-answer {
+    font-size: 0.75rem !important;
+  }
+
+  #question-review-container .review-explanation {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 375px) {
+  /* Ajustes adicionales para pantallas muy pequeñas */
+  .quiz-option-text {
+    font-size: 0.75rem !important; /* 12px por defecto */
+  }
+
+  .quiz-option-text.text-xs {
+    font-size: 0.7rem !important; /* Aún más pequeño */
+  }
+
+  /* Reducir más el padding */
+  button {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Asegurar que el botón de radio siempre se alinee bien con el texto */
+button .flex-shrink-0 {
+  margin-top: 0.125rem !important;
+}
+
+/* Ayuda con palabras muy largas */
+.break-long-words {
+  word-break: break-all;
+  hyphens: auto;
+}
+
+/* Reducir tamaño del texto de la explicación en pantallas pequeñas */
+@media (max-width: 640px) {
+  .explanation-text {
+    font-size: 0.75rem !important;
+  }
+}

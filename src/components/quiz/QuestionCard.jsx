@@ -1,6 +1,7 @@
 /**
  * Componente que muestra una pregunta del quiz con sus opciones de respuesta.
  * Permite al usuario seleccionar una respuesta y muestra visualmente la selección.
+ * Incluye adaptación automática del tamaño de texto para opciones largas en móviles.
  *
  * @component
  * @param {Object} props - Propiedades del componente
@@ -11,23 +12,8 @@
  * @param {number|undefined} props.respuestaSeleccionada - Índice de la opción seleccionada por el usuario (undefined si no hay selección)
  * @param {Function} props.onSelectAnswer - Función a ejecutar cuando el usuario selecciona una respuesta, recibe (id, índice)
  * @returns {JSX.Element|null} Componente QuestionCard renderizado o null si no hay pregunta
- *
- * @example
- * const pregunta = {
- *   id: 1,
- *   pregunta: '¿Cuál es la capital de Francia?',
- *   opciones: ['Madrid', 'París', 'Berlín', 'Roma'],
- *   respuestaCorrecta: 1,
- *   explicacion: 'París es la capital de Francia desde el año...'
- * };
- *
- * <QuestionCard
- *   pregunta={pregunta}
- *   respuestaSeleccionada={2}
- *   onSelectAnswer={(id, index) => console.log(`Pregunta ${id}, opción ${index} seleccionada`)}
- * />
  */
-// src/components/quiz/QuestionCard.jsx
+import { useState, useEffect } from 'react';
 import { Card } from '@components/common';
 import { useTheme } from '@hooks/useTheme';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -36,6 +22,23 @@ import ImageResource from './ImageResource';
 
 export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelectAnswer }) {
   const { darkMode } = useTheme();
+
+  // Estado para controlar el tamaño de texto adaptativo
+  const [opcionesLargas, setOpcionesLargas] = useState(false);
+  const [opcionesMuyLargas, setOpcionesMuyLargas] = useState(false);
+
+  // Verificar longitud de las opciones al cargar el componente
+  useEffect(() => {
+    if (!pregunta || !pregunta.opciones) return;
+
+    // Calcular longitud promedio y máxima de las opciones
+    const longitudPromedio = pregunta.opciones.reduce((sum, opt) => sum + opt.length, 0) / pregunta.opciones.length;
+    const longitudMaxima = Math.max(...pregunta.opciones.map(opt => opt.length));
+
+    // Determinar si las opciones son largas o muy largas
+    setOpcionesLargas(longitudMaxima > 80 || longitudPromedio > 60);
+    setOpcionesMuyLargas(longitudMaxima > 140 || longitudPromedio > 100);
+  }, [pregunta]);
 
   if (!pregunta) return null;
 
@@ -75,10 +78,26 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
     }
   };
 
+  // Determinar clases de tamaño de texto basado en longitud
+  const getOptionTextClass = () => {
+    // Por defecto, texto base
+    if (!opcionesLargas) return "text-base";
+
+    // En pantallas medianas y grandes, mantener tamaño normal
+    // En pantallas pequeñas, reducir según longitud
+    if (opcionesMuyLargas) {
+      return "text-base sm:text-xs";
+    } else {
+      return "text-base sm:text-sm";
+    }
+  };
+
   // Estilos inline para garantizar la visibilidad del texto
   const optionTextStyle = {
     color: darkMode ? 'rgb(255, 255, 255)' : 'rgb(17, 24, 39)',
-    fontWeight: 500
+    fontWeight: 500,
+    wordBreak: opcionesLargas ? 'break-word' : 'normal',
+    hyphens: opcionesLargas ? 'auto' : 'none'
   };
 
   return (
@@ -102,18 +121,18 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
               }`}
               onClick={() => onSelectAnswer(pregunta.id, index)}
             >
-              <div className="flex items-center">
-                <div className={`h-5 w-5 rounded-full border ${
+              <div className="flex items-start">
+                <div className={`flex-shrink-0 h-5 w-5 rounded-full border ${
                   isSelected
                     ? 'bg-indigo-600 border-indigo-600'
                     : 'border-gray-400 dark:border-gray-500'
-                } mr-3 flex items-center justify-center`}>
+                } mt-0.5 mr-3 flex items-center justify-center`}>
                   {isSelected && (
                     <div className="h-2 w-2 rounded-full bg-white"></div>
                   )}
                 </div>
                 <span
-                  className="quiz-option-text text-gray-900 dark:text-white"
+                  className={`quiz-option-text ${getOptionTextClass()} text-gray-900 dark:text-white`}
                   style={optionTextStyle}
                 >
                   {opcion}

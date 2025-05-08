@@ -11,7 +11,7 @@
  */
 export const moduloTercerTrimestreDos = {
     id: 706,
-    nombre: "Test Tercer Trimestre 2",
+    nombre: "Test Tercer Trimestre",
     esExamen: false,
     asignaturaId: 7,
     descripcion:

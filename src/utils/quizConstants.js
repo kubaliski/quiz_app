@@ -1,39 +1,45 @@
 /**
- * Constantes para las acciones del contexto del quiz
+ * Constantes para el sistema de quiz.
+ * Define tipos de acciones y estado inicial.
  */
 
-// Tipos de acciones
+// Tipos de acciones para el reducer del quiz
 export const ACTION_TYPES = {
-    SET_ASIGNATURA: 'SET_ASIGNATURA',
-    SET_MODULO: 'SET_MODULO',
-    SET_PREGUNTAS: 'SET_PREGUNTAS',
-    SET_PREGUNTA_ACTUAL: 'SET_PREGUNTA_ACTUAL',
-    SET_RESPUESTA: 'SET_RESPUESTA',
-    SET_CARGANDO: 'SET_CARGANDO',
-    SET_ERROR: 'SET_ERROR',
-    SET_MODO_TODOS: 'SET_MODO_TODOS',
-    SET_MODO_EXAMEN: 'SET_MODO_EXAMEN',
-    SET_QUIZ_COMPLETED: 'SET_QUIZ_COMPLETED',
-    SET_DIALOG: 'SET_DIALOG',
-    CLOSE_DIALOG: 'CLOSE_DIALOG',
-    SET_SAVED_PROGRESS: 'SET_SAVED_PROGRESS',
-    RESTORE_PROGRESS: 'RESTORE_PROGRESS',
-  };
+  SET_ASIGNATURA: 'set_asignatura',
+  SET_MODULO: 'set_modulo',
+  SET_PREGUNTAS: 'set_preguntas',
+  SET_PREGUNTA_ACTUAL: 'set_pregunta_actual',
+  SET_RESPUESTA: 'set_respuesta',
+  SET_CARGANDO: 'set_cargando',
+  SET_ERROR: 'set_error',
+  SET_MODO_TODOS: 'set_modo_todos',
+  SET_MODO_EXAMEN: 'set_modo_examen',
+  SET_QUIZ_COMPLETED: 'set_quiz_completed',
+  SET_DIALOG: 'set_dialog',
+  CLOSE_DIALOG: 'close_dialog',
+  SET_SAVED_PROGRESS: 'set_saved_progress',
+  RESTORE_PROGRESS: 'restore_progress',
+  // Nuevas acciones para navegador de preguntas
+  TOGGLE_QUESTION_NAVIGATOR: 'toggle_question_navigator',
+  SET_QUESTION_NAVIGATOR_FILTER: 'set_question_navigator_filter'
+};
 
-  // Estado inicial para el reducer
-  export const initialState = {
-    asignatura: null,
-    modulo: null,
-    preguntas: [],
-    preguntaActual: 0,
-    respuestas: {},
-    cargando: false,
-    error: null,
-    modoTodos: false,
-    modoExamen: false,
-    quizCompleted: false,
-    // Estado de diálogos
-    dialogOpen: false,
-    dialogType: '', // 'exit', 'restore-progress'
-    savedProgress: null,
-  };
+// Estado inicial del quiz
+export const initialState = {
+  preguntas: [],
+  asignatura: null,
+  modulo: null,
+  preguntaActual: 0,
+  respuestas: {},
+  cargando: true,
+  error: null,
+  modoTodos: false,
+  modoExamen: false,
+  quizCompleted: false,
+  dialogOpen: false,
+  dialogType: '',
+  savedProgress: null,
+  // Nuevos estados para navegador de preguntas
+  questionNavigatorOpen: false,
+  showOnlyUnanswered: false
+};

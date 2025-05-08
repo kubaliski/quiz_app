@@ -13,4 +13,5 @@ export { default as QuizContent } from './QuizContent';
 export { default as QuizDialogs } from './QuizDialogs';
 export { default as QuizHeader } from './QuizHeader';
 export { default as QuizProgress } from './QuizProgress';
+export { default as QuestionNavigator } from './QuestionNavigator';
 

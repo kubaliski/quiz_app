@@ -73,18 +73,6 @@ export default function Dialog({
 
   if (!open) return null;
 
-  // Determinar clases de variante para botón principal
-  const getButtonVariantClass = () => {
-    switch(variant) {
-      case 'danger':
-        return 'bg-red-600 hover:bg-red-700 text-white dark:bg-red-700 dark:hover:bg-red-800';
-      case 'success':
-        return 'bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-800';
-      case 'primary':
-      default:
-        return 'bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-indigo-700 dark:hover:bg-indigo-800';
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">

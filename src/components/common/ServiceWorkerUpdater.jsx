@@ -201,7 +201,7 @@ export default function ServiceWorkerUpdater() {
   if (updateAvailable) {
     return (
       <>
-        <div className="fixed top-0 left-0 right-0 bg-indigo-600 text-white p-3 flex justify-between items-center shadow-lg z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-indigo-600 text-white p-3 flex justify-between items-center shadow-lg z-50">
           <div className="flex-1">
             <span className="font-medium">¡Hay una nueva versión disponible!</span>
             {updateInfo && updateInfo.notes && (

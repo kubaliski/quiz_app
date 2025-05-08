@@ -7,4 +7,5 @@ export { default as QuestionReview } from './QuestionReview';
 export { default as ResultSummary } from './ResultSummary';
 export { default as SubjectSelector } from './SubjectSelector';
 export { default as ImageResource } from './ImageResource';
+export { default as PendingQuizzes } from './PendingQuizzes';
 

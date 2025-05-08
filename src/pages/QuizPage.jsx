@@ -11,6 +11,7 @@
  * - Redirige a la página de resultados al completar todas las preguntas
  * - Permite navegación con teclas izquierda/derecha del teclado
  * - Guarda y restaura progreso para prevenir pérdida durante actualizaciones de la PWA
+ * - Evita mostrar diálogo de restauración cuando se viene desde "continuar test"
  *
  * @component
  * @param {Object} props - Las propiedades del componente
@@ -18,7 +19,7 @@
  * @returns {JSX.Element} Componente QuizPage renderizado
  */
 import { useEffect, useState, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, PageHeader } from '@components/layout';
 import { QuestionCard, QuizNavigation } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
@@ -33,6 +34,11 @@ import { shuffleArray, shuffleQuestionOptions, formatTimestamp } from '@utils/qu
 export default function QuizPage({ tipo }) {
   const { asignaturaId, moduloId } = useParams();
   const navigate = useNavigate();
+  // Añadir useLocation para acceder a los parámetros de consulta
+  const location = useLocation();
+
+  // Verificar si el usuario ha decidido continuar el test desde PendingQuizzes
+  const continueFromPending = new URLSearchParams(location.search).get('continue') === 'true';
 
   // Estado local para el quiz
   const [asignatura, setAsignatura] = useState(null);
@@ -305,8 +311,31 @@ export default function QuizPage({ tipo }) {
     let mounted = true;
 
     // No verificar progreso guardado si venimos de una actualización reciente
-    // (ya que en ese caso ya hemos restaurado el progreso automáticamente)
-    if (localStorage.getItem('pwa_just_updated') === 'true') {
+    // o si estamos viniendo de "continuar test" en PendingQuizzes
+    if (localStorage.getItem('pwa_just_updated') === 'true' || continueFromPending) {
+      // Si venimos de continuar test, cargamos automáticamente el progreso guardado
+      if (continueFromPending) {
+        const quizKey = `quiz_progress_${asignaturaId}_${modId}`;
+        const savedProgressJSON = localStorage.getItem(quizKey);
+
+        if (savedProgressJSON) {
+          try {
+            const savedProgress = JSON.parse(savedProgressJSON);
+            // Restaurar automáticamente las respuestas y pregunta actual
+            setRespuestas(savedProgress.respuestas || {});
+            setPreguntaActual(savedProgress.preguntaActual || 0);
+
+            // Si hay preguntas guardadas y son diferentes a las actuales
+            if (savedProgress.preguntas && savedProgress.preguntas.length > 0 &&
+                JSON.stringify(savedProgress.preguntas) !== JSON.stringify(preguntas) &&
+                preguntas.length === 0) { // Solo cargar si aún no tenemos preguntas
+              setPreguntas(savedProgress.preguntas);
+            }
+          } catch (error) {
+            console.error('Error al recuperar progreso guardado:', error);
+          }
+        }
+      }
       return;
     }
 
@@ -347,7 +376,7 @@ export default function QuizPage({ tipo }) {
     return () => {
       mounted = false;
     };
-  }, [asignaturaId, modId, cargando, preguntas.length, updateChecked]);
+  }, [asignaturaId, modId, cargando, preguntas.length, updateChecked, continueFromPending]);
 
   useEffect(() => {
     let mounted = true;
@@ -355,6 +384,54 @@ export default function QuizPage({ tipo }) {
     const cargarQuiz = async () => {
       try {
         setCargando(true);
+
+        // Si venimos de continuar test, verificamos si ya tenemos progreso para evitar recargar
+        if (continueFromPending) {
+          const quizKey = `quiz_progress_${asignaturaId}_${modId}`;
+          const savedProgressJSON = localStorage.getItem(quizKey);
+
+          if (savedProgressJSON) {
+            try {
+              const savedProgress = JSON.parse(savedProgressJSON);
+
+              // Restaurar el estado desde el progreso guardado
+              setRespuestas(savedProgress.respuestas || {});
+              setPreguntaActual(savedProgress.preguntaActual || 0);
+
+              // Si hay información de la asignatura, la establecemos
+              if (savedProgress.asignatura) {
+                setAsignatura(savedProgress.asignatura);
+              }
+
+              // Si hay información del módulo, la establecemos
+              if (savedProgress.modulo) {
+                setModulo(savedProgress.modulo);
+                if (savedProgress.modulo.esExamen) {
+                  setModoExamen(true);
+                }
+              }
+
+              // Establecer modos especiales
+              if (savedProgress.tipoQuiz === 'todos' || moduloId === 'todos') {
+                setModoTodos(true);
+              }
+              if (savedProgress.tipoQuiz === 'examen' || moduloId === 'examen') {
+                setModoExamen(true);
+                setModoTodos(true);
+              }
+
+              // Cargar las preguntas guardadas si existen
+              if (savedProgress.preguntas && savedProgress.preguntas.length > 0) {
+                setPreguntas(savedProgress.preguntas);
+                setCargando(false);
+                return; // No seguir cargando si ya tenemos datos
+              }
+            } catch (error) {
+              console.error('Error al recuperar progreso guardado:', error);
+              // Si hay error, continuamos con la carga normal
+            }
+          }
+        }
 
         // Cargar datos de la asignatura
         const asignaturaData = await fetchAsignaturaCompleta(asigId);
@@ -419,7 +496,7 @@ export default function QuizPage({ tipo }) {
     return () => {
       mounted = false;
     };
-  }, [asigId, modId, tipoQuiz, moduloId, updateChecked]);
+  }, [asigId, modId, tipoQuiz, moduloId, updateChecked, continueFromPending, asignaturaId]);
 
   // Efecto para limpiar flags cuando se desmonta el componente
   useEffect(() => {

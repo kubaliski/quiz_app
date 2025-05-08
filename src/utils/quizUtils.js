@@ -160,3 +160,47 @@ export const calcularPuntuacion = (preguntas, respuestas) => {
     notaSobre10: notaRedondeada
   };
 };
+
+/**
+ * Formatea una marca de tiempo (timestamp) en una representación localizada y amigable
+ * @param {number|string|Date} timestamp - Marca de tiempo a formatear
+ * @param {Object} [options] - Opciones de formato
+ * @param {boolean} [options.includeTime=true] - Si se debe incluir la hora
+ * @param {string} [options.locale='es-ES'] - Código de localización
+ * @returns {string} Fecha formateada
+ */
+export const formatTimestamp = (timestamp, options = {}) => {
+  if (!timestamp) return '';
+
+  const {
+    includeTime = true,
+    locale = 'es-ES'
+  } = options;
+
+  try {
+    const date = new Date(timestamp);
+
+    // Verificar que la fecha es válida
+    if (isNaN(date.getTime())) {
+      return '';
+    }
+
+    // Opciones de formato
+    const formatOptions = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    };
+
+    // Añadir opciones de hora si se solicita
+    if (includeTime) {
+      formatOptions.hour = '2-digit';
+      formatOptions.minute = '2-digit';
+    }
+
+    return date.toLocaleString(locale, formatOptions);
+  } catch (error) {
+    console.error('Error al formatear timestamp:', error);
+    return '';
+  }
+};

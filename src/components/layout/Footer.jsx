@@ -28,7 +28,7 @@ export default function Footer() {
         // En desarrollo, usamos una versión fija
         if (isDevelopment) {
           setVersionInfo({
-            version: '1.1.3-dev'
+            version: '1.2.0-dev'
           });
           setIsLoading(false);
           return;
@@ -111,9 +111,8 @@ export default function Footer() {
             <Link to="/about" className="text-white hover:text-white hover:opacity-80 transition-opacity duration-200">
               Colabora
             </Link>
-            {/* Icono de GitHub en lugar del enlace a Contacto */}
             <a
-              href="https://github.com/tu-usuario"
+              href="https://github.com/kubaliski"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-white hover:opacity-80 transition-opacity duration-200"

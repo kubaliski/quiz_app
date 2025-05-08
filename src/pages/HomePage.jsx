@@ -1,6 +1,7 @@
 /**
  * Página principal de la aplicación que muestra el selector de asignaturas.
  * Carga la lista de asignaturas disponibles y gestiona los estados de carga y error.
+ * Incluye sección para retomar quizzes pendientes.
  *
  * @component
  * @returns {JSX.Element} Componente HomePage renderizado
@@ -14,6 +15,7 @@ import { Layout, PageHeader } from '@components/layout';
 import { SubjectSelector } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage } from '@components/common';
 import { fetchAsignaturas } from '@services/quizDataService';
+import {PendingQuizzes} from '@components/quiz';
 
 export default function HomePage() {
   // Usamos estado local en lugar del contexto
@@ -62,6 +64,22 @@ export default function HomePage() {
       />
 
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        {/* Sección para tests pendientes */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+            <span className="border-b-2 border-indigo-500 pb-1">Continuar donde lo dejaste</span>
+          </h2>
+          <PendingQuizzes />
+        </div>
+
+        {/* Separador */}
+        <div className="border-t border-gray-200 dark:border-gray-700 my-8"></div>
+
+        {/* Sección de asignaturas */}
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+          <span className="border-b-2 border-indigo-500 pb-1">Asignaturas disponibles</span>
+        </h2>
+
         {cargando ? (
           <div className="py-12">
             <LoadingSpinner />

@@ -9,18 +9,11 @@
  * - Para respuestas incorrectas, muestra la opción correcta y su explicación
  * - Guarda los resultados del quiz usando el servicio quizDataService
  * - Ofrece opciones para reintentar el mismo quiz o volver a la selección de módulos
+ * - Limpia flags de quiz en progreso al mostrar resultados
  *
  * @component
  * @param {Object} props - Las propiedades del componente
  * @returns {JSX.Element} Componente ResultsPage renderizado
- *
- * @example
- * // En un componente Router
- * <Route path="/resultados/:asignaturaId/:moduloId" element={<ResultsPage />} />
- *
- * @example
- * // URL para acceder a los resultados de un módulo específico
- * // /resultados/1/101 - Resultados de Asignatura ID 1, Módulo ID 101
  */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -64,6 +57,13 @@ export default function ResultsPage() {
       // Calcular puntuación
       const puntuacion = calcularPuntuacion(preguntasData, respuestasData);
       setResultados(puntuacion);
+
+      // Asegurarse de quitar el flag de quiz en progreso
+      localStorage.setItem('quiz_in_progress', 'false');
+
+      // Eliminar cualquier progreso guardado para este quiz
+      const quizKey = `quiz_progress_${asignaturaId}_${moduloId}`;
+      localStorage.removeItem(quizKey);
 
       // Guardar resultados (opcional)
       guardarResultadosQuiz({

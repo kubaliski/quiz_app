@@ -1,51 +1,38 @@
 /**
  * Página que presenta el quiz al usuario con las preguntas y opciones de respuesta.
- *
- * Funcionalidades principales:
- * - Carga preguntas de un módulo específico o de todos los módulos de una asignatura
- * - Mezcla aleatoriamente las preguntas y las opciones de respuesta
- * - Permite navegar entre preguntas (adelante/atrás)
- * - Guarda las respuestas seleccionadas por el usuario
- * - Muestra una barra de progreso con el avance del quiz
- * - Permite salir del quiz con confirmación para evitar pérdida accidental de progreso
- * - Redirige a la página de resultados al completar todas las preguntas
- * - Permite navegación con teclas izquierda/derecha del teclado
+ * Versión refactorizada que utiliza componentes más pequeños y hooks personalizados.
  *
  * @component
  * @param {Object} props - Las propiedades del componente
  * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen)
  * @returns {JSX.Element} Componente QuizPage renderizado
  */
-import { useEffect, useState, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Layout, PageHeader } from '@components/layout';
-import { QuestionCard, QuizNavigation } from '@components/quiz';
-import { LoadingSpinner, ErrorMessage, Button, ProgressBar, Dialog } from '@components/common';
-import {
-  fetchAsignaturaCompleta,
-  fetchModulo,
-  fetchRandomPreguntasByAsignatura,
-  fetchRandomPreguntasByAsignaturaExamen
-} from '@services/quizDataService';
-import { shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { Layout } from '@components/layout';
+import { ErrorMessage, Button } from '@components/common';
 
-export default function QuizPage({ tipo }) {
+// Componentes refactorizados
+import { QuizHeader, QuizProgress,QuizContent,QuizDialogs } from '@components/quiz';
+// Hooks personalizados
+import { QuizProvider } from '@context';
+import { useQuizContext,
+  useQuizLoader,
+  useQuizProgress,
+  useQuizNavigation,
+  useQuizDialogs } from '@hooks';
+
+// Componente interno que usa los hooks y el contexto
+function QuizPageContent({ tipo }) {
   const { asignaturaId, moduloId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Estado local para el quiz
-  const [asignatura, setAsignatura] = useState(null);
-  const [modulo, setModulo] = useState(null);
-  const [preguntas, setPreguntas] = useState([]);
-  const [preguntaActual, setPreguntaActual] = useState(0);
-  const [respuestas, setRespuestas] = useState({});
-  const [cargando, setCargando] = useState(false);
-  const [error, setError] = useState(null);
-  const [modoTodos, setModoTodos] = useState(false);
-  const [modoExamen, setModoExamen] = useState(false);
+  // Verificar si el usuario ha decidido continuar el test desde PendingQuizzes
+  const continueFromPending = new URLSearchParams(location.search).get('continue') === 'true';
 
-  // Estado para controlar la visualización del diálogo
-  const [dialogOpen, setDialogOpen] = useState(false);
+  // Estado para controlar si ya se ha verificado actualización
+  const [updateChecked, setUpdateChecked] = useState(false);
 
   // Establecer tipo de quiz basado en props o moduloId
   const tipoQuiz = tipo || (moduloId === 'todos' ? 'todos' : (moduloId === 'examen' ? 'examen' : null));
@@ -56,196 +43,72 @@ export default function QuizPage({ tipo }) {
     ? moduloId
     : parseInt(moduloId, 10);
 
-  // Propiedades calculadas
-  const totalPreguntas = preguntas.length;
-  const progreso = totalPreguntas ? ((preguntaActual + 1) / totalPreguntas) * 100 : 0;
-  const preguntaActiva = preguntas[preguntaActual] || null;
-  const tieneRespuestaActual = preguntaActiva ? respuestas[preguntaActiva.id] !== undefined : false;
+  // Acceder al contexto del quiz
+  const { error, setRespuesta } = useQuizContext();
 
-  // Manejar funciones de navegación
-  const handleNext = useCallback(() => {
-    if (preguntaActual < totalPreguntas - 1) {
-      setPreguntaActual(preguntaActual + 1);
-    } else {
-      // Guardar resultados en sessionStorage para la página de resultados
-      sessionStorage.setItem('quiz_respuestas', JSON.stringify(respuestas));
-      sessionStorage.setItem('quiz_preguntas', JSON.stringify(preguntas));
-      sessionStorage.setItem('quiz_asignatura', JSON.stringify({
-        id: asigId,
-        nombre: asignatura?.nombre || 'Asignatura'
-      }));
+  // Usar hook para cargar datos del quiz
+  useQuizLoader({
+    asigId,
+    modId,
+    tipoQuiz,
+    moduloId,
+    continueFromPending,
+    asignaturaId
+  });
 
-      // Guardar información sobre el tipo de quiz
-      sessionStorage.setItem('quiz_tipo', tipoQuiz || 'regular');
+  // Usar hook para gestionar el progreso
+  const { saveQuizProgress, getNombreModulo } = useQuizProgress({
+    asignaturaId,
+    modId,
+    asigId,
+    continueFromPending,
+    updateChecked
+  });
 
-      if (modulo) {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: modulo.id,
-          nombre: modulo.nombre,
-          esExamen: modulo.esExamen
-        }));
-
-        // Navegación a módulo específico
-        navigate(`/resultados/${asignaturaId}/${modulo.id}`);
-      } else if (modoExamen || tipoQuiz === 'examen') {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: 'examen',
-          nombre: 'Preguntas de examen'
-        }));
-
-        // Navegación a modo examen
-        navigate(`/resultados/${asignaturaId}/examen`);
-      } else {
-        sessionStorage.setItem('quiz_modulo', JSON.stringify({
-          id: 'todos',
-          nombre: 'Todos los módulos'
-        }));
-
-        // Navegación a modo todos
-        navigate(`/resultados/${asignaturaId}/todos`);
-      }
-    }
-  }, [preguntaActual, totalPreguntas, respuestas, preguntas, asigId, asignatura, tipoQuiz, modulo, modoExamen, asignaturaId, navigate]);
-
-  const handlePrevious = useCallback(() => {
-    if (preguntaActual > 0) {
-      setPreguntaActual(preguntaActual - 1);
-    }
-  }, [preguntaActual]);
-
-  // Manejador de teclas para navegación con teclado
-  const handleKeyDown = useCallback((event) => {
-
-    // Solo manejar eventos de teclado si no hay diálogo abierto y el quiz está cargado
-    if (dialogOpen || cargando || preguntas.length === 0) {
-      return;
-    }
-
-    // Verificar qué tecla se presionó
-    if (event.key === 'ArrowRight') {
-      // Permitir navegar a la siguiente pregunta aunque no haya respuesta seleccionada
-      if (preguntaActual < totalPreguntas - 1) {
-        event.preventDefault(); // Prevenir comportamiento por defecto
-        setPreguntaActual(preguntaActual + 1);
-      }
-    } else if (event.key === 'ArrowLeft') {
-      // Tecla izquierda: ir a pregunta anterior si no es la primera
-      if (preguntaActual > 0) {
-        event.preventDefault(); // Prevenir comportamiento por defecto
-        setPreguntaActual(preguntaActual - 1);
-      }
-    }
-  }, [dialogOpen, cargando, preguntas.length, preguntaActual, totalPreguntas]);
-
-  // Efecto para manejar eventos de teclado
+  // Marcar que se verificó la actualización después del primer renderizado
   useEffect(() => {
-    // Añadir el event listener cuando el componente se monta
-    document.addEventListener('keydown', handleKeyDown);
+    if (!updateChecked) {
+      setUpdateChecked(true);
+    }
+  }, [updateChecked]);
 
-
-
-    // Limpiar el event listener cuando el componente se desmonta
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-
-    };
-  }, [handleKeyDown]); // Dependencias para recrear el efecto cuando cambien estas variables
-
-  useEffect(() => {
-    let mounted = true;
-
-    const cargarQuiz = async () => {
-      try {
-        setCargando(true);
-
-        // Cargar datos de la asignatura
-        const asignaturaData = await fetchAsignaturaCompleta(asigId);
-
-        if (!mounted) return;
-
-        setAsignatura(asignaturaData);
-
-        // Cargar preguntas según el modo
-        let quizQuestions = [];
-
-        if (tipoQuiz === 'examen' || moduloId === 'examen') {
-          // Modo examen: cargar preguntas aleatorias de módulos de examen
-          const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
-
-          if (!mounted) return;
-
-          quizQuestions = preguntasExamen;
-          setModoTodos(true);
-          setModoExamen(true);
-        } else if (tipoQuiz === 'todos' || moduloId === 'todos') {
-          // Modo todos: cargar preguntas aleatorias de todos los módulos
-          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
-
-          if (!mounted) return;
-
-          quizQuestions = preguntasAleatorias;
-          setModoTodos(true);
-        } else {
-          // Modo específico: cargar preguntas de un módulo
-          const moduloData = await fetchModulo(asigId, modId);
-
-          if (!mounted) return;
-
-          setModulo(moduloData);
-          quizQuestions = shuffleArray([...(moduloData.preguntas || [])]);
-
-          // Verificar si es un módulo de examen
-          if (moduloData.esExamen) {
-            setModoExamen(true);
-          }
-        }
-
-        // Mezclar las opciones de cada pregunta
-        const preguntasConOpcionesMezcladas = quizQuestions.map(
-          pregunta => shuffleQuestionOptions(pregunta)
-        );
-
-        setPreguntas(preguntasConOpcionesMezcladas);
-        setCargando(false);
-      } catch (err) {
-        console.error("Error al cargar datos del quiz:", err);
-        if (mounted) {
-          setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
-          setCargando(false);
-        }
-      }
-    };
-
-    cargarQuiz();
-
-    return () => {
-      mounted = false;
-    };
-  }, [asigId, modId, tipoQuiz, moduloId]);
-
+  // Manejar la selección de respuestas
   const handleSelectAnswer = (preguntaId, respuestaIndex) => {
-    setRespuestas(prev => ({
-      ...prev,
-      [preguntaId]: respuestaIndex
-    }));
+    // Actualizar el estado
+    setRespuesta(preguntaId, respuestaIndex);
+
+    // Guardar progreso después de cada respuesta
+    setTimeout(saveQuizProgress, 0);
   };
 
-  const handleExit = () => {
-    // Abrir el diálogo en lugar de usar window.confirm
-    setDialogOpen(true);
-  };
+  // Usar hook para navegación
+  const {
+    handleNext,
+    handlePrevious,
+    handleExit,
+    handleConfirmExit,
+    handleCancelExit
+  } = useQuizNavigation({
+    saveQuizProgress,
+    asignaturaId,
+    modId
+  });
 
-  const handleConfirmExit = () => {
-    // El usuario confirmó salir
-    setDialogOpen(false);
-    navigate(`/asignaturas/${asignaturaId}`);
-  };
+  // Usar hook para diálogos
+  const {
+    dialogOpen,
+    dialogType,
+    savedProgress,
+    handleRestoreProgress,
+    handleDiscardProgress
+  } = useQuizDialogs({
+    asignaturaId,
+    modId,
+    handleConfirmExit,
+    handleCancelExit
+  });
 
-  const handleCancelExit = () => {
-    // El usuario canceló la acción
-    setDialogOpen(false);
-  };
-
+  // Manejar error
   if (error) {
     return (
       <Layout>
@@ -262,96 +125,46 @@ export default function QuizPage({ tipo }) {
     );
   }
 
-  const getNombreModulo = () => {
-    if (modoExamen || tipoQuiz === 'examen' || moduloId === 'examen') return "Preguntas de examen";
-    if (modoTodos || tipoQuiz === 'todos' || moduloId === 'todos') return "Todos los módulos";
-    if (modulo) return modulo.nombre;
-    return "Módulo";
-  };
-
-  const breadcrumbs = [
-    { label: 'Inicio', to: '/' },
-    { label: asignatura?.nombre || 'Asignatura', to: `/asignaturas/${asignaturaId}` },
-    { label: getNombreModulo() }
-  ];
-
   return (
     <Layout>
-      <PageHeader
-        title={`Quiz - ${getNombreModulo()}`}
-        subtitle="Selecciona la respuesta correcta para cada pregunta"
-        breadcrumbs={breadcrumbs}
-        actions={
-          <Button onClick={handleExit} variant="secondary">
-            Salir del quiz
-          </Button>
-        }
+      {/* Cabecera del Quiz */}
+      <QuizHeader
+        getNombreModulo={getNombreModulo}
+        handleExit={handleExit}
+        asignaturaId={asignaturaId}
       />
 
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        {cargando ? (
-          <div className="py-12">
-            <LoadingSpinner />
-          </div>
-        ) : (
-          <>
-            <div className="flex justify-between items-center mb-4">
-              <div className="text-sm font-medium bg-indigo-100 text-indigo-800 py-1 px-3 rounded-full">
-                Pregunta {preguntaActual + 1} de {totalPreguntas}
-              </div>
+        {/* Barra de progreso */}
+        <QuizProgress />
 
-              {modoExamen && (
-                <div className="text-sm font-medium bg-red-100 text-red-800 py-1 px-3 rounded-full">
-                  Modo examen
-                </div>
-              )}
-            </div>
-
-            <ProgressBar
-              progreso={progreso}
-              className={`mb-6 ${modoExamen ? 'bg-red-600' : 'bg-indigo-600'}`}
-            />
-
-            {preguntaActiva && (
-              <>
-                <QuestionCard
-                  pregunta={preguntaActiva}
-                  respuestaSeleccionada={respuestas[preguntaActiva.id]}
-                  onSelectAnswer={handleSelectAnswer}
-                />
-
-                <QuizNavigation
-                  preguntaActual={preguntaActual}
-                  totalPreguntas={totalPreguntas}
-                  respuestaSeleccionada={tieneRespuestaActual}
-                  onPrevious={handlePrevious}
-                  onNext={handleNext}
-                />
-
-                {/* Añadimos una pequeña nota sobre la navegación por teclado */}
-                <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                  <span className="inline-block mx-1 font-medium">←</span> Anterior
-                  <span className="mx-2">|</span>
-                  Siguiente
-                  <span className="inline-block mx-1 font-medium">→</span>
-                </div>
-              </>
-            )}
-          </>
-        )}
+        {/* Contenido principal del Quiz */}
+        <QuizContent
+          handlePrevious={handlePrevious}
+          handleNext={handleNext}
+          handleSelectAnswer={handleSelectAnswer}
+        />
       </div>
 
-      {/* Componente Dialog para confirmar salida */}
-      <Dialog
-        open={dialogOpen}
-        title="Confirmar salida"
-        message="¿Seguro que deseas salir? Perderás tu progreso en este quiz."
-        confirmLabel="Sí, salir"
-        cancelLabel="Cancelar"
-        onConfirm={handleConfirmExit}
-        onCancel={handleCancelExit}
-        variant="danger"
+      {/* Diálogos */}
+      <QuizDialogs
+        dialogOpen={dialogOpen}
+        dialogType={dialogType}
+        savedProgress={savedProgress}
+        handleConfirmExit={handleConfirmExit}
+        handleCancelExit={handleCancelExit}
+        handleRestoreProgress={handleRestoreProgress}
+        handleDiscardProgress={handleDiscardProgress}
       />
     </Layout>
+  );
+}
+
+// Componente principal que proporciona el contexto
+export default function QuizPage({ tipo }) {
+  return (
+    <QuizProvider>
+      <QuizPageContent tipo={tipo} />
+    </QuizProvider>
   );
 }

@@ -56,6 +56,13 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
+        // Validar que asignaturaId es un valor válido
+        if (asignaturaId === null || asignaturaId === undefined || isNaN(parseInt(asignaturaId, 10))) {
+          console.error("ID de asignatura inválido:", asignaturaId);
+          reject(new Error(`ID de asignatura inválido: ${asignaturaId}`));
+          return;
+        }
+
         const id = parseInt(asignaturaId, 10);
 
         if (modulosMap[id]) {
@@ -65,7 +72,8 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           // Otras asignaturas (placeholder)
           const asignatura = asignaturas.find((a) => a.id === id);
           if (!asignatura) {
-            reject(new Error("Asignatura no encontrada"));
+            console.error("Asignatura no encontrada con ID:", id);
+            reject(new Error(`Asignatura no encontrada con ID: ${id}`));
           } else {
             resolve({
               ...asignatura,
@@ -74,7 +82,7 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           }
         }
       } catch (error) {
-        console.error("Error cargando asignatura:", error);
+        console.error("Error cargando asignatura:", error, "ID:", asignaturaId);
         reject(error);
       }
     }, 300);

@@ -12,7 +12,7 @@
  */
 export const importanteExamen = {
   id: 606,
-  nombre: "Preguntas importantes",
+  nombre: "Preguntas importantes (Tema 1 temporal)",
   esExamen: true,
   asignaturaId: 6,
   descripcion: "Test de repaso de los puntos clave indicados para examen.",

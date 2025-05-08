@@ -368,7 +368,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 1,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6626,
@@ -378,12 +378,12 @@ export const importanteExamen = {
       opciones: [
         "Combatir los riesgos en su origen.",
         "Evaluar los riesgos que se puedan evitar.",
-        "Combatir los riesgos en su origen.",
+        "Combatir los riesgos una vez desaparecido el peligro.",
         "Adaptar la persona al trabajo.",
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6627,
@@ -398,7 +398,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6628,
@@ -413,7 +413,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6629,
@@ -428,7 +428,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6630,
@@ -443,7 +443,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6631,
@@ -458,7 +458,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6632,
@@ -473,7 +473,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6633,
@@ -488,7 +488,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
       id: 6634,
@@ -503,7 +503,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
   ],
 };

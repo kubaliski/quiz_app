@@ -67,7 +67,7 @@ export default function HomePage() {
         {/* Sección para tests pendientes */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
-            <span className="border-b-2 border-indigo-500 pb-1">Continuar donde lo dejaste</span>
+            <span className="border-b-2 border-indigo-500 pb-1">Continua donde lo dejaste</span>
           </h2>
           <PendingQuizzes />
         </div>

@@ -62,6 +62,16 @@ function quizReducer(state, action) {
         savedProgress: null
       };
     }
+    // Nuevos casos para el navegador de preguntas
+    case ACTION_TYPES.TOGGLE_QUESTION_NAVIGATOR:
+      return {
+        ...state,
+        questionNavigatorOpen: action.payload !== undefined
+          ? action.payload
+          : !state.questionNavigatorOpen
+      };
+    case ACTION_TYPES.SET_QUESTION_NAVIGATOR_FILTER:
+      return { ...state, showOnlyUnanswered: action.payload };
     default:
       return state;
   }
@@ -106,6 +116,11 @@ export function QuizProvider({ children }) {
       dispatch({ type: ACTION_TYPES.SET_SAVED_PROGRESS, payload: progress }),
     restoreProgress: (progress) =>
       dispatch({ type: ACTION_TYPES.RESTORE_PROGRESS, payload: progress }),
+    // Nuevas acciones para el navegador de preguntas
+    toggleQuestionNavigator: (isOpen) =>
+      dispatch({ type: ACTION_TYPES.TOGGLE_QUESTION_NAVIGATOR, payload: isOpen }),
+    setShowOnlyUnanswered: (showOnly) =>
+      dispatch({ type: ACTION_TYPES.SET_QUESTION_NAVIGATOR_FILTER, payload: showOnly }),
   }), []);
 
   // Propiedades calculadas
@@ -116,11 +131,25 @@ export function QuizProvider({ children }) {
     const tieneRespuestaActual = preguntaActiva ?
       state.respuestas[preguntaActiva.id] !== undefined : false;
 
+    // Nuevas propiedades calculadas para estadísticas
+    const estadisticasPreguntas = {
+      total: totalPreguntas,
+      respondidas: Object.keys(state.respuestas).length,
+      get pendientes() { return this.total - this.respondidas; },
+      porcentajeCompletado: totalPreguntas ?
+        Math.round((Object.keys(state.respuestas).length / totalPreguntas) * 100) : 0,
+      preguntasPendientes: state.preguntas
+        .map((pregunta, index) => ({ pregunta, index }))
+        .filter(item => state.respuestas[item.pregunta.id] === undefined)
+        .map(item => item.index)
+    };
+
     return {
       totalPreguntas,
       progreso,
       preguntaActiva,
-      tieneRespuestaActual
+      tieneRespuestaActual,
+      estadisticasPreguntas
     };
   }, [state.preguntas, state.preguntaActual, state.respuestas]);
 

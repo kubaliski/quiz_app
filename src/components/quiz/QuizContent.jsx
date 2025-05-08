@@ -3,7 +3,7 @@
  * Incluye la pregunta actual, opciones de respuesta y navegación
  */
 import React from 'react';
-import { QuestionCard, QuizNavigation } from './index';
+import { QuestionCard, QuizNavigation, QuestionNavigator } from './index';
 import { LoadingSpinner } from '@components/common';
 import { useQuizContext } from '@hooks';
 
@@ -40,12 +40,16 @@ export default function QuizContent({
     <>
       {preguntaActiva && (
         <>
+
+
+          {/* Tarjeta de pregunta actual */}
           <QuestionCard
             pregunta={preguntaActiva}
             respuestaSeleccionada={respuestas[preguntaActiva.id]}
             onSelectAnswer={handleSelectAnswer}
           />
 
+          {/* Navegación siguiente/anterior */}
           <QuizNavigation
             preguntaActual={preguntaActual}
             totalPreguntas={totalPreguntas}
@@ -53,13 +57,18 @@ export default function QuizContent({
             onPrevious={handlePrevious}
             onNext={handleNext}
           />
-
-          {/* Añadimos una pequeña nota sobre la navegación por teclado */}
-          <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+           {/* Navegador de preguntas */}
+          <div className="mt-6 md:mt-3">
+            <QuestionNavigator />
+          </div>
+          {/* Nota sobre navegación por teclado - oculta en móviles */}
+          <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400 hidden md:block">
             <span className="inline-block mx-1 font-medium">←</span> Anterior
             <span className="mx-2">|</span>
             Siguiente
             <span className="inline-block mx-1 font-medium">→</span>
+            <span className="mx-2">|</span>
+            <span className="font-medium">Alt+N</span> Ir a sin responder
           </div>
         </>
       )}

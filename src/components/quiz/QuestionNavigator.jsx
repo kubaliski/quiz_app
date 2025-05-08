@@ -266,21 +266,20 @@ export default function QuestionNavigator() {
           </div>
 
           {/* Contenedor para los botones: optimizado para táctil en móvil */}
-          <div
+            <div
             ref={navigatorRef}
             className={`
-              ${isMobile
+                ${isMobile
                 ? 'grid grid-cols-5 gap-2 auto-rows-auto'  // Vista de cuadrícula para móvil
-                : 'grid grid-flow-col auto-cols-min gap-2 overflow-x-auto py-2 px-1 snap-x snap-mandatory'
-              }
+                : 'flex flex-wrap justify-center gap-2 py-2 px-1' // Flexbox para desktop con centrado por fila
+                }
             `}
             style={{
-              scrollBehavior: 'smooth',
-              gridGap: isMobile ? '0.75rem' : '0.5rem',
-              justifyContent: isMobile ? 'center' : 'start',
-              touchAction: 'manipulation' // Mejora interacción táctil
+                scrollBehavior: 'smooth',
+                gap: isMobile ? '0.75rem' : '0.5rem',
+                touchAction: 'manipulation' // Mejora interacción táctil
             }}
-          >
+            >
             {filteredQuestions.length === 0 ? (
               <div className={`${isMobile ? 'col-span-5' : 'col-span-full'} text-center text-gray-500 dark:text-gray-400 py-3`}>
                 No hay preguntas que mostrar

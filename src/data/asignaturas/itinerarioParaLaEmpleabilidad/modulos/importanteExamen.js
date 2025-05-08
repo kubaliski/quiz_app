@@ -293,7 +293,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 0,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
       id: 6621,
@@ -308,7 +308,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 1,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
       id: 6622,
@@ -323,7 +323,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 2,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
       id: 6623,
@@ -338,7 +338,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 3,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
       id: 6624,
@@ -353,7 +353,7 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 2,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
       id: 6625,
@@ -368,7 +368,142 @@ export const importanteExamen = {
       ],
       respuestaCorrecta: 1,
       explicacion:
-        "Podemos encontrar la clasiciación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6626,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Combatir los riesgos en su origen.",
+        "Evaluar los riesgos que se puedan evitar.",
+        "Combatir los riesgos en su origen.",
+        "Adaptar la persona al trabajo.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6627,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Evitar los riesgos.",
+        "Afrontar los riesgos si ocurren.",
+        "Transferir los riesgos a terceros.",
+        "Minimizar los riesgos sin evitarlos.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6628,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Evaluar los riesgos que no se puedan evitar.",
+        "Evitar los riesgos que puedan ser evaluados.",
+        "Evaluar solo los riesgos inevitables leves.",
+        "Evitar la evaluación si el riesgo es bajo.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6629,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Adaptar el trabajo a la persona.",
+        "Adaptar la persona al entorno laboral.",
+        "Hacer que los trabajadores se ajusten al ritmo de producción.",
+        "Seleccionar al personal más fuerte físicamente.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6630,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Tener en cuenta la evolución de la técnica.",
+        "Ignorar la evolución técnica hasta que sea obligatoria.",
+        "Usar la técnica más económica disponible.",
+        "Esperar a que la técnica esté obsoleta para cambiarla.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6631,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Sustituir lo peligroso por lo que entrañe poco o ningún peligro.",
+        "Aislar los riesgos sin sustituirlos.",
+        "Usar lo peligroso con más cuidado.",
+        "Sustituir lo poco peligroso por tecnología avanzada aunque peligrosa.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6632,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Planificar la prevención integrando técnica, organización y condiciones laborales.",
+        "Aplicar medidas preventivas improvisadas según los riesgos.",
+        "Planificar solo cuando haya accidentes previos.",
+        "Dejar la prevención a criterio de cada trabajador.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6633,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Adoptar medidas que antepongan la protección colectiva a la individual.",
+        "Fomentar el uso de EPIs como medida principal.",
+        "Centrarse en la protección individual en primer lugar.",
+        "Proteger individualmente y luego pensar en lo colectivo.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
+    },
+    {
+      id: 6634,
+      moduloId: 606,
+      pregunta:
+        "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
+      opciones: [
+        "Dar las debidas instrucciones a los trabajadores.",
+        "Suponer que el trabajador ya sabe cómo actuar.",
+        "Limitar la formación a jefes y supervisores.",
+        "Formar a los trabajadores solo si lo solicitan.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
   ],
 };

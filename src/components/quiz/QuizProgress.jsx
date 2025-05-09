@@ -1,14 +1,13 @@
 /**
  * Componente para mostrar el progreso actual del quiz
  * Incluye barra de progreso, contador de preguntas y etiqueta de modo examen
+ *
+ * @returns {JSX.Element} Componente QuizProgress
  */
 import React from 'react';
 import { ProgressBar } from '@components/common';
 import { useQuizContext } from '@hooks';
 
-/**
- * @returns {JSX.Element} Componente QuizProgress
- */
 export default function QuizProgress() {
   const {
     preguntaActual,

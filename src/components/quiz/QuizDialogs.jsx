@@ -1,12 +1,7 @@
 /**
  * Componente para manejar los diálogos del quiz
  * Incluye diálogos de salida y restauración de progreso
- */
-import React from 'react';
-import { Dialog } from '@components/common';
-import { formatTimestamp } from '@utils/quizUtils';
-
-/**
+ *
  * @param {Object} props - Propiedades del componente
  * @param {boolean} props.dialogOpen - Si el diálogo está abierto
  * @param {string} props.dialogType - Tipo de diálogo ('exit', 'restore-progress')
@@ -17,6 +12,10 @@ import { formatTimestamp } from '@utils/quizUtils';
  * @param {function} props.handleDiscardProgress - Función para descartar progreso
  * @returns {JSX.Element} Componente QuizDialogs
  */
+import React from 'react';
+import { Dialog } from '@components/common';
+import { formatTimestamp } from '@utils/quizUtils';
+
 export default function QuizDialogs({
   dialogOpen,
   dialogType,

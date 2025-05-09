@@ -1,6 +1,16 @@
 /**
  * Hook personalizado para cargar los datos iniciales del quiz
  * Maneja la carga de asignaturas, módulos y preguntas
+ *
+ *
+ * Hook que maneja la carga de datos para el quiz
+ * @param {Object} config - Configuración del loader
+ * @param {number} config.asigId - ID de la asignatura
+ * @param {string|number} config.modId - ID del módulo o 'todos'/'examen'
+ * @param {string} config.tipoQuiz - Tipo de quiz (null, 'todos', 'examen')
+ * @param {string} config.moduloId - ID del módulo de la URL
+ * @param {boolean} config.continueFromPending - Si venimos de 'continuar test'
+ * @param {string} config.asignaturaId - ID de la asignatura (string)
  */
 import { useEffect, useRef } from 'react';
 import { useQuizContext } from './index';
@@ -12,16 +22,6 @@ import {
 } from '@services/quizDataService';
 import { shuffleArray, shuffleQuestionOptions } from '@utils/quizUtils';
 
-/**
- * Hook que maneja la carga de datos para el quiz
- * @param {Object} config - Configuración del loader
- * @param {number} config.asigId - ID de la asignatura
- * @param {string|number} config.modId - ID del módulo o 'todos'/'examen'
- * @param {string} config.tipoQuiz - Tipo de quiz (null, 'todos', 'examen')
- * @param {string} config.moduloId - ID del módulo de la URL
- * @param {boolean} config.continueFromPending - Si venimos de 'continuar test'
- * @param {string} config.asignaturaId - ID de la asignatura (string)
- */
 export function useQuizLoader({
   asigId,
   modId,

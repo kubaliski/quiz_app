@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Button, Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
 
 /**
  * Componente que muestra un prompt para instalar la aplicación como PWA.
  * Utiliza los componentes comunes de la aplicación y soporta tema oscuro.
- *
- * @returns {JSX.Element|null} Componente PWAInstallPrompt o null si no debe mostrarse
- */
+*
+* @returns {JSX.Element|null} Componente PWAInstallPrompt o null si no debe mostrarse
+*/
+
+import { useState, useEffect } from 'react';
+import { Button, Card } from '@components/common';
+import { useTheme } from '@hooks/useTheme';
+
 const PWAInstallPrompt = () => {
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isAppInstalled, setIsAppInstalled] = useState(false);

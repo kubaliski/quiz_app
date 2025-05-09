@@ -1,12 +1,8 @@
 /**
  * Hook personalizado para gestionar el progreso del quiz
  * Maneja el guardado y restauración del progreso en localStorage
- */
-import { useCallback, useEffect } from 'react';
-import { useQuizContext } from './index';
-
-
-/**
+ *
+ *
  * Hook que gestiona el progreso del quiz
  * @param {Object} config - Configuración para el progreso
  * @param {string} config.asignaturaId - ID de la asignatura (string)
@@ -15,6 +11,10 @@ import { useQuizContext } from './index';
  * @param {boolean} config.continueFromPending - Si venimos de "continuar test"
  * @param {boolean} config.updateChecked - Si ya se verificó actualización
  */
+import { useCallback, useEffect } from 'react';
+import { useQuizContext } from './index';
+
+
 export function useQuizProgress({
   asignaturaId,
   modId,

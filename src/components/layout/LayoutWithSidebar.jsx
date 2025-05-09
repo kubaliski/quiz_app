@@ -1,5 +1,5 @@
 /**
- * Componente de layout con barra lateral para navegación secundaria.
+ * Componente de layout con barra lateral para navegación secundaria. (NO ESTÁ EN USO)
  * Se adapta a diferentes tamaños de pantalla con un sidebar fijo en escritorio
  * y un sidebar desplegable en dispositivos móviles.
  *

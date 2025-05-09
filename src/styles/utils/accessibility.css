@@ -1,0 +1,185 @@
+/**
+ * accessibility.css
+ *
+ * Mejoras de accesibilidad y correcciones para garantizar que los textos
+ * sean siempre visibles independientemente del tema y dispositivo.
+ */
+
+/*********************************************
+ * CORRECCIONES PARA COLORES DE TEXTO
+ * Asegura que el texto siempre tenga suficiente contraste
+ *********************************************/
+
+/* Solución para texto blanco en modo claro */
+.light-mode .result-detail-text,
+.light-mode .result-summary-text {
+  color: #374151 !important; /* text-gray-700 - visible en modo claro */
+}
+
+.light-mode .result-detail-label {
+  color: #111827 !important; /* text-gray-900 - visible en modo claro */
+  font-weight: 500 !important;
+}
+
+.dark-mode .result-detail-text,
+.dark-mode .result-summary-text {
+  color: #D1D5DB !important; /* text-gray-300 - visible en modo oscuro */
+}
+
+.dark-mode .result-detail-label {
+  color: #FFFFFF !important; /* white - visible en modo oscuro */
+  font-weight: 500 !important;
+}
+
+/* Selector más específico para sobreescribir otros estilos */
+div[class*="bg-"].p-4 p.result-detail-text,
+div[class*="bg-"].p-4 p.result-detail-text span.font-medium {
+  color: #374151 !important; /* Asegura visibilidad en modo claro */
+}
+
+.dark div[class*="bg-"].p-4 p.result-detail-text,
+.dark div[class*="bg-"].p-4 p.result-detail-text span.font-medium {
+  color: #D1D5DB !important; /* Asegura visibilidad en modo oscuro */
+}
+
+/* Asegurar que las etiquetas siempre sean visibles */
+p.result-detail-text span.font-medium {
+  color: #111827 !important; /* Casi negro */
+  font-weight: 500 !important;
+}
+
+.dark p.result-detail-text span.font-medium {
+  color: #FFFFFF !important; /* Blanco */
+  font-weight: 500 !important;
+}
+
+/*********************************************
+ * CORRECCIONES ESPECÍFICAS PARA RESULTADOS
+ * Asegura que el texto nunca sea blanco en fondos claros
+ *********************************************/
+
+/* Correcciones para el cuadro de resultados detallados */
+.mt-6.grid.p-4 {
+  color: #374151 !important; /* text-gray-700 - para modo claro */
+}
+
+.dark .mt-6.grid.p-4 {
+  color: #D1D5DB !important; /* text-gray-300 - para modo oscuro */
+}
+
+/* Texto normal en detalle */
+.mt-6.grid.p-4 p {
+  color: #374151 !important; /* text-gray-700 - para modo claro */
+}
+
+.dark .mt-6.grid.p-4 p {
+  color: #D1D5DB !important; /* text-gray-300 - para modo oscuro */
+}
+
+/* Etiquetas de texto */
+.mt-6.grid.p-4 .font-medium {
+  color: #111827 !important; /* text-gray-900 - para modo claro */
+  font-weight: 500 !important;
+}
+
+.dark .mt-6.grid.p-4 .font-medium {
+  color: #FFFFFF !important; /* white - para modo oscuro */
+  font-weight: 500 !important;
+}
+
+/* Texto en nota explicativa */
+.mt-6.grid.p-4 .text-sm.italic {
+  color: #6B7280 !important; /* text-gray-500 - para modo claro */
+  font-style: italic;
+}
+
+.dark .mt-6.grid.p-4 .text-sm.italic {
+  color: #9CA3AF !important; /* text-gray-400 - para modo oscuro */
+  font-style: italic;
+}
+
+/* Corrección general para todos los textos en el área de resultados */
+.bg-green-100 p, .bg-yellow-50 p, .bg-red-50 p,
+.bg-green-50 p {
+  color: #374151 !important; /* text-gray-700 - para modo claro */
+}
+
+.dark .bg-green-900.bg-opacity-30 p,
+.dark .bg-green-800.bg-opacity-20 p,
+.dark .bg-yellow-800.bg-opacity-20 p,
+.dark .bg-red-900.bg-opacity-20 p {
+  color: #D1D5DB !important; /* text-gray-300 - para modo oscuro */
+}
+
+/* Últimas correcciones para todos los temas */
+.text-gray-700.dark\:text-gray-300,
+.text-gray-700.dark\:text-gray-300 span {
+  color: #374151 !important; /* Asegura texto gris oscuro en modo claro */
+}
+
+.dark .text-gray-700.dark\:text-gray-300,
+.dark .text-gray-700.dark\:text-gray-300 span {
+  color: #D1D5DB !important; /* Asegura texto gris claro en modo oscuro */
+}
+
+/* Etiquetas específicas */
+.text-gray-700.dark\:text-gray-300 span.font-medium {
+  color: #111827 !important; /* Asegura etiquetas visibles en modo claro */
+  font-weight: 500 !important;
+}
+
+.dark .text-gray-700.dark\:text-gray-300 span.font-medium {
+  color: #FFFFFF !important; /* Asegura etiquetas visibles en modo oscuro */
+  font-weight: 500 !important;
+}
+
+/*********************************************
+ * MODO ALTO CONTRASTE PARA USUARIOS CON PROBLEMAS DE VISIÓN
+ *********************************************/
+
+.high-contrast-mode {
+  --hc-text-color: #000000;
+  --hc-bg-color: #FFFFFF;
+  --hc-link-color: #0000EE;
+  --hc-border-color: #000000;
+}
+
+.high-contrast-mode.dark {
+  --hc-text-color: #FFFFFF;
+  --hc-bg-color: #000000;
+  --hc-link-color: #99CCFF;
+  --hc-border-color: #FFFFFF;
+}
+
+.high-contrast-mode body {
+  background-color: var(--hc-bg-color) !important;
+  color: var(--hc-text-color) !important;
+}
+
+.high-contrast-mode a {
+  color: var(--hc-link-color) !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast-mode button,
+.high-contrast-mode input,
+.high-contrast-mode select,
+.high-contrast-mode textarea {
+  border: 2px solid var(--hc-border-color) !important;
+}
+
+.high-contrast-mode img,
+.high-contrast-mode svg,
+.high-contrast-mode video {
+  filter: contrast(120%) !important;
+}
+
+/* Interacción con elementos en modo de alto contraste */
+.high-contrast-mode button:focus,
+.high-contrast-mode a:focus,
+.high-contrast-mode input:focus,
+.high-contrast-mode select:focus,
+.high-contrast-mode textarea:focus {
+  outline: 3px solid #0000FF !important;
+  outline-offset: 2px !important;
+}

@@ -1,0 +1,233 @@
+/*********************************************
+ * ESTILOS PARA FORMULARIOS E INPUTS
+ * Entradas, campos de formulario, validaciones, etc.
+ *********************************************/
+
+/* Estilos para inputs de texto */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(209, 213, 219); /* border-gray-300 */
+  background-color: white;
+  color: rgb(17, 24, 39); /* text-gray-900 */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Estilos para inputs en modo oscuro */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="search"],
+.dark input[type="tel"],
+.dark input[type="url"],
+.dark textarea,
+.dark select {
+  background-color: rgb(31, 41, 55); /* dark:bg-gray-800 */
+  border-color: rgb(55, 65, 81); /* dark:border-gray-700 */
+  color: rgb(229, 231, 235); /* dark:text-gray-200 */
+}
+
+/* Estado de focus */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: rgb(99, 102, 241); /* border-indigo-500 */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* ring-indigo-500 ring-opacity-20 */
+}
+
+/* Estado de focus en modo oscuro */
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: rgb(129, 140, 248); /* dark:border-indigo-400 */
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2); /* dark:ring-indigo-400 ring-opacity-20 */
+}
+
+/* Estado de error */
+.input-error {
+  border-color: rgb(239, 68, 68) !important; /* border-red-500 */
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important; /* ring-red-500 ring-opacity-20 */
+}
+
+/* Estado de éxito */
+.input-success {
+  border-color: rgb(34, 197, 94) !important; /* border-green-500 */
+}
+
+.input-success:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2) !important; /* ring-green-500 ring-opacity-20 */
+}
+
+/* Mensaje de error de validación */
+.form-error-message {
+  color: rgb(239, 68, 68); /* text-red-500 */
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.dark .form-error-message {
+  color: rgb(248, 113, 113); /* dark:text-red-400 */
+}
+
+/* Mensaje de éxito */
+.form-success-message {
+  color: rgb(34, 197, 94); /* text-green-500 */
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.dark .form-success-message {
+  color: rgb(74, 222, 128); /* dark:text-green-400 */
+}
+
+/* Checkbox y Radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+  color: rgb(79, 70, 229); /* text-indigo-600 */
+  border-color: rgb(209, 213, 219); /* border-gray-300 */
+  border-radius: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.dark input[type="checkbox"],
+.dark input[type="radio"] {
+  color: rgb(129, 140, 248); /* dark:text-indigo-400 */
+  border-color: rgb(55, 65, 81); /* dark:border-gray-700 */
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+/* Etiquetas de formulario */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(17, 24, 39); /* text-gray-900 */
+  margin-bottom: 0.25rem;
+}
+
+.dark label {
+  color: rgb(229, 231, 235); /* dark:text-gray-200 */
+}
+
+/* Grupos de formularios */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Contenedor para checkbox/radio con etiqueta */
+.checkbox-container,
+.radio-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input,
+.radio-container input {
+  margin-right: 0.5rem;
+}
+
+.checkbox-container label,
+.radio-container label {
+  margin-bottom: 0;
+}
+
+/* Botones de formulario */
+button[type="submit"] {
+  background-color: rgb(79, 70, 229); /* bg-indigo-600 */
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(67, 56, 202); /* bg-indigo-700 */
+}
+
+.dark button[type="submit"] {
+  background-color: rgb(67, 56, 202); /* dark:bg-indigo-700 */
+}
+
+.dark button[type="submit"]:hover {
+  background-color: rgb(55, 48, 163); /* dark:bg-indigo-800 */
+}
+
+/* Botón deshabilitado */
+button[disabled],
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Placeholder */
+::placeholder {
+  color: rgb(156, 163, 175); /* text-gray-400 */
+  opacity: 1;
+}
+
+.dark ::placeholder {
+  color: rgb(107, 114, 128); /* dark:text-gray-500 */
+}
+
+/* Campo requerido */
+.required-field label::after {
+  content: "*";
+  color: rgb(239, 68, 68); /* text-red-500 */
+  margin-left: 0.25rem;
+}
+
+/* Formulario enviando estado */
+.form-submitting {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Animación de carga para formularios */
+.form-loading {
+  position: relative;
+}
+
+.form-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: -0.75rem;
+  margin-left: -0.75rem;
+  border: 3px solid rgb(229, 231, 235); /* border-gray-200 */
+  border-top-color: rgb(79, 70, 229); /* border-indigo-600 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

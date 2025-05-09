@@ -1,0 +1,272 @@
+/*********************************************
+ * COLORES WEB SEGUROS
+ * Garantiza colores consistentes en diferentes dispositivos
+ *********************************************/
+
+/*********************************************
+ * COLORES SEGUROS PARA FEEDBACK Y ESTADOS
+ *********************************************/
+
+/* ROJOS - PARA ERRORES Y RESPUESTAS INCORRECTAS */
+
+/* Clases de fondo rojas */
+.safe-bg-red-50 {
+    background-color: #FEE2E2 !important; /* Rojo claro para fondos - tema claro */
+  }
+
+  .safe-bg-red-error {
+    background-color: #FEF2F2 !important; /* Un rojo aún más claro para temas claros */
+  }
+
+  .dark .safe-bg-red-900 {
+    background-color: #7F1D1D !important; /* Rojo oscuro para fondos - tema oscuro */
+    background-color: rgba(127, 29, 29, 0.2) !important; /* Con transparencia */
+  }
+
+  /* Clases de borde rojas */
+  .safe-border-red-200 {
+    border-color: #FECACA !important; /* Borde rojo claro - tema claro */
+  }
+
+  .dark .safe-border-red-800 {
+    border-color: #991B1B !important; /* Borde rojo oscuro - tema oscuro */
+  }
+
+  /* Clases de texto rojas */
+  .safe-text-red-500,
+  .safe-text-red-600 {
+    color: #DC2626 !important; /* Texto rojo oscuro - tema claro */
+  }
+
+  .dark .safe-text-red-400 {
+    color: #F87171 !important; /* Texto rojo claro - tema oscuro */
+  }
+
+  /* VERDES - PARA ÉXITOS Y RESPUESTAS CORRECTAS */
+
+  /* Clases de fondo verdes */
+  .safe-bg-green-50 {
+    background-color: #DCFCE7 !important; /* Verde claro para fondos - tema claro */
+  }
+
+  .safe-bg-green-success {
+    background-color: #ECFDF5 !important; /* Un verde aún más claro para temas claros */
+  }
+
+  .dark .safe-bg-green-900 {
+    background-color: #14532D !important; /* Verde oscuro para fondos - tema oscuro */
+    background-color: rgba(20, 83, 45, 0.2) !important; /* Con transparencia */
+  }
+
+  /* Clases de borde verdes */
+  .safe-border-green-200 {
+    border-color: #BBF7D0 !important; /* Borde verde claro - tema claro */
+  }
+
+  .dark .safe-border-green-800 {
+    border-color: #166534 !important; /* Borde verde oscuro - tema oscuro */
+  }
+
+  /* Clases de texto verdes */
+  .safe-text-green-500,
+  .safe-text-green-600 {
+    color: #16A34A !important; /* Texto verde oscuro - tema claro */
+  }
+
+  .dark .safe-text-green-400 {
+    color: #4ADE80 !important; /* Texto verde claro - tema oscuro */
+  }
+
+  /* AMARILLOS - PARA ADVERTENCIAS */
+
+  /* Clases de fondo amarillas */
+  .safe-bg-yellow-50 {
+    background-color: #FEF9C3 !important; /* Amarillo claro para fondos - tema claro */
+  }
+
+  .dark .safe-bg-yellow-900 {
+    background-color: #713F12 !important; /* Amarillo oscuro para fondos - tema oscuro */
+    background-color: rgba(113, 63, 18, 0.2) !important; /* Con transparencia */
+  }
+
+  /* Clases de borde amarillas */
+  .safe-border-yellow-200 {
+    border-color: #FEF08A !important; /* Borde amarillo claro - tema claro */
+  }
+
+  .dark .safe-border-yellow-800 {
+    border-color: #854D0E !important; /* Borde amarillo oscuro - tema oscuro */
+  }
+
+  /* Clases de texto amarillas */
+  .safe-text-yellow-500,
+  .safe-text-yellow-600 {
+    color: #CA8A04 !important; /* Texto amarillo oscuro - tema claro */
+  }
+
+  .dark .safe-text-yellow-400 {
+    color: #FACC15 !important; /* Texto amarillo claro - tema oscuro */
+  }
+
+  /* NEUTROS - PARA TEXTOS Y FONDOS GENERALES */
+
+  /* Asegurar colores neutrales consistentes */
+  .safe-text-black {
+    color: #000000 !important; /* Negro puro - máxima compatibilidad */
+  }
+
+  .safe-text-white {
+    color: #FFFFFF !important; /* Blanco puro - máxima compatibilidad */
+  }
+
+  .safe-bg-white {
+    background-color: #FFFFFF !important; /* Blanco puro - máxima compatibilidad */
+  }
+
+  .safe-bg-black {
+    background-color: #000000 !important; /* Negro puro - máxima compatibilidad */
+  }
+
+  /*********************************************
+   * CLASES DE COMPONENTES COMPUESTAS
+   *********************************************/
+
+  /* Para QuestionReview - Correcto (tema claro) */
+  .safe-correct-light {
+    background-color: #DCFCE7 !important;
+    border: 1px solid #BBF7D0 !important;
+  }
+
+  .safe-correct-light .answer-text {
+    color: #16A34A !important;
+  }
+
+  /* Para QuestionReview - Correcto (tema oscuro) */
+  .dark .safe-correct-dark {
+    background-color: rgba(20, 83, 45, 0.2) !important;
+    border: 1px solid #166534 !important;
+  }
+
+  .dark .safe-correct-dark .answer-text {
+    color: #4ADE80 !important;
+  }
+
+  /* Para QuestionReview - Incorrecto (tema claro) */
+  .safe-incorrect-light {
+    background-color: #FEE2E2 !important;
+    border: 1px solid #FECACA !important;
+  }
+
+  .safe-incorrect-light .answer-text {
+    color: #DC2626 !important;
+  }
+
+  /* Para QuestionReview - Incorrecto (tema oscuro) */
+  .dark .safe-incorrect-dark {
+    background-color: rgba(127, 29, 29, 0.2) !important;
+    border: 1px solid #991B1B !important;
+  }
+
+  .dark .safe-incorrect-dark .answer-text {
+    color: #F87171 !important;
+  }
+
+  /*********************************************
+   * CLASES ESPECÍFICAS PARA QUIZ (PARA EL EJEMPLO DE IMAGEN)
+   *********************************************/
+
+  /* Tarjetas con respuestas correctas - modo claro */
+  .quiz-correct-card {
+    background-color: #DCFCE7 !important;  /* bg-green-50 - verde claro */
+    border-color: #BBF7D0 !important;      /* border-green-200 - verde más claro */
+  }
+
+  /* Tarjetas con respuestas incorrectas - modo claro */
+  .quiz-incorrect-card {
+    background-color: #FEE2E2 !important;  /* bg-red-50 - rojo claro */
+    border-color: #FECACA !important;      /* border-red-200 - rojo más claro */
+  }
+
+  /* Tarjetas con respuestas correctas - modo oscuro */
+  .dark .quiz-correct-card {
+    background-color: rgba(20, 83, 45, 0.2) !important;  /* bg-green-900 con transparencia */
+    border-color: #166534 !important;                    /* border-green-800 */
+  }
+
+  /* Tarjetas con respuestas incorrectas - modo oscuro */
+  .dark .quiz-incorrect-card {
+    background-color: rgba(127, 29, 29, 0.2) !important;  /* bg-red-900 con transparencia */
+    border-color: #991B1B !important;                     /* border-red-800 */
+  }
+
+  /* Texto para respuestas correctas */
+  .quiz-correct-text {
+    color: #16A34A !important;  /* text-green-600 - verde oscuro */
+  }
+
+  /* Texto para respuestas incorrectas */
+  .quiz-incorrect-text {
+    color: #DC2626 !important;  /* text-red-600 - rojo oscuro */
+  }
+
+  /* Texto para respuestas correctas - modo oscuro */
+  .dark .quiz-correct-text {
+    color: #4ADE80 !important;  /* text-green-400 - verde claro */
+  }
+
+  /* Texto para respuestas incorrectas - modo oscuro */
+  .dark .quiz-incorrect-text {
+    color: #F87171 !important;  /* text-red-400 - rojo claro */
+  }
+
+  /*********************************************
+   * CORRECCIONES ESPECÍFICAS PARA PANTALLAS
+   * QUE MUESTRAN COLORES MÁS OSCUROS
+   *********************************************/
+
+  /* Versiones más brillantes para pantallas que muestran colores más oscuros */
+  .bright-green-text {
+    color: #22C55E !important;  /* Ligeramente más brillante que #16A34A */
+  }
+
+  .bright-red-text {
+    color: #EF4444 !important;  /* Ligeramente más brillante que #DC2626 */
+  }
+
+  .dark .bright-green-text {
+    color: #86EFAC !important;  /* Más brillante que #4ADE80 */
+  }
+
+  .dark .bright-red-text {
+    color: #FCA5A5 !important;  /* Más brillante que #F87171 */
+  }
+
+  /* Fondos más brillantes */
+  .bright-green-bg {
+    background-color: #ECFDF5 !important;  /* Más brillante que #DCFCE7 */
+  }
+
+  .bright-red-bg {
+    background-color: #FEF2F2 !important;  /* Más brillante que #FEE2E2 */
+  }
+
+  /* Clases específicas para corregir la visualización en su dispositivo */
+  .fix-green-card {
+    background-color: #D1FAE5 !important; /* Verde alternativo más brillante */
+    border-color: #A7F3D0 !important;
+  }
+
+  .fix-red-card {
+    background-color: #FEE2E2 !important; /* Rojo alternativo más brillante */
+    border-color: #FECACA !important;
+  }
+
+  .dark .fix-green-card {
+    background-color: rgba(6, 95, 70, 0.25) !important; /* Verde oscuro con más transparencia */
+    border-color: #059669 !important; /* Borde más brillante */
+  }
+
+  .dark .fix-red-card {
+    background-color: rgba(153, 27, 27, 0.25) !important; /* Rojo oscuro con más transparencia */
+    border-color: #DC2626 !important; /* Borde más brillante */
+  }

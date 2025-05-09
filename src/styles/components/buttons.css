@@ -1,0 +1,70 @@
+/*********************************************
+ * ESTILOS PARA BOTONES Y CONTROLES
+ *********************************************/
+
+/* Botón estándar indigo */
+.bg-indigo-600 {
+    background-color: rgb(79, 70, 229) !important; /* bg-indigo-600 */
+  }
+
+  .bg-indigo-600:hover {
+    background-color: rgb(67, 56, 202) !important; /* bg-indigo-700 */
+  }
+
+  html.dark .bg-indigo-600,
+  html.dark .dark\:bg-indigo-700 {
+    background-color: rgb(67, 56, 202) !important; /* dark:bg-indigo-700 */
+  }
+
+  html.dark .bg-indigo-600:hover,
+  html.dark .dark\:bg-indigo-700:hover,
+  html.dark .dark\:hover\:bg-indigo-800:hover {
+    background-color: rgb(55, 48, 163) !important; /* dark:bg-indigo-800 */
+  }
+
+  /* Estilo para las opciones de respuesta */
+  .option-button {
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .option-button:hover:not(.option-selected) {
+    transform: translateX(5px);
+  }
+
+  .option-selected {
+    border-width: 2px;
+  }
+
+  /* Asegurar que el botón de radio siempre se alinee bien con el texto */
+  button .flex-shrink-0 {
+    margin-top: 0.125rem !important;
+  }
+
+  /* Efecto de pulso para botones principales */
+  .pulse-effect {
+    position: relative;
+  }
+
+  .pulse-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.375rem; /* 6px */
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+  }

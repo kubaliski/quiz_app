@@ -1,0 +1,95 @@
+/*********************************************
+ * ESTILOS DE LAYOUT Y ESTRUCTURA
+ * Estructura general, contenedores y organización de la página
+ *********************************************/
+
+/* Layout principal */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Sección principal */
+  .main-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .main-section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  /* Layout de rejilla común */
+  .grid-layout {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-layout {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-layout {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  /* Espaciado vertical */
+  .space-y {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .space-y > * + * {
+    margin-top: 1rem;
+  }
+
+  /* Espaciado horizontal */
+  .space-x {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .space-x > * + * {
+    margin-left: 1rem;
+  }
+
+  /* Layout de centrado */
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

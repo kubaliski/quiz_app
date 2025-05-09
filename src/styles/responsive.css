@@ -1,0 +1,115 @@
+/*********************************************
+ * ESTILOS RESPONSIVOS
+ * Media queries y adaptaciones para diferentes dispositivos
+ *********************************************/
+
+/* Media queries para adaptación responsiva */
+@media (max-width: 640px) {
+    /* Reducir tamaño de todas las fuentes en móvil */
+    .quiz-option-text {
+      font-size: 0.875rem !important; /* 14px por defecto en móvil */
+    }
+
+    /* Clase para opciones muy largas */
+    .quiz-option-text.text-xs {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1.25 !important;
+    }
+
+    /* Ajustar padding en opciones para optimizar espacio */
+    button .quiz-option-text {
+      padding-right: 0.5rem;
+    }
+
+    /* Reducir padding en tarjetas de preguntas */
+    .card {
+      padding: 1rem !important;
+    }
+
+    /* Ajustes para QuestionReview */
+    #question-review-container .review-answer {
+      font-size: 0.75rem !important;
+    }
+
+    #question-review-container .review-explanation {
+      font-size: 0.75rem !important;
+    }
+
+    /* Ajustes generales para móvil */
+    .hide-on-mobile {
+      display: none;
+    }
+
+    .mobile-full-width {
+      width: 100%;
+    }
+  }
+
+  /* Para dispositivos muy pequeños */
+  @media (max-width: 375px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+    .quiz-option-text {
+      font-size: 0.75rem !important; /* 12px por defecto */
+    }
+
+    .quiz-option-text.text-xs {
+      font-size: 0.7rem !important; /* Aún más pequeño */
+    }
+
+    /* Reducir más el padding */
+    button {
+      padding: 0.75rem !important;
+    }
+  }
+
+  /* Para tablets y pantallas medianas */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    /* Ajustes para tablets */
+    .tablet-optimized {
+      padding: 1.25rem !important;
+    }
+
+    /* Reducir márgenes laterales */
+    .container {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+  }
+
+  /* Para pantallas grandes */
+  @media (min-width: 1025px) {
+    /* Optimizaciones para desktop */
+    .desktop-optimized {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Para modo oscuro específicamente */
+  @media (prefers-color-scheme: dark) {
+    /* Aplicar modo oscuro automáticamente si el sistema está en modo oscuro */
+    html:not(.light) {
+      color-scheme: dark;
+    }
+  }
+
+  /* Para modo claro forzado */
+  html.light {
+    color-scheme: light;
+  }
+
+  /* Para modo oscuro forzado */
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* Para preferencia por reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }

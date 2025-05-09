@@ -1,10 +1,6 @@
 /**
  * Hook personalizado para gestionar los diálogos del quiz
- */
-import { useCallback } from 'react';
-import { useQuizContext } from './index';
-
-/**
+ *
  * Hook para manejar los diálogos del quiz
  * @param {Object} config - Configuración para los diálogos
  * @param {string} config.asignaturaId - ID de la asignatura (string)
@@ -12,6 +8,9 @@ import { useQuizContext } from './index';
  * @param {function} config.handleConfirmExit - Función para confirmar salida
  * @param {function} config.handleCancelExit - Función para cancelar salida
  */
+import { useCallback } from 'react';
+import { useQuizContext } from './index';
+
 export function useQuizDialogs({
   asignaturaId,
   modId,

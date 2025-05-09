@@ -25,26 +25,33 @@ function generateVersionPlugin() {
       const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
       let version = packageJson.version || '1.0.0';
 
-      // Intentar añadir hash de git si está disponible
+      // Intentar añadir SOLO el hash de git si está disponible
       try {
         const { execSync } = await import('child_process');
+        // Asegurarse de obtener SOLO el hash del commit, sin ninguna referencia a la rama
         const gitHash = execSync('git rev-parse --short HEAD').toString().trim();
+        // Construir versión solo con el hash, sin incluir la rama
         version = `${version}-${gitHash}`;
       } catch (error) {
         console.warn('No se pudo obtener hash de Git:', error.message);
       }
 
+      // Determinar el entorno
+      const isProduction = process.env.NODE_ENV === 'production';
+
       // Crear objeto de versión
       const versionData = {
-        version,
+        version: isProduction ? version : `${version}-dev`,
         buildDate: new Date().toISOString(),
-        notes: process.env.VERSION_NOTES || 'Actualización de la aplicación'
+        environment: isProduction ? 'production' : 'development',
+        notes: process.env.VERSION_NOTES || (isProduction ? 'Actualización de la aplicación' : 'Versión de desarrollo')
       };
 
       // Escribir archivo version.json
       const versionFilePath = path.join(outputDir, 'version.json');
       fs.writeFileSync(versionFilePath, JSON.stringify(versionData, null, 2));
       console.log(`✅ Archivo version.json generado con versión: ${versionData.version}`);
+      console.log(`📂 Entorno: ${versionData.environment}`);
     }
   };
 }

@@ -24,10 +24,12 @@ if (!fs.existsSync(outputDir)) {
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 const version = packageJson.version || '1.0.0';
 
-// Obtener hash del último commit de Git (opcional)
+// Obtener SOLO el hash del último commit de Git (sin rama)
 let gitHash = '';
 try {
+  // Usar exactamente este comando para obtener solo el hash
   gitHash = execSync('git rev-parse --short HEAD').toString().trim();
+  console.log(`Hash Git obtenido: ${gitHash}`);
 } catch (error) {
   console.warn('No se pudo obtener el hash de Git:', error.message);
 }
@@ -36,6 +38,7 @@ try {
 // Asegurarse de que nunca incluya '-dev' en producción
 const isProduction = process.env.NODE_ENV === 'production';
 const versionData = {
+  // Construir versión solo con el hash, sin incluir la rama
   version: version + (gitHash ? `-${gitHash}` : '') + (isProduction ? '' : '-dev'),
   buildDate: new Date().toISOString(),
   environment: isProduction ? 'production' : 'development',

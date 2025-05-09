@@ -1,18 +1,18 @@
 /**
  * Hook personalizado para manejar la navegación del quiz
  * Gestiona la navegación entre preguntas, atajos de teclado y finalización del quiz
- */
-import { useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useQuizContext } from './index';
-
-/**
+ *
+ *
  * Hook para manejar la navegación del quiz
  * @param {Object} config - Configuración para la navegación
  * @param {function} config.saveQuizProgress - Función para guardar el progreso
  * @param {string} config.asignaturaId - ID de la asignatura (string)
  * @param {string|number} config.modId - ID del módulo o 'todos'/'examen'
  */
+import { useCallback, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useQuizContext } from './index';
+
 export function useQuizNavigation({
   saveQuizProgress,
   asignaturaId,

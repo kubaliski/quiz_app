@@ -268,7 +268,7 @@ export const moduloSimulacroUnoMPO = {
         respuestaCorrecta: 2,
         explicacion: "Ninguna de las opciones es correcta. El comando para eliminar una tabla en SQL es DROP TABLE. TRUNCATE TABLE elimina todos los datos de una tabla pero mantiene su estructura, mientras que DELETE TABLE y REMOVE TABLE no son comandos SQL válidos."
       },
-      {
+       {
         id: 7720,
         moduloId: 707,
         pregunta: "Marca la respuesta correcta:",
@@ -278,8 +278,8 @@ export const moduloSimulacroUnoMPO = {
           "La sentencia SELECT no pertenece al DDL ni al DML.",
           "Ninguna es correcta."
         ],
-        respuestaCorrecta: 3,
-        explicacion: "Ninguna es correcta porque técnicamente la sentencia SELECT pertenece al DQL (Lenguaje de CONSULTA de Datos), que es una categoría específica para las operaciones de consulta. Aunque en algunas clasificaciones tradicionales SELECT podría incluirse dentro del DML por manipular datos para su visualización, la clasificación más precisa y moderna separa las consultas (SELECT) en su propia categoría DQL, diferenciándolas de las operaciones que modifican datos como INSERT, UPDATE y DELETE."
+        respuestaCorrecta: 0,
+        explicacion: "La sentencia SELECT pertenece al DML (Lenguaje de Manipulación de Datos) ya que se utiliza para recuperar datos almacenados en las tablas de la base de datos. Aunque no modifica los datos, sí los manipula para presentarlos al usuario, por lo que se clasifica como parte del DML."
       },
       {
         id: 7721,

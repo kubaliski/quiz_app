@@ -514,7 +514,7 @@ export const importanteExamen = {
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Estudio de todas las consecuencias derivadas de las condiciones materiales y ambientales que afecten a las personas buscando así reducir al máximo la posibilidad de que surjan enfermedades a consecuencia de la actividad normal en una empresa'.",
       opciones: [
         "Medicina en el trabajo.",
-        "Psicosocilogía.",
+        "Psicosociología.",
         "Ergonomía.",
         "Higiene industrial.",
       ],
@@ -529,7 +529,7 @@ export const importanteExamen = {
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Se encarga del estudio de todos los daños de carácter psicológico que pueda sufrir un trabajador en el ejercicio de sus funciones en una empresa'.",
       opciones: [
         "Medicina en el trabajo.",
-        "Psicosocilogía.",
+        "Psicosociología.",
         "Ergonomía.",
         "Higiene industrial.",
       ],
@@ -544,7 +544,7 @@ export const importanteExamen = {
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que se encarga del estudio de la adecuación de las capacidad de las personas a las exigencias previstas en sus respectivos trabajos con el objetivo de mejorar sus capacidades funcionales y rendimiento'.",
       opciones: [
         "Medicina en el trabajo.",
-        "Psicosocilogía.",
+        "Psicosociología.",
         "Ergonomía.",
         "Higiene industrial.",
       ],
@@ -559,7 +559,7 @@ export const importanteExamen = {
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que tiene como objetivo la identificación, evaluación y control de todos los elementos de origen químico, físico o biológico que puedan perjudicar a los trabajadores en el ejercicio de sus funciones'.",
       opciones: [
         "Medicina en el trabajo.",
-        "Psicosocilogía.",
+        "Psicosociología.",
         "Seguridad en el trabajo.",
         "Higiene industrial.",
       ],
@@ -574,7 +574,7 @@ export const importanteExamen = {
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que estudia los riesgos en sí y las condiciones en el trabajo que puedan afectar a los trabajadores pudiendo producir entre otros accidentes de trabajo'.",
       opciones: [
         "Medicina en el trabajo.",
-        "Psicosocilogía.",
+        "Psicosociología.",
         "Ergonomía.",
         "Seguridad en el trabajo.",
       ],
@@ -801,7 +801,7 @@ export const importanteExamen = {
       id: 6660,
       moduloId: 606,
       pregunta:
-        "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que se basa en reducir la temperatura del combustible por debajo de su punto de ignición.?",
+        "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que se basa en reducir la temperatura del combustible por debajo de su punto de ignición?",
       opciones: ["Sofocación.", "Enfriamiento.", "Dilución."],
       respuestaCorrecta: 1,
       explicacion:

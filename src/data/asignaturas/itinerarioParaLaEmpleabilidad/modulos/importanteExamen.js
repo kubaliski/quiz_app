@@ -17,6 +17,7 @@ export const importanteExamen = {
   asignaturaId: 6,
   descripcion: "Test de repaso de los puntos clave indicados para examen.",
   preguntas: [
+    // ---- Tema 1. La salud laboral y la prevención. ----.
     {
       id: 6601,
       moduloId: 606,
@@ -504,6 +505,421 @@ export const importanteExamen = {
       respuestaCorrecta: 0,
       explicacion:
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
+    },
+    // ---- Tema 2. Riesgos profesionales y prevención ----.
+    {
+      id: 6635,
+      moduloId: 606,
+      pregunta:
+        "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Estudio de todas las consecuencias derivadas de las condiciones materiales y ambientales que afecten a las personas buscando así reducir al máximo la posibilidad de que surjan enfermedades a consecuencia de la actividad normal en una empresa'.",
+      opciones: [
+        "Medicina en el trabajo.",
+        "Psicosociología.",
+        "Ergonomía.",
+        "Higiene industrial.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La medicina en el trabajo está regulada en el marco de la Ley de Prevención de Riesgos Laborales y tiene como objetivo preservar la salud de los trabajadores mediante reconocimientos médicos y vigilancia sanitaria.",
+    },
+    {
+      id: 6636,
+      moduloId: 606,
+      pregunta:
+        "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Se encarga del estudio de todos los daños de carácter psicológico que pueda sufrir un trabajador en el ejercicio de sus funciones en una empresa'.",
+      opciones: [
+        "Medicina en el trabajo.",
+        "Psicosociología.",
+        "Ergonomía.",
+        "Higiene industrial.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "La psicosociología analiza factores como el estrés laboral, la carga mental o los conflictos interpersonales, con base en lo recogido por la normativa sobre condiciones psicosociales del trabajo.",
+    },
+    {
+      id: 6637,
+      moduloId: 606,
+      pregunta:
+        "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que se encarga del estudio de la adecuación de las capacidad de las personas a las exigencias previstas en sus respectivos trabajos con el objetivo de mejorar sus capacidades funcionales y rendimiento'.",
+      opciones: [
+        "Medicina en el trabajo.",
+        "Psicosociología.",
+        "Ergonomía.",
+        "Higiene industrial.",
+      ],
+      respuestaCorrecta: 2,
+      explicacion:
+        "La ergonomía busca adaptar el entorno laboral a las características del trabajador, tal como establece el INSST en sus directrices para la prevención de riesgos ergonómicos.",
+    },
+    {
+      id: 6638,
+      moduloId: 606,
+      pregunta:
+        "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que tiene como objetivo la identificación, evaluación y control de todos los elementos de origen químico, físico o biológico que puedan perjudicar a los trabajadores en el ejercicio de sus funciones'.",
+      opciones: [
+        "Medicina en el trabajo.",
+        "Psicosociología.",
+        "Seguridad en el trabajo.",
+        "Higiene industrial.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "La higiene industrial se basa en la anticipación y control de contaminantes, conforme a lo estipulado en el Real Decreto 374/2001 sobre protección frente a agentes químicos.",
+    },
+    {
+      id: 6639,
+      moduloId: 606,
+      pregunta:
+        "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que estudia los riesgos en sí y las condiciones en el trabajo que puedan afectar a los trabajadores pudiendo producir entre otros accidentes de trabajo'.",
+      opciones: [
+        "Medicina en el trabajo.",
+        "Psicosociología.",
+        "Ergonomía.",
+        "Seguridad en el trabajo.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "La seguridad en el trabajo se centra en evitar accidentes mediante medidas de control de riesgos mecánicos, eléctricos o estructurales, en cumplimiento del artículo 15 de la Ley 31/1995.",
+    },
+    {
+      id: 6640,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Proporciona información clara y concisa sobre los riesgos específicos y las medidas de seguridad que deben tomarse en ciertas áreas o situaciones'.",
+      opciones: ["Información.", "Prevención.", "Orientación.", "Advertencia."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Este tipo de señalización está regulada por el Real Decreto 485/1997 y tiene como fin informar sin necesidad de exigir una acción inmediata.",
+    },
+    {
+      id: 6641,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Alerta a los trabajadores sobre la presencia de peligros potenciales y les recuerda la necesidad de seguir procedimientos seguros'.",
+      opciones: ["Información.", "Prevención.", "Orientación.", "Advertencia."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "La señalización preventiva busca evitar situaciones de riesgo antes de que ocurran, como parte del principio de acción preventiva.",
+    },
+    {
+      id: 6642,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Guía a los trabajadores y visitantes hacia salidas de emergencia, equipos de protección, áreas seguras y otros lugares relevantes'.",
+      opciones: ["Información.", "Prevención.", "Orientación.", "Advertencia."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "La señalización de orientación facilita la evacuación o localización rápida de zonas importantes en situaciones de emergencia, según normativas como ISO 7010.",
+    },
+    {
+      id: 6643,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Avisa sobre situaciones peligrosas inminentes que requieren atención inmediata y precaución'.",
+      opciones: ["Información.", "Prevención.", "Orientación.", "Advertencia."],
+      respuestaCorrecta: 3,
+      explicacion:
+        "Las señales de advertencia se usan cuando existe un peligro concreto y presente, y deben cumplir criterios visuales normalizados (forma triangular y colores llamativos).",
+    },
+    {
+      id: 6644,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Indica acciones o comportamientos que están prohibidos para prevenir accidentes o daños a la salud'.",
+      opciones: ["Emergencia.", "Prevención.", "Prohibición.", "Advertencia."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Estas señales están diseñadas para evitar comportamientos peligrosos mediante una prohibición clara, y su formato visual está recogido en el RD 485/1997.",
+    },
+    {
+      id: 6645,
+      moduloId: 606,
+      pregunta:
+        "¿A qué tipo de señalización hace referencia? 'Facilita la respuesta rápida y eficaz ante emergencias como incendios, escapes de sustancias peligrosas u otras situaciones críticas'.",
+      opciones: ["Emergencia.", "Prevención.", "Prohibición.", "Advertencia."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La señalización de emergencia incluye salidas, equipos de extinción o primeros auxilios, y se basa en estándares europeos de seguridad en evacuaciones.",
+    },
+    {
+      id: 6646,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en rojo sobre fondo blanco que indican acciones o comportamientos prohibidos (por ejemplo, no fumar). En forma de círculo, bordes rojos, fondo blanco y pictograma negro'.",
+      opciones: ["Prohibición.", "Obligación.", "Advertencia.", "Salvamento."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La descripción ya contiene los elementos clave que definen la señal de prohibición.",
+    },
+    {
+      id: 6647,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en blanco sobre fondo azul que indican la obligación de llevar a cabo una acción específica (por ejemplo, uso de equipo de protección personal). En forma de círculo,  fondo azul y pictograma blanco'.",
+      opciones: ["Prohibición.", "Obligación.", "Advertencia.", "Salvamento."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "La forma, color y contenido de la señal indican claramente una obligación.",
+    },
+    {
+      id: 6648,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Triángulo amarillo con símbolos o palabras negras que alertan sobre posibles peligros o riesgos (por ejemplo, precaución: suelo mojado). En forma de triángulo, bordes negros, fondo amarillo y pictograma negro'.",
+      opciones: ["Prohibición.", "Obligación.", "Advertencia.", "Salvamento."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "La forma triangular y el color amarillo con negro son característicos de las señales de advertencia.",
+    },
+    {
+      id: 6649,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en verde sobre fondo blanco que indican la ubicación de equipos de salvamento o primeros auxilios. En forma de rectángulo, fondo verde y pictograma blanco'.",
+      opciones: [
+        "Prohibición.",
+        "Extinción de incendios.",
+        "Desniveles y obstáculos.",
+        "Salvamento.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "El color verde y la referencia a primeros auxilios indican una señal de salvamento.",
+    },
+    {
+      id: 6650,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en rojo sobre fondo blanco que indican la ubicación de equipos para la extinción de incendios (por ejemplo, extintor). En forma de cuadrado, fondo rojo y pictograma blanco'.",
+      opciones: [
+        "Prohibición.",
+        "Extinción de incendios.",
+        "Desniveles y obstáculos.",
+        "Salvamento.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Las señales de extinción de incendios se identifican por su fondo rojo y pictogramas blancos.",
+    },
+    {
+      id: 6651,
+      moduloId: 606,
+      pregunta:
+        "Indica el tipo de señal al que se refiere la siguiente descripción: 'Marcas visuales (generalmente en el suelo) que alertan sobre desniveles, escalones u otros obstáculos que podrían causar tropiezos o caídas. Rayas amarillas y negras'.",
+      opciones: [
+        "Prohibición.",
+        "Extinción de incendios.",
+        "Desniveles y obstáculos.",
+        "Salvamento.",
+      ],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Las franjas amarillas y negras se usan comúnmente para señalar obstáculos o desniveles peligrosos.",
+    },
+    {
+      id: 6652,
+      moduloId: 606,
+      pregunta:
+        "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es cualquier material que pueda arder. Pueden ser sólidos (madera, papel), líquidos (gasolina, aceites), gases (propano, butano) o incluso metales combustibles'.",
+      opciones: ["Combustible.", "Calor.", "Comburente."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Sin este componente, no hay materia que reaccione con el oxígeno para producir fuego.",
+    },
+    {
+      id: 6653,
+      moduloId: 606,
+      pregunta:
+        "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es el componente del aire que reacciona con el combustible durante la combustión. Se necesita un mínimo de concentración de oxígeno para que un material arda'.",
+      opciones: ["Combustible.", "Calor.", "Comburente."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Sin este elemento, la reacción de combustión no puede mantenerse, ya que actúa como agente oxidante.",
+    },
+    {
+      id: 6654,
+      moduloId: 606,
+      pregunta:
+        "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es la energía suficiente para iniciar y mantener la reacción química de la combustión. Puede provenir de una fuente externa como una chispa, llama o radiante'.",
+      opciones: ["Combustible.", "Calor.", "Comburente."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Este factor actúa como iniciador del proceso de combustión y es clave para romper la inercia química del combustible.",
+    },
+    {
+      id: 6655,
+      moduloId: 606,
+      pregunta:
+        "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para materiales sólidos combustibles (madera, papel, tela, cartón, etc.)?",
+      opciones: ["A.", "B.", "C.", "D."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Los fuegos de clase A se apagan con extintores que actúan por enfriamiento, como los de agua pulverizada.",
+    },
+    {
+      id: 6656,
+      moduloId: 606,
+      pregunta:
+        "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para gases inflamables (butano, propano, gas natural)?",
+      opciones: ["A.", "B.", "C.", "D."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Los fuegos de clase C implican gases y suelen extinguirse cortando el suministro y usando polvo químico seco.",
+    },
+    {
+      id: 6657,
+      moduloId: 606,
+      pregunta:
+        "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para metales combustibles (magnesio, aluminio, sodio)?",
+      opciones: ["A.", "B.", "C.", "D."],
+      respuestaCorrecta: 3,
+      explicacion:
+        "Los fuegos de clase D requieren agentes especiales como polvo seco específico que no reaccione con los metales.",
+    },
+    {
+      id: 6658,
+      moduloId: 606,
+      pregunta:
+        "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para líquidos inflamables (gasolina, aceites, pintura, alcohol)?",
+      opciones: ["A.", "B.", "C.", "D."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Los fuegos de clase B deben sofocarse con extintores que impidan la emisión de vapores inflamables, como espuma o CO₂.",
+    },
+    {
+      id: 6659,
+      moduloId: 606,
+      pregunta:
+        "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que consiste en eliminar el oxígeno del área afectada para interrumpir la combustión?",
+      opciones: ["Sofocación.", "Enfriamiento.", "Dilución."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Este método actúa sobre el comburente, impidiendo que el oxígeno alimente el fuego.",
+    },
+    {
+      id: 6660,
+      moduloId: 606,
+      pregunta:
+        "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que se basa en reducir la temperatura del combustible por debajo de su punto de ignición?",
+      opciones: ["Sofocación.", "Enfriamiento.", "Dilución."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Actúa sobre el calor, eliminando la energía necesaria para que continúe la combustión.",
+    },
+    {
+      id: 6661,
+      moduloId: 606,
+      pregunta:
+        "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que consiste en reducir la concentración de combustible en el área afectada?",
+      opciones: ["Sofocación.", "Enfriamiento.", "Dilución."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Este método interrumpe la reacción al limitar la cantidad de material que puede arder.",
+    },
+    {
+      id: 6662,
+      moduloId: 606,
+      pregunta:
+        "¿Qué tipo de radiación es aquella con suficiente energía para ionizar átomos o moléculas, es decir, para arrancar electrones de los átomos, creando iones?",
+      opciones: [
+        "Radiación ionizante.",
+        "Radiación no ionizante.",
+        "Radiación neutronizante.",
+        "Radiación no cationizante.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Este tipo de radiación puede dañar el ADN y tejidos vivos, por lo que es especialmente peligrosa en entornos laborales.",
+    },
+    {
+      id: 6663,
+      moduloId: 606,
+      pregunta:
+        "¿Qué tipo de radiación es aquella que no tiene suficiente energía para ionizar átomos o moléculas?",
+      opciones: [
+        "Radiación ionizante.",
+        "Radiación no ionizante.",
+        "Radiación neutronizante.",
+        "Radiación no cationizante.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "A pesar de no ser ionizante, puede provocar efectos térmicos o biológicos a largo plazo si hay sobreexposición.",
+    },
+    {
+      id: 6664,
+      moduloId: 606,
+      pregunta:
+        "¿Qué tipo de radiación son los rayos X, rayos gamma, partículas alfa, partículas beta y neutrones?",
+      opciones: [
+        "Radiación ionizante.",
+        "Radiación no ionizante.",
+        "Radiación neutronizante.",
+        "Radiación no cationizante.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Estos tipos de radiación tienen aplicaciones médicas e industriales, pero requieren estrictos controles de protección.",
+    },
+    {
+      id: 6665,
+      moduloId: 606,
+      pregunta:
+        "¿Qué tipo de radiación son la ultravioleta, la luz visible, las microondas, las radiofrecuencias y los campos electromagnéticos?",
+      opciones: [
+        "Radiación ionizante.",
+        "Radiación no ionizante.",
+        "Radiación neutronizante.",
+        "Radiación no cationizante.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Estas radiaciones forman parte del espectro electromagnético común y se encuentran en nuestro entorno cotidiano.",
+    },
+    {
+      id: 6666,
+      moduloId: 606,
+      pregunta: "¿Cómo se clasifican los riesgos biológicos?",
+      opciones: [
+        "Del 1 (más leve) al 4 (más grave).",
+        "Del 4 (más leve) al 1 (más grave).",
+        "Del 1 (más leve) al 6 (más grave).",
+        "Del 6 (más leve) al 1 (más grave).",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La clasificación sigue una escala creciente de peligrosidad en función del nivel de riesgo para la salud humana.",
+    },
+    {
+      id: 6667,
+      moduloId: 606,
+      pregunta:
+        "La temperatura de los locales donde se realicen trabajos sedentarios propios de oficinas o similares estará comprendida entre:",
+      opciones: [
+        "17ºC y 27ºC.",
+        "14ºC y 25ºC.",
+        "16ºC y 26ºC.",
+        "17ºC y 25ºC.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Este rango busca garantizar el confort térmico para trabajadores en actividad mínima.",
+    },
+    {
+      id: 6668,
+      moduloId: 606,
+      pregunta:
+        "La temperatura de los locales donde se realicen trabajos ligeros estará comprendida entre:",
+      opciones: [
+        "17ºC y 27ºC.",
+        "14ºC y 25ºC.",
+        "16ºC y 26ºC.",
+        "17ºC y 25ºC.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Los trabajos ligeros generan más calor corporal, por eso se permite un ambiente algo más fresco.",
     },
   ],
 };

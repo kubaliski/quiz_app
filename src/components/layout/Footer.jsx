@@ -28,7 +28,7 @@ export default function Footer() {
         // En desarrollo, usamos una versión fija
         if (isDevelopment) {
           setVersionInfo({
-            version: '1.2.0-dev'
+            version: '1.3.0-dev'
           });
           setIsLoading(false);
           return;

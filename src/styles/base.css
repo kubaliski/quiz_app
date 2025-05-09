@@ -1,0 +1,196 @@
+/*********************************************
+ * ESTILOS BASE Y GLOBALES
+ * Configuración global, tipografía y estilos de fondo
+ *********************************************/
+
+/* Estilos de fondo y texto básicos */
+body {
+    background-color: rgb(243, 244, 246) !important; /* bg-gray-100 */
+    color: rgb(31, 41, 55) !important; /* text-gray-800 */
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html.dark body {
+    background-color: rgb(17, 24, 39) !important; /* dark:bg-gray-900 */
+    color: rgb(229, 231, 235) !important; /* dark:text-gray-200 */
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* Estilos para encabezados */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: rgb(17, 24, 39) !important; /* text-gray-900 */
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: rgb(255, 255, 255) !important; /* dark:text-white */
+  }
+
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  /* Estilos para enlaces */
+  a {
+    color: rgb(79, 70, 229) !important; /* text-indigo-600 */
+    transition: color 0.2s;
+  }
+
+  .dark a {
+    color: rgb(129, 140, 248) !important; /* dark:text-indigo-400 */
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  /* Texto énfasis (strong) */
+  strong {
+    color: rgb(17, 24, 39) !important; /* text-gray-900 */
+    font-weight: 600 !important;
+  }
+
+  .dark strong {
+    color: rgb(255, 255, 255) !important; /* dark:text-white */
+  }
+
+  /* Textos en listas */
+  ol li,
+  ul li {
+    color: rgb(55, 65, 81) !important; /* text-gray-700 */
+  }
+
+  .dark ol li,
+  .dark ul li {
+    color: rgb(209, 213, 219) !important; /* dark:text-gray-300 */
+  }
+
+  /*********************************************
+   * CLASES DE FONDO
+   *********************************************/
+
+  /* Fondos en modo claro */
+  .bg-white {
+    background-color: white !important;
+  }
+
+  .bg-gray-50 {
+    background-color: rgb(249, 250, 251) !important; /* bg-gray-50 */
+  }
+
+  .bg-gray-100 {
+    background-color: rgb(243, 244, 246) !important; /* bg-gray-100 */
+  }
+
+  .bg-gray-200 {
+    background-color: rgb(229, 231, 235) !important; /* bg-gray-200 */
+  }
+
+  .bg-indigo-100 {
+    background-color: rgb(224, 231, 255) !important; /* bg-indigo-100 */
+  }
+
+  /* Fondos en modo oscuro */
+  html.dark .dark\:bg-gray-700 {
+    background-color: rgb(55, 65, 81) !important; /* dark:bg-gray-700 */
+  }
+
+  html.dark .dark\:bg-gray-800 {
+    background-color: rgb(31, 41, 55) !important; /* dark:bg-gray-800 */
+  }
+
+  html.dark .dark\:bg-gray-900 {
+    background-color: rgb(17, 24, 39) !important; /* dark:bg-gray-900 */
+  }
+
+  html.dark .dark\:bg-indigo-900 {
+    background-color: rgb(49, 46, 129) !important; /* dark:bg-indigo-900 */
+  }
+
+  html.dark .dark\:bg-indigo-700 {
+    background-color: rgb(67, 56, 202) !important; /* dark:bg-indigo-700 */
+  }
+
+  /*********************************************
+   * CLASES DE TEXTO
+   *********************************************/
+
+  /* Colores de texto para modo claro */
+  .text-gray-700 {
+    color: rgb(55, 65, 81) !important; /* text-gray-700 */
+  }
+
+  .text-gray-600 {
+    color: rgb(75, 85, 99) !important; /* text-gray-600 */
+  }
+
+  .text-gray-900 {
+    color: rgb(17, 24, 39) !important; /* text-gray-900 */
+  }
+
+  .text-indigo-800 {
+    color: rgb(55, 48, 163) !important; /* text-indigo-800 */
+  }
+
+  /* Colores de texto para modo oscuro */
+  html.dark .dark\:text-white {
+    color: rgb(255, 255, 255) !important; /* dark:text-white */
+  }
+
+  html.dark .dark\:text-gray-200 {
+    color: rgb(229, 231, 235) !important; /* dark:text-gray-200 */
+  }
+
+  html.dark .dark\:text-gray-300 {
+    color: rgb(209, 213, 219) !important; /* dark:text-gray-300 */
+  }
+
+  html.dark .dark\:text-gray-400 {
+    color: rgb(156, 163, 175) !important; /* dark:text-gray-400 */
+  }
+
+  /*********************************************
+   * CLASES DE BORDE
+   *********************************************/
+
+  /* Borderes más visibles en tema claro */
+  .border-gray-200 {
+    border-color: rgb(229, 231, 235) !important; /* border-gray-200 */
+  }
+
+  /* Bordes para modo oscuro */
+  html.dark .dark\:border-gray-700 {
+    border-color: rgb(55, 65, 81) !important; /* dark:border-gray-700 */
+  }
+
+  html.dark .dark\:border-indigo-700 {
+    border-color: rgb(67, 56, 202) !important; /* dark:border-indigo-700 */
+  }
+
+  /*********************************************
+   * UTILIDADES PERSONALIZADAS
+   *********************************************/
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .rotate-hover:hover {
+    transform: rotate(2deg);
+  }
+
+  .scale-hover:hover {
+    transform: scale(1.05);
+  }
+
+  /* Ayuda con palabras muy largas */
+  .break-long-words {
+    word-break: break-all;
+    hyphens: auto;
+  }

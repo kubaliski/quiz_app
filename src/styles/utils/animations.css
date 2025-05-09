@@ -1,0 +1,33 @@
+/*********************************************
+ * ESTILOS PARA ANIMACIONES Y TRANSICIONES
+ *********************************************/
+
+/* Animaciones personalizadas */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Clase para animaciones de entrada */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .slide-in-up {
+    animation: slideInUp 0.5s ease-out;
+  }

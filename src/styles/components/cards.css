@@ -1,0 +1,46 @@
+/*********************************************
+ * ESTILOS PARA TARJETAS Y CONTENEDORES
+ *********************************************/
+
+/* Estilo para las tarjetas al pasar el ratón */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Bloques de notas e información */
+  .bg-indigo-50,
+  .bg-yellow-50 {
+    background-color: rgb(238, 242, 255) !important; /* bg-indigo-50 */
+    border-color: rgb(99, 102, 241) !important; /* border-indigo-500 */
+  }
+
+  html.dark .bg-indigo-50,
+  html.dark .dark\:bg-indigo-900.dark\:bg-opacity-40 {
+    background-color: rgba(49, 46, 129, 0.4) !important; /* dark:bg-indigo-900 with opacity */
+    border-color: rgb(129, 140, 248) !important; /* dark:border-indigo-400 */
+  }
+
+  html.dark .bg-yellow-50,
+  html.dark .dark\:bg-yellow-900.dark\:bg-opacity-30 {
+    background-color: rgba(113, 63, 18, 0.3) !important; /* dark:bg-yellow-900 with opacity */
+    border-color: rgb(234, 179, 8) !important; /* dark:border-yellow-500 */
+  }
+
+  /* Bloques de código y consola */
+  .bg-gray-100.font-mono,
+  .bg-gray-100.p-2 {
+    background-color: rgb(243, 244, 246) !important; /* bg-gray-100 */
+    color: rgb(31, 41, 55) !important; /* text-gray-800 */
+  }
+
+  html.dark .bg-gray-100.font-mono,
+  html.dark .bg-gray-100.p-2,
+  html.dark .dark\:bg-gray-800.p-2 {
+    background-color: rgb(31, 41, 55) !important; /* dark:bg-gray-800 */
+    color: rgb(229, 231, 235) !important; /* dark:text-gray-200 */
+  }

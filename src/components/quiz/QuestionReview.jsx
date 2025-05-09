@@ -1,7 +1,7 @@
 /**
- * Componente que muestra el resumen de una pregunta respondida con feedback visual
- * sobre si la respuesta fue correcta o incorrecta, junto con la explicación.
- * Incluye adaptación automática del tamaño de texto para opciones largas en móviles.
+ * Componente mejorado que muestra el resumen de una pregunta respondida con
+ * feedback visual sobre si la respuesta fue correcta o incorrecta, junto con la explicación.
+ * Utiliza colores web seguros para garantizar consistencia entre dispositivos.
  *
  * @component
  * @param {Object} props - Propiedades del componente
@@ -19,6 +19,7 @@ import { useTheme } from '@hooks/useTheme';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
+import { getQuestionReviewStyles } from '@styles/safeStyles';
 
 export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
   const { darkMode } = useTheme();
@@ -27,6 +28,12 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
   // Estado para controlar el tamaño de texto adaptativo
   const [textoLargo, setTextoLargo] = useState(false);
   const [textoMuyLargo, setTextoMuyLargo] = useState(false);
+  const [styles, setStyles] = useState({});
+
+  // Inicializar y actualizar los estilos cuando cambie el tema
+  useEffect(() => {
+    setStyles(getQuestionReviewStyles(isCorrect, darkMode, textoLargo));
+  }, [isCorrect, darkMode, textoLargo]);
 
   // Verificar longitud de las opciones y explicación al cargar el componente
   useEffect(() => {
@@ -42,9 +49,17 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
       respuestaCorrectaTexto.length
     );
 
-    setTextoLargo(maxLength > 80 || pregunta.explicacion.length > 150);
-    setTextoMuyLargo(maxLength > 140 || pregunta.explicacion.length > 250);
-  }, [pregunta, respuestaUsuario]);
+    const nuevoTextoLargo = maxLength > 80 || pregunta.explicacion.length > 150;
+    const nuevoTextoMuyLargo = maxLength > 140 || pregunta.explicacion.length > 250;
+
+    setTextoLargo(nuevoTextoLargo);
+    setTextoMuyLargo(nuevoTextoMuyLargo);
+
+    // Actualizar estilos si cambió el tamaño del texto
+    if (nuevoTextoLargo !== textoLargo) {
+      setStyles(getQuestionReviewStyles(isCorrect, darkMode, nuevoTextoLargo));
+    }
+  }, [pregunta, respuestaUsuario, isCorrect, darkMode, textoLargo]);
 
   // Función para obtener clase de tamaño de texto basado en longitud
   const getTextSizeClass = (tipoTexto) => {
@@ -103,22 +118,9 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
     }
   };
 
-  // Estilo para habilitar roturas de palabras en textos largos
-  const textStyle = textoLargo ? {
-    wordBreak: 'break-word',
-    hyphens: 'auto',
-    overflowWrap: 'break-word'
-  } : {};
-
   return (
-    <div
-      className={`p-4 rounded-lg ${
-        isCorrect
-          ? 'bg-green-50 dark:bg-green-900 dark:bg-opacity-20 border border-green-200 dark:border-green-800'
-          : 'bg-red-50 dark:bg-red-900 dark:bg-opacity-20 border border-red-200 dark:border-red-800'
-      }`}
-    >
-      <h4 className={`font-medium mb-2 dark:text-white ${textoLargo ? 'text-base sm:text-sm' : ''}`}>
+    <div style={styles.container}>
+      <h4 style={styles.questionText} className={`font-medium mb-2 ${textoLargo ? 'text-base sm:text-sm' : ''}`}>
         {index + 1}. {pregunta.pregunta}
       </h4>
 
@@ -126,26 +128,26 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
       {renderRecurso()}
 
       <div className="ml-4 mb-3">
-        <p className={`font-medium dark:text-gray-300 ${getTextSizeClass('respuesta')}`} style={textStyle}>
+        <p className={`font-medium ${getTextSizeClass('respuesta')}`}>
           Tu respuesta:
-          <span className={`${isCorrect ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'} ml-2`}>
+          <span style={styles.userAnswer} className="ml-2">
             {respuestaUsuario !== undefined ? pregunta.opciones[respuestaUsuario] : 'Sin respuesta'}
           </span>
         </p>
 
         {!isCorrect && (
-          <p className={`font-medium dark:text-gray-300 ${getTextSizeClass('respuesta')}`} style={textStyle}>
+          <p className={`font-medium ${getTextSizeClass('respuesta')}`}>
             Respuesta correcta:
-            <span className="text-green-600 dark:text-green-400 ml-2">
+            <span style={styles.correctAnswer} className="ml-2">
               {pregunta.opciones[pregunta.respuestaCorrecta]}
             </span>
           </p>
         )}
       </div>
 
-      <div className="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-        <p className={`${getTextSizeClass('explicacion')} text-gray-700 dark:text-gray-300`} style={textStyle}>
-          <strong>Explicación:</strong> {pregunta.explicacion}
+      <div style={styles.explanationContainer}>
+        <p style={styles.explanationText} className={getTextSizeClass('explicacion')}>
+          <strong style={styles.explanationEmphasis}>Explicación:</strong> {pregunta.explicacion}
         </p>
       </div>
     </div>

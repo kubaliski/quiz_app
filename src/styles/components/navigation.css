@@ -1,0 +1,61 @@
+/*********************************************
+ * ESTILOS PARA NAVEGACIÓN
+ * Header, Navbar, Footer y elementos de navegación
+ *********************************************/
+
+/*********************************************
+ * NAVBAR Y HEADER
+ *********************************************/
+
+/* Asegurar que el texto en la navbar sea siempre blanco */
+header a,
+header span,
+header .text-white {
+  color: white !important;
+}
+
+/* Texto del logo */
+header .flex-shrink-0 a,
+header .flex-shrink-0 span {
+  color: white !important;
+}
+
+/* Enlaces de navegación */
+header nav a {
+  color: white !important;
+}
+
+/* También en el menú móvil */
+.MobileMenu a {
+  color: white !important;
+}
+
+/* Si necesitas ajustar el color de hover */
+header a:hover {
+  opacity: 0.9 !important;
+}
+
+/*********************************************
+ * ESTILOS PARA EL FOOTER
+ *********************************************/
+
+/* Asegurar que los enlaces del footer sean siempre blancos */
+footer a,
+footer svg {
+  color: white !important;
+}
+
+/* Estilo para el hover */
+footer a:hover,
+footer a:hover svg {
+  opacity: 0.8 !important;
+}
+
+/* Color de fondo del footer */
+footer {
+  background-color: rgb(31, 41, 55) !important; /* bg-gray-800 */
+}
+
+html.dark footer {
+  background-color: rgb(17, 24, 39) !important; /* dark:bg-gray-900 */
+}

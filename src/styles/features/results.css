@@ -1,0 +1,57 @@
+/*********************************************
+ * ESTILOS ESPECÍFICOS PARA RESULTADOS
+ * ResultSummary, QuestionReview y componentes relacionados
+ *********************************************/
+
+/* Tarjeta de resultados */
+.result-card {
+    transition: all 0.3s ease;
+  }
+
+  .result-card:hover {
+    transform: scale(1.02);
+  }
+
+  /*********************************************
+   * ESTILOS PARA QUESTIONREVIEW
+   *********************************************/
+
+  /* Clase específica para el texto de las preguntas en QuestionReview */
+  .question-text {
+    color: #111827 !important; /* CORREGIDO: Texto oscuro en modo claro */
+  }
+
+  /* Mantener coherencia con el resto del tema */
+  html.dark .question-text {
+    color: white !important; /* Blanco en modo oscuro */
+  }
+
+  /* Clase específica para los detalles de resultados en ResultSummary */
+  .result-detail-text {
+    color: #374151 !important; /* CORREGIDO: Texto gris oscuro en modo claro */
+  }
+
+  /* Mantener coherencia con el resto del tema */
+  html.dark .result-detail-text {
+    color: #D1D5DB !important; /* Texto gris claro en modo oscuro */
+  }
+
+  /* Asegurar que los textos con énfasis (font-medium) también sean visibles */
+  .result-detail-text .font-medium {
+    color: #111827 !important; /* CORREGIDO: Negro en modo claro */
+    font-weight: 500 !important;
+  }
+
+  html.dark .result-detail-text .font-medium {
+    color: white !important; /* Blanco en modo oscuro */
+    font-weight: 500 !important;
+  }
+
+  /* Ajustes para QuestionReview */
+  #question-review-container .review-answer {
+    font-size: 0.875rem !important;
+  }
+
+  #question-review-container .review-explanation {
+    font-size: 0.875rem !important;
+  }

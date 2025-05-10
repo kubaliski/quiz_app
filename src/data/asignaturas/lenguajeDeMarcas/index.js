@@ -9,6 +9,7 @@ import moduloHTMLListas from "./modulos/listas";
 import moduloHTMLFormularios from "./modulos/formularios";
 import moduloHTMLCSSLayout from "./modulos/layout";
 import simulacroUnoLenguajeDeMarcas from "./modulos/simulacroUnoLenguajeDeMarcas";
+import moduloSimulacroDosLenguajeDeMarcas from "./modulos/simulacroDosLenguajeDeMarcas";
 
 export const lenguajesMarcas = {
     ...info,
@@ -23,6 +24,7 @@ export const lenguajesMarcas = {
         moduloHTMLFormularios,
         moduloHTMLCSSLayout,
         simulacroUnoLenguajeDeMarcas,
+        moduloSimulacroDosLenguajeDeMarcas,
     ],
     };
 export default lenguajesMarcas;

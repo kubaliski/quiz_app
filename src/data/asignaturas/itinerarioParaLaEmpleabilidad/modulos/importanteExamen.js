@@ -921,6 +921,404 @@ export const importanteExamen = {
       explicacion:
         "Los trabajos ligeros generan más calor corporal, por eso se permite un ambiente algo más fresco.",
     },
+    // ---- Tema 3. Prevención de riesgos laborales y primeros auxilios. ----
+    {
+      id: 6669,
+      moduloId: 606,
+      pregunta: "¿Qué tipos de niveles de cualificación existen en la PRL?",
+      opciones: [
+        "Básico, Intermedio y Superior.",
+        "Mínimo, Básico y Superior.",
+        "Básico, Intermedio y Cualificado.",
+        "Mínimo, Medio y Alto.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el Real Decreto 39/1997, los niveles de formación en prevención de riesgos laborales son: básico, intermedio y superior. Cada uno capacita para funciones preventivas distintas dentro de la empresa.",
+    },
+    {
+      id: 6670,
+      moduloId: 606,
+      pregunta:
+        "El nivel básico para la cualificación en prevención de riesgos laborales necesita de un mínimo de horas para ser acreditado en función de las características de la actividad de la empresa. Esta cantidad de horas sería:",
+      opciones: [
+        "50h para empresas con actividades peligrosas y 30h para el resto de empresas.",
+        "30h para empresas con actividades peligrosas y 15h para el resto de empresas.",
+        "60h para empresas con actividades peligrosas y 30h para el resto de empresas.",
+        "50h para empresas con actividades peligrosas y 25h para el resto de empresas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El artículo 35 del Real Decreto 39/1997 establece que el nivel básico requiere al menos 50 horas de formación en empresas con riesgos importantes y 30 horas para el resto.",
+    },
+    {
+      id: 6671,
+      moduloId: 606,
+      pregunta:
+        "¿Cuántas horas de formación requiere el nivel superior de prevención de riesgos laborales?",
+      opciones: [
+        "Mínimo 600 horas acreditadas por una universidad.",
+        "Máximo 600 horas acreditadas por una universidad.",
+        "Mínimo 300 horas acreditadas por una universidad.",
+        "Mínimo 250 horas acreditadas por una universidad.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el Anexo VI del Real Decreto 39/1997, el nivel superior requiere una formación mínima de 600 horas impartidas por una universidad para poder desempeñar funciones como técnico superior en PRL.",
+    },
+    {
+      id: 6672,
+      moduloId: 606,
+      pregunta:
+        "Son los representantes de los trabajadores en materia de seguridad y salud en el trabajo:",
+      opciones: [
+        "Delegados de Prevención.",
+        "Delegados de Personal.",
+        "Comités de Empresa.",
+        "Comités de Seguridad y Salud.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 35 de la Ley 31/1995 de Prevención de Riesgos Laborales, los Delegados de Prevención son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo.",
+    },
+    {
+      id: 6673,
+      moduloId: 606,
+      pregunta:
+        "Son los representantes de los trabajadores en empresas que tienen entre 10 y 50 trabajadores:",
+      opciones: [
+        "Delegados de Prevención.",
+        "Delegados de Personal.",
+        "Comités de Empresa.",
+        "Comités de Seguridad y Salud.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "De acuerdo con el Estatuto de los Trabajadores (artículo 62) y la LPRL (artículo 34), en empresas de entre 10 y 49 trabajadores los Delegados de Personal representan a los trabajadores ante la empresa.",
+    },
+    {
+      id: 6674,
+      moduloId: 606,
+      pregunta:
+        "Son órganos de representación de los trabajadores en empresas que cuentan con 50 o más empleados. Están compuestos por representantes elegidos por los trabajadores:",
+      opciones: [
+        "Delegados de Prevención.",
+        "Delegados de Personal.",
+        "Comités de Empresa.",
+        "Comités de Seguridad y Salud.",
+      ],
+      respuestaCorrecta: 2,
+      explicacion:
+        "Según el artículo 63 del Estatuto de los Trabajadores, las empresas con 50 o más trabajadores deben constituir un Comité de Empresa como órgano representativo de los trabajadores.",
+    },
+    {
+      id: 6675,
+      moduloId: 606,
+      pregunta:
+        "Son órganos formados por representantes de la empresa y de los trabajadores con la finalidad de velar por la seguridad y salud en el trabajo. En las empresas de 50 o más trabajadores, debe existir:",
+      opciones: [
+        "Delegados de Prevención.",
+        "Delegados de Personal.",
+        "Comités de Empresa.",
+        "Comités de Seguridad y Salud.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "Según el artículo 38 de la Ley 31/1995, en empresas con 50 o más trabajadores debe constituirse un Comité de Seguridad y Salud como órgano paritario y colegiado de participación en materia preventiva.",
+    },
+    {
+      id: 6676,
+      moduloId: 606,
+      pregunta:
+        "¿Con qué frecuencia debe reunirse el Comité de Seguridad y Salud en las empresas?",
+      opciones: [
+        "Al menos una vez cada tres meses.",
+        "Al menos una vez cada seis meses.",
+        "Al menos una vez cada dos meses.",
+        "Al menos una vez cada cinco meses.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 38.3 de la Ley 31/1995 de Prevención de Riesgos Laborales, el Comité de Seguridad y Salud debe reunirse al menos cada tres meses y siempre que lo solicite alguna de las representaciones en el mismo.",
+    },
+    {
+      id: 6677,
+      moduloId: 606,
+      pregunta:
+        "¿Cuál es el número mínimo y máximo de Delegados de Prevención que puede tener una empresa según su tamaño?",
+      opciones: [
+        "Mínimo 1 y máximo 8.",
+        "Mínimo 2 y máximo 8.",
+        "Mínimo 1 y máximo según el número de trabajadores.",
+        "Mínimo 2 y máximo según el número de trabajadores.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El artículo 35.2 de la Ley 31/1995 establece que el número de Delegados de Prevención varía según el tamaño de la plantilla, partiendo de un mínimo de 1 (para empresas de hasta 49 trabajadores) y aumentando hasta un máximo de 8 en empresas de 2.000 trabajadores o más.",
+    },
+    {
+      id: 6678,
+      moduloId: 606,
+      pregunta:
+        "¿Qué formas de organización de la actividad preventiva puede adoptar una empresa según la normativa vigente?",
+      opciones: [
+        "Asunción por el empresario, designación de trabajadores, servicio de prevención propio, servicio de prevención mancomunado y servicio de prevención ajeno.",
+        "Solo servicio de prevención propio y servicio de prevención ajeno.",
+        "Servicio de prevención ajeno, concertado y mancomunado.",
+        "Servicio de prevención propio, ajeno y mancomunado.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 10 del Real Decreto 39/1997, una empresa puede organizar la prevención mediante: 1) Asunción por el empresario; 2) Designación de uno o varios trabajadores; 3) Constitución de un servicio de prevención propio; 4) Servicio de prevención mancomunado; y 5) Recurso a un servicio de prevención ajeno.",
+    },
+    {
+      id: 6679,
+      moduloId: 606,
+      pregunta:
+        "¿En qué condiciones puede el propio empresario asumir personalmente la actividad preventiva?",
+      opciones: [
+        "Cuando la empresa tiene hasta 10 trabajadores, o hasta 25 si tiene un solo centro de trabajo y no realiza actividades peligrosas.",
+        "Cuando la empresa tiene hasta 25 trabajadores, o hasta 50 si tiene un solo centro de trabajo y no realiza actividades peligrosas.",
+        "Cuando la empresa tiene hasta 30 trabajadores, o hasta 60 si tiene un solo centro de trabajo y no realiza actividades peligrosas.",
+        "Cuando la empresa tiene hasta 10 trabajadores, o hasta 30 si tiene un solo centro de trabajo y no realiza actividades peligrosas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 11 del Real Decreto 39/1997, el empresario puede asumir la prevención si su empresa tiene hasta 10 trabajadores, o hasta 25 si desarrolla su actividad en un único centro y no realiza actividades peligrosas, y siempre que tenga la formación adecuada.",
+    },
+    {
+      id: 6680,
+      moduloId: 606,
+      pregunta:
+        "¿Cuántas especialidades preventivas debe cubrir como mínimo un servicio de prevención propio?",
+      opciones: [
+        "Al menos 2 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Al menos 3 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Al menos 1 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Debe cubrir obligatoriamente todas las especialidades preventivas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El artículo 14.2 del Real Decreto 39/1997 establece que el servicio de prevención propio debe disponer, al menos, de dos de las especialidades preventivas exigidas (medicina del trabajo, seguridad, higiene, ergonomía y psicosociología). Las demás pueden ser cubiertas por un servicio ajeno.",
+    },
+    {
+      id: 6681,
+      moduloId: 606,
+      pregunta:
+        "¿Cuántas especialidades debe cubrir como mínimo un servicio de prevención mancomunado?",
+      opciones: [
+        "Al menos 2 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Al menos 3 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Al menos 1 de las 5 especialidades preventivas; el resto pueden externalizarse.",
+        "Debe cubrir obligatoriamente todas las especialidades preventivas.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Según el artículo 21 del Real Decreto 39/1997, el servicio de prevención mancomunado debe contar, como mínimo, con tres especialidades preventivas. El resto pueden ser concertadas con servicios ajenos si no se dispone de los recursos necesarios.",
+    },
+    {
+      id: 6682,
+      moduloId: 606,
+      pregunta:
+        "¿Cuáles son las fases del proceso de evaluación de riesgos laborales?",
+      opciones: [
+        "Tiene 3: identificación, evaluación y valoración.",
+        "Tiene 4: identificación, evaluación, valoración y resolución.",
+        "Tiene 3: proteger, alertar y socorrer.",
+        "Tiene 4: identificación, evaluación y resolución.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El proceso de evaluación de riesgos laborales consta de tres fases básicas: 1) Identificación del peligro, 2) Evaluación del riesgo (probabilidad x consecuencias), y 3) Valoración del riesgo en función de su aceptabilidad. Estas fases están recogidas de forma implícita en los artículos 3 y 5 del Real Decreto 39/1997, Reglamento de los Servicios de Prevención.",
+    },
+    {
+      id: 6683,
+      moduloId: 606,
+      pregunta:
+        "¿Cómo se denomina una situación de emergencia menor que puede ser controlada rápidamente sin afectar a la operativa normal?",
+      opciones: [
+        "Conato de emergencia.",
+        "Emergencia nula.",
+        "Emergencia baja.",
+        "Simulacro de emergencia.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Un conato de emergencia es una situación de peligro inicial o muy limitado que puede ser controlado de forma rápida por medios locales, sin que llegue a interrumpir la actividad general. Esta clasificación se basa en los criterios establecidos en planes de emergencia y autoprotección según la Norma Básica de Autoprotección (Real Decreto 393/2007).",
+    },
+    {
+      id: 6684,
+      moduloId: 606,
+      pregunta:
+        "¿Cómo se clasifica una emergencia que afecta a una parte significativa del centro de trabajo, pero no a su totalidad?",
+      opciones: [
+        "Conato de emergencia.",
+        "Emergencia parcial.",
+        "Emergencia moderada.",
+        "Emergencia baja.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Una emergencia parcial implica una situación que, aunque más grave que un conato, solo afecta a una parte del centro de trabajo y puede requerir la intervención de equipos internos de emergencia. Esta tipología se recoge en la planificación de emergencias según el Real Decreto 393/2007, sobre planes de autoprotección.",
+    },
+    {
+      id: 6685,
+      moduloId: 606,
+      pregunta:
+        "¿Qué tipo de emergencia implica un riesgo grave que afecta a la totalidad del centro de trabajo?",
+      opciones: [
+        "Emergencia de riesgo.",
+        "Emergencia general.",
+        "Emergencia crítica.",
+        "Emergencia absoluta.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "La emergencia general se refiere a situaciones que comprometen seriamente la seguridad de todo el centro de trabajo, pudiendo afectar a personas, instalaciones o al entorno. Este concepto está contemplado en el marco de los planes de emergencia y autoprotección conforme al Real Decreto 393/2007.",
+    },
+    {
+      id: 6700,
+      moduloId: 606,
+      pregunta: "¿Qué significan las siglas PAS en primeros auxilios?",
+      opciones: [
+        "Proteger, Avisar, Socorrer.",
+        "Parar, Actuar, Salvar.",
+        "Prevenir, Atender, Sostener.",
+        "Pedir ayuda, Atender, Solucionar.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "PAS es el protocolo básico de actuación ante una emergencia: Proteger el lugar del accidente, Avisar a los servicios de emergencia y Socorrer a la víctima sin poner en riesgo la propia seguridad.",
+    },
+    {
+      id: 6701,
+      moduloId: 606,
+      pregunta:
+        "¿Qué se evalúa en la primera evaluación de una víctima en primeros auxilios?",
+      opciones: [
+        "La conciencia, respiración y circulación.",
+        "El historial médico de la víctima.",
+        "El tipo de sangre y antecedentes familiares.",
+        "La temperatura corporal y frecuencia urinaria.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "En la primera evaluación se valora si la víctima está consciente, respira adecuadamente y tiene pulso. Es clave para detectar situaciones críticas que requieren actuación inmediata.",
+    },
+    {
+      id: 6702,
+      moduloId: 606,
+      pregunta: "¿Qué aspectos incluye la segunda evaluación de la víctima?",
+      opciones: [
+        "Exploración secundaria desde la cabeza a los pies para buscar lesiones.",
+        "Medición de la glucosa y presión arterial.",
+        "Interrogatorio exhaustivo del paciente.",
+        "Revisión del entorno del accidente.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La segunda evaluación consiste en una exploración completa del cuerpo, de cabeza a pies, para localizar heridas, fracturas, quemaduras u otros daños que no sean evidentes a primera vista.",
+    },
+    {
+      id: 6703,
+      moduloId: 606,
+      pregunta: "¿Qué significan las siglas RCP?",
+      opciones: [
+        "Reanimación Cardio-Pulmonar.",
+        "Respuesta Clínica Preventiva.",
+        "Reacción Corporal Primaria.",
+        "Reanimación Cráneo-Precordial.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "RCP significa Reanimación Cardio-Pulmonar, un conjunto de maniobras destinadas a mantener la circulación sanguínea y la oxigenación en casos de paro cardiorrespiratorio.",
+    },
+    {
+      id: 6704,
+      moduloId: 606,
+      pregunta:
+        "¿Cuál es el estándar actual en adultos para realizar la RCP básica?",
+      opciones: [
+        "30 compresiones por 2 insuflaciones.",
+        "15 compresiones por 5 insuflaciones.",
+        "20 compresiones por 4 insuflaciones.",
+        "25 compresiones por 2 insuflaciones.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El protocolo internacional de RCP básica en adultos establece una relación de 30 compresiones torácicas por 2 insuflaciones (ventilaciones).",
+    },
+    {
+      id: 6705,
+      moduloId: 606,
+      pregunta:
+        "¿En cuántos grados se clasifican las quemaduras y cuál es el más grave?",
+      opciones: [
+        "En tres grados; el tercero es el más grave.",
+        "En cuatro grados; el primero es el más grave.",
+        "En dos grados; el segundo es el más grave.",
+        "En tres grados; el primero es el más grave.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Las quemaduras se clasifican en tres grados. El primero afecta solo a la epidermis (menos grave), el segundo a la dermis (moderada) y el tercero a todas las capas de la piel, incluso tejidos más profundos (más grave).",
+    },
+    {
+      id: 6706,
+      moduloId: 606,
+      pregunta: "¿Qué indica el color rojo en un triaje de emergencia?",
+      opciones: [
+        "Emergencia vital: requiere atención inmediata.",
+        "Leve: puede esperar asistencia.",
+        "Fallecido o sin posibilidad de supervivencia.",
+        "Urgencia moderada.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El color rojo en el triaje significa que la víctima tiene lesiones que amenazan la vida y necesita atención inmediata para sobrevivir.",
+    },
+    {
+      id: 6707,
+      moduloId: 606,
+      pregunta: "¿Qué indica el color amarillo en un triaje de emergencia?",
+      opciones: [
+        "Urgencia moderada: puede esperar asistencia.",
+        "Emergencia vital: requiere atención inmediata.",
+        "Fallecido o sin posibilidad de supervivencia.",
+        "Sin heridas aparentes.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El color amarillo en el triaje representa urgencias que no son críticas pero sí importantes, y que deben atenderse tras los casos rojos.",
+    },
+    {
+      id: 6708,
+      moduloId: 606,
+      pregunta: "¿Qué indica el color verde en un triaje de emergencia?",
+      opciones: [
+        "Lesión leve: puede esperar o incluso marcharse por su propio pie.",
+        "Emergencia vital: requiere atención inmediata.",
+        "Urgencia quirúrgica.",
+        "Fallecimiento inminente.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El color verde en el triaje indica que el paciente presenta lesiones leves y puede esperar tratamiento o incluso valerse por sí mismo.",
+    },
+    {
+      id: 6709,
+      moduloId: 606,
+      pregunta: "¿Qué indica el color negro en un triaje de emergencia?",
+      opciones: [
+        "Fallecido o con lesiones incompatibles con la vida.",
+        "Urgencia moderada.",
+        "Paciente en observación.",
+        "Enfermedad infecciosa.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El color negro en el triaje se asigna a las víctimas que han fallecido o presentan lesiones tan graves que no es posible brindar asistencia eficaz con los recursos disponibles.",
+    },
   ],
 };
 export default importanteExamen;

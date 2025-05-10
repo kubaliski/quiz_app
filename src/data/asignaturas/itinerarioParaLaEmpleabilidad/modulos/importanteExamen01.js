@@ -10,9 +10,9 @@
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
  */
-export const importanteExamen = {
+export const importanteExamen01 = {
   id: 606,
-  nombre: "Preguntas importantes (Tema 1 - 2 temporal)",
+  nombre: "Preguntas importantes. Bloque 1 (Temas 1 a 3)",
   esExamen: true,
   asignaturaId: 6,
   descripcion: "Test de repaso de los puntos clave indicados para examen.",
@@ -1321,4 +1321,4 @@ export const importanteExamen = {
     },
   ],
 };
-export default importanteExamen;
+export default importanteExamen01;

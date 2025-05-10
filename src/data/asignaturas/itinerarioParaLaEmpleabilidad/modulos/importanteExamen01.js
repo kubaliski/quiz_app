@@ -1152,7 +1152,7 @@ export const importanteExamen01 = {
       pregunta:
         "¿Cómo se clasifica una emergencia que afecta a una parte significativa del centro de trabajo, pero no a su totalidad?",
       opciones: [
-        "Conato de emergencia.",
+        "Contacto de emergencia.",
         "Emergencia parcial.",
         "Emergencia moderada.",
         "Emergencia baja.",

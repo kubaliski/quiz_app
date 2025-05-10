@@ -10,7 +10,7 @@
  * @property {string} descripcion - Breve descripción del contenido del módulo
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
  */
-export const moduloUnidadSeisPuntoUno = {
+export const moduloUnidadSeis = {
     id: 609,
     nombre: "Test Unidad 6",
     esExamen: false,

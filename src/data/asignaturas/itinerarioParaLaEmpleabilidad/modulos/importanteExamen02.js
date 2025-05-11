@@ -11,7 +11,7 @@
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
  */
 export const importanteExamen02 = {
-  id: 606,
+  id: 607,
   nombre: "Preguntas importantes. Bloque 2 (Temas 4 -temporal-)",
   esExamen: true,
   asignaturaId: 6,
@@ -20,7 +20,7 @@ export const importanteExamen02 = {
     // ---- Tema 4. Derecho del trabajo: la relación laboral y el convenio colectivo. ----.
     {
       id: 6710,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "El derecho del trabajo tal como lo conocemos actualmente comenzó a formarse durante una época que posteriormente propició la aparición de las primeras leyes laborales. Esta etapa se conoce como:",
       opciones: [
@@ -35,7 +35,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6711,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "Para que exista una relación laboral, son indispensables los siguientes elementos:",
       opciones: [
@@ -50,7 +50,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6712,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "¿Cuál es la jerarquía normativa en el ordenamiento jurídico laboral español?",
       opciones: [
@@ -66,7 +66,7 @@ export const importanteExamen02 = {
     //!-----------------------------------------------
     {
       id: 6713,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "Este principio significa que, en caso de duda sobre la interpretación de una norma laboral, la interpretación que favorezca al trabajador debe prevalecer. Este enfoque protege al trabajador frente a posibles ambigüedades o inconsistencias en las leyes laborales.",
       opciones: [
@@ -81,7 +81,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6714,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "En el ámbito de la legislación laboral existe un proceso que tiene como objetivo intentar resolver disputas entre trabajadores y empleadores de manera amistosa y sin necesidad de llegar a un juicio. Este se conoce como:",
       opciones: [
@@ -96,7 +96,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6715,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "Para que un contrato de trabajo sea válido, debe cumplir con ciertos requisitos esenciales. Si alguno de estos falta, el contrato puede ser nulo o inválido. Estos requisitos son:",
       opciones: [
@@ -111,7 +111,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6716,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "¿Qué organización internacional jugó un papel importante en la consolidación del derecho laboral en el siglo XX?",
       opciones: [
@@ -126,7 +126,7 @@ export const importanteExamen02 = {
     },
     {
       id: 6717,
-      moduloId: 606,
+      moduloId: 607,
       pregunta:
         "Los tribunales laborales en España están estructurados en varios niveles. Indica la organización jerárquica correcta (de más importante a menos importante):",
       opciones: [

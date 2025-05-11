@@ -133,7 +133,7 @@ export const importanteExamen02 = {
         "Tribunal Constitucional, Tribunal Supremo, Audiencia Nacional, Tribunal Superior de Justicia de la CCAA, Juzgados de lo Social.",
         "Tribunal Constitucional, Tribunal Supremo, Tribunal Superior de Justicia de la CCAA, Audiencia Nacional, Juzgados de lo Social.",
         "Tribunal Supremo, Tribunal Nacional, Tribunal Superior de Justicia de la CCAA, Audiencia Nacional, Juzgados de lo Social.",
-        "Tribunal Constitucional, Tribunal Supremo, Tribunal Superior de Justicia de la CCAA, Audiencia Nacional, Juzgados de lo Social.",
+        "Tribunal Constitucional, Tribunal Supremo, Tribunal Superior de Justicia de la CCAA, Audiencia Provincial, Juzgados de lo Social.",
       ],
       respuestaCorrecta: 0,
       explicacion:

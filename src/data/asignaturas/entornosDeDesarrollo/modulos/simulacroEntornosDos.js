@@ -273,15 +273,15 @@ preguntas: [
     {
         id: 5720,
         moduloId: 507,
-        pregunta: "¿Qué comando permite configurar el nombre de usuario global en Git?",
+        pregunta: "¿Qué comando permite configurar el email de usuario global en Git?",
         opciones: [
-            "git init user.name",
-            "git config --global user.name",
-            "git config user.name",
-            "git name set"
+            "git init user.email",
+            "git config --global user.email",
+            "git config user.email",
+            "git email set"
         ],
         respuestaCorrecta: 1,
-        explicacion: "El comando 'git config --global user.name' seguido del nombre deseado entre comillas se utiliza para configurar el nombre de usuario global en Git. Esta configuración establece la identidad que se asociará con todos los commits realizados en cualquier repositorio del sistema, a menos que se sobrescriba con una configuración local. La opción '--global' indica que la configuración debe aplicarse a nivel de usuario en todos los repositorios, en lugar de limitarse a un repositorio específico. Este es uno de los primeros comandos que se deben ejecutar después de instalar Git, junto con 'git config --global user.email' para establecer el correo electrónico asociado a los commits."
+        explicacion: "El comando 'git config --global user.email' seguido de la dirección de correo electrónico entre comillas se utiliza para configurar el email de usuario global en Git. Esta configuración establece la dirección de correo electrónico que se asociará con todos los commits realizados en cualquier repositorio del sistema, a menos que se sobrescriba con una configuración local. La opción '--global' indica que la configuración debe aplicarse a nivel de usuario en todos los repositorios. Este comando normalmente se ejecuta junto con 'git config --global user.name' al configurar Git por primera vez, ya que ambos datos se incluyen en cada commit para identificar al autor."
     },
     {
         id: 5721,

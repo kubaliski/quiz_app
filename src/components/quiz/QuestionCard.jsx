@@ -15,7 +15,7 @@
  */
 import { useState, useEffect } from 'react';
 import { Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme } from '@hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';

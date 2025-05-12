@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button, Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme } from '@hooks';
 
 const PWAInstallPrompt = () => {
   const [installPrompt, setInstallPrompt] = useState(null);

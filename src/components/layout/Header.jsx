@@ -26,6 +26,9 @@ export default function Header() {
   // Utilizamos el hook para detectar el tipo de dispositivo
   const { isMobile } = useDeviceType();
 
+  // Determinamos si el header está realmente visible (combinación de isMobile e isVisible)
+  const headerIsFullyVisible = !isMobile || (isMobile && isVisible);
+
   return (
     <header
       className={`
@@ -66,8 +69,8 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Componente de menú móvil */}
-          <MobileMenu navItems={navItems} />
+          {/* Componente de menú móvil con prop de visibilidad */}
+          <MobileMenu navItems={navItems} isHeaderVisible={headerIsFullyVisible} />
         </div>
       </div>
     </header>

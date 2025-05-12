@@ -1,10 +1,12 @@
 /**
  * Componente de menú móvil que se muestra en dispositivos de pantalla pequeña.
  * Incluye un botón para mostrar/ocultar el menú y el conmutador de tema.
+ * Se cierra automáticamente cuando la barra de navegación desaparece al desplazar hacia abajo.
  *
  * @component
  * @param {Object} props - Propiedades del componente
  * @param {Array<{to: string, label: string}>} props.navItems - Elementos de navegación para el menú
+ * @param {boolean} props.isHeaderVisible - Indica si el header está visible actualmente
  * @returns {JSX.Element} Componente MobileMenu renderizado
  *
  * @example
@@ -13,14 +15,21 @@
  *   { to: '/about', label: 'Acerca de' }
  * ];
  *
- * <MobileMenu navItems={menuItems} />
+ * <MobileMenu navItems={menuItems} isHeaderVisible={true} />
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {ThemeToggle} from './';
+import { ThemeToggle } from './';
 
-export default function MobileMenu({ navItems }) {
+export default function MobileMenu({ navItems, isHeaderVisible }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Cerrar el menú cuando el header deja de ser visible
+  useEffect(() => {
+    if (!isHeaderVisible && isOpen) {
+      setIsOpen(false);
+    }
+  }, [isHeaderVisible, isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -48,7 +57,7 @@ export default function MobileMenu({ navItems }) {
 
       {/* Menú móvil */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-16 bg-indigo-600 dark:bg-indigo-800 shadow-md z-50">
+        <div className="absolute left-0 right-0 top-16 bg-indigo-600 dark:bg-indigo-800 shadow-md z-50 transition-opacity duration-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item, index) => (
               <Link

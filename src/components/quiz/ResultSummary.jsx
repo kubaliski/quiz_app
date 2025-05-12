@@ -9,7 +9,7 @@
  */
 import { useState, useEffect } from 'react';
 import { Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme } from '@hooks';
 import {
   getResultSummaryStyles,
   getScoreCategory,

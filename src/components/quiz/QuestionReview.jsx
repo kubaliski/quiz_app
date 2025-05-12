@@ -15,7 +15,7 @@
  * @returns {JSX.Element} Componente QuestionReview renderizado
  */
 import { useState, useEffect } from 'react';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme, useDeviceType } from '@hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
@@ -23,6 +23,9 @@ import { getQuestionReviewStyles } from '@styles/safeStyles';
 
 export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
   const { darkMode } = useTheme();
+  const { isMobile, isTablet } = useDeviceType();
+  const isSmallScreen = isMobile || isTablet;
+
   const isCorrect = respuestaUsuario === pregunta.respuestaCorrecta;
 
   // Estado para controlar el tamaño de texto adaptativo
@@ -61,21 +64,34 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
     }
   }, [pregunta, respuestaUsuario, isCorrect, darkMode, textoLargo]);
 
-  // Función para obtener clase de tamaño de texto basado en longitud
+  // Función para obtener clase de tamaño de texto basado en longitud y tipo de dispositivo
   const getTextSizeClass = (tipoTexto) => {
-    // Para pantallas medianas y grandes, mantener tamaño normal
-    // Para pantallas pequeñas, reducir según longitud
+    // Si no estamos en un dispositivo pequeño, mantener tamaño normal
+    if (!isSmallScreen) {
+      if (tipoTexto === 'respuesta') {
+        return "text-base";
+      }
+      if (tipoTexto === 'explicacion' || tipoTexto === 'pregunta') {
+        return "text-sm";
+      }
+    }
 
+    // Para dispositivos pequeños (móvil o tablet), ajustar según longitud
     if (tipoTexto === 'respuesta') {
-      if (textoMuyLargo) return "text-sm sm:text-xs";
+      if (textoMuyLargo) return "text-xs";
       if (textoLargo) return "text-sm";
-      return "text-base sm:text-sm";
+      return "text-base";
     }
 
     if (tipoTexto === 'explicacion') {
       if (textoMuyLargo) return "text-xs";
       if (textoLargo) return "text-sm";
       return "text-sm";
+    }
+
+    if (tipoTexto === 'pregunta') {
+      if (textoLargo) return "text-sm";
+      return "text-base";
     }
 
     return "text-sm"; // Por defecto
@@ -106,7 +122,7 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
                 borderRadius: '0.5rem',
                 margin: 0,
                 padding: '0.75rem',
-                fontSize: '0.9rem'
+                fontSize: isSmallScreen && textoLargo ? '0.8rem' : '0.9rem'
               }}
             >
               {pregunta.recurso.contenido}
@@ -120,7 +136,10 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
 
   return (
     <div style={styles.container}>
-      <h4 style={styles.questionText} className={`font-medium mb-2 ${textoLargo ? 'text-base sm:text-sm' : ''}`}>
+      <h4
+        style={styles.questionText}
+        className={`font-medium mb-2 ${getTextSizeClass('pregunta')}`}
+      >
         {index + 1}. {pregunta.pregunta}
       </h4>
 
@@ -146,7 +165,10 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
       </div>
 
       <div style={styles.explanationContainer}>
-        <p style={styles.explanationText} className={getTextSizeClass('explicacion')}>
+        <p
+          style={styles.explanationText}
+          className={getTextSizeClass('explicacion')}
+        >
           <strong style={styles.explanationEmphasis}>Explicación:</strong> {pregunta.explicacion}
         </p>
       </div>

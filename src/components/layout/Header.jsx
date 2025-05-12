@@ -1,6 +1,7 @@
 /**
  * Componente de cabecera que muestra el logo, navegación principal y controles de usuario.
- * Se adapta a diferentes tamaños de pantalla mostrando un menú móvil en dispositivos pequeños.
+ * Se adapta a diferentes tamaños de pantalla y en móvil aparece al desplazar hacia arriba.
+ * En desktop permanece en su posición normal (no fixed).
  *
  * @component
  * @returns {JSX.Element} Componente Header renderizado
@@ -10,6 +11,7 @@
  */
 import { Link } from 'react-router-dom';
 import { MobileMenu, ThemeToggle } from './';
+import { useScrollDirection, useDeviceType } from '@hooks';
 
 export default function Header() {
   // Definimos los elementos de navegación una sola vez para reutilizarlos
@@ -18,8 +20,20 @@ export default function Header() {
     { to: '/about', label: 'Colabora' }
   ];
 
+  // Utilizamos el hook personalizado para controlar la visibilidad en función del scroll
+  const { isVisible } = useScrollDirection();
+
+  // Utilizamos el hook para detectar el tipo de dispositivo
+  const { isMobile } = useDeviceType();
+
   return (
-    <header className="bg-indigo-700 dark:bg-indigo-900 shadow-md relative transition-colors duration-300">
+    <header
+      className={`
+        bg-indigo-700 dark:bg-indigo-900 shadow-md z-50
+        ${isMobile ? 'fixed top-0 left-0 right-0 transition-transform duration-300 ease-in-out' : 'relative'}
+        ${isMobile && !isVisible ? 'transform -translate-y-full' : 'transform-none'}
+      `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">

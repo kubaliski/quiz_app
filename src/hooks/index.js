@@ -1,6 +1,21 @@
-export {useQuizContext} from './useQuizContext';
-export {useQuizProgress} from './useQuizProgress';
-export {useQuizDialogs} from './useQuizDialog';
-export {useQuizLoader} from './useQuizLoader';
-export {useQuizNavigation} from './useQuizNavigation';
-export {useTheme} from './useTheme';
+/**
+ * Archivo principal de exportación de hooks
+ * Reexporta todos los hooks desde sus respectivas subcarpetas
+ */
+
+// Hooks fundamentales
+export {
+  useDeviceType,
+  useMediaQuery,
+  useScrollDirection,
+  useTheme
+} from './core';
+
+// Hooks relacionados con quizzes
+export {
+  useQuizContext,
+  useQuizDialogs,
+  useQuizLoader,
+  useQuizNavigation,
+  useQuizProgress
+} from './quiz';

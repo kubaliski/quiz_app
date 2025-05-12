@@ -17,7 +17,7 @@
  *   </ul>
  * </nav>
  */
-import { useTheme } from '@hooks/useTheme';
+import { useTheme } from '@hooks';
 
 export default function ThemeToggle() {
   const { darkMode, toggleDarkMode } = useTheme();

@@ -15,13 +15,15 @@
  */
 import { useState, useEffect } from 'react';
 import { Card } from '@components/common';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme, useDeviceType } from '@hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
 
 export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelectAnswer }) {
   const { darkMode } = useTheme();
+  const { isMobile, isTablet } = useDeviceType();
+  const isSmallScreen = isMobile || isTablet;
 
   // Estado para controlar el tamaño de texto adaptativo
   const [opcionesLargas, setOpcionesLargas] = useState(false);
@@ -78,17 +80,18 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
     }
   };
 
-  // Determinar clases de tamaño de texto basado en longitud
+  // Determinar tamaño del texto basado en longitud y tipo de dispositivo
   const getOptionTextClass = () => {
-    // Por defecto, texto base
-    if (!opcionesLargas) return "text-base";
+    // Si no estamos en un dispositivo pequeño, siempre usar tamaño base
+    if (!isSmallScreen) return "text-base";
 
-    // En pantallas medianas y grandes, mantener tamaño normal
-    // En pantallas pequeñas, reducir según longitud
+    // Solo aplicar reductor de texto en pantallas pequeñas (móvil o tablet)
     if (opcionesMuyLargas) {
-      return "text-base sm:text-xs";
+      return "text-xs";
+    } else if (opcionesLargas) {
+      return "text-sm";
     } else {
-      return "text-base sm:text-sm";
+      return "text-base";
     }
   };
 
@@ -96,8 +99,9 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
   const optionTextStyle = {
     color: darkMode ? 'rgb(255, 255, 255)' : 'rgb(17, 24, 39)',
     fontWeight: 500,
-    wordBreak: opcionesLargas ? 'break-word' : 'normal',
-    hyphens: opcionesLargas ? 'auto' : 'none'
+    // Solo aplicar estilos especiales para texto largo en pantallas pequeñas
+    wordBreak: isSmallScreen && opcionesLargas ? 'break-word' : 'normal',
+    hyphens: isSmallScreen && opcionesLargas ? 'auto' : 'none'
   };
 
   return (

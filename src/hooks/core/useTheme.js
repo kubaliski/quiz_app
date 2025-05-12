@@ -9,7 +9,7 @@
  * @throws {Error} Si se utiliza fuera de un ThemeProvider
  *
  * @example
- * import { useTheme } from '@hooks/useTheme';
+ * import { useTheme } from '@hooks';
  *
  * function ThemeToggleButton() {
  *   const { darkMode, toggleDarkMode } = useTheme();

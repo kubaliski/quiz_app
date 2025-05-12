@@ -9,7 +9,7 @@
  * @param {function} config.handleCancelExit - Función para cancelar salida
  */
 import { useCallback } from 'react';
-import { useQuizContext } from './index';
+import { useQuizContext } from '../index';
 
 export function useQuizDialogs({
   asignaturaId,

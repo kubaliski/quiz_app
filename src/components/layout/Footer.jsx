@@ -61,19 +61,19 @@ export default function Footer() {
               setVersionInfo(data);
             } catch (parseError) {
               console.warn('Error al parsear version.json:', parseError);
-              setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+              setVersionInfo({ version: '1.SW' }); // Versión por defecto
             }
           } else {
             console.warn('Respuesta no es un JSON válido');
-            setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+            setVersionInfo({ version: '1.SW' }); // Versión por defecto
           }
         } else {
           console.warn('No se pudo obtener la información de versión');
-          setVersionInfo({ version: '1.1.0' }); // Versión por defecto
+          setVersionInfo({ version: '1.SW' }); // Versión por defecto
         }
       } catch (error) {
         console.error('Error al obtener información de versión:', error);
-        setVersionInfo({ version: '1.1.0' }); // Versión por defecto en caso de error
+        setVersionInfo({ version: '1.SW' }); // Versión por defecto en caso de error
       } finally {
         setIsLoading(false);
       }
@@ -84,8 +84,8 @@ export default function Footer() {
 
   // Extraer solo la parte principal de la versión (sin el hash de git)
   const getCleanVersion = (fullVersion) => {
-    if (!fullVersion) return "1.1.0"; // Versión por defecto
-    // Si la versión incluye un guión (por ejemplo "1.1.0-a3b4c5"), tomar solo la primera parte
+    if (!fullVersion) return "1.SW"; // Versión por defecto
+    // Si la versión incluye un guión (por ejemplo "1.SW-a3b4c5"), tomar solo la primera parte
     return fullVersion.split('-')[0];
   };
 

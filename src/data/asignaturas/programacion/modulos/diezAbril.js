@@ -12,7 +12,7 @@
  */
 export const moduloDiezAbril = {
   id: 304,
-  nombre: "test 10 de abril",
+  nombre: "Test Repaso Ximo (10/04/2025)",
   asignaturaId: 3,
   esExamen: false,
   descripcion: "Conceptos fundamentales de POO en Java: clases, objetos, herencia, polimorfismo, encapsulamiento, interfaces y excepciones.",

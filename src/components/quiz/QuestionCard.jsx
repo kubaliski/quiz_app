@@ -44,6 +44,14 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
 
   if (!pregunta) return null;
 
+  const handleClickOption = (id, index) => {
+    if (respuestaSeleccionada === index) {
+      onSelectAnswer(id, undefined); // Deseleccionar opción
+    } else {
+      onSelectAnswer(id, index); // Seleccionar opción
+    }
+  }
+
   // Función para renderizar el recurso (imagen o código)
   const renderRecurso = () => {
     if (!pregunta.recurso) return null;
@@ -123,7 +131,8 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
                   ? 'bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 border-indigo-300 dark:border-indigo-700 ring-2 ring-indigo-500 dark:ring-indigo-400'
                   : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
-              onClick={() => onSelectAnswer(pregunta.id, index)}
+              onClick={() => handleClickOption(pregunta.id, index)}
+
             >
               <div className="flex items-start">
                 <div className={`flex-shrink-0 h-5 w-5 rounded-full border ${

@@ -38,7 +38,7 @@
  */
 export const moduloSimBloqueUno = {
     id: 306,
-    nombre: "Simulacro de Examen Bloque 1",
+    nombre: "Fundamentos de Programación (Simulacro Bloque 1)",
     asignaturaId: 3,
     esExamen: true,
     descripcion: "Elementos básicos del lenguaje Java: variables, tipos de datos, operadores, expresiones y estructuras básicas.",

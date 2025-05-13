@@ -63,7 +63,6 @@ export const importanteExamen02 = {
       explicacion:
         "Según el artículo 3.1 del Estatuto de los Trabajadores, la jerarquía normativa es: Constitución Española, normas legales y reglamentarias del Estado, convenios colectivos, voluntad de las partes (contratos) y costumbre.",
     },
-    //!-----------------------------------------------
     {
       id: 6713,
       moduloId: 607,
@@ -138,6 +137,232 @@ export const importanteExamen02 = {
       respuestaCorrecta: 0,
       explicacion:
         "En el orden jurisdiccional laboral, la jerarquía se estructura de la siguiente forma: el Tribunal Constitucional (máximo intérprete de la Constitución), el Tribunal Supremo (máxima autoridad judicial), la Audiencia Nacional (competente en conflictos colectivos de ámbito nacional), los Tribunales Superiores de Justicia de las Comunidades Autónomas (resuelven en segunda instancia), y finalmente los Juzgados de lo Social (primera instancia en la mayoría de los conflictos laborales).",
+    },
+    // ---- Tema 5. El contrato de trabajo y las modalidades de contratación. ----.
+    {
+      id: 6718,
+      moduloId: 607,
+      pregunta:
+        "¿Quiénes pueden firmar un contrato de trabajo según la legislación laboral española?",
+      opciones: [
+        "Mayores de edad, menores de 18 emancipados, mayores de 16 y menores de 18 con autorización y extranjeros conforme a la legislación.",
+        "Mayores de edad, menores de 18 emancipados y extranjeros conforme a la legislación.",
+        "Mayores de 16 años sin requisitos previos.",
+        "Únicamente mayores de 18 años.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Pueden firmar un contrato de trabajo: los mayores de edad (18 años o más), los menores emancipados, y los mayores de 16 y menores de 18 años siempre que cuenten con autorización de sus padres o tutores, salvo que vivan de forma independiente con su consentimiento. Además, los extranjeros pueden contratar si cumplen lo dispuesto en la Ley Orgánica 4/2000 sobre derechos y libertades de los extranjeros en España y su integración social.",
+    },
+    {
+      id: 6719,
+      moduloId: 607,
+      pregunta:
+        "¿Cuáles son los elementos esenciales de un contrato de trabajo según el Código Civil español?",
+      opciones: [
+        "Consentimiento, objeto y causa.",
+        "Consentimiento, objeto, causa y voluntariedad.",
+        "Voluntariedad, objeto y causa.",
+        "Consentimiento y causa.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Los elementos esenciales de todo contrato, incluido el de trabajo, son el consentimiento (acuerdo libre entre las partes), el objeto (la prestación de servicios) y la causa (la contraprestación, es decir, el salario). Esto se establece en el artículo 1261 del Código Civil. Sin alguno de estos elementos, el contrato carece de validez.",
+    },
+    {
+      id: 6720,
+      moduloId: 607,
+      pregunta:
+        "¿Qué tipo de contrato no es obligatorio formalizar por escrito según el Estatuto de los Trabajadores?",
+      opciones: [
+        "Indefinido u ordinario.",
+        "Indefinido, ordinario y de prácticas.",
+        "De relevo.",
+        "De sustitución y de prácticas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 8 del Estatuto de los Trabajadores, el contrato de trabajo se puede celebrar de forma verbal o escrita. Sin embargo, los contratos indefinidos ordinarios pueden celebrarse verbalmente. No obstante, existen contratos que deben formalizarse por escrito obligatoriamente, como los contratos a tiempo parcial, de relevo, de prácticas o formación. Si no se respeta esta forma escrita cuando es obligatoria, se presumirá que el contrato es indefinido y a jornada completa.",
+    },
+    {
+      id: 6721,
+      moduloId: 607,
+      pregunta:
+        "¿Qué norma determina la duración máxima del periodo de prueba en un contrato de trabajo?",
+      opciones: [
+        "El Convenio Colectivo o, en su defecto, el Estatuto de los Trabajadores (máx. 6 meses técnicos titulados, máx. 2 meses para otros trabajadores).",
+        "El Estatuto de los Trabajadores (máx. 6 meses técnicos titulados, máx. 2 meses para otros trabajadores) o, en su defecto, el Convenio Colectivo.",
+        "El Convenio Colectivo, en todo caso.",
+        "El Estatuto de los Trabajadores, en todo caso.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La duración máxima del periodo de prueba viene determinada por lo que establezca el Convenio Colectivo aplicable. En ausencia de convenio, se aplican los límites del artículo 14 del Estatuto de los Trabajadores: un máximo de 6 meses para técnicos titulados y de 2 meses para el resto de los trabajadores. En empresas de menos de 25 trabajadores, el límite para estos últimos se reduce a 3 meses.",
+    },
+    {
+      id: 6722,
+      moduloId: 607,
+      pregunta:
+        "¿Se interrumpe el periodo de prueba en caso de incapacidad temporal del trabajador?",
+      opciones: [
+        "No, excepto si se acordó previamente.",
+        "Solamente si es un contrato de relevo.",
+        "Sí, en todo caso. Es un derecho fundamental del trabajador.",
+        "No, en ningún caso.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El artículo 14.3 del Estatuto de los Trabajadores establece que el periodo de prueba puede ser interrumpido por incapacidad temporal, maternidad, adopción o acogimiento si ambas partes lo acuerdan expresamente. Si no se ha pactado esa posibilidad en el contrato, el periodo de prueba continuará corriendo durante la baja.",
+    },
+    {
+      id: 6723,
+      moduloId: 607,
+      pregunta:
+        "Este contrato no tiene una fecha de finalización preestablecida. Proporciona estabilidad laboral al empleado y se utiliza cuando no hay una razón específica para limitar la duración del empleo.",
+      opciones: [
+        "Contrato indefinido.",
+        "Contrato de relevo.",
+        "Contrato a tiempo parcial.",
+        "Contrato fijo-discontinuo.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El contrato indefinido no tiene una fecha concreta de finalización. Es la forma común de contratación estable y permanente, tal como establece el artículo 15 del Estatuto de los Trabajadores.",
+    },
+    {
+      id: 6724,
+      moduloId: 607,
+      pregunta:
+        "Similar al contrato indefinido o temporal, pero con una jornada laboral reducida. Se acuerda un número de horas inferior a la jornada completa, distribuidas según lo pactado.",
+      opciones: [
+        "Contrato indefinido.",
+        "Contrato de relevo.",
+        "Contrato a tiempo parcial.",
+        "Contrato fijo-discontinuo.",
+      ],
+      respuestaCorrecta: 2,
+      explicacion:
+        "El contrato a tiempo parcial es aquel en el que se presta servicio durante un número de horas inferior al de un trabajador a tiempo completo comparable, según lo establece el artículo 12 del Estatuto de los Trabajadores.",
+    },
+    {
+      id: 6725,
+      moduloId: 607,
+      pregunta:
+        "Utilizado para trabajos estacionales o actividades que no se realizan de forma continua a lo largo del año. El empleado trabaja en períodos determinados, con derecho a reincorporarse en las temporadas sucesivas.",
+      opciones: [
+        "Contrato indefinido.",
+        "Contrato de relevo.",
+        "Contrato a tiempo parcial.",
+        "Contrato fijo-discontinuo.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "El contrato fijo-discontinuo está regulado en el artículo 16 del Estatuto de los Trabajadores. Se utiliza para actividades estacionales o de temporada, en las que el trabajo no se realiza de forma continua pero sí recurrente.",
+    },
+    {
+      id: 6726,
+      moduloId: 607,
+      pregunta:
+        "Vinculado a situaciones de jubilación parcial, permite contratar a un trabajador desempleado o con un contrato temporal para que sustituya al empleado que reduce su jornada por jubilación parcial.",
+      opciones: [
+        "Contrato indefinido.",
+        "Contrato de relevo.",
+        "Contrato a tiempo parcial.",
+        "Contrato de grupo.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "El contrato de relevo está regulado en el artículo 12.7 del Estatuto de los Trabajadores. Se celebra para sustituir la jornada que deja vacante un trabajador que accede a la jubilación parcial.",
+    },
+    {
+      id: 6727,
+      moduloId: 607,
+      pregunta:
+        "Se celebra con un grupo de trabajadores representados por un jefe de grupo. Los trabajadores no tienen un vínculo directo individual con la empresa, sino a través del jefe de grupo.",
+      opciones: [
+        "Contrato indefinido.",
+        "Contrato de relevo.",
+        "Contrato a tiempo parcial.",
+        "Contrato de grupo.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "El contrato de grupo está contemplado en el artículo 10.3 del Estatuto de los Trabajadores. La empresa contrata a un grupo liderado por un jefe, y la relación jurídica se establece con este último, no directamente con cada miembro del grupo.",
+    },
+    {
+      id: 6728,
+      moduloId: 607,
+      pregunta:
+        "Este contrato responde a un incremento temporal de la actividad de la empresa, como picos de producción o demanda. Tiene una duración máxima, que suele estar regulada por convenios colectivos.",
+      opciones: [
+        "Contrato temporal por circunstancias en la producción.",
+        "Contrato temporal por sustitución.",
+        "Contrato formativo de contratación en alternancia.",
+        "Contrato formativo para la obtención de la práctica profesional.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Este contrato está regulado en el artículo 15.2 del Estatuto de los Trabajadores. Se celebra por necesidades circunstanciales de la empresa, como un aumento puntual de actividad. Su duración está limitada y puede variar según el convenio colectivo.",
+    },
+    {
+      id: 6729,
+      moduloId: 607,
+      pregunta:
+        "Se emplea para sustituir a trabajadores con derecho a reserva de puesto, como en casos de baja por enfermedad o maternidad, o para cubrir temporalmente un puesto hasta su ocupación definitiva.",
+      opciones: [
+        "Contrato temporal por circunstancias en la producción.",
+        "Contrato temporal por sustitución.",
+        "Contrato formativo de contratación en alternancia.",
+        "Contrato formativo para la obtención de la práctica profesional.",
+      ],
+      respuestaCorrecta: 1,
+      explicacion:
+        "Este contrato también se recoge en el artículo 15 del Estatuto de los Trabajadores. Se utiliza para sustituir a trabajadores con derecho a reincorporación, como por baja médica, maternidad, excedencia, etc.",
+    },
+    {
+      id: 6730,
+      moduloId: 607,
+      pregunta:
+        "Destinado a la formación profesional, combinando actividad laboral y formación teórica. Es adecuado para jóvenes sin cualificación profesional.",
+      opciones: [
+        "Contrato temporal por circunstancias en la producción.",
+        "Contrato temporal por sustitución.",
+        "Contrato formativo de contratación en alternancia.",
+        "Contrato formativo para la obtención de la práctica profesional.",
+      ],
+      respuestaCorrecta: 2,
+      explicacion:
+        "El contrato formativo en alternancia combina trabajo con formación (dual) y está regulado en el artículo 11.2 del Estatuto de los Trabajadores. Se dirige a jóvenes que cursan formación profesional, universitaria o del sistema educativo.",
+    },
+    {
+      id: 6731,
+      moduloId: 607,
+      pregunta:
+        "Enfocado en titulados universitarios o de formación profesional, permite adquirir experiencia en su campo de estudio. Debe realizarse dentro de un período específico tras la obtención del título.",
+      opciones: [
+        "Contrato temporal por circunstancias en la producción.",
+        "Contrato temporal por sustitución.",
+        "Contrato formativo de contratación en alternancia.",
+        "Contrato formativo para la obtención de la práctica profesional.",
+      ],
+      respuestaCorrecta: 3,
+      explicacion:
+        "Este contrato, regulado también en el artículo 11.3 del Estatuto de los Trabajadores, permite a personas con titulación reciente adquirir experiencia profesional adecuada a su nivel de estudios. Debe celebrarse dentro de los 3 años (5 si hay discapacidad) posteriores a la obtención del título.",
+    },
+    {
+      id: 6732,
+      moduloId: 607,
+      pregunta:
+        "Actúan como intermediarios entre los trabajadores y las empresas de usuarios.",
+      opciones: [
+        "ETT (Empresas de Trabajo Temporal).",
+        "ETI (Empresas de Trabajo Indefinido).",
+        "ETP (Empresas de Trabajo Personal).",
+        "EPT (Empresas de Profesionales Temporal).",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Las ETT (Empresas de Trabajo Temporal) son empresas autorizadas que contratan trabajadores para cederlos temporalmente a empresas usuarias. Están reguladas por la Ley 14/1994, de 1 de junio, y deben cumplir requisitos específicos para operar legalmente. Su función es cubrir necesidades laborales temporales en otras empresas.",
     },
   ],
 };

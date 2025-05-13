@@ -8,6 +8,7 @@ import moduloSimBloqueUno from "./modulos/simBloqueUno.js";
 import moduloSimBloqueDos from "./modulos/simBloqueDos.js";
 import moduloSimBloqueTres from "./modulos/simBloqueTres.js";
 import moduloSimBloqueCuatro from "./modulos/simBloqueCuatro.js";
+import moduloSimBloqueCinco from "./modulos/simBloqueCinco.js";
 
 
 export const programacion = {
@@ -22,6 +23,7 @@ export const programacion = {
         moduloSimBloqueDos,
         moduloSimBloqueTres,
         moduloSimBloqueCuatro,
+        moduloSimBloqueCinco,
 
     ],
 };

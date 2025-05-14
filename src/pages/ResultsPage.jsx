@@ -7,6 +7,7 @@
  * - Muestra un resumen visual con el porcentaje de acierto
  * - Presenta una revisión detallada de cada pregunta, indicando si la respuesta fue correcta
  * - Para respuestas incorrectas, muestra la opción correcta y su explicación
+ * - Permite marcar preguntas como favoritas
  * - Guarda los resultados del quiz usando el servicio quizDataService
  * - Ofrece opciones para reintentar el mismo quiz o volver a la selección de módulos
  * - Limpia flags de quiz en progreso al mostrar resultados
@@ -156,6 +157,9 @@ export default function ResultsPage() {
                 pregunta={pregunta}
                 index={index}
                 respuestaUsuario={respuestas[pregunta.id]}
+                showFavoriteButton={true} // Mostrar botón de favoritos
+                asignaturaId={parseInt(asignaturaId, 10)}
+                asignatura={asignatura}
               />
             ))}
           </div>

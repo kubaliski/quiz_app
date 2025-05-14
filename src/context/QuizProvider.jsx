@@ -1,6 +1,7 @@
 /**
  * Proveedor del contexto de Quiz.
  * Proporciona acceso al estado y funciones compartidas a todos los componentes del quiz.
+ * Incluye soporte para quizzes de favoritos.
  */
 import { useReducer, useMemo } from 'react';
 import { ACTION_TYPES, initialState } from '@utils/quizConstants';
@@ -33,6 +34,8 @@ function quizReducer(state, action) {
       return { ...state, modoTodos: action.payload };
     case ACTION_TYPES.SET_MODO_EXAMEN:
       return { ...state, modoExamen: action.payload };
+    case ACTION_TYPES.SET_TIPO_QUIZ:
+      return { ...state, tipoQuiz: action.payload };
     case ACTION_TYPES.SET_QUIZ_COMPLETED:
       return { ...state, quizCompleted: action.payload };
     case ACTION_TYPES.SET_DIALOG:
@@ -51,12 +54,13 @@ function quizReducer(state, action) {
     case ACTION_TYPES.SET_SAVED_PROGRESS:
       return { ...state, savedProgress: action.payload };
     case ACTION_TYPES.RESTORE_PROGRESS: {
-      const { respuestas, preguntaActual, preguntas } = action.payload;
+      const { respuestas, preguntaActual, preguntas, tipoQuiz } = action.payload;
       return {
         ...state,
         respuestas: respuestas || {},
         preguntaActual: preguntaActual || 0,
         preguntas: preguntas || state.preguntas,
+        tipoQuiz: tipoQuiz || state.tipoQuiz,
         dialogOpen: false,
         dialogType: '',
         savedProgress: null
@@ -81,7 +85,11 @@ function quizReducer(state, action) {
  * Componente proveedor del contexto de Quiz
  */
 export function QuizProvider({ children }) {
-  const [state, dispatch] = useReducer(quizReducer, initialState);
+  const [state, dispatch] = useReducer(quizReducer, {
+    ...initialState,
+    // Añadimos tipoQuiz al estado inicial para gestionar favoritos
+    tipoQuiz: null
+  });
 
   // Crear un objeto de acciones memoizado para evitar renderizados innecesarios
   const actions = useMemo(() => ({
@@ -106,6 +114,8 @@ export function QuizProvider({ children }) {
       dispatch({ type: ACTION_TYPES.SET_MODO_TODOS, payload: modoTodos }),
     setModoExamen: (modoExamen) =>
       dispatch({ type: ACTION_TYPES.SET_MODO_EXAMEN, payload: modoExamen }),
+    setTipoQuiz: (tipoQuiz) =>
+      dispatch({ type: ACTION_TYPES.SET_TIPO_QUIZ, payload: tipoQuiz }),
     setQuizCompleted: (completed) =>
       dispatch({ type: ACTION_TYPES.SET_QUIZ_COMPLETED, payload: completed }),
     openDialog: (dialogType) =>
@@ -131,6 +141,9 @@ export function QuizProvider({ children }) {
     const tieneRespuestaActual = preguntaActiva ?
       state.respuestas[preguntaActiva.id] !== undefined : false;
 
+    // ID de la asignatura para operaciones con favoritos y otras funcionalidades
+    const asigId = state.asignatura?.id || null;
+
     // Nuevas propiedades calculadas para estadísticas
     const estadisticasPreguntas = {
       total: totalPreguntas,
@@ -144,14 +157,19 @@ export function QuizProvider({ children }) {
         .map(item => item.index)
     };
 
+    // Verificamos si es un quiz de favoritos
+    const esFavoritosQuiz = state.tipoQuiz === 'favoritos';
+
     return {
       totalPreguntas,
       progreso,
       preguntaActiva,
       tieneRespuestaActual,
-      estadisticasPreguntas
+      estadisticasPreguntas,
+      asigId,
+      esFavoritosQuiz
     };
-  }, [state.preguntas, state.preguntaActual, state.respuestas]);
+  }, [state.preguntas, state.preguntaActual, state.respuestas, state.asignatura, state.tipoQuiz]);
 
   // Combinar estado, acciones y propiedades calculadas
   const value = useMemo(() => ({

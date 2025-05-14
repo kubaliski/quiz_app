@@ -12,12 +12,16 @@ import { useQuizContext } from '@hooks';
  * @param {function} props.handlePrevious - Función para ir a pregunta anterior
  * @param {function} props.handleNext - Función para ir a siguiente pregunta
  * @param {function} props.handleSelectAnswer - Función para seleccionar respuesta
+ * @param {boolean} [props.showFavoriteButton=false] - Si se debe mostrar el botón de favorito
+ * @param {string|number} [props.asignaturaId] - ID de la asignatura (para favoritos)
  * @returns {JSX.Element} Componente QuizContent
  */
 export default function QuizContent({
   handlePrevious,
   handleNext,
-  handleSelectAnswer
+  handleSelectAnswer,
+  showFavoriteButton = false,
+  asignaturaId
 }) {
   const {
     cargando,
@@ -25,7 +29,8 @@ export default function QuizContent({
     respuestas,
     preguntaActual,
     totalPreguntas,
-    tieneRespuestaActual
+    tieneRespuestaActual,
+    asignatura
   } = useQuizContext();
 
   if (cargando) {
@@ -40,13 +45,14 @@ export default function QuizContent({
     <>
       {preguntaActiva && (
         <>
-
-
           {/* Tarjeta de pregunta actual */}
           <QuestionCard
             pregunta={preguntaActiva}
             respuestaSeleccionada={respuestas[preguntaActiva.id]}
             onSelectAnswer={handleSelectAnswer}
+            showFavoriteButton={showFavoriteButton}
+            asignaturaId={asignaturaId}
+            asignatura={asignatura}
           />
 
           {/* Navegación siguiente/anterior */}
@@ -57,10 +63,12 @@ export default function QuizContent({
             onPrevious={handlePrevious}
             onNext={handleNext}
           />
-           {/* Navegador de preguntas */}
+
+          {/* Navegador de preguntas */}
           <div className="mt-6 md:mt-3">
             <QuestionNavigator />
           </div>
+
           {/* Nota sobre navegación por teclado - oculta en móviles */}
           <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400 hidden md:block">
             <span className="inline-block mx-1 font-medium">←</span> Anterior

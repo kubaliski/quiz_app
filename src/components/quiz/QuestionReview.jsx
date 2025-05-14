@@ -1,6 +1,7 @@
 /**
  * Componente mejorado que muestra el resumen de una pregunta respondida con
  * feedback visual sobre si la respuesta fue correcta o incorrecta, junto con la explicación.
+ * Permite marcar la pregunta como favorita.
  * Utiliza colores web seguros para garantizar consistencia entre dispositivos.
  *
  * @component
@@ -12,6 +13,9 @@
  * @param {string} props.pregunta.explicacion - Explicación de la respuesta correcta
  * @param {number} props.index - Índice de la pregunta en la lista de preguntas (para numeración)
  * @param {number|undefined} props.respuestaUsuario - Índice de la respuesta seleccionada por el usuario
+ * @param {string|number} [props.asignaturaId] - ID de la asignatura actual (para favoritos)
+ * @param {boolean} [props.showFavoriteButton=false] - Si se debe mostrar el botón de favorito
+ * @param {Object} [props.asignatura] - Objeto con la información de la asignatura (para añadir a favoritos)
  * @returns {JSX.Element} Componente QuestionReview renderizado
  */
 import { useState, useEffect } from 'react';
@@ -19,9 +23,19 @@ import { useTheme, useDeviceType } from '@hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
+import FavoriteButton from './FavoriteButton';
+import { addFavorite, removeFavorite } from '@services/favoritesService';
+import { showToast } from '@utils/toastUtils';
 import { getQuestionReviewStyles } from '@styles/safeStyles';
 
-export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
+export default function QuestionReview({
+  pregunta,
+  index,
+  respuestaUsuario,
+  asignaturaId,
+  showFavoriteButton = false,
+  asignatura
+}) {
   const { darkMode } = useTheme();
   const { isMobile, isTablet } = useDeviceType();
   const isSmallScreen = isMobile || isTablet;
@@ -63,6 +77,34 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
       setStyles(getQuestionReviewStyles(isCorrect, darkMode, nuevoTextoLargo));
     }
   }, [pregunta, respuestaUsuario, isCorrect, darkMode, textoLargo]);
+
+  // Manejar cambio en favorito
+  const handleToggleFavorite = async (isFav) => {
+    if (!asignaturaId || !pregunta) return;
+
+    try {
+      if (isFav) {
+        // Añadir a favoritos
+        const result = await addFavorite(asignaturaId, asignatura, pregunta);
+        if (result.success) {
+          showToast('Pregunta añadida a favoritos', 'success');
+        } else {
+          showToast(result.message, 'error');
+        }
+      } else {
+        // Quitar de favoritos
+        const result = await removeFavorite(asignaturaId, pregunta.id);
+        if (result.success) {
+          showToast('Pregunta eliminada de favoritos', 'success');
+        } else {
+          showToast(result.message, 'error');
+        }
+      }
+    } catch (error) {
+      console.error('Error al cambiar estado de favorito:', error);
+      showToast('Error al cambiar estado de favorito', 'error');
+    }
+  };
 
   // Función para obtener clase de tamaño de texto basado en longitud y tipo de dispositivo
   const getTextSizeClass = (tipoTexto) => {
@@ -136,12 +178,25 @@ export default function QuestionReview({ pregunta, index, respuestaUsuario }) {
 
   return (
     <div style={styles.container}>
-      <h4
-        style={styles.questionText}
-        className={`font-medium mb-2 ${getTextSizeClass('pregunta')}`}
-      >
-        {index + 1}. {pregunta.pregunta}
-      </h4>
+      <div className="flex justify-between items-start mb-2">
+        <h4
+          style={styles.questionText}
+          className={`font-medium ${getTextSizeClass('pregunta')}`}
+        >
+          {index + 1}. {pregunta.pregunta}
+        </h4>
+
+        {/* Botón de favorito */}
+        {showFavoriteButton && asignaturaId && (
+          <FavoriteButton
+            asignaturaId={asignaturaId}
+            preguntaId={pregunta.id}
+            onToggle={handleToggleFavorite}
+            size="sm"
+            className="ml-2 flex-shrink-0"
+          />
+        )}
+      </div>
 
       {/* Renderizar recurso si existe */}
       {renderRecurso()}

@@ -7,7 +7,7 @@ import {
   NotFoundPage
 } from './pages';
 import { PWAInstallPrompt } from '@components/layout';
-import { ServiceWorkerUpdater, LoadingSpinner, ErrorMessage } from '@components/common';
+import { ServiceWorkerUpdater, LoadingSpinner, ErrorMessage, ToastContainer } from '@components/common';
 import { registerModuleErrorHandler } from '@services/swService';
 
 // Importaciones diferidas para mejorar el rendimiento y manejo de errores
@@ -116,6 +116,8 @@ export default function App() {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      {/* ToastContainer centralizado para toda la aplicación */}
+      <ToastContainer />
     </BrowserRouter>
   );
 }

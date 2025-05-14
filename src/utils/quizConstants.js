@@ -14,6 +14,7 @@ export const ACTION_TYPES = {
   SET_ERROR: 'set_error',
   SET_MODO_TODOS: 'set_modo_todos',
   SET_MODO_EXAMEN: 'set_modo_examen',
+  SET_TIPO_QUIZ: 'SET_TIPO_QUIZ',
   SET_QUIZ_COMPLETED: 'set_quiz_completed',
   SET_DIALOG: 'set_dialog',
   CLOSE_DIALOG: 'close_dialog',
@@ -40,6 +41,7 @@ export const initialState = {
   dialogType: '',
   savedProgress: null,
   // Nuevos estados para navegador de preguntas
+  tipoQuiz: null,
   questionNavigatorOpen: false,
   showOnlyUnanswered: false
 };

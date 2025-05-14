@@ -1,10 +1,12 @@
 /**
  * Página que presenta el quiz al usuario con las preguntas y opciones de respuesta.
  * Versión refactorizada que utiliza componentes más pequeños y hooks personalizados.
+ * Incluye soporte para quizzes con preguntas favoritas.
+ * Adaptado para usar el sistema de reducer.
  *
  * @component
  * @param {Object} props - Las propiedades del componente
- * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen)
+ * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen, 'favoritos' para favoritos)
  * @returns {JSX.Element} Componente QuizPage renderizado
  */
 import { useState, useEffect } from 'react';
@@ -12,15 +14,24 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Layout } from '@components/layout';
 import { ErrorMessage, Button } from '@components/common';
 
-// Componentes refactorizados
-import { QuizHeader, QuizProgress,QuizContent,QuizDialogs } from '@components/quiz';
+// Componentes refactorizados - Importación con nombre en lugar de por defecto
+import {
+  QuizHeader,
+  QuizProgress,
+  QuizContent,
+  QuizDialogs,
+  FavoritesQuizLoader // Nombre correcto según index.js
+} from '@components/quiz';
+
 // Hooks personalizados
 import { QuizProvider } from '@context';
-import { useQuizContext,
+import {
+  useQuizContext,
   useQuizLoader,
   useQuizProgress,
   useQuizNavigation,
-  useQuizDialogs } from '@hooks';
+  useQuizDialogs
+} from '@hooks';
 
 // Componente interno que usa los hooks y el contexto
 function QuizPageContent({ tipo }) {
@@ -28,33 +39,52 @@ function QuizPageContent({ tipo }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Verificar si el usuario ha decidido continuar el test desde PendingQuizzes
+  // Verificar si el usuario ha decidido continuar el test desde PendingQuizzes o iniciar un quiz de favoritos
   const continueFromPending = new URLSearchParams(location.search).get('continue') === 'true';
+  const isFavoritesQuiz = moduloId === 'favoritos' || sessionStorage.getItem('start_favorites_quiz') === 'true';
 
   // Estado para controlar si ya se ha verificado actualización
   const [updateChecked, setUpdateChecked] = useState(false);
 
   // Establecer tipo de quiz basado en props o moduloId
-  const tipoQuiz = tipo || (moduloId === 'todos' ? 'todos' : (moduloId === 'examen' ? 'examen' : null));
+  const tipoQuiz = tipo ||
+    (moduloId === 'todos' ? 'todos' :
+      (moduloId === 'examen' ? 'examen' :
+        (moduloId === 'favoritos' ? 'favoritos' : null)
+      )
+    );
 
   // Convertir a número los IDs de la URL
   const asigId = parseInt(asignaturaId, 10);
-  const modId = moduloId === 'todos' || moduloId === 'examen'
+  const modId = moduloId === 'todos' || moduloId === 'examen' || moduloId === 'favoritos'
     ? moduloId
     : parseInt(moduloId, 10);
 
   // Acceder al contexto del quiz
-  const { error, setRespuesta } = useQuizContext();
+  const {
+    error,
+    setRespuesta,
+    cargando,
+    tipoQuiz: contextTipoQuiz
+  } = useQuizContext();
 
-  // Usar hook para cargar datos del quiz
-  useQuizLoader({
-    asigId,
-    modId,
-    tipoQuiz,
-    moduloId,
-    continueFromPending,
-    asignaturaId
-  });
+  // Información para cargar quiz de favoritos
+  const favoritesInfo = isFavoritesQuiz ? {
+    asignaturaId: asigId,
+    asignaturaNombre: sessionStorage.getItem('favorites_quiz_asignatura_nombre') || 'Asignatura'
+  } : null;
+
+  // Usar hook para cargar datos del quiz (solo si no es de favoritos)
+  if (!isFavoritesQuiz) {
+    useQuizLoader({
+      asigId,
+      modId,
+      tipoQuiz,
+      moduloId,
+      continueFromPending,
+      asignaturaId
+    });
+  }
 
   // Usar hook para gestionar el progreso
   const { saveQuizProgress, getNombreModulo } = useQuizProgress({
@@ -125,6 +155,27 @@ function QuizPageContent({ tipo }) {
     );
   }
 
+  // Renderizar loader de favoritos si es necesario
+  if (isFavoritesQuiz && !contextTipoQuiz) {
+    return (
+      <Layout>
+        <QuizHeader
+          getNombreModulo={() => 'Preguntas favoritas'}
+          handleExit={handleExit}
+          asignaturaId={asignaturaId}
+        />
+        <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <FavoritesQuizLoader
+            quiz={{
+              asignaturaId: asigId,
+              asignaturaNombre: favoritesInfo?.asignaturaNombre
+            }}
+          />
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       {/* Cabecera del Quiz */}
@@ -143,6 +194,8 @@ function QuizPageContent({ tipo }) {
           handlePrevious={handlePrevious}
           handleNext={handleNext}
           handleSelectAnswer={handleSelectAnswer}
+          showFavoriteButton={contextTipoQuiz !== 'favoritos'} // No mostrar botón de favorito en quizzes de favoritos
+          asignaturaId={asigId}
         />
       </div>
 
@@ -160,7 +213,7 @@ function QuizPageContent({ tipo }) {
   );
 }
 
-// Componente principal que proporciona el contexto
+// Componente principal que proporcione el contexto
 export default function QuizPage({ tipo }) {
   return (
     <QuizProvider>

@@ -8,26 +8,29 @@
  * @param {string} [props.type='info'] - Tipo de toast ('success', 'error', 'warning', 'info')
  * @param {number} [props.duration=3000] - Duración en milisegundos
  * @param {Function} props.onClose - Función para cerrar el toast
+ * @param {number} props.createdAt - Timestamp de creación del toast
  * @returns {JSX.Element} Componente Toast renderizado
  */
 import React, { useEffect, useState, useRef } from 'react';
 import { useTheme, useDeviceType } from '@hooks';
 import { SAFE_COLORS, COMPONENT_COLORS } from '@styles/safeStyles';
 
-export default function Toast({ message, type = 'info', duration = 3000, onClose }) {
+export default function Toast({ message, type = 'info', duration = 3000, onClose, createdAt }) {
   const { darkMode } = useTheme();
   const { isMobile } = useDeviceType();
   const [timeLeft, setTimeLeft] = useState(duration);
   const intervalRef = useRef(null);
-  const startTimeRef = useRef(Date.now());
 
   // Efecto para el tiempo restante y cerrar automáticamente
   useEffect(() => {
-    startTimeRef.current = Date.now();
+    // Calcular tiempo restante inicial basado en el momento de creación
+    const initialElapsed = Date.now() - createdAt;
+    const initialRemaining = Math.max(0, duration - initialElapsed);
+    setTimeLeft(initialRemaining);
 
     // Actualizar el tiempo restante cada 16ms (60fps)
     intervalRef.current = setInterval(() => {
-      const elapsedTime = Date.now() - startTimeRef.current;
+      const elapsedTime = Date.now() - createdAt;
       const remaining = Math.max(0, duration - elapsedTime);
       setTimeLeft(remaining);
 
@@ -41,7 +44,7 @@ export default function Toast({ message, type = 'info', duration = 3000, onClose
     return () => {
       clearInterval(intervalRef.current);
     };
-  }, [duration, onClose]);
+  }, [duration, onClose, createdAt]);
 
   // Mapeo de tipo de toast a componente de colores seguros
   const getTypeComponent = () => {

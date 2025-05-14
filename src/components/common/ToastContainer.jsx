@@ -28,7 +28,9 @@ const toastManager = {
   // Añadir un nuevo toast
   add(message, type = 'info', duration = 3000) {
     const id = ++toastId;
-    this.toasts.push({ id, message, type, duration });
+    // Agregar timestamp de creación para seguimiento del progreso
+    const createdAt = Date.now();
+    this.toasts.push({ id, message, type, duration, createdAt });
     this.notifyListeners();
     return id;
   },
@@ -90,6 +92,7 @@ export default function ToastContainer() {
           message={toast.message}
           type={toast.type}
           duration={toast.duration}
+          createdAt={toast.createdAt}
           onClose={() => handleClose(toast.id)}
         />
       ))}

@@ -12,7 +12,7 @@
  */
 export const importanteExamen02 = {
   id: 607,
-  nombre: "Preguntas importantes. Bloque 2 (Temas 4 -temporal-)",
+  nombre: "Preguntas importantes. Bloque 2 (Temas 4 a 6)",
   esExamen: true,
   asignaturaId: 6,
   descripcion: "Test de repaso de los puntos clave indicados para examen.",
@@ -363,6 +363,305 @@ export const importanteExamen02 = {
       respuestaCorrecta: 0,
       explicacion:
         "Las ETT (Empresas de Trabajo Temporal) son empresas autorizadas que contratan trabajadores para cederlos temporalmente a empresas usuarias. Están reguladas por la Ley 14/1994, de 1 de junio, y deben cumplir requisitos específicos para operar legalmente. Su función es cubrir necesidades laborales temporales en otras empresas.",
+    },
+    // ---- Tema 6. Jornada laboral y salario. ----.
+    {
+      id: 6733,
+      moduloId: 607,
+      pregunta:
+        "¿Cuál es la duración máxima legal de la jornada laboral semanal en España?",
+      opciones: [
+        "No puede exceder de 40h semanales.",
+        "No puede exceder de 37,5h semanales.",
+        "No puede exceder de 35h semanales.",
+        "No puede exceder de 42h semanales.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el Estatuto de los Trabajadores, la jornada ordinaria máxima es de 40 horas semanales de promedio en cómputo anual.",
+    },
+    {
+      id: 6734,
+      moduloId: 607,
+      pregunta: "¿Es posible distribuir la jornada laboral de forma irregular?",
+      opciones: [
+        "Sí se puede.",
+        "No, en ningún caso.",
+        "Sí, pero solo para un día.",
+        "No, salvo que sea pactada por la jurisdicción laboral.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La distribución irregular de la jornada está permitida por ley si se regula mediante convenio colectivo o acuerdo empresa-trabajador.",
+    },
+    {
+      id: 6735,
+      moduloId: 607,
+      pregunta:
+        "¿Puede el empresario modificar unilateralmente la distribución irregular?",
+      opciones: [
+        "Sí, un 10% si no hay acuerdo entre el jefe y el trabajador.",
+        "Sí, un 30% si no hay acuerdo entre el jefe y el trabajador.",
+        "No, en ningún caso. Es ilegal.",
+        "Solamente si el trabajador ha sido sancionado.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El empresario puede hacerlo hasta un 10% de la jornada anual si lo permite el convenio colectivo.",
+    },
+    {
+      id: 6736,
+      moduloId: 607,
+      pregunta: "¿Cuál es el descanso mínimo entre dos jornadas laborales?",
+      opciones: [
+        "Mínimo 12h consecutivas.",
+        "Máximo 12h consecutivas.",
+        "Mínimo 12h discontinuas.",
+        "Máximo 12h discontinuas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Debe haber al menos 12 horas consecutivas de descanso entre una jornada y la siguiente.",
+    },
+    {
+      id: 6737,
+      moduloId: 607,
+      pregunta: "¿Cuál es la duración mínima del descanso semanal?",
+      opciones: [
+        "Mínimo de un día y medio, que generalmente se fija en la tarde del sábado o la mañana del lunes, y el domingo completo.",
+        "Máximo de un día y medio, que generalmente se fija en la tarde del sábado o la mañana del lunes, y el domingo completo.",
+        "Mínimo de dos días y medio, que generalmente se fija en la tarde del viernes o la mañana del lunes, y el domingo completo.",
+        "Máximo de dos días y medio, que generalmente se fija en la tarde del viernes o la mañana del lunes, y el domingo completo.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El descanso semanal debe ser de al menos 36 horas ininterrumpidas.",
+    },
+    {
+      id: 6738,
+      moduloId: 607,
+      pregunta: "¿Qué se considera trabajo nocturno?",
+      opciones: [
+        "El realizado entre las 10 de la noche y las 6 de la mañana.",
+        "El realizado entre las 11 de la noche y las 7 de la mañana.",
+        "El realizado entre las 9 de la noche y las 5 de la mañana.",
+        "El realizado entre las 10 de la noche y las 5 de la mañana.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Así lo establece el artículo 36 del Estatuto de los Trabajadores.",
+    },
+    {
+      id: 6739,
+      moduloId: 607,
+      pregunta:
+        "¿Qué límite tienen los trabajadores nocturnos en un periodo de 24 horas?",
+      opciones: [
+        "Las 8 horas de trabajo efectivo en un período de 24 horas.",
+        "Las 8 horas de trabajo efectivo en un período de 12 horas.",
+        "Las 6 horas de trabajo efectivo en un período de 24 horas.",
+        "Las 6 horas de trabajo efectivo en un período de 12 horas.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "No deben superar las 8 horas de trabajo efectivo por jornada si realizan trabajo nocturno continuado.",
+    },
+    {
+      id: 6740,
+      moduloId: 607,
+      pregunta:
+        "¿Qué reducción puede solicitarse por guarda legal de menor o persona con discapacidad?",
+      opciones: [
+        "Entre 1/8 y la mitad.",
+        "Entre 1/4 y la mitad.",
+        "Solamente la mitad.",
+        "Entre 1/3 y la mitad.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Es un derecho para compatibilizar la vida laboral y familiar.",
+    },
+    {
+      id: 6741,
+      moduloId: 607,
+      pregunta:
+        "¿De cuánto puede ser la reducción de la jornada laboral por cuidado de familiares?",
+      opciones: [
+        "De hasta un 50%.",
+        "De hasta un 30%.",
+        "De hasta un 25%.",
+        "De hasta un 20%.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Aplica cuando el familiar no pueda valerse por sí mismo y no desempeñe actividad retribuida.",
+    },
+    {
+      id: 6743,
+      moduloId: 607,
+      pregunta:
+        "¿Qué reducción se puede solicitar por lactancia de un menor de 9 meses?",
+      opciones: [
+        "De 1 hora diaria que puede dividirse en dos fracciones.",
+        "De 1 hora diaria solamente.",
+        "En dos fracciones de 1 hora.",
+        "De media hora diaria que puede dividirse en dos fracciones.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Se permite ausentarse del trabajo por lactancia, y esa hora puede dividirse.",
+    },
+    {
+      id: 6744,
+      moduloId: 607,
+      pregunta:
+        "¿Cuál es el número máximo de horas extraordinarias permitido legalmente al año?",
+      opciones: [
+        "Por norma general, el número máximo permitido es de 80 horas al año, salvo excepciones.",
+        "Por norma general, el número máximo permitido es de 40 horas al año.",
+        "Por norma general, el número máximo permitido es de 80 horas al año, sin excepción.",
+        "Por norma general, el número máximo permitido es de 60 horas al año, en todo caso.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El Estatuto de los Trabajadores establece que el número máximo de horas extraordinarias no podrá superar las 80 al año, salvo en casos de fuerza mayor u otras excepciones contempladas por convenio o la ley.",
+    },
+    {
+      id: 6745,
+      moduloId: 607,
+      pregunta:
+        "¿Cómo se compensarán las horas extraordinarias si no lo establece el Convenio Colectivo ni el Estatuto de los Trabajadores?",
+      opciones: [
+        "Mediante descanso compensatorio dentro de los 4 meses siguientes a su realización.",
+        "Se abonarán económicamente, en todo caso.",
+        "Mediante descanso compensatorio dentro de los 2 meses siguientes a su realización.",
+        "Mediante descanso compensatorio dentro de las 4 semanas siguientes a su realización.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Si no se especifica en el Convenio Colectivo ni en el contrato, las horas extraordinarias deben compensarse preferentemente con tiempo de descanso equivalente dentro de los 4 meses siguientes a su realización, tal como establece el Estatuto de los Trabajadores.",
+    },
+    {
+      id: 6746,
+      moduloId: 607,
+      pregunta:
+        "¿Durante cuánto tiempo está obligada la empresa a conservar los registros de la jornada laboral?",
+      opciones: [
+        "Durante 4 años.",
+        "Durante 2 años.",
+        "Durante 3 años.",
+        "Deben eliminarse al finalizar la relación laboral con el trabajador.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el Real Decreto-ley 8/2019, las empresas están obligadas a conservar los registros diarios de jornada durante un período mínimo de 4 años y deben estar disponibles para su consulta por parte de los trabajadores, sus representantes y la Inspección de Trabajo.",
+    },
+    {
+      id: 6747,
+      moduloId: 607,
+      pregunta: "El pago en especie no podrá superar en ningún caso...",
+      opciones: ["El 30%.", "El 15%.", "El 50%.", "El 25%."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El salario en especie es una parte del salario que no se paga en dinero, sino en bienes o servicios. La ley establece que no puede superar el 30% del total del salario del trabajador y nunca debe sustituir completamente el salario en efectivo.",
+    },
+    {
+      id: 6748,
+      moduloId: 607,
+      pregunta:
+        "¿Qué entidad pública garantiza el cobro de salarios e indemnizaciones a los trabajadores en caso de insolvencia de la empresa?",
+      opciones: [
+        "FOGASA (Fondo de Garantía Salarial).",
+        "ITSS (Inspección de Trabajo y Seguridad Social).",
+        "Ministerio de Trabajo.",
+        "CNT (Comité Nacional del Trabajo).",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "FOGASA es una entidad pública que abona a los trabajadores los salarios e indemnizaciones pendientes cuando su empresa se declara insolvente o en concurso de acreedores, dentro de unos límites establecidos.",
+    },
+    {
+      id: 6749,
+      moduloId: 607,
+      pregunta:
+        "La persona trabajadora, previo aviso y justificación, podrá ausentarse del trabajo, con derecho a remuneración, por matrimonio o registro de pareja de hecho durante:",
+      opciones: [
+        "15 días naturales.",
+        "30 días naturales.",
+        "3 meses.",
+        "2 meses.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El Estatuto de los Trabajadores reconoce 15 días naturales de permiso retribuido por matrimonio o inscripción como pareja de hecho. Este permiso comienza desde el día del hecho causante.",
+    },
+    {
+      id: 6750,
+      moduloId: 607,
+      pregunta:
+        "¿Cuántos días de permiso retribuido tiene el trabajador por accidente, enfermedad grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo del cónyuge, pareja de hecho o familiares hasta segundo grado?",
+      opciones: ["5 días.", "10 días.", "2 días.", "8 días."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "Según el artículo 37 del Estatuto de los Trabajadores, el trabajador tiene derecho a 5 días laborables de permiso retribuido por estos motivos, siempre que exista justificación y se comunique con antelación.",
+    },
+    {
+      id: 6751,
+      moduloId: 607,
+      pregunta:
+        "¿Cuántos días de permiso retribuido corresponden por el fallecimiento del cónyuge, pareja de hecho o familiares hasta segundo grado de consanguinidad o afinidad?",
+      opciones: ["5 días.", "10 días.", "2 días.", "8 días."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "El trabajador tiene derecho a 2 días de permiso retribuido (ampliables a 4 si necesita desplazamiento) por fallecimiento de parientes hasta segundo grado, según el Estatuto de los Trabajadores.",
+    },
+    {
+      id: 6752,
+      moduloId: 607,
+      pregunta: "¿Cuál es la duración mínima legal de las vacaciones anuales?",
+      opciones: ["30 días.", "33 días.", "32 días.", "22 días."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El mínimo legal de vacaciones anuales retribuidas es de 30 días naturales (lo que equivale a unos 22 días laborables). Este derecho no es sustituible por compensación económica salvo en caso de extinción del contrato.",
+    },
+    {
+      id: 6753,
+      moduloId: 607,
+      pregunta: "¿Cuál es la duración mínima legal de las vacaciones anuales?",
+      opciones: ["30 días.", "33 días.", "32 días.", "22 días."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La duración mínima legal de las vacaciones es de 30 días naturales por año trabajado, aunque los convenios colectivos pueden mejorar este derecho. No pueden ser sustituidas por su retribución salvo en la extinción del contrato.",
+    },
+    {
+      id: 6754,
+      moduloId: 607,
+      pregunta:
+        "¿Con cuánta antelación debe conocer el trabajador las fechas de sus vacaciones?",
+      opciones: [
+        "Al menos 2 meses antes.",
+        "Al menos 3 meses antes.",
+        "Al menos 4 meses antes.",
+        "Al menos 30 días antes.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "El Estatuto de los Trabajadores establece que las fechas de disfrute de las vacaciones deben ser comunicadas con al menos dos meses de antelación. Esta obligación busca garantizar la conciliación laboral y personal del trabajador.",
+    },
+    {
+      id: 6755,
+      moduloId: 607,
+      pregunta:
+        "¿Cómo se calcula la Base de Cotización por Contingencias Comunes (BCCC)?",
+      opciones: [
+        "Percepciones salariales + Prorrata de pagas extra + Exceso de percepciones no salariales.",
+        "Salario base + Plus de transporte + Horas extraordinarias.",
+        "Percepciones salariales brutas - retenciones del IRPF.",
+        "Salario mensual + indemnizaciones por despido + pagas extra.",
+      ],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La BCCC se calcula sumando las percepciones salariales (incluido salario base, complementos, etc.), la prorrata de pagas extra y las percepciones no salariales que excedan los límites exentos. Sirve para determinar cuánto cotiza un trabajador a la Seguridad Social.",
     },
   ],
 };

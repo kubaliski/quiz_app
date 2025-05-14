@@ -64,7 +64,6 @@ function QuizPageContent({ tipo }) {
   const {
     error,
     setRespuesta,
-    cargando,
     tipoQuiz: contextTipoQuiz
   } = useQuizContext();
 
@@ -74,17 +73,16 @@ function QuizPageContent({ tipo }) {
     asignaturaNombre: sessionStorage.getItem('favorites_quiz_asignatura_nombre') || 'Asignatura'
   } : null;
 
-  // Usar hook para cargar datos del quiz (solo si no es de favoritos)
-  if (!isFavoritesQuiz) {
-    useQuizLoader({
-      asigId,
-      modId,
-      tipoQuiz,
-      moduloId,
-      continueFromPending,
-      asignaturaId
-    });
-  }
+  // Usar hook para cargar datos del quiz con parámetro para habilitar/deshabilitar
+  useQuizLoader({
+    asigId,
+    modId,
+    tipoQuiz,
+    moduloId,
+    continueFromPending,
+    asignaturaId,
+    enabled: !isFavoritesQuiz // Pasar flag para habilitar/deshabilitar en lugar de usar condicional
+  });
 
   // Usar hook para gestionar el progreso
   const { saveQuizProgress, getNombreModulo } = useQuizProgress({

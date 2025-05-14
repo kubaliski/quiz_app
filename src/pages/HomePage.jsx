@@ -1,7 +1,7 @@
 /**
  * Página principal de la aplicación que muestra el selector de asignaturas.
  * Carga la lista de asignaturas disponibles y gestiona los estados de carga y error.
- * Incluye sección para retomar quizzes pendientes.
+ * Incluye sección para retomar quizzes pendientes y acceder a preguntas favoritas.
  *
  * @component
  * @returns {JSX.Element} Componente HomePage renderizado
@@ -12,10 +12,9 @@
  */
 import { useEffect, useState } from 'react';
 import { Layout, PageHeader } from '@components/layout';
-import { SubjectSelector } from '@components/quiz';
-import { LoadingSpinner, ErrorMessage } from '@components/common';
+import { SubjectSelector, PendingQuizzes, FavoriteQuizzes } from '@components/quiz';
+import { LoadingSpinner, ErrorMessage, ToastContainer } from '@components/common';
 import { fetchAsignaturas } from '@services/quizDataService';
-import {PendingQuizzes} from '@components/quiz';
 
 export default function HomePage() {
   // Usamos estado local en lugar del contexto
@@ -67,9 +66,12 @@ export default function HomePage() {
         {/* Sección para tests pendientes */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
-            <span className="border-b-2 border-indigo-500 pb-1">Continua donde lo dejaste</span>
+            <span className="border-b-2 border-indigo-500 pb-1">Tu sección</span>
           </h2>
-          <PendingQuizzes />
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <PendingQuizzes />
+            <FavoriteQuizzes />
+          </div>
         </div>
 
         {/* Separador */}
@@ -88,6 +90,9 @@ export default function HomePage() {
           <SubjectSelector asignaturas={asignaturas} />
         )}
       </div>
+
+      {/* Contenedor de toasts para notificaciones */}
+      <ToastContainer />
     </Layout>
   );
 }

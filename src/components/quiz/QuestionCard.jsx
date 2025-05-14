@@ -1,7 +1,8 @@
 /**
  * Componente que muestra una pregunta del quiz con sus opciones de respuesta.
  * Permite al usuario seleccionar una respuesta y muestra visualmente la selección.
- * Incluye adaptación automática del tamaño de texto para opciones largas en móviles.
+ * Incluye adaptación automática del tamaño de texto para opciones largas en móviles y
+ * la posibilidad de marcar la pregunta como favorita.
  *
  * @component
  * @param {Object} props - Propiedades del componente
@@ -11,6 +12,9 @@
  * @param {Array<string>} props.pregunta.opciones - Lista de opciones de respuesta
  * @param {number|undefined} props.respuestaSeleccionada - Índice de la opción seleccionada por el usuario (undefined si no hay selección)
  * @param {Function} props.onSelectAnswer - Función a ejecutar cuando el usuario selecciona una respuesta, recibe (id, índice)
+ * @param {string|number} [props.asignaturaId] - ID de la asignatura actual (para favoritos)
+ * @param {boolean} [props.showFavoriteButton=false] - Si se debe mostrar el botón de favorito
+ * @param {Object} [props.asignatura] - Objeto con la información de la asignatura (para añadir a favoritos)
  * @returns {JSX.Element|null} Componente QuestionCard renderizado o null si no hay pregunta
  */
 import { useState, useEffect } from 'react';
@@ -19,8 +23,19 @@ import { useTheme, useDeviceType } from '@hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
+import FavoriteButton from './FavoriteButton';
+import { addFavorite, removeFavorite } from '@services/favoritesService';
+// Importamos del archivo de utilidades que crearemos después
+import { showToast } from '@utils/toastUtils';
 
-export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelectAnswer }) {
+export default function QuestionCard({
+  pregunta,
+  respuestaSeleccionada,
+  onSelectAnswer,
+  asignaturaId,
+  showFavoriteButton = false,
+  asignatura
+}) {
   const { darkMode } = useTheme();
   const { isMobile, isTablet } = useDeviceType();
   const isSmallScreen = isMobile || isTablet;
@@ -50,7 +65,35 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
     } else {
       onSelectAnswer(id, index); // Seleccionar opción
     }
-  }
+  };
+
+  // Manejar cambio en favorito
+  const handleToggleFavorite = async (isFav) => {
+    if (!asignaturaId || !pregunta) return;
+
+    try {
+      if (isFav) {
+        // Añadir a favoritos
+        const result = await addFavorite(asignaturaId, asignatura, pregunta);
+        if (result.success) {
+          showToast('Pregunta añadida a favoritos', 'success');
+        } else {
+          showToast(result.message, 'error');
+        }
+      } else {
+        // Quitar de favoritos
+        const result = await removeFavorite(asignaturaId, pregunta.id);
+        if (result.success) {
+          showToast('Pregunta eliminada de favoritos', 'success');
+        } else {
+          showToast(result.message, 'error');
+        }
+      }
+    } catch (error) {
+      console.error('Error al cambiar estado de favorito:', error);
+      showToast('Error al cambiar estado de favorito', 'error');
+    }
+  };
 
   // Función para renderizar el recurso (imagen o código)
   const renderRecurso = () => {
@@ -114,7 +157,19 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
 
   return (
     <Card className="mb-6">
-      <h2 className="text-xl font-semibold mb-4 dark:text-white">{pregunta.pregunta}</h2>
+      <div className="flex justify-between items-start mb-3">
+        <h2 className="text-xl font-semibold dark:text-white">{pregunta.pregunta}</h2>
+
+        {/* Botón de favorito */}
+        {showFavoriteButton && asignaturaId && (
+          <FavoriteButton
+            asignaturaId={asignaturaId}
+            preguntaId={pregunta.id}
+            onToggle={handleToggleFavorite}
+            className="ml-2 flex-shrink-0"
+          />
+        )}
+      </div>
 
       {/* Renderizar recurso si existe */}
       {renderRecurso()}
@@ -132,7 +187,6 @@ export default function QuestionCard({ pregunta, respuestaSeleccionada, onSelect
                   : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
               onClick={() => handleClickOption(pregunta.id, index)}
-
             >
               <div className="flex items-start">
                 <div className={`flex-shrink-0 h-5 w-5 rounded-full border ${

@@ -34,7 +34,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={handleToggleClick}
-      className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white relative"
+      className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white relative hover:cursor-pointer"
       aria-label={darkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
     >
 

@@ -54,13 +54,11 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
       <Card title="Selecciona un módulo">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {modulos.map(modulo => (
-            <button
+            <Button
               key={modulo.id}
-              className={`${modulo.esExamen
-                ? "bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800"
-                : "bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-800"}
-                text-white font-medium py-3 px-4 rounded-lg transition duration-200`}
+              title={`${modulo.nombre}`}
               onClick={() => handleSelectModule(modulo.id)}
+              variant={modulo.esExamen ? "danger" : "primary"}
             >
               <div className="flex flex-col">
                 <span className="font-semibold">
@@ -70,11 +68,10 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
                   {modulo.preguntas.length} preguntas
                 </span>
               </div>
-            </button>
+            </Button>
           ))}
         </div>
       </Card>
-
       <Card title="O selecciona">
         <div className="space-y-4">
           {/* Botón para todos los módulos */}

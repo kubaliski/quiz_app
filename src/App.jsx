@@ -7,7 +7,7 @@ import {
   NotFoundPage
 } from './pages';
 import { PWAInstallPrompt } from '@components/layout';
-import { ServiceWorkerUpdater, LoadingSpinner, ErrorMessage, ToastContainer } from '@components/common';
+import { ServiceWorkerUpdater, LoadingSpinner, ErrorMessage, ToastContainer, Button } from '@components/common';
 import { registerModuleErrorHandler } from '@services/swService';
 
 // Importaciones diferidas para mejorar el rendimiento y manejo de errores
@@ -41,7 +41,7 @@ function RouteErrorBoundary({ children }) {
         <div className="mt-4 space-y-4">
           <p className="text-center text-gray-600">Intenta una de las siguientes soluciones:</p>
           <div className="flex flex-col space-y-2">
-            <button
+            <Button
               onClick={() => {
                 // Limpiar caché si es posible y recargar
                 if ('caches' in window) {
@@ -60,13 +60,13 @@ function RouteErrorBoundary({ children }) {
               className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700"
             >
               Recargar la aplicación
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => navigate('/')}
               className="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300"
             >
               Volver a la página principal
-            </button>
+            </Button>
           </div>
         </div>
       </div>

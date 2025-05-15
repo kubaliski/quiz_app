@@ -14,6 +14,7 @@
  */
 import { useState, useEffect } from 'react';
 import { isFavorite } from '@services/favoritesService';
+import { Button } from '@components/common';
 
 export default function FavoriteButton({
   asignaturaId,
@@ -85,7 +86,7 @@ export default function FavoriteButton({
   `;
 
   return (
-    <button
+    <Button
       className={buttonClasses}
       onClick={handleClick}
       title={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
@@ -112,6 +113,6 @@ export default function FavoriteButton({
           />
         </svg>
       )}
-    </button>
+    </Button>
   );
 }

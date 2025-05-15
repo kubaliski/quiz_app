@@ -1,22 +1,3 @@
-/**
- * Componente que muestra una pregunta del quiz con sus opciones de respuesta.
- * Permite al usuario seleccionar una respuesta y muestra visualmente la selección.
- * Incluye adaptación automática del tamaño de texto para opciones largas en móviles y
- * la posibilidad de marcar la pregunta como favorita.
- *
- * @component
- * @param {Object} props - Propiedades del componente
- * @param {Object} props.pregunta - Objeto con la información de la pregunta
- * @param {string|number} props.pregunta.id - Identificador único de la pregunta
- * @param {string} props.pregunta.pregunta - Texto de la pregunta
- * @param {Array<string>} props.pregunta.opciones - Lista de opciones de respuesta
- * @param {number|undefined} props.respuestaSeleccionada - Índice de la opción seleccionada por el usuario (undefined si no hay selección)
- * @param {Function} props.onSelectAnswer - Función a ejecutar cuando el usuario selecciona una respuesta, recibe (id, índice)
- * @param {string|number} [props.asignaturaId] - ID de la asignatura actual (para favoritos)
- * @param {boolean} [props.showFavoriteButton=false] - Si se debe mostrar el botón de favorito
- * @param {Object} [props.asignatura] - Objeto con la información de la asignatura (para añadir a favoritos)
- * @returns {JSX.Element|null} Componente QuestionCard renderizado o null si no hay pregunta
- */
 import { useState, useEffect } from 'react';
 import { Card } from '@components/common';
 import { useTheme, useDeviceType } from '@hooks';
@@ -44,6 +25,9 @@ export default function QuestionCard({
   const [opcionesLargas, setOpcionesLargas] = useState(false);
   const [opcionesMuyLargas, setOpcionesMuyLargas] = useState(false);
 
+  // Estado para manejar el feedback de la copia
+  const [copiado, setCopiado] = useState(false);
+
   // Verificar longitud de las opciones al cargar el componente
   useEffect(() => {
     if (!pregunta || !pregunta.opciones) return;
@@ -56,6 +40,17 @@ export default function QuestionCard({
     setOpcionesLargas(longitudMaxima > 80 || longitudPromedio > 60);
     setOpcionesMuyLargas(longitudMaxima > 140 || longitudPromedio > 100);
   }, [pregunta]);
+
+  // Resetear el estado de copiado después de 2 segundos
+  useEffect(() => {
+    let timer;
+    if (copiado) {
+      timer = setTimeout(() => {
+        setCopiado(false);
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [copiado]);
 
   if (!pregunta) return null;
 
@@ -95,6 +90,20 @@ export default function QuestionCard({
     }
   };
 
+  // Función para copiar código al portapapeles
+  const handleCopyCode = async () => {
+    if (!pregunta.recurso || pregunta.recurso.tipo !== 'codigo') return;
+
+    try {
+      await navigator.clipboard.writeText(pregunta.recurso.contenido);
+      setCopiado(true);
+      showToast('Código copiado al portapapeles', 'success');
+    } catch (error) {
+      console.error('Error al copiar código:', error);
+      showToast('Error al copiar el código', 'error');
+    }
+  };
+
   // Función para renderizar el recurso (imagen o código)
   const renderRecurso = () => {
     if (!pregunta.recurso) return null;
@@ -112,18 +121,43 @@ export default function QuestionCard({
         );
       case 'codigo':
         return (
-          <div className="my-4 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-md">
-            <SyntaxHighlighter
-              language={pregunta.recurso.lenguaje || 'text'}
-              style={darkMode ? dark : docco}
-              customStyle={{
-                borderRadius: '0.5rem',
-                margin: 0,
-                padding: '1rem'
-              }}
+          <div className="my-4 relative">
+            <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-md">
+              <SyntaxHighlighter
+                language={pregunta.recurso.lenguaje || 'text'}
+                style={darkMode ? dark : docco}
+                customStyle={{
+                  borderRadius: '0.5rem',
+                  margin: 0,
+                  padding: '1rem'
+                }}
+              >
+                {pregunta.recurso.contenido}
+              </SyntaxHighlighter>
+            </div>
+
+            {/* Botón para copiar código */}
+            <button
+              onClick={handleCopyCode}
+              className={`absolute top-2 right-2 p-2 rounded-md transition-all duration-200 ${
+                copiado
+                  ? 'bg-green-500 text-white'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+              }`}
+              title="Copiar código"
+              aria-label="Copiar código al portapapeles"
             >
-              {pregunta.recurso.contenido}
-            </SyntaxHighlighter>
+              {copiado ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                  <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                </svg>
+              )}
+            </button>
           </div>
         );
       default:

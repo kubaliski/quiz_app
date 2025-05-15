@@ -29,15 +29,27 @@ export default function FavoritesQuizLoader({ quiz }) {
 
     const loadFavoritesQuiz = async () => {
       try {
+        // Verificar que tenemos un ID de asignatura válido
+        if (!quiz.asignaturaId) {
+          throw new Error('ID de asignatura no válido');
+        }
+
         // Iniciar quiz con preguntas favoritas
         const result = await startFavoritesQuiz(quiz.asignaturaId);
 
         if (!mounted.current) return;
 
-        if (result.success && result.preguntas.length > 0) {
+        if (result.success && result.preguntas && result.preguntas.length > 0) {
           // Actualizar el estado con los datos cargados
           setPreguntas(result.preguntas);
-          setAsignatura(result.asignatura);
+
+          // Establecer información de asignatura
+          setAsignatura(result.asignatura || {
+            id: quiz.asignaturaId,
+            nombre: quiz.asignaturaNombre || 'Preguntas favoritas'
+          });
+
+          // Establecer el tipo de quiz como 'favoritos'
           setTipoQuiz('favoritos');
           setCargando(false);
 
@@ -45,6 +57,8 @@ export default function FavoritesQuizLoader({ quiz }) {
           sessionStorage.removeItem('start_favorites_quiz');
           sessionStorage.removeItem('favorites_quiz_asignatura_id');
           sessionStorage.removeItem('favorites_quiz_asignatura_nombre');
+          sessionStorage.removeItem('favorites_quiz_random');
+          sessionStorage.removeItem('favorites_quiz_limit');
         } else {
           // Establecer error
           setError(result.message || 'No se pudieron cargar las preguntas favoritas');
@@ -53,7 +67,7 @@ export default function FavoritesQuizLoader({ quiz }) {
       } catch (error) {
         console.error('Error al cargar quiz de favoritos:', error);
         if (mounted.current) {
-          setError('Error al cargar el quiz de preguntas favoritas');
+          setError('Error al cargar el quiz de preguntas favoritas: ' + (error.message || ''));
           setCargando(false);
         }
       }

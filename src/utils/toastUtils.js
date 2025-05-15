@@ -8,7 +8,7 @@
 
 // Objeto para almacenar las funciones de manejo de toasts
 let toastManager = {
-  add: (message, type, duration) => {
+  add: (_message, _type, _duration) => {
     console.warn('Toast manager no inicializado');
     return -1;
   },

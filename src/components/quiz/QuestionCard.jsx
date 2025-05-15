@@ -181,7 +181,7 @@ export default function QuestionCard({
           return (
             <button
               key={index}
-              className={`w-full text-left p-4 rounded-lg border transition duration-200 ${
+              className={`w-full text-left hover:cursor-pointer p-4 rounded-lg border transition duration-200 ${
                 isSelected
                   ? 'bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 border-indigo-300 dark:border-indigo-700 ring-2 ring-indigo-500 dark:ring-indigo-400'
                   : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'

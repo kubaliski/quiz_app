@@ -124,7 +124,7 @@ export default function QuestionNavigator() {
     // Tamaño adaptativo para móvil/escritorio
     const size = isMobile ? "w-11 h-11" : "w-10 h-10";
     // Base común para todos los botones
-    const baseClasses = `${size} rounded-full flex items-center justify-center font-medium transition-all border`;
+    const baseClasses = `${size} rounded-full flex items-center justify-center font-medium transition-all border hover:cursor-pointer`;
 
     switch (status) {
       case 'current':

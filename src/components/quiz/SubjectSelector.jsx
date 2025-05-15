@@ -19,7 +19,7 @@
  * <SubjectSelector asignaturas={asignaturas} />
  */
 import { useNavigate } from 'react-router-dom';
-import { Card } from '@components/common';
+import { Card, Button } from '@components/common';
 
 export default function SubjectSelector({ asignaturas }) {
   const navigate = useNavigate();
@@ -32,9 +32,9 @@ export default function SubjectSelector({ asignaturas }) {
     <Card title="Selecciona una asignatura">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {asignaturas.map(asignatura => (
-          <button
+          <Button
             key={asignatura.id}
-            className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-800 text-white font-medium py-3 px-4 rounded-lg transition duration-200"
+            /* className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-800 text-white font-medium py-3 px-4 rounded-lg transition duration-200" */
             onClick={() => handleSelectSubject(asignatura.id)}
           >
             <div className="flex items-center">
@@ -45,7 +45,7 @@ export default function SubjectSelector({ asignaturas }) {
               )}
               <span>{asignatura.nombre}</span>
             </div>
-          </button>
+          </Button>
         ))}
       </div>
     </Card>

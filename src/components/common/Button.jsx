@@ -19,6 +19,7 @@ import { useState, useEffect } from 'react';
  */
 export default function Button({
   children,
+  title = '',
   onClick,
   variant = 'primary',
   size = 'medium',
@@ -39,7 +40,7 @@ export default function Button({
   };
 
   // Base styles for all variants
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition duration-200 focus:outline-none rounded-lg';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition duration-200 focus:outline-none rounded-lg hover:cursor-pointer';
 
   // Variant-specific styles
   const variantStyles = {
@@ -178,6 +179,7 @@ export default function Button({
             className={`${buttonClassName} relative z-10 w-full`}
             onClick={onClick}
             disabled={disabled}
+            title={title}
           >
             {children}
           </button>
@@ -203,6 +205,7 @@ export default function Button({
       className={`${buttonClassName} ${focusRingStyle}`}
       onClick={onClick}
       disabled={disabled}
+      title={title}
     >
       {children}
     </button>

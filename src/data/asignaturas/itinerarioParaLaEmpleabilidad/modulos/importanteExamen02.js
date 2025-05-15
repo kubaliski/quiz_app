@@ -138,9 +138,49 @@ export const importanteExamen02 = {
       explicacion:
         "En el orden jurisdiccional laboral, la jerarquía se estructura de la siguiente forma: el Tribunal Constitucional (máximo intérprete de la Constitución), el Tribunal Supremo (máxima autoridad judicial), la Audiencia Nacional (competente en conflictos colectivos de ámbito nacional), los Tribunales Superiores de Justicia de las Comunidades Autónomas (resuelven en segunda instancia), y finalmente los Juzgados de lo Social (primera instancia en la mayoría de los conflictos laborales).",
     },
-    // ---- Tema 5. El contrato de trabajo y las modalidades de contratación. ----.
     {
       id: 6718,
+      moduloId: 607,
+      pregunta:
+        "Proceso mediante el cual las partes implicadas en un conflicto intentan llegar a un acuerdo de forma directa, sin intervención de terceros. En el ámbito laboral, puede producirse entre empleadores y trabajadores o sus representantes.",
+      opciones: ["Negociación.", "Conciliación.", "Mediación.", "Arbitraje."],
+      respuestaCorrecta: 0,
+      explicacion:
+        "La negociación es un método de resolución de conflictos basado en el diálogo directo entre las partes, sin la intervención de un tercero. En el entorno laboral, es común entre la empresa y los representantes de los trabajadores.",
+    },
+    {
+      id: 6719,
+      moduloId: 607,
+      pregunta:
+        "Proceso en el que trabajador y empleador se reúnen con un tercero neutral que facilita el diálogo y la negociación para alcanzar un acuerdo amistoso.",
+      opciones: ["Negociación.", "Conciliación.", "Mediación.", "Arbitraje."],
+      respuestaCorrecta: 1,
+      explicacion:
+        "La conciliación es un proceso extrajudicial donde un tercero imparcial (normalmente un funcionario público) ayuda a las partes a dialogar con el fin de alcanzar un acuerdo. Suele realizarse en los servicios de mediación, arbitraje y conciliación (SMAC).",
+    },
+    {
+      id: 6720,
+      moduloId: 607,
+      pregunta:
+        "Procedimiento en el que una persona imparcial ayuda a las partes a identificar sus intereses y encontrar una solución aceptable para ambas, sin imponer una decisión.",
+      opciones: ["Negociación.", "Conciliación.", "Mediación.", "Arbitraje."],
+      respuestaCorrecta: 2,
+      explicacion:
+        "La mediación es un proceso voluntario en el que un mediador neutral interviene para facilitar la comunicación entre las partes en conflicto. A diferencia del arbitraje, no impone una solución, sino que promueve un acuerdo mutuo.",
+    },
+    {
+      id: 6721,
+      moduloId: 607,
+      pregunta:
+        "Proceso en el que un tercero imparcial escucha a ambas partes y toma una decisión obligatoria para resolver el conflicto.",
+      opciones: ["Negociación.", "Conciliación.", "Mediación.", "Arbitraje."],
+      respuestaCorrecta: 3,
+      explicacion:
+        "El arbitraje consiste en la intervención de un árbitro que, tras escuchar a las partes, emite una resolución obligatoria para ambas. Es una alternativa al procedimiento judicial y se emplea en conflictos laborales y comerciales.",
+    },
+    // ---- Tema 5. El contrato de trabajo y las modalidades de contratación. ----.
+    {
+      id: 6722,
       moduloId: 607,
       pregunta:
         "¿Quiénes pueden firmar un contrato de trabajo según la legislación laboral española?",
@@ -155,7 +195,7 @@ export const importanteExamen02 = {
         "Pueden firmar un contrato de trabajo: los mayores de edad (18 años o más), los menores emancipados, y los mayores de 16 y menores de 18 años siempre que cuenten con autorización de sus padres o tutores, salvo que vivan de forma independiente con su consentimiento. Además, los extranjeros pueden contratar si cumplen lo dispuesto en la Ley Orgánica 4/2000 sobre derechos y libertades de los extranjeros en España y su integración social.",
     },
     {
-      id: 6719,
+      id: 6723,
       moduloId: 607,
       pregunta:
         "¿Cuáles son los elementos esenciales de un contrato de trabajo según el Código Civil español?",
@@ -170,7 +210,7 @@ export const importanteExamen02 = {
         "Los elementos esenciales de todo contrato, incluido el de trabajo, son el consentimiento (acuerdo libre entre las partes), el objeto (la prestación de servicios) y la causa (la contraprestación, es decir, el salario). Esto se establece en el artículo 1261 del Código Civil. Sin alguno de estos elementos, el contrato carece de validez.",
     },
     {
-      id: 6720,
+      id: 6724,
       moduloId: 607,
       pregunta:
         "¿Qué tipo de contrato no es obligatorio formalizar por escrito según el Estatuto de los Trabajadores?",
@@ -185,7 +225,7 @@ export const importanteExamen02 = {
         "Según el artículo 8 del Estatuto de los Trabajadores, el contrato de trabajo se puede celebrar de forma verbal o escrita. Sin embargo, los contratos indefinidos ordinarios pueden celebrarse verbalmente. No obstante, existen contratos que deben formalizarse por escrito obligatoriamente, como los contratos a tiempo parcial, de relevo, de prácticas o formación. Si no se respeta esta forma escrita cuando es obligatoria, se presumirá que el contrato es indefinido y a jornada completa.",
     },
     {
-      id: 6721,
+      id: 6725,
       moduloId: 607,
       pregunta:
         "¿Qué norma determina la duración máxima del periodo de prueba en un contrato de trabajo?",
@@ -200,7 +240,7 @@ export const importanteExamen02 = {
         "La duración máxima del periodo de prueba viene determinada por lo que establezca el Convenio Colectivo aplicable. En ausencia de convenio, se aplican los límites del artículo 14 del Estatuto de los Trabajadores: un máximo de 6 meses para técnicos titulados y de 2 meses para el resto de los trabajadores. En empresas de menos de 25 trabajadores, el límite para estos últimos se reduce a 3 meses.",
     },
     {
-      id: 6722,
+      id: 6726,
       moduloId: 607,
       pregunta:
         "¿Se interrumpe el periodo de prueba en caso de incapacidad temporal del trabajador?",
@@ -215,7 +255,7 @@ export const importanteExamen02 = {
         "El artículo 14.3 del Estatuto de los Trabajadores establece que el periodo de prueba puede ser interrumpido por incapacidad temporal, maternidad, adopción o acogimiento si ambas partes lo acuerdan expresamente. Si no se ha pactado esa posibilidad en el contrato, el periodo de prueba continuará corriendo durante la baja.",
     },
     {
-      id: 6723,
+      id: 6727,
       moduloId: 607,
       pregunta:
         "Este contrato no tiene una fecha de finalización preestablecida. Proporciona estabilidad laboral al empleado y se utiliza cuando no hay una razón específica para limitar la duración del empleo.",
@@ -230,7 +270,7 @@ export const importanteExamen02 = {
         "El contrato indefinido no tiene una fecha concreta de finalización. Es la forma común de contratación estable y permanente, tal como establece el artículo 15 del Estatuto de los Trabajadores.",
     },
     {
-      id: 6724,
+      id: 6728,
       moduloId: 607,
       pregunta:
         "Similar al contrato indefinido o temporal, pero con una jornada laboral reducida. Se acuerda un número de horas inferior a la jornada completa, distribuidas según lo pactado.",
@@ -245,7 +285,7 @@ export const importanteExamen02 = {
         "El contrato a tiempo parcial es aquel en el que se presta servicio durante un número de horas inferior al de un trabajador a tiempo completo comparable, según lo establece el artículo 12 del Estatuto de los Trabajadores.",
     },
     {
-      id: 6725,
+      id: 6729,
       moduloId: 607,
       pregunta:
         "Utilizado para trabajos estacionales o actividades que no se realizan de forma continua a lo largo del año. El empleado trabaja en períodos determinados, con derecho a reincorporarse en las temporadas sucesivas.",
@@ -260,7 +300,7 @@ export const importanteExamen02 = {
         "El contrato fijo-discontinuo está regulado en el artículo 16 del Estatuto de los Trabajadores. Se utiliza para actividades estacionales o de temporada, en las que el trabajo no se realiza de forma continua pero sí recurrente.",
     },
     {
-      id: 6726,
+      id: 6730,
       moduloId: 607,
       pregunta:
         "Vinculado a situaciones de jubilación parcial, permite contratar a un trabajador desempleado o con un contrato temporal para que sustituya al empleado que reduce su jornada por jubilación parcial.",
@@ -275,7 +315,7 @@ export const importanteExamen02 = {
         "El contrato de relevo está regulado en el artículo 12.7 del Estatuto de los Trabajadores. Se celebra para sustituir la jornada que deja vacante un trabajador que accede a la jubilación parcial.",
     },
     {
-      id: 6727,
+      id: 6731,
       moduloId: 607,
       pregunta:
         "Se celebra con un grupo de trabajadores representados por un jefe de grupo. Los trabajadores no tienen un vínculo directo individual con la empresa, sino a través del jefe de grupo.",
@@ -290,7 +330,7 @@ export const importanteExamen02 = {
         "El contrato de grupo está contemplado en el artículo 10.3 del Estatuto de los Trabajadores. La empresa contrata a un grupo liderado por un jefe, y la relación jurídica se establece con este último, no directamente con cada miembro del grupo.",
     },
     {
-      id: 6728,
+      id: 6732,
       moduloId: 607,
       pregunta:
         "Este contrato responde a un incremento temporal de la actividad de la empresa, como picos de producción o demanda. Tiene una duración máxima, que suele estar regulada por convenios colectivos.",
@@ -305,7 +345,7 @@ export const importanteExamen02 = {
         "Este contrato está regulado en el artículo 15.2 del Estatuto de los Trabajadores. Se celebra por necesidades circunstanciales de la empresa, como un aumento puntual de actividad. Su duración está limitada y puede variar según el convenio colectivo.",
     },
     {
-      id: 6729,
+      id: 6733,
       moduloId: 607,
       pregunta:
         "Se emplea para sustituir a trabajadores con derecho a reserva de puesto, como en casos de baja por enfermedad o maternidad, o para cubrir temporalmente un puesto hasta su ocupación definitiva.",
@@ -320,7 +360,7 @@ export const importanteExamen02 = {
         "Este contrato también se recoge en el artículo 15 del Estatuto de los Trabajadores. Se utiliza para sustituir a trabajadores con derecho a reincorporación, como por baja médica, maternidad, excedencia, etc.",
     },
     {
-      id: 6730,
+      id: 6734,
       moduloId: 607,
       pregunta:
         "Destinado a la formación profesional, combinando actividad laboral y formación teórica. Es adecuado para jóvenes sin cualificación profesional.",
@@ -335,7 +375,7 @@ export const importanteExamen02 = {
         "El contrato formativo en alternancia combina trabajo con formación (dual) y está regulado en el artículo 11.2 del Estatuto de los Trabajadores. Se dirige a jóvenes que cursan formación profesional, universitaria o del sistema educativo.",
     },
     {
-      id: 6731,
+      id: 6735,
       moduloId: 607,
       pregunta:
         "Enfocado en titulados universitarios o de formación profesional, permite adquirir experiencia en su campo de estudio. Debe realizarse dentro de un período específico tras la obtención del título.",
@@ -350,7 +390,7 @@ export const importanteExamen02 = {
         "Este contrato, regulado también en el artículo 11.3 del Estatuto de los Trabajadores, permite a personas con titulación reciente adquirir experiencia profesional adecuada a su nivel de estudios. Debe celebrarse dentro de los 3 años (5 si hay discapacidad) posteriores a la obtención del título.",
     },
     {
-      id: 6732,
+      id: 6736,
       moduloId: 607,
       pregunta:
         "Actúan como intermediarios entre los trabajadores y las empresas de usuarios.",
@@ -366,7 +406,7 @@ export const importanteExamen02 = {
     },
     // ---- Tema 6. Jornada laboral y salario. ----.
     {
-      id: 6733,
+      id: 6737,
       moduloId: 607,
       pregunta:
         "¿Cuál es la duración máxima legal de la jornada laboral semanal en España?",
@@ -381,7 +421,7 @@ export const importanteExamen02 = {
         "Según el Estatuto de los Trabajadores, la jornada ordinaria máxima es de 40 horas semanales de promedio en cómputo anual.",
     },
     {
-      id: 6734,
+      id: 6738,
       moduloId: 607,
       pregunta: "¿Es posible distribuir la jornada laboral de forma irregular?",
       opciones: [
@@ -395,7 +435,7 @@ export const importanteExamen02 = {
         "La distribución irregular de la jornada está permitida por ley si se regula mediante convenio colectivo o acuerdo empresa-trabajador.",
     },
     {
-      id: 6735,
+      id: 6739,
       moduloId: 607,
       pregunta:
         "¿Puede el empresario modificar unilateralmente la distribución irregular?",
@@ -410,7 +450,7 @@ export const importanteExamen02 = {
         "El empresario puede hacerlo hasta un 10% de la jornada anual si lo permite el convenio colectivo.",
     },
     {
-      id: 6736,
+      id: 6740,
       moduloId: 607,
       pregunta: "¿Cuál es el descanso mínimo entre dos jornadas laborales?",
       opciones: [
@@ -424,7 +464,7 @@ export const importanteExamen02 = {
         "Debe haber al menos 12 horas consecutivas de descanso entre una jornada y la siguiente.",
     },
     {
-      id: 6737,
+      id: 6741,
       moduloId: 607,
       pregunta: "¿Cuál es la duración mínima del descanso semanal?",
       opciones: [
@@ -438,7 +478,7 @@ export const importanteExamen02 = {
         "El descanso semanal debe ser de al menos 36 horas ininterrumpidas.",
     },
     {
-      id: 6738,
+      id: 6742,
       moduloId: 607,
       pregunta: "¿Qué se considera trabajo nocturno?",
       opciones: [
@@ -452,7 +492,7 @@ export const importanteExamen02 = {
         "Así lo establece el artículo 36 del Estatuto de los Trabajadores.",
     },
     {
-      id: 6739,
+      id: 6743,
       moduloId: 607,
       pregunta:
         "¿Qué límite tienen los trabajadores nocturnos en un periodo de 24 horas?",
@@ -467,7 +507,7 @@ export const importanteExamen02 = {
         "No deben superar las 8 horas de trabajo efectivo por jornada si realizan trabajo nocturno continuado.",
     },
     {
-      id: 6740,
+      id: 6744,
       moduloId: 607,
       pregunta:
         "¿Qué reducción puede solicitarse por guarda legal de menor o persona con discapacidad?",
@@ -482,7 +522,7 @@ export const importanteExamen02 = {
         "Es un derecho para compatibilizar la vida laboral y familiar.",
     },
     {
-      id: 6741,
+      id: 6745,
       moduloId: 607,
       pregunta:
         "¿De cuánto puede ser la reducción de la jornada laboral por cuidado de familiares?",
@@ -497,7 +537,7 @@ export const importanteExamen02 = {
         "Aplica cuando el familiar no pueda valerse por sí mismo y no desempeñe actividad retribuida.",
     },
     {
-      id: 6743,
+      id: 6746,
       moduloId: 607,
       pregunta:
         "¿Qué reducción se puede solicitar por lactancia de un menor de 9 meses?",
@@ -512,7 +552,7 @@ export const importanteExamen02 = {
         "Se permite ausentarse del trabajo por lactancia, y esa hora puede dividirse.",
     },
     {
-      id: 6744,
+      id: 6747,
       moduloId: 607,
       pregunta:
         "¿Cuál es el número máximo de horas extraordinarias permitido legalmente al año?",
@@ -527,7 +567,7 @@ export const importanteExamen02 = {
         "El Estatuto de los Trabajadores establece que el número máximo de horas extraordinarias no podrá superar las 80 al año, salvo en casos de fuerza mayor u otras excepciones contempladas por convenio o la ley.",
     },
     {
-      id: 6745,
+      id: 6748,
       moduloId: 607,
       pregunta:
         "¿Cómo se compensarán las horas extraordinarias si no lo establece el Convenio Colectivo ni el Estatuto de los Trabajadores?",
@@ -542,7 +582,7 @@ export const importanteExamen02 = {
         "Si no se especifica en el Convenio Colectivo ni en el contrato, las horas extraordinarias deben compensarse preferentemente con tiempo de descanso equivalente dentro de los 4 meses siguientes a su realización, tal como establece el Estatuto de los Trabajadores.",
     },
     {
-      id: 6746,
+      id: 6749,
       moduloId: 607,
       pregunta:
         "¿Durante cuánto tiempo está obligada la empresa a conservar los registros de la jornada laboral?",
@@ -557,7 +597,7 @@ export const importanteExamen02 = {
         "Según el Real Decreto-ley 8/2019, las empresas están obligadas a conservar los registros diarios de jornada durante un período mínimo de 4 años y deben estar disponibles para su consulta por parte de los trabajadores, sus representantes y la Inspección de Trabajo.",
     },
     {
-      id: 6747,
+      id: 6750,
       moduloId: 607,
       pregunta: "El pago en especie no podrá superar en ningún caso...",
       opciones: ["El 30%.", "El 15%.", "El 50%.", "El 25%."],
@@ -566,7 +606,7 @@ export const importanteExamen02 = {
         "El salario en especie es una parte del salario que no se paga en dinero, sino en bienes o servicios. La ley establece que no puede superar el 30% del total del salario del trabajador y nunca debe sustituir completamente el salario en efectivo.",
     },
     {
-      id: 6748,
+      id: 6751,
       moduloId: 607,
       pregunta:
         "¿Qué entidad pública garantiza el cobro de salarios e indemnizaciones a los trabajadores en caso de insolvencia de la empresa?",
@@ -581,7 +621,7 @@ export const importanteExamen02 = {
         "FOGASA es una entidad pública que abona a los trabajadores los salarios e indemnizaciones pendientes cuando su empresa se declara insolvente o en concurso de acreedores, dentro de unos límites establecidos.",
     },
     {
-      id: 6749,
+      id: 6752,
       moduloId: 607,
       pregunta:
         "La persona trabajadora, previo aviso y justificación, podrá ausentarse del trabajo, con derecho a remuneración, por matrimonio o registro de pareja de hecho durante:",
@@ -596,7 +636,7 @@ export const importanteExamen02 = {
         "El Estatuto de los Trabajadores reconoce 15 días naturales de permiso retribuido por matrimonio o inscripción como pareja de hecho. Este permiso comienza desde el día del hecho causante.",
     },
     {
-      id: 6750,
+      id: 6754,
       moduloId: 607,
       pregunta:
         "¿Cuántos días de permiso retribuido tiene el trabajador por accidente, enfermedad grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo del cónyuge, pareja de hecho o familiares hasta segundo grado?",
@@ -606,7 +646,7 @@ export const importanteExamen02 = {
         "Según el artículo 37 del Estatuto de los Trabajadores, el trabajador tiene derecho a 5 días laborables de permiso retribuido por estos motivos, siempre que exista justificación y se comunique con antelación.",
     },
     {
-      id: 6751,
+      id: 6755,
       moduloId: 607,
       pregunta:
         "¿Cuántos días de permiso retribuido corresponden por el fallecimiento del cónyuge, pareja de hecho o familiares hasta segundo grado de consanguinidad o afinidad?",
@@ -616,7 +656,7 @@ export const importanteExamen02 = {
         "El trabajador tiene derecho a 2 días de permiso retribuido (ampliables a 4 si necesita desplazamiento) por fallecimiento de parientes hasta segundo grado, según el Estatuto de los Trabajadores.",
     },
     {
-      id: 6752,
+      id: 6756,
       moduloId: 607,
       pregunta: "¿Cuál es la duración mínima legal de las vacaciones anuales?",
       opciones: ["30 días.", "33 días.", "32 días.", "22 días."],
@@ -625,7 +665,7 @@ export const importanteExamen02 = {
         "El mínimo legal de vacaciones anuales retribuidas es de 30 días naturales (lo que equivale a unos 22 días laborables). Este derecho no es sustituible por compensación económica salvo en caso de extinción del contrato.",
     },
     {
-      id: 6753,
+      id: 6757,
       moduloId: 607,
       pregunta: "¿Cuál es la duración mínima legal de las vacaciones anuales?",
       opciones: ["30 días.", "33 días.", "32 días.", "22 días."],
@@ -634,7 +674,7 @@ export const importanteExamen02 = {
         "La duración mínima legal de las vacaciones es de 30 días naturales por año trabajado, aunque los convenios colectivos pueden mejorar este derecho. No pueden ser sustituidas por su retribución salvo en la extinción del contrato.",
     },
     {
-      id: 6754,
+      id: 6758,
       moduloId: 607,
       pregunta:
         "¿Con cuánta antelación debe conocer el trabajador las fechas de sus vacaciones?",
@@ -649,7 +689,7 @@ export const importanteExamen02 = {
         "El Estatuto de los Trabajadores establece que las fechas de disfrute de las vacaciones deben ser comunicadas con al menos dos meses de antelación. Esta obligación busca garantizar la conciliación laboral y personal del trabajador.",
     },
     {
-      id: 6755,
+      id: 6759,
       moduloId: 607,
       pregunta:
         "¿Cómo se calcula la Base de Cotización por Contingencias Comunes (BCCC)?",

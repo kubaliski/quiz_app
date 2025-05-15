@@ -43,12 +43,17 @@ System.out.println(lista.get(0));`,
         explicacion: "El código imprime 'B'. Primero se crea un ArrayList y se añaden los elementos 'A' y 'B'. Luego se elimina el elemento en la posición 0, que es 'A'. Después de eliminar 'A', el elemento 'B' pasa a ocupar la posición 0. Por lo tanto, al obtener el elemento en la posición 0 con get(0), se obtiene 'B'."
       },
       {
-        id: 31103,
-        moduloId: 311,
-        pregunta: "¿Qué diferencia principal hay entre ArrayList y LinkedList?",
-        opciones: ["LinkedList no permite duplicados, en cambio el arraylist si, ya que va por posición", "LinkedList es más eficiente para insertar/eliminar elementos", "ArrayList no se puede ordenar, en cambio un arraylist es muy fácil de ordenar", "ArrayList ocupa más memoria ya que guarda posiciones"],
-        respuestaCorrecta: 1,
-        explicacion: "La diferencia principal entre ArrayList y LinkedList es que LinkedList es más eficiente para operaciones de inserción y eliminación de elementos, especialmente en posiciones intermedias de la lista. Esto se debe a que LinkedList implementa una lista doblemente enlazada, donde solo es necesario modificar los punteros a los nodos adyacentes. En cambio, ArrayList, al estar basado en un array, necesita desplazar todos los elementos cuando se inserta o elimina un elemento en una posición intermedia."
+        "id": 31103,
+        "moduloId": 311,
+        "pregunta": "¿Qué diferencia principal hay entre ArrayList y LinkedList?",
+        "opciones": [
+          "ArrayList es indexado y accede más rápido a elementos por posición",
+          "LinkedList es más eficiente para insertar/eliminar elementos",
+          "ArrayList consume menos memoria que LinkedList",
+          "LinkedList solo permite acceso secuencial a los elementos"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La diferencia principal entre ArrayList y LinkedList es que LinkedList es más eficiente para operaciones de inserción y eliminación de elementos, especialmente en posiciones intermedias de la lista. Esto se debe a que LinkedList implementa una lista doblemente enlazada, donde solo es necesario modificar los punteros a los nodos adyacentes. En cambio, ArrayList, al estar basado en un array, necesita desplazar todos los elementos cuando se inserta o elimina un elemento en una posición intermedia. Por otro lado, ArrayList es más eficiente para acceder a elementos por índice y generalmente consume menos memoria que LinkedList."
       },
       {
         id: 31104,
@@ -148,13 +153,18 @@ System.out.println(cola.remove());`,
         explicacion: "El código imprime 'A'. Se crea una cola usando LinkedList y se añaden los elementos 'A' y 'B' en ese orden. Como una cola sigue el principio FIFO (First In, First Out), al llamar a remove() se elimina y devuelve el primer elemento añadido, que es 'A'."
       },
       {
-        id: 31113,
-        moduloId: 311,
-        pregunta: "¿Qué hace el método insertar() en una implementación de cola?",
-        opciones: ["Elimina el último elemento", "Inserta al principio", "Añade un nuevo elemento al final", "Reemplaza el primero"],
-        respuestaCorrecta: 2,
-        explicacion: "En una implementación típica de una cola, el método insertar() (o add() u offer() en la interfaz Queue de Java) añade un nuevo elemento al final de la cola. Esto es coherente con el comportamiento FIFO (First In, First Out) de una cola, donde los nuevos elementos se añaden al final y se eliminan del principio."
-      }
+      "id": 31113,
+      "moduloId": 311,
+      "pregunta": "¿Qué hace el método add() en una implementación de Queue en Java?",
+      "opciones": [
+        "Elimina el último elemento",
+        "Inserta al principio",
+        "Añade un nuevo elemento al final",
+        "Reemplaza el primero"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "En una implementación típica de una cola (Queue) en Java, el método add() añade un nuevo elemento al final de la cola. Este comportamiento sigue el principio FIFO (First In, First Out), donde los elementos se insertan por el final y se eliminan por el principio. También existen métodos equivalentes como offer() (que no lanza excepción si falla), y teóricamente esta operación se conoce como enqueue()."
+    },
     ]
   };
 

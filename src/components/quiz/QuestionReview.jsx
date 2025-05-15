@@ -20,13 +20,13 @@
  */
 import { useState, useEffect } from 'react';
 import { useTheme, useDeviceType } from '@hooks';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
 import FavoriteButton from './FavoriteButton';
 import { addFavorite, removeFavorite } from '@services/favoritesService';
 import { showToast } from '@utils/toastUtils';
 import { getQuestionReviewStyles } from '@styles/safeStyles';
+// Importamos el componente CodeBlock
+import { CodeBlock } from '@components/common';
 
 export default function QuestionReview({
   pregunta,
@@ -155,20 +155,21 @@ export default function QuestionReview({
           </div>
         );
       case 'codigo':
+        // Usamos el componente CodeBlock pero manteniendo el estilo visual
         return (
-          <div className="my-3 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
-            <SyntaxHighlighter
+          <div className="my-3">
+            <CodeBlock
+              code={pregunta.recurso.contenido}
               language={pregunta.recurso.lenguaje || 'text'}
-              style={darkMode ? dark : docco}
+              darkMode={darkMode}
+              isSmallScreen={isSmallScreen}
+              textoLargo={textoLargo}
+              className="shadow-sm"
               customStyle={{
-                borderRadius: '0.5rem',
-                margin: 0,
                 padding: '0.75rem',
                 fontSize: isSmallScreen && textoLargo ? '0.8rem' : '0.9rem'
               }}
-            >
-              {pregunta.recurso.contenido}
-            </SyntaxHighlighter>
+            />
           </div>
         );
       default:
@@ -226,6 +227,24 @@ export default function QuestionReview({
         >
           <strong style={styles.explanationEmphasis}>Explicación:</strong> {pregunta.explicacion}
         </p>
+
+        {/* Si hay código en la explicación */}
+        {pregunta.explicacionCodigo && (
+          <div className="mt-3">
+            <CodeBlock
+              code={pregunta.explicacionCodigo.contenido}
+              language={pregunta.explicacionCodigo.lenguaje || 'text'}
+              darkMode={darkMode}
+              isSmallScreen={isSmallScreen}
+              textoLargo={textoLargo}
+              className="shadow-sm"
+              customStyle={{
+                padding: '0.75rem',
+                fontSize: isSmallScreen && textoLargo ? '0.8rem' : '0.9rem'
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

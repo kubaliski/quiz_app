@@ -8,3 +8,4 @@ export { default as ServiceWorkerUpdater } from './ServiceWorkerUpdater';
 export { default as SWErrorHandler } from './SWErrorHandler';
 export { default as Toast } from './Toast';
 export { default as ToastContainer } from './ToastContainer';
+export { default as CodeBlock } from './CodeBlock';

@@ -64,8 +64,16 @@ function QuizPageContent({ tipo }) {
   const {
     error,
     setRespuesta,
-    tipoQuiz: contextTipoQuiz
+    tipoQuiz: contextTipoQuiz,
+    setTipoQuiz
   } = useQuizContext();
+
+  // Establecer el tipo de quiz en el contexto si es quiz de favoritos
+  useEffect(() => {
+    if (isFavoritesQuiz) {
+      setTipoQuiz('favoritos');
+    }
+  }, [isFavoritesQuiz, setTipoQuiz]);
 
   // Información para cargar quiz de favoritos
   const favoritesInfo = isFavoritesQuiz ? {
@@ -154,7 +162,7 @@ function QuizPageContent({ tipo }) {
   }
 
   // Renderizar loader de favoritos si es necesario
-  if (isFavoritesQuiz && !contextTipoQuiz) {
+  if (isFavoritesQuiz && (!contextTipoQuiz || contextTipoQuiz !== 'favoritos' || !tipoQuiz)) {
     return (
       <Layout>
         <QuizHeader

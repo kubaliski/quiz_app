@@ -18,14 +18,11 @@
  * @returns {JSX.Element|null} Componente QuestionCard renderizado o null si no hay pregunta
  */
 import { useState, useEffect } from 'react';
-import { Card } from '@components/common';
+import { Card, CodeBlock } from '@components/common';
 import { useTheme, useDeviceType } from '@hooks';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageResource from './ImageResource';
 import FavoriteButton from './FavoriteButton';
 import { addFavorite, removeFavorite } from '@services/favoritesService';
-// Importamos del archivo de utilidades que crearemos después
 import { showToast } from '@utils/toastUtils';
 
 export default function QuestionCard({
@@ -111,19 +108,20 @@ export default function QuestionCard({
           </div>
         );
       case 'codigo':
+        // Usamos el componente CodeBlock en lugar de implementar la lógica aquí
         return (
-          <div className="my-4 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-md">
-            <SyntaxHighlighter
+          <div className="my-4">
+            <CodeBlock
+              code={pregunta.recurso.contenido}
               language={pregunta.recurso.lenguaje || 'text'}
-              style={darkMode ? dark : docco}
+              darkMode={darkMode}
+              isSmallScreen={isSmallScreen}
+              textoLargo={opcionesLargas}
+              className="shadow-md"
               customStyle={{
-                borderRadius: '0.5rem',
-                margin: 0,
                 padding: '1rem'
               }}
-            >
-              {pregunta.recurso.contenido}
-            </SyntaxHighlighter>
+            />
           </div>
         );
       default:

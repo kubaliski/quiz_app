@@ -11,6 +11,7 @@ export { default as ResultSummary } from './ResultSummary';
 export { default as SubjectSelector } from './SubjectSelector';
 export { default as ImageResource } from './ImageResource';
 export { default as PendingQuizzes } from './PendingQuizzes';
+export { default as PDFGenerator } from './PDFGenerator';
 
 // Componentes de QuizPage
 export { default as QuizContent } from './QuizContent';
@@ -20,6 +21,6 @@ export { default as QuizProgress } from './QuizProgress';
 export { default as QuestionNavigator } from './QuestionNavigator';
 
 // Componentes de favoritos
-export { default as FavoritesQuizLoader } from './FavoritesQuizLoader'; // Nombre actualizado
+export { default as FavoritesQuizLoader } from './FavoritesQuizLoader';
 export { default as FavoriteQuizzes } from './FavoriteQuizzes';
 export { default as FavoriteButton } from './FavoriteButton';

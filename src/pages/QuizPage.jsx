@@ -1,15 +1,7 @@
 /**
- * Página que presenta el quiz al usuario con las preguntas y opciones de respuesta.
- * Versión refactorizada que utiliza componentes más pequeños y hooks personalizados.
- * Incluye soporte para quizzes con preguntas favoritas.
- * Adaptado para usar el sistema de reducer.
- *
- * @component
- * @param {Object} props - Las propiedades del componente
- * @param {string} [props.tipo] - Tipo de quiz ('examen' para preguntas de examen, 'favoritos' para favoritos)
- * @returns {JSX.Element} Componente QuizPage renderizado
+ * Versión simplificada que llama al diálogo al principio.
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Layout } from '@components/layout';
 import { ErrorMessage, Button } from '@components/common';
@@ -20,7 +12,7 @@ import {
   QuizProgress,
   QuizContent,
   QuizDialogs,
-  FavoritesQuizLoader // Nombre correcto según index.js
+  FavoritesQuizLoader
 } from '@components/quiz';
 
 // Hooks personalizados
@@ -45,6 +37,8 @@ function QuizPageContent({ tipo }) {
 
   // Estado para controlar si ya se ha verificado actualización
   const [updateChecked, setUpdateChecked] = useState(false);
+  // Referencia para controlar si ya se ha verificado el diálogo
+  const dialogCheckDone = useRef(false);
 
   // Establecer tipo de quiz basado en props o moduloId
   const tipoQuiz = tipo ||
@@ -98,7 +92,8 @@ function QuizPageContent({ tipo }) {
     modId,
     asigId,
     continueFromPending,
-    updateChecked
+    updateChecked,
+    isFavoritesQuiz
   });
 
   // Marcar que se verificó la actualización después del primer renderizado
@@ -130,19 +125,32 @@ function QuizPageContent({ tipo }) {
     modId
   });
 
-  // Usar hook para diálogos
+  // Usar hook para diálogos - pasar flag continueFromPending para que sepa si venimos de pendientes
   const {
     dialogOpen,
     dialogType,
     savedProgress,
     handleRestoreProgress,
-    handleDiscardProgress
+    handleDiscardProgress,
+    checkForSavedProgress // Asegúrate de recibir esta función
   } = useQuizDialogs({
     asignaturaId,
     modId,
     handleConfirmExit,
-    handleCancelExit
+    handleCancelExit,
+    continueFromPending  // Pasar este parámetro es clave para que funcione bien
   });
+
+  // Efecto para verificar si hay progreso guardado (una sola vez y al principio)
+  useEffect(() => {
+    // Hacemos esto como primera prioridad y una sola vez
+    if (!continueFromPending && !dialogCheckDone.current && checkForSavedProgress) {
+      dialogCheckDone.current = true;
+
+      // Verificar inmediatamente - sin retrasos que puedan causar destellos
+      checkForSavedProgress();
+    }
+  }, [continueFromPending, checkForSavedProgress]);
 
   // Manejar error
   if (error) {

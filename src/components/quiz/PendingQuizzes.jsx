@@ -32,32 +32,48 @@ export default function PendingQuizzes() {
         const key = localStorage.key(i);
 
         if (key && key.startsWith('quiz_progress_')) {
-          const quizData = JSON.parse(localStorage.getItem(key));
+          try {
+            const quizData = JSON.parse(localStorage.getItem(key));
 
-          // Extraer correctamente los IDs de asignatura y módulo de la clave
-          // Formato de la clave: quiz_progress_asignaturaId_moduloId
-          const parts = key.split('_');
-          // Asegurarse de que hay suficientes partes en la clave
-          if (parts.length >= 4) {
-            const asignaturaId = parts[2];
-            const moduloId = parts.slice(3).join('_'); // Por si el moduloId contiene guiones bajos
+            // Extraer correctamente los IDs de asignatura y módulo de la clave
+            // Formato de la clave: quiz_progress_asignaturaId_moduloId
+            const parts = key.split('_');
+            // Asegurarse de que hay suficientes partes en la clave
+            if (parts.length >= 4) {
+              const asignaturaId = parts[2];
+              const moduloId = parts.slice(3).join('_'); // Por si el moduloId contiene guiones bajos
 
-            // Solo añadir si tiene los datos necesarios y los IDs son válidos
-            if (quizData && quizData.timestamp && asignaturaId && moduloId) {
-              pendingQuizList.push({
-                key,
-                asignaturaId,
-                moduloId,
-                asignaturaNombre: quizData.asignatura?.nombre || 'Asignatura',
-                moduloNombre: quizData.modulo?.nombre || 'Módulo',
-                timestamp: quizData.timestamp,
-                preguntaActual: quizData.preguntaActual || 0,
-                totalPreguntas: quizData.preguntas?.length || 0,
-                progreso: quizData.preguntas?.length
-                  ? Math.round(((quizData.preguntaActual || 0) + 1) / quizData.preguntas.length * 100)
-                  : 0
-              });
+              // FIX: Detectar si es un quiz de favoritos para mostrar etiqueta especial
+              const isFavoritesQuiz = quizData.tipoQuiz === 'favoritos' || moduloId === 'favoritos';
+
+              // FIX: Ajustar nombre del módulo según sea favoritos o no
+              let moduloNombre = quizData.modulo?.nombre || 'Módulo';
+              if (isFavoritesQuiz) {
+                moduloNombre = 'Preguntas favoritas';
+              }
+
+              // Solo añadir si tiene los datos necesarios y los IDs son válidos
+              if (quizData && quizData.timestamp && asignaturaId && moduloId) {
+                pendingQuizList.push({
+                  key,
+                  asignaturaId,
+                  moduloId,
+                  asignaturaNombre: quizData.asignatura?.nombre || 'Asignatura',
+                  moduloNombre: moduloNombre,
+                  timestamp: quizData.timestamp,
+                  preguntaActual: quizData.preguntaActual || 0,
+                  totalPreguntas: quizData.preguntas?.length || 0,
+                  tipoQuiz: quizData.tipoQuiz, // FIX: Guardar el tipo de quiz
+                  isFavoritesQuiz, // FIX: Flag para identificar quizzes de favoritos
+                  progreso: quizData.preguntas?.length
+                    ? Math.round(((quizData.preguntaActual || 0) + 1) / quizData.preguntas.length * 100)
+                    : 0
+                });
+              }
             }
+          } catch (error) {
+            console.error(`Error al procesar quiz pendiente con clave ${key}:`, error);
+            // Continuar con el siguiente quiz
           }
         }
       }
@@ -82,8 +98,24 @@ export default function PendingQuizzes() {
 
   // Manejar el clic para retomar un quiz
   const handleResumeQuiz = (quiz) => {
-    // Comprobar si es un identificador de módulo especial ('todos' o 'examen')
-    if (quiz.moduloId === 'todos' || quiz.moduloId === 'examen') {
+    // FIX: Si es un quiz de favoritos, establecer flag en sessionStorage
+    if (quiz.isFavoritesQuiz || quiz.tipoQuiz === 'favoritos' || quiz.moduloId === 'favoritos') {
+      sessionStorage.setItem('start_favorites_quiz', 'true');
+
+      // Si hay asignatura, guardar su nombre
+      if (quiz.asignaturaNombre) {
+        sessionStorage.setItem('favorites_quiz_asignatura_nombre', quiz.asignaturaNombre);
+      }
+    } else {
+      // Asegurarse de que no haya flags de favoritos si es un quiz regular
+      sessionStorage.removeItem('start_favorites_quiz');
+      sessionStorage.removeItem('favorites_quiz_asignatura_nombre');
+    }
+
+    // Comprobar si es un identificador de módulo especial ('todos', 'examen', 'favoritos')
+    const esModuloEspecial = ['todos', 'examen', 'favoritos'].includes(quiz.moduloId);
+
+    if (esModuloEspecial) {
       // Añadir parámetro de consulta para indicar que venimos de "continuar test"
       navigate(`/quiz/${quiz.asignaturaId}/${quiz.moduloId}?continue=true`);
     } else {
@@ -92,6 +124,7 @@ export default function PendingQuizzes() {
       // Añadir parámetro de consulta para indicar que venimos de "continuar test"
       navigate(`/quiz/${quiz.asignaturaId}/${moduleId}?continue=true`);
     }
+
     setShowModal(false);
   };
 
@@ -210,7 +243,15 @@ export default function PendingQuizzes() {
                     <div className="flex justify-between items-start">
                       <div>
                         <h3 className="font-medium text-gray-900 dark:text-white text-lg">{quiz.asignaturaNombre}</h3>
-                        <p className="text-sm text-gray-700 dark:text-gray-300">{quiz.moduloNombre}</p>
+                        <p className="text-sm text-gray-700 dark:text-gray-300">
+                          {quiz.moduloNombre}
+                          {/* FIX: Mostrar etiqueta de favoritos si es necesario */}
+                          {quiz.isFavoritesQuiz && (
+                            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100">
+                              Favoritos
+                            </span>
+                          )}
+                        </p>
                       </div>
                       <div className="text-xs text-gray-600 dark:text-gray-400 text-right">
                         Iniciado: {formatTimestamp(quiz.timestamp)}
@@ -222,7 +263,7 @@ export default function PendingQuizzes() {
                         <div className="text-xs mr-2 text-gray-600 dark:text-gray-400">Progreso: {quiz.progreso}%</div>
                         <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
                           <div
-                            className={`h-2 rounded-full ${getProgressBarColor(quiz.progreso)}`}
+                            className={`h-2 rounded-full ${getProgressBarColor(quiz.progreso, quiz.isFavoritesQuiz)}`}
                             style={{ width: `${quiz.progreso}%` }}
                           ></div>
                         </div>
@@ -310,7 +351,15 @@ export default function PendingQuizzes() {
         {selectedQuiz && (
           <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
             <p className="text-gray-900 dark:text-white text-sm font-medium">{selectedQuiz.asignaturaNombre}</p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">{selectedQuiz.moduloNombre}</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              {selectedQuiz.moduloNombre}
+              {/* FIX: Mostrar etiqueta de favoritos si es necesario */}
+              {selectedQuiz.isFavoritesQuiz && (
+                <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100">
+                  Favoritos
+                </span>
+              )}
+            </p>
             <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Progreso: {selectedQuiz.progreso}%</p>
           </div>
         )}
@@ -320,7 +369,16 @@ export default function PendingQuizzes() {
 }
 
 // Función auxiliar para obtener el color de la barra de progreso según el porcentaje
-function getProgressBarColor(progreso) {
+// FIX: Añadir parámetro para personalizar el color para quizzes de favoritos
+function getProgressBarColor(progreso, isFavorite = false) {
+  // Si es un quiz de favoritos, usar colores amarillos/dorados
+  if (isFavorite) {
+    if (progreso < 30) return 'bg-yellow-400 dark:bg-yellow-500';
+    if (progreso < 70) return 'bg-yellow-500 dark:bg-yellow-600';
+    return 'bg-yellow-600 dark:bg-yellow-700';
+  }
+
+  // Colores normales para quizzes regulares
   if (progreso < 30) return 'bg-red-500 dark:bg-red-600';
   if (progreso < 70) return 'bg-yellow-500 dark:bg-yellow-600';
   return 'bg-green-500 dark:bg-green-600';

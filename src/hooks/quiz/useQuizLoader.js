@@ -1,19 +1,9 @@
 /**
  * Hook personalizado para cargar los datos iniciales del quiz
  * Maneja la carga de asignaturas, módulos y preguntas
- *
- *
- * Hook que maneja la carga de datos para el quiz
- * @param {Object} config - Configuración del loader
- * @param {number} config.asigId - ID de la asignatura
- * @param {string|number} config.modId - ID del módulo o 'todos'/'examen'
- * @param {string} config.tipoQuiz - Tipo de quiz (null, 'todos', 'examen', 'favoritos')
- * @param {string} config.moduloId - ID del módulo de la URL
- * @param {boolean} config.continueFromPending - Si venimos de 'continuar test'
- * @param {string} config.asignaturaId - ID de la asignatura (string)
- * @param {boolean} config.enabled - Si el loader está habilitado
+ * Versión mejorada para solucionar problemas con la restauración
  */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useQuizContext } from './index';
 import {
   fetchAsignaturaCompleta,
@@ -33,6 +23,9 @@ export function useQuizLoader({
   enabled = true
 }) {
   const mounted = useRef(true);
+  // Referencia para verificar si ya se intentó cargar
+  const loadAttempted = useRef(false);
+
   const {
     setCargando,
     setAsignatura,
@@ -43,23 +36,41 @@ export function useQuizLoader({
     setError,
     setPreguntaActual,
     setRespuesta,
-    setTipoQuiz
+    setTipoQuiz,
+    tipoQuiz: contextTipoQuiz,
+    preguntas: contextPreguntas
   } = useQuizContext();
+
+  // FIX: Función para verificar si ya hay preguntas cargadas
+  const hasLoadedQuestions = useCallback(() => {
+    return contextPreguntas && contextPreguntas.length > 0;
+  }, [contextPreguntas]);
 
   // Efecto para cargar el quiz
   useEffect(() => {
     mounted.current = true;
 
-    // Si el loader está deshabilitado o es un quiz de favoritos, no ejecutamos el resto del efecto
-    if (!enabled || tipoQuiz === 'favoritos' || moduloId === 'favoritos' ||
-        sessionStorage.getItem('start_favorites_quiz') === 'true') {
+    // FIX: Verificar si ya se intentó cargar o si hay preguntas
+    if (loadAttempted.current || hasLoadedQuestions()) {
+      console.log("useQuizLoader: carga ya intentada o preguntas ya cargadas");
       return;
     }
 
-    // Si ya se está continuando desde un quiz pendiente, no cargar datos nuevos
-    if (continueFromPending) {
+    // FIX: Comprobar primero si el loader está habilitado
+    if (!enabled) {
+      console.log("useQuizLoader: loader deshabilitado, no se cargarán datos");
       return;
     }
+
+    // No cargar si ya estamos continuando desde un quiz pendiente
+    if (continueFromPending) {
+      console.log("useQuizLoader: continuando desde pendientes, no se cargarán datos nuevos");
+      return;
+    }
+
+    // Marcar que ya se intentó cargar
+    loadAttempted.current = true;
+
 
     setCargando(true);
 
@@ -72,6 +83,12 @@ export function useQuizLoader({
         if (savedProgressJSON) {
           try {
             const savedProgress = JSON.parse(savedProgressJSON);
+
+            // FIX: Restaurar el tipo de quiz primero si existe en el progreso guardado
+            if (savedProgress.tipoQuiz && !contextTipoQuiz) {
+              console.log(`Restaurando tipo de quiz: ${savedProgress.tipoQuiz}`);
+              setTipoQuiz(savedProgress.tipoQuiz);
+            }
 
             // Restaurar estado desde progreso guardado
             if (savedProgress.respuestas) {
@@ -123,11 +140,15 @@ export function useQuizLoader({
 
         setAsignatura(asignaturaData);
 
+        // FIX: Determinar el tipo de quiz de manera más robusta
+        let quizTipoToSet = null;
+
         // Cargar preguntas según el modo
         let quizQuestions = [];
 
-        if (tipoQuiz === 'examen' || moduloId === 'examen') {
+        if (moduloId === 'examen' || tipoQuiz === 'examen') {
           // Modo examen: cargar preguntas aleatorias de módulos de examen
+          console.log("Cargando preguntas de examen");
           const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
 
           if (!mounted.current) return;
@@ -135,18 +156,20 @@ export function useQuizLoader({
           quizQuestions = preguntasExamen;
           setModoTodos(true);
           setModoExamen(true);
-          setTipoQuiz('examen');
-        } else if (tipoQuiz === 'todos' || moduloId === 'todos') {
+          quizTipoToSet = 'examen';
+        } else if (moduloId === 'todos' || tipoQuiz === 'todos') {
           // Modo todos: cargar preguntas aleatorias de todos los módulos
+          console.log("Cargando preguntas de todos los módulos");
           const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 
           if (!mounted.current) return;
 
           quizQuestions = preguntasAleatorias;
           setModoTodos(true);
-          setTipoQuiz('todos');
+          quizTipoToSet = 'todos';
         } else {
           // Modo específico: cargar preguntas de un módulo
+          console.log(`Cargando preguntas del módulo ${modId}`);
           const moduloData = await fetchModulo(asigId, modId);
 
           if (!mounted.current) return;
@@ -160,14 +183,28 @@ export function useQuizLoader({
           }
 
           // Establecer el tipo de quiz como regular
-          setTipoQuiz('regular');
+          quizTipoToSet = 'regular';
+        }
+
+        // FIX: Solo establecer el tipoQuiz si aún no se ha establecido
+        if (!contextTipoQuiz && quizTipoToSet) {
+          console.log(`Estableciendo tipo de quiz: ${quizTipoToSet}`);
+          setTipoQuiz(quizTipoToSet);
+        }
+
+        // Verificar si hay preguntas
+        if (!quizQuestions || quizQuestions.length === 0) {
+          console.error("No se encontraron preguntas para el quiz");
+          setError("No hay preguntas disponibles para este quiz. Por favor, selecciona otro módulo.");
+          setCargando(false);
+          return;
         }
 
         // Mezclar las opciones de cada pregunta
         const preguntasConOpcionesMezcladas = quizQuestions.map(
           pregunta => shuffleQuestionOptions(pregunta)
         );
-
+        // Establecer las preguntas en el estado
         setPreguntas(preguntasConOpcionesMezcladas);
         setCargando(false);
       } catch (err) {
@@ -201,6 +238,17 @@ export function useQuizLoader({
     setError,
     setPreguntaActual,
     setRespuesta,
-    setTipoQuiz
+    setTipoQuiz,
+    contextTipoQuiz,
+    hasLoadedQuestions
   ]);
+
+  // FIX: Proporcionar una forma de reiniciar la carga si es necesario
+  const resetLoader = useCallback(() => {
+    loadAttempted.current = false;
+  }, []);
+
+  return {
+    resetLoader
+  };
 }

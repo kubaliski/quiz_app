@@ -35,6 +35,7 @@ function quizReducer(state, action) {
     case ACTION_TYPES.SET_MODO_EXAMEN:
       return { ...state, modoExamen: action.payload };
     case ACTION_TYPES.SET_TIPO_QUIZ:
+      // FIX: Registrar explícitamente cuando se establece el tipo de quiz
       return { ...state, tipoQuiz: action.payload };
     case ACTION_TYPES.SET_QUIZ_COMPLETED:
       return { ...state, quizCompleted: action.payload };
@@ -55,12 +56,17 @@ function quizReducer(state, action) {
       return { ...state, savedProgress: action.payload };
     case ACTION_TYPES.RESTORE_PROGRESS: {
       const { respuestas, preguntaActual, preguntas, tipoQuiz } = action.payload;
+
+      // FIX: Preservar explícitamente el tipo de quiz si existe en el payload
+      const updatedTipoQuiz = tipoQuiz !== undefined ? tipoQuiz : state.tipoQuiz;
+
+
       return {
         ...state,
         respuestas: respuestas || {},
         preguntaActual: preguntaActual || 0,
         preguntas: preguntas || state.preguntas,
-        tipoQuiz: tipoQuiz || state.tipoQuiz,
+        tipoQuiz: updatedTipoQuiz,
         dialogOpen: false,
         dialogType: '',
         savedProgress: null

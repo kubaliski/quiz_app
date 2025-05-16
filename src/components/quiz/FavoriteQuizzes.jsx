@@ -1,7 +1,9 @@
 /**
- * Componente para mostrar y gestionar los quizzes de preguntas favoritas.
- * Permite ver, iniciar tests con preguntas favoritas y eliminar colecciones de favoritos.
- * Incluye opción para generar test con 40 preguntas aleatorias cuando hay más de 40 preguntas.
+ * Componente actualizado para mostrar y gestionar los quizzes de preguntas favoritas.
+ * Permite ver, iniciar tests con preguntas favoritas, eliminar colecciones de favoritos,
+ * y ahora también generar PDFs con las preguntas favoritas guardadas.
+ *
+ * Se utiliza directamente desde la HomePage y gestiona modales para interacción.
  *
  * @component
  * @returns {JSX.Element} Componente FavoriteQuizzes renderizado
@@ -11,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@components/common';
 import Modal from '@components/common/Modal';
 import { formatTimestamp } from '@utils/quizUtils';
+import PdfGenerator from './PDFGenerator';
 import {
   getAllFavoriteAsignaturas,
   getFavoritesByAsignatura,
@@ -361,16 +364,33 @@ export default function FavoriteQuizzes() {
         title={selectedDetail ? `Preguntas favoritas - ${selectedDetail.nombre}` : 'Detalle de favoritos'}
         size="4xl"
         footer={
-          <Button
-            onClick={() => {
-              setShowDetail(false);
-              setSelectedDetail(null);
-              setDetailItems([]);
-            }}
-            variant="primary"
-          >
-            Cerrar
-          </Button>
+          <div className="w-full flex justify-between items-center">
+            {/* Botón para descargar PDF a la izquierda */}
+            {selectedDetail && detailItems.length > 0 && (
+              <div>
+                <PdfGenerator
+                  preguntas={detailItems}
+                  asignatura={{ id: selectedDetail.id, nombre: selectedDetail.nombre }}
+                  titulo={`Preguntas favoritas - ${selectedDetail.nombre}`}
+                  subtitulo={`Total: ${detailItems.length} preguntas`}
+                  buttonSize="small"
+                  buttonText="Descargar PDF"
+                />
+              </div>
+            )}
+
+            {/* Botón para cerrar a la derecha */}
+            <Button
+              onClick={() => {
+                setShowDetail(false);
+                setSelectedDetail(null);
+                setDetailItems([]);
+              }}
+              variant="primary"
+            >
+              Cerrar
+            </Button>
+          </div>
         }
       >
         <div className="min-h-[200px] max-h-[70vh] overflow-y-auto px-2">

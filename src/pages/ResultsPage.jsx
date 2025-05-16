@@ -8,6 +8,7 @@
  * - Presenta una revisión detallada de cada pregunta, indicando si la respuesta fue correcta
  * - Para respuestas incorrectas, muestra la opción correcta y su explicación
  * - Permite marcar preguntas como favoritas
+ * - Permite exportar todas las preguntas en formato PDF
  * - Guarda los resultados del quiz usando el servicio quizDataService
  * - Ofrece opciones para reintentar el mismo quiz o volver a la selección de módulos
  * - Limpia flags de quiz en progreso al mostrar resultados
@@ -23,6 +24,8 @@ import { ResultSummary, QuestionReview } from '@components/quiz';
 import { Button, ErrorMessage } from '@components/common';
 import { guardarResultadosQuiz } from '@services/quizDataService';
 import { calcularPuntuacion } from '@utils/quizUtils';
+import PDFGenerator from '@components/quiz/PDFGenerator';
+
 
 export default function ResultsPage() {
   const { asignaturaId, moduloId } = useParams();
@@ -92,6 +95,8 @@ export default function ResultsPage() {
       navigate(`/quiz/${asignaturaId}/examen`);
     } else if (moduloId === 'todos' || tipoQuiz === 'todos') {
       navigate(`/quiz/${asignaturaId}/todos`);
+    } else if (moduloId === 'favoritos' || tipoQuiz === 'favoritos') {
+      navigate(`/quiz/${asignaturaId}/favoritos`);
     } else {
       navigate(`/quiz/${asignaturaId}/${moduloId}`);
     }
@@ -129,12 +134,18 @@ export default function ResultsPage() {
     { label: asignatura?.nombre || 'Asignatura', to: `/asignaturas/${asignaturaId}` },
     {
       label: modulo?.nombre || 'Módulo',
-      to: modulo?.id === 'todos' || modulo?.id === 'examen'
+      to: modulo?.id === 'todos' || modulo?.id === 'examen' || modulo?.id === 'favoritos'
         ? `/quiz/${asignaturaId}/${modulo.id}`
         : `/quiz/${asignaturaId}/${modulo?.id || ''}`
     },
     { label: 'Resultados' }
   ];
+
+  // Crear título para el PDF basado en la información disponible
+  const pdfTitulo = `Resultados Quiz - ${asignatura?.nombre || 'Asignatura'} - ${modulo?.nombre || 'Módulo'}`;
+
+  // Crear subtítulo para el PDF con información de puntuación
+  const pdfSubtitulo = `Puntuación: ${resultados.correctas}/${resultados.total} (${resultados.porcentaje}%)`;
 
   return (
     <Layout>
@@ -145,7 +156,25 @@ export default function ResultsPage() {
       />
 
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <ResultSummary puntuacion={resultados} />
+        {/* Contenedor modificado para mostrar ResultSummary y PDFGenerator en columna en lugar de fila */}
+        <div className="flex flex-col mb-8 gap-4 bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+          <ResultSummary puntuacion={resultados} />
+
+          {/* Botón para exportar a PDF, ahora debajo del ResultSummary */}
+          <div className="w-full flex justify-center mt-4">
+            <PDFGenerator
+              preguntas={preguntas}
+              respuestas={respuestas}
+              asignatura={asignatura || { id: asignaturaId, nombre: 'Asignatura' }}
+              titulo={pdfTitulo}
+              subtitulo={pdfSubtitulo}
+              mostrarRespuestasUsuario={true}
+              buttonSize="medium"
+              buttonText="Descargar resultados en PDF"
+              rainbow={resultados.porcentaje === 100} // Efecto rainbow si puntuación perfecta
+            />
+          </div>
+        </div>
 
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-4">Revisión de respuestas:</h2>

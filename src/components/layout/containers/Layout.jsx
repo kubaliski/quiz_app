@@ -13,7 +13,7 @@
  *   <p>Esta es la página principal</p>
  * </Layout>
  */
-import { Header, Footer } from './';
+import { Header, Footer } from '../index';
 import { useDeviceType } from '@hooks';
 
 export default function Layout({ children }) {

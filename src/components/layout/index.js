@@ -1,8 +1,7 @@
-export { default as Header } from './Header';
-export { default as Footer } from './Footer';
-export { default as Layout } from './Layout';
-export { default as LayoutWithSidebar } from './LayoutWithSidebar';
-export { default as PageHeader } from './PageHeader';
-export { default as ThemeToggle } from './ThemeToggle';
-export { default as MobileMenu } from './MobileMenu';
-export { default as PWAInstallPrompt } from './PWAInstallPrompt';
+export { default as Header } from './header/Header';
+export { default as Footer } from './footer/Footer';
+export { default as Layout } from './containers/Layout';
+export { default as PageHeader } from './common/PageHeader';
+export { default as ThemeToggle } from './header/ThemeToggle';
+export { default as MobileMenu } from './header/MobileMenu';
+export { default as PWAInstallPrompt } from './notifications/PWAInstallPrompt';

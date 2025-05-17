@@ -3,24 +3,35 @@
  * @module components/quiz
  */
 
-export { default as ModuleSelector } from './ModuleSelector';
-export { default as QuestionCard } from './QuestionCard';
-export { default as QuizNavigation } from './QuizNavigation';
-export { default as QuestionReview } from './QuestionReview';
-export { default as ResultSummary } from './ResultSummary';
-export { default as SubjectSelector } from './SubjectSelector';
-export { default as ImageResource } from './ImageResource';
-export { default as PendingQuizzes } from './PendingQuizzes';
-export { default as PDFGenerator } from './PDFGenerator';
+// Selección de contenido
+export { default as ModuleSelector } from './selectors/ModuleSelector';
+export { default as SubjectSelector } from './selectors/SubjectSelector';
 
-// Componentes de QuizPage
-export { default as QuizContent } from './QuizContent';
-export { default as QuizDialogs } from './QuizDialogs';
-export { default as QuizHeader } from './QuizHeader';
-export { default as QuizProgress } from './QuizProgress';
-export { default as QuestionNavigator } from './QuestionNavigator';
+// Componentes de navegación
+export { default as QuizNavigation } from './navigation/QuizNavigation';
+export { default as QuestionNavigator } from './navigation/QuestionNavigator';
 
-// Componentes de favoritos
-export { default as FavoritesQuizLoader } from './FavoritesQuizLoader';
-export { default as FavoriteQuizzes } from './FavoriteQuizzes';
-export { default as FavoriteButton } from './FavoriteButton';
+// Visualización de preguntas
+export { default as QuestionCard } from './questions/QuestionCard';
+export { default as QuestionReview } from './questions/QuestionReview';
+
+// Indicadores de progreso
+export { default as QuizProgress } from './progress/QuizProgress';
+export { default as ResultSummary } from './progress/ResultSummary';
+
+// Gestión de favoritos
+export { default as FavoriteButton } from './favorites/FavoriteButton';
+export { default as FavoriteQuizzes } from './favorites/FavoriteQuizzes';
+export { default as FavoritesQuizLoader } from './favorites/FavoritesQuizLoader';
+
+// Quizzes pendientes
+export { default as PendingQuizzes } from './pending/PendingQuizzes';
+
+// Sesión principal del quiz
+export { default as QuizContent } from './session/QuizContent';
+export { default as QuizDialogs } from './session/QuizDialogs';
+export { default as QuizHeader } from './session/QuizHeader';
+
+// Recursos y exportación
+export { default as ImageResource } from './media/ImageResource';
+export { default as PDFGenerator } from './export/PDFGenerator';

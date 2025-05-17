@@ -10,10 +10,9 @@
  */
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@components/common';
-import Modal from '@components/common/Modal';
+import { Button,Modal } from '@components/common';
 import { formatTimestamp } from '@utils/quizUtils';
-import PdfGenerator from './PDFGenerator';
+import PdfGenerator from '../export/PDFGenerator';
 import {
   getAllFavoriteAsignaturas,
   getFavoritesByAsignatura,

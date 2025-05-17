@@ -11,7 +11,6 @@ import { reportError, recoverDOM } from '@services/errorService';
 const DOMRecoveryMonitor = () => {
   useEffect(() => {
     let lastHeartbeat = Date.now();
-    let lastScrollY = window.scrollY;
     let checkInterval;
     let lastInteractionTime = Date.now();
     let isRecovering = false;
@@ -26,7 +25,6 @@ const DOMRecoveryMonitor = () => {
     const handleScroll = () => {
       lastInteractionTime = Date.now();
       lastHeartbeat = Date.now();
-      lastScrollY = window.scrollY;
     };
 
     // Verificar periódicamente si hay bloqueos en el DOM

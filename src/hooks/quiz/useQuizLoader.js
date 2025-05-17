@@ -122,7 +122,7 @@ export function useQuizLoader({
               setCargando(false);
               return; // No seguir cargando si ya tenemos datos
             }
-          } catch (error) {
+          } catch {
             // Si hay error, continuamos con la carga normal
           }
         }
@@ -196,10 +196,13 @@ export function useQuizLoader({
         // Establecer las preguntas en el estado
         setPreguntas(preguntasConOpcionesMezcladas);
         setCargando(false);
-      } catch (err) {
+      } catch (error) {
         if (mounted.current) {
           setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
           setCargando(false);
+
+          // Si quieres hacer algo con el error específico para debug, puedes hacer:
+          console.error("Error al cargar el quiz:", error);
         }
       }
     };

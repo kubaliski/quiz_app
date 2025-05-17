@@ -10,15 +10,12 @@
  * @param {string} props.titulo - Título del PDF
  * @param {string} [props.subtitulo] - Subtítulo opcional del PDF
  * @param {boolean} [props.mostrarRespuestasUsuario=false] - Indica si mostrar respuestas del usuario
- * @param {string} [props.buttonVariant='secondary'] - Variante del botón (secondary, primary, etc.)
  * @param {string} [props.buttonSize='small'] - Tamaño del botón (small, medium, etc.)
  * @param {string} [props.buttonClassName=''] - Clases adicionales para el botón
  * @param {string} [props.buttonText='Exportar PDF'] - Texto a mostrar en el botón
- * @param {boolean} [props.rainbow=false] - Si es true, muestra efecto arcoíris en el botón
  * @returns {JSX.Element} Botón para generar el PDF
  */
 import { useState, useEffect } from 'react';
-import { Button } from '@components/common';
 import {
   PDFDownloadLink,
   Document,
@@ -31,7 +28,6 @@ import {
   Image
 } from '@react-pdf/renderer';
 import { formatTimestamp } from '@utils/quizUtils';
-import { useTheme } from '@hooks';
 
 // Estilos para el documento PDF
 const styles = StyleSheet.create({
@@ -142,7 +138,7 @@ const styles = StyleSheet.create({
 });
 
 // Componente para renderizar código en el PDF
-const CodeBlockPdf = ({ code, language }) => (
+const CodeBlockPdf = ({ code }) => (
   <View style={styles.codeBlock}>
     <Text>{code}</Text>
   </View>
@@ -187,7 +183,6 @@ const PdfDocument = ({ preguntas, respuestas = {}, asignatura, titulo, subtitulo
                   {pregunta.recurso.tipo === 'codigo' && (
                     <CodeBlockPdf
                       code={pregunta.recurso.contenido}
-                      language={pregunta.recurso.lenguaje || 'text'}
                     />
                   )}
                   {pregunta.recurso.tipo === 'imagen' && (
@@ -229,7 +224,6 @@ const PdfDocument = ({ preguntas, respuestas = {}, asignatura, titulo, subtitulo
               {pregunta.explicacionCodigo && (
                 <CodeBlockPdf
                   code={pregunta.explicacionCodigo.contenido}
-                  language={pregunta.explicacionCodigo.lenguaje || 'text'}
                 />
               )}
             </View>
@@ -260,14 +254,14 @@ export default function PdfGenerator({
   titulo,
   subtitulo,
   mostrarRespuestasUsuario = false,
-  buttonVariant = 'secondary',
+  // Eliminar buttonVariant que no se usa
   buttonSize = 'small',
   buttonClassName = '',
   buttonText = 'Exportar PDF',
-  rainbow = false
+  // Eliminar rainbow que no se usa
 }) {
   const [isGenerating, setIsGenerating] = useState(false);
-  const { darkMode } = useTheme();
+  // Eliminar darkMode que no se usa
 
   // Registrar la fuente Courier para los bloques de código
   useEffect(() => {
@@ -320,36 +314,7 @@ export default function PdfGenerator({
     }
   };
 
-  // Crear estilos personalizados directamente en línea para asegurar la aplicación del color exacto
-  const customStyles = {
-    button: {
-      backgroundColor: '#ef4036',
-      color: 'white',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontWeight: 'medium',
-      padding: buttonSize === 'small' ? '0.25rem 0.75rem' : '0.5rem 1rem',
-      borderRadius: '0.375rem',
-      boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-      transition: 'all 300ms',
-    },
-    hoverEffect: {
-      backgroundColor: '#d63a31',
-      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    },
-    icon: {
-      marginRight: '0.5rem',
-    },
-    spinnerContainer: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    spinner: {
-      marginRight: '0.5rem',
-      animation: 'spin 1s linear infinite',
-    }
-  };
+  // Eliminar customStyles que no se usa
 
   // Icono de PDF personalizado que se muestra antes del texto del botón
   const PdfIcon = () => (

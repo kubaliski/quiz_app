@@ -30,7 +30,7 @@
  * />
  */
 import { useEffect, useRef } from 'react';
-import { Button } from './';
+import { Button } from '../index';
 
 export default function Dialog({
   open = false,

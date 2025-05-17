@@ -2,8 +2,7 @@
  * Componente para mostrar el contenido principal del quiz
  * Incluye la pregunta actual, opciones de respuesta y navegación
  */
-import React from 'react';
-import { QuestionCard, QuizNavigation, QuestionNavigator } from './index';
+import { QuestionCard, QuizNavigation, QuestionNavigator } from '../index';
 import { LoadingSpinner } from '@components/common';
 import { useQuizContext } from '@hooks';
 

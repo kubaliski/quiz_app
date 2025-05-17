@@ -92,7 +92,6 @@ export function isDOMRelatedError(error) {
  */
 export async function attemptRecovery(error) {
   // Evitar demasiados intentos en corto tiempo
-  const now = Date.now();
   recoveryAttempts++;
 
   // Si hay muchos intentos en poco tiempo, limitar
@@ -226,7 +225,7 @@ export function cancelPendingFetches() {
     Object.values(window._pendingFetches).forEach(controller => {
       try {
         controller.abort();
-      } catch (e) {
+      } catch {
         // Ignorar errores de abort
       }
     });

@@ -28,7 +28,7 @@ const VersionInfo = memo(function VersionInfo() {
       if (abortControllerRef.current) {
         try {
           abortControllerRef.current.abort();
-        } catch (e) {
+        } catch {
           // Ignorar errores al abortar
         }
       }
@@ -177,7 +177,7 @@ const VersionInfo = memo(function VersionInfo() {
       if (abortControllerRef.current) {
         try {
           abortControllerRef.current.abort();
-        } catch (e) {
+        } catch {
           // Ignorar errores al abortar
         }
         abortControllerRef.current = null;

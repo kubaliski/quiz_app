@@ -9,3 +9,5 @@ export { default as SWErrorHandler } from './SWErrorHandler';
 export { default as Toast } from './Toast';
 export { default as ToastContainer } from './ToastContainer';
 export { default as CodeBlock } from './CodeBlock';
+export { default as DOMRecoveryMonitor } from './DOMRecoveryMonitor';
+export { default as GlobalErrorBoundary } from './GlobalErrorBoundry';

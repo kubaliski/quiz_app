@@ -52,25 +52,21 @@ export function useQuizLoader({
 
     // FIX: Verificar si ya se intentó cargar o si hay preguntas
     if (loadAttempted.current || hasLoadedQuestions()) {
-      console.log("useQuizLoader: carga ya intentada o preguntas ya cargadas");
       return;
     }
 
     // FIX: Comprobar primero si el loader está habilitado
     if (!enabled) {
-      console.log("useQuizLoader: loader deshabilitado, no se cargarán datos");
       return;
     }
 
     // No cargar si ya estamos continuando desde un quiz pendiente
     if (continueFromPending) {
-      console.log("useQuizLoader: continuando desde pendientes, no se cargarán datos nuevos");
       return;
     }
 
     // Marcar que ya se intentó cargar
     loadAttempted.current = true;
-
 
     setCargando(true);
 
@@ -86,7 +82,6 @@ export function useQuizLoader({
 
             // FIX: Restaurar el tipo de quiz primero si existe en el progreso guardado
             if (savedProgress.tipoQuiz && !contextTipoQuiz) {
-              console.log(`Restaurando tipo de quiz: ${savedProgress.tipoQuiz}`);
               setTipoQuiz(savedProgress.tipoQuiz);
             }
 
@@ -128,7 +123,6 @@ export function useQuizLoader({
               return; // No seguir cargando si ya tenemos datos
             }
           } catch (error) {
-            console.error('Error al recuperar progreso guardado:', error);
             // Si hay error, continuamos con la carga normal
           }
         }
@@ -148,7 +142,6 @@ export function useQuizLoader({
 
         if (moduloId === 'examen' || tipoQuiz === 'examen') {
           // Modo examen: cargar preguntas aleatorias de módulos de examen
-          console.log("Cargando preguntas de examen");
           const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
 
           if (!mounted.current) return;
@@ -159,7 +152,6 @@ export function useQuizLoader({
           quizTipoToSet = 'examen';
         } else if (moduloId === 'todos' || tipoQuiz === 'todos') {
           // Modo todos: cargar preguntas aleatorias de todos los módulos
-          console.log("Cargando preguntas de todos los módulos");
           const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
 
           if (!mounted.current) return;
@@ -169,7 +161,6 @@ export function useQuizLoader({
           quizTipoToSet = 'todos';
         } else {
           // Modo específico: cargar preguntas de un módulo
-          console.log(`Cargando preguntas del módulo ${modId}`);
           const moduloData = await fetchModulo(asigId, modId);
 
           if (!mounted.current) return;
@@ -188,13 +179,11 @@ export function useQuizLoader({
 
         // FIX: Solo establecer el tipoQuiz si aún no se ha establecido
         if (!contextTipoQuiz && quizTipoToSet) {
-          console.log(`Estableciendo tipo de quiz: ${quizTipoToSet}`);
           setTipoQuiz(quizTipoToSet);
         }
 
         // Verificar si hay preguntas
         if (!quizQuestions || quizQuestions.length === 0) {
-          console.error("No se encontraron preguntas para el quiz");
           setError("No hay preguntas disponibles para este quiz. Por favor, selecciona otro módulo.");
           setCargando(false);
           return;
@@ -208,7 +197,6 @@ export function useQuizLoader({
         setPreguntas(preguntasConOpcionesMezcladas);
         setCargando(false);
       } catch (err) {
-        console.error("Error al cargar datos del quiz:", err);
         if (mounted.current) {
           setError("No se pudieron cargar las preguntas. Por favor, inténtelo de nuevo.");
           setCargando(false);

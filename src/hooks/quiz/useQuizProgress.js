@@ -21,7 +21,6 @@ export function useQuizProgress({
     modulo,
     modoExamen,
     tipoQuiz,
-    cargando,
     setRespuesta,
     setPreguntaActual,
     setPreguntas,

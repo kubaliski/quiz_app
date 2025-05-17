@@ -24,7 +24,7 @@ import { ResultSummary, QuestionReview } from '@components/quiz';
 import { Button, ErrorMessage } from '@components/common';
 import { guardarResultadosQuiz } from '@services/quizDataService';
 import { calcularPuntuacion } from '@utils/quizUtils';
-import PDFGenerator from '@components/quiz/PDFGenerator';
+import { PDFGenerator } from '@components/quiz/';
 
 
 export default function ResultsPage() {

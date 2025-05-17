@@ -20,8 +20,8 @@
 import { useState, useEffect } from 'react';
 import { Card, CodeBlock } from '@components/common';
 import { useTheme, useDeviceType } from '@hooks';
-import ImageResource from './ImageResource';
-import FavoriteButton from './FavoriteButton';
+import ImageResource from '../media/ImageResource';
+import FavoriteButton from '../favorites/FavoriteButton';
 import { addFavorite, removeFavorite } from '@services/favoritesService';
 import { showToast } from '@utils/toastUtils';
 

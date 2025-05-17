@@ -66,7 +66,7 @@ export default function HomePage() {
         {/* Sección para tests pendientes */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
-            <span className="border-b-2 border-indigo-500 pb-1">Tu sección</span>
+            <span className="border-b-2 border-indigo-500 pb-1">Mis secciones</span>
           </h2>
           <div className="flex flex-col md:flex-row md:items-center gap-4">
             <PendingQuizzes />

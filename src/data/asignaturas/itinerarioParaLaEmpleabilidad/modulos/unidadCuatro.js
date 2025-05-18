@@ -12,7 +12,7 @@
  */
 export const moduloUnidadCuatro = {
     id: 605,
-    nombre: "Test Unidad 4",
+    nombre: "Test Unidad 4 (Antiguo)",
     esExamen: false,
     asignaturaId: 6,
     descripcion: "Principios y fuentes del Derecho del Trabajo, relaciones laborales y derechos fundamentales de los trabajadores en el marco legal español.",

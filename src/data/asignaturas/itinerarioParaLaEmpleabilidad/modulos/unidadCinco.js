@@ -12,8 +12,8 @@
  */
 export const moduloUnidadCinco = {
     id: 608,
-    nombre: "Test Unidad 5",
-    esExamen: false,
+    nombre: "Test Unidad 5 (Repaso)",
+    esExamen: true,
     asignaturaId: 6,
     descripcion: "Aspectos fundamentales de la contratación laboral: modalidades de contratos, requisitos formales y características específicas en el marco jurídico español.",
     preguntas: [

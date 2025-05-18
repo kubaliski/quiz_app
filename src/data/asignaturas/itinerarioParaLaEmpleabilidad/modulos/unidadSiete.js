@@ -12,8 +12,8 @@
  */
 export const moduloUnidadSiete = {
     id: 610,
-    nombre: "Test Unidad 7",
-    esExamen: false,
+    nombre: "Test Unidad 7 (Repaso)",
+    esExamen: true,
     asignaturaId: 6,
     descripcion: "Modificación, suspensión y extinción del contrato de trabajo: aspectos clave sobre cambios en la relación laboral, interrupciones temporales y finalización de la relación laboral.",
     preguntas: [

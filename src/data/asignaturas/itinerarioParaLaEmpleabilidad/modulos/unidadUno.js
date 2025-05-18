@@ -12,7 +12,7 @@
  */
 export const moduloUnidadUno = {
     id: 602,
-    nombre: "Test Unidad 1",
+    nombre: "Test Unidad 1 (Antiguo)",
     esExamen: false,
     asignaturaId: 6,
     descripcion: "Conceptos fundamentales sobre salud laboral, accidentes de trabajo y enfermedades profesionales en el marco de la legislación española.",

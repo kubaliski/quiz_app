@@ -10,6 +10,10 @@ import moduloUnidadSiete from "./modulos/unidadSiete.js";
 import moduloUnidadOcho from "./modulos/unidadOcho.js";
 import importanteExamen01 from "./modulos/importanteExamen01.js";
 import importanteExamen02 from "./modulos/importanteExamen02.js";
+import moduloRepasoUnidadUno from "./modulos/repasoUnidadUno.js";
+import moduloRepasoUnidadDos from "./modulos/repasoUnidadDos.js";
+import moduloRepasoUnidadTres from "./modulos/repasoUnidadTres.js";
+import moduloRepasoUnidadCuatro from "./modulos/repasoUnidadCuatro.js";
 
 export const itinerarioParaLaEmpleabilidad = {
   ...info,
@@ -19,6 +23,10 @@ export const itinerarioParaLaEmpleabilidad = {
     moduloUnidadDos,
     moduloUnidadTres,
     moduloUnidadCuatro,
+    moduloRepasoUnidadUno,
+    moduloRepasoUnidadDos,
+    moduloRepasoUnidadTres,
+    moduloRepasoUnidadCuatro,
     moduloUnidadCinco,
     moduloUnidadSeis,
     moduloUnidadOcho,

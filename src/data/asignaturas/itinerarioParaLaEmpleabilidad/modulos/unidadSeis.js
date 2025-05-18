@@ -12,8 +12,8 @@
  */
 export const moduloUnidadSeis = {
     id: 609,
-    nombre: "Test Unidad 6",
-    esExamen: false,
+    nombre: "Test Unidad 6 (Repaso)",
+    esExamen: true,
     asignaturaId: 6,
     descripcion: "Jornada laboral, salario y nómina: aspectos fundamentales sobre tiempo de trabajo, remuneración y documentación laboral en el marco jurídico español.",
     preguntas: [

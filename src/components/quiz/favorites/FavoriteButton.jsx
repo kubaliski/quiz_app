@@ -1,6 +1,7 @@
 /**
  * Componente que renderiza un botón para marcar/desmarcar una pregunta como favorita.
  * Muestra un ícono de estrella y cambia su estado visual según si la pregunta es favorita o no.
+ * Optimizado para dispositivos móviles iOS.
  *
  * @component
  * @param {Object} props - Propiedades del componente
@@ -43,16 +44,32 @@ export default function FavoriteButton({
     checkFavoriteStatus();
   }, [asignaturaId, preguntaId]);
 
-  // Determinar tamaño del botón
+  // Determinar tamaño del botón - Círculos más compactos para iOS
   const getSizeClasses = () => {
     switch (size) {
       case 'sm':
-        return 'w-6 h-6';
+        // Círculo pequeño y compacto
+        return 'w-8 h-8 min-w-8 min-h-8';
       case 'lg':
-        return 'w-8 h-8';
+        // Círculo grande pero no excesivo
+        return 'w-12 h-12 min-w-12 min-h-12';
       case 'md':
       default:
-        return 'w-7 h-7';
+        // Círculo medio compacto
+        return 'w-10 h-10 min-w-10 min-h-10';
+    }
+  };
+
+  // Obtener tamaño del ícono SVG - Estrella grande dentro de círculo compacto
+  const getIconSize = () => {
+    switch (size) {
+      case 'sm':
+        return '85%'; // Estrella ocupa 85% del círculo pequeño
+      case 'lg':
+        return '85%'; // Estrella ocupa 85% del círculo grande
+      case 'md':
+      default:
+        return '85%'; // Estrella ocupa 85% del círculo medio
     }
   };
 
@@ -70,19 +87,25 @@ export default function FavoriteButton({
     }
   };
 
-  // Determinar clases según el estado
+  // Determinar clases según el estado - Optimizado para iOS
   const buttonClasses = `
     ${getSizeClasses()}
     flex items-center justify-center
     rounded-full
     transition-all duration-200
+    cursor-pointer
+    select-none
     ${isFav
-      ? 'bg-yellow-100 text-yellow-500 hover:bg-yellow-200 dark:bg-yellow-900 dark:text-yellow-400 dark:hover:bg-yellow-800'
-      : 'bg-gray-200 text-gray-500 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600'
+      ? 'bg-yellow-100 text-yellow-500 hover:bg-yellow-200 active:bg-yellow-300 dark:bg-yellow-900 dark:text-yellow-400 dark:hover:bg-yellow-800'
+      : 'bg-gray-200 text-gray-500 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600'
     }
     ${className}
     ${isLoading ? 'opacity-60' : ''}
-  `;
+    touch-manipulation
+    transform-gpu
+  `.replace(/\s+/g, ' ').trim();
+
+  const iconSize = getIconSize();
 
   return (
     <button
@@ -92,9 +115,21 @@ export default function FavoriteButton({
       disabled={isLoading}
       aria-pressed={isFav}
       aria-label={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+      style={{
+        // Estilos adicionales para mejor compatibilidad con iOS
+        WebkitTapHighlightColor: 'transparent',
+        WebkitTouchCallout: 'none',
+        WebkitUserSelect: 'none',
+        touchAction: 'manipulation'
+      }}
     >
       {isLoading ? (
-        <span className="animate-pulse">⭐</span>
+        <span
+          className="animate-pulse text-xl"
+          style={{ fontSize: iconSize }}
+        >
+          ⭐
+        </span>
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +137,12 @@ export default function FavoriteButton({
           fill={isFav ? "currentColor" : "none"}
           stroke="currentColor"
           strokeWidth={isFav ? "0" : "2"}
-          className={`${isFav ? 'transform scale-110' : ''}`}
-          style={{ width: '65%', height: '65%' }}
+          className={`${isFav ? 'transform scale-110' : ''} transition-transform duration-200`}
+          style={{
+            width: iconSize,
+            height: iconSize,
+            flexShrink: 0 // Evita que el SVG se encoja
+          }}
         >
           <path
             strokeLinecap="round"

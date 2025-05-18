@@ -12,7 +12,7 @@
  */
 export const moduloUnidadTres = {
     id: 604,
-    nombre: "Test Unidad 3",
+    nombre: "Test Unidad 3 (Antiguo)",
     esExamen: false,
     asignaturaId: 6,
     descripcion: "Gestión de la prevención de riesgos laborales, primeros auxilios y protocolos de actuación en casos de emergencia.",

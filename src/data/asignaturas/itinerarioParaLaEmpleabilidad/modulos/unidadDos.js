@@ -12,7 +12,7 @@
  */
 export const moduloUnidadDos = {
     id: 603,
-    nombre: "Test Unidad 2",
+    nombre: "Test Unidad 2(Antiguo)",
     esExamen: false,
     asignaturaId: 6,
     descripcion: "Principios y técnicas de prevención de riesgos laborales, señalización, equipos de protección y medidas específicas de seguridad en el entorno laboral.",

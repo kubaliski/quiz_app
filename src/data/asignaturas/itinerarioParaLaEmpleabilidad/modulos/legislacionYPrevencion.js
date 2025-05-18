@@ -12,7 +12,7 @@
  */
 export const moduloLegislacionLaboral = {
     id: 601,
-    nombre: "Test Unidades 1-6",
+    nombre: "Test Unidades 1-6 (Antiguo)",
     esExamen: false,
     asignaturaId: 6,
     descripcion: "Conceptos fundamentales sobre legislación laboral española, derechos y obligaciones de trabajadores y empresarios, y prevención de riesgos laborales.",

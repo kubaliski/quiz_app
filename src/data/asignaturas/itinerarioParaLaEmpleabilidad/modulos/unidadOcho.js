@@ -12,8 +12,8 @@
  */
 export const moduloUnidadOcho = {
     id: 611,
-    nombre: "Test Unidad 8",
-    esExamen: false,
+    nombre: "Test Unidad 8 (Repaso)",
+    esExamen: true,
     asignaturaId: 6,
     descripcion: "Seguridad Social: estructura, principios, prestaciones y protección social en el sistema español.",
     preguntas: [

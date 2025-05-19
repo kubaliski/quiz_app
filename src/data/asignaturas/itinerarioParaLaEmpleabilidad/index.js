@@ -14,6 +14,7 @@ import moduloRepasoUnidadUno from "./modulos/repasoUnidadUno.js";
 import moduloRepasoUnidadDos from "./modulos/repasoUnidadDos.js";
 import moduloRepasoUnidadTres from "./modulos/repasoUnidadTres.js";
 import moduloRepasoUnidadCuatro from "./modulos/repasoUnidadCuatro.js";
+import importanteExamen03 from "./modulos/importanteExamen03.js";
 
 export const itinerarioParaLaEmpleabilidad = {
   ...info,
@@ -33,6 +34,7 @@ export const itinerarioParaLaEmpleabilidad = {
     moduloUnidadSiete,
     importanteExamen01,
     importanteExamen02,
+    importanteExamen03
   ],
 };
 export default itinerarioParaLaEmpleabilidad;

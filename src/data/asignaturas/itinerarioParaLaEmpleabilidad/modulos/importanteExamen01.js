@@ -1,5 +1,5 @@
 /**
- * Datos del módulo Unidad Cuatro perteneciente a la asignatura de ITP.
+ * Datos del Bloque 1 (Temas 1 a 3) perteneciente a la asignatura de ITP.
  * Incluye información del módulo y sus preguntas asociadas para el quiz.
  *
  * @type {Object}

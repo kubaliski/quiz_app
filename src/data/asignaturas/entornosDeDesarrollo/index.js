@@ -6,6 +6,8 @@ import moduloUML from "./modulos/uml.js";
 import moduloGit from "./modulos/git.js";
 import moduloSimulacroEntornos from "./modulos/SimulacroEntornosUno.js";
 import moduloSimulacroDosEntornos from "./modulos/simulacroEntornosDos.js";
+import moduloSimulacroTresEntornos from "./modulos/simulacroEntornosTres.js";
+import moduloExamenFinalEntornos from "./modulos/examenEntornos.js";
 
 export const entornosDeDesarrollo = {
   ...info,
@@ -17,6 +19,8 @@ export const entornosDeDesarrollo = {
     moduloUML,
     moduloSimulacroEntornos,
     moduloSimulacroDosEntornos,
+    moduloSimulacroTresEntornos,
+    moduloExamenFinalEntornos,
   ],
 };
 export default entornosDeDesarrollo;

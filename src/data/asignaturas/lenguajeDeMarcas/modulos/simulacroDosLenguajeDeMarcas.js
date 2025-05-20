@@ -111,8 +111,13 @@ export const moduloSimulacroDosLenguajeDeMarcas = {
         "id": 41109,
         "moduloId": 411,
         "pregunta": "¿Cuál es la función de la propiedad align-content en CSS Grid?",
-        "opciones": ["Controlar cómo se alinean las filas dentro de un contenedor.", "Controlar el espaciado entre las columnas.", "Definir el comportamiento de los elementos dentro de una celda de la cuadrícula.", "Controlar la alineación de las áreas de la cuadrícula en el contenedor."],
-        "respuestaCorrecta": 3,
+        "opciones": [
+          "Controlar cómo se alinean las filas dentro de un contenedor.",
+          "Controlar el espaciado entre las columnas.",
+          "Definir el comportamiento de los elementos dentro de una celda de la cuadrícula.",
+          "Controlar la alineación de las áreas de la cuadrícula en el contenedor."
+        ],
+        "respuestaCorrecta": 0,
         "explicacion": "La propiedad align-content controla cómo se distribuyen y alinean todas las filas de la cuadrícula como conjunto dentro del contenedor grid cuando hay espacio vertical sobrante. Valores como start, center, end, space-between, etc., definen esta distribución vertical global de toda la estructura de filas."
       },
       {

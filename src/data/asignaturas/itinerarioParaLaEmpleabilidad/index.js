@@ -30,8 +30,8 @@ export const itinerarioParaLaEmpleabilidad = {
     moduloRepasoUnidadCuatro,
     moduloUnidadCinco,
     moduloUnidadSeis,
-    moduloUnidadOcho,
     moduloUnidadSiete,
+    moduloUnidadOcho,
     importanteExamen01,
     importanteExamen02,
     importanteExamen03

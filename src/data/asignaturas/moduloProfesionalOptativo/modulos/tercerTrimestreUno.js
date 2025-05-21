@@ -11,7 +11,7 @@
  */
 export const moduloTercerTrimestreUno = {
     id: 705,
-    nombre: "Test Tercer Trimestre (DEPRECIADO)",
+    nombre: "Test Tercer Trimestre (DEPRECADO)",
     esExamen: false,
     asignaturaId: 7,
     descripcion:

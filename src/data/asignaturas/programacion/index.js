@@ -16,6 +16,7 @@ import moduloSimBloqueNueve from "./modulos/simBloqueNueve.js";
 import moduloSimBloqueDiez from "./modulos/simBloqueDiez.js";
 import moduloSimulacroVirtualLab from "./modulos/simulacroVirtualLab.js";
 import moduloSimulacroVirtualLabDos from "./modulos/simulacroVirtualLabDos.js";
+import moduloExamenDam from "./modulos/examenDAM.js";
 
 
 export const programacion = {
@@ -38,6 +39,7 @@ export const programacion = {
         moduloSimBloqueDiez,
         moduloSimulacroVirtualLab,
         moduloSimulacroVirtualLabDos,
+        moduloExamenDam,
 
     ],
 };

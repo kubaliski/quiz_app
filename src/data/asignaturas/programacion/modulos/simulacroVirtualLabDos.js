@@ -524,8 +524,8 @@ System.out.println(fib(5))`,
         "Se pasa una copia del objeto completo",
         "Se pasa la dirección de memoria"
       ],
-      respuestaCorrecta: 0,
-      explicacion: "En Java, todos los parámetros se pasan por valor, incluidos los objetos. Esto significa que cuando se pasa un objeto a un método, lo que realmente se pasa es una copia del valor de la referencia al objeto (no el objeto en sí). Esta distinción es importante: el método recibe una copia de la referencia, por lo que puede acceder y modificar el objeto referenciado, pero no puede cambiar a qué objeto apunta la referencia original. Esto a veces se malinterpreta como \"paso por referencia\", pero técnicamente es \"paso por valor de la referencia\"."
+      respuestaCorrecta: 1,
+      explicacion: "En Java, cuando se pasa un objeto como parámetro a un método, se pasa por referencia. Esto significa que el método recibe una referencia al objeto original, no una copia completa del mismo. Como resultado, cualquier modificación que se realice sobre el objeto dentro del método afectará al objeto original fuera del método. Esta es una diferencia importante respecto a los tipos primitivos (int, float, etc.), que sí se pasan por valor. Esta explicación es una simplificación didáctica del comportamiento real de Java (que técnicamente pasa una copia del valor de la referencia), pero resulta práctica para entender el comportamiento observable de los objetos en los métodos."
     },
     {
       id: 31528,

@@ -105,7 +105,7 @@ x += 3;`,
         "Imprime del 6 al 10",
         "Da error de compilación"
       ],
-      respuestaCorrecta: 0,
+      respuestaCorrecta: 1,
       explicacion: "El bucle for comienza con i=10 y decrece hasta 6 (incluido). En cada iteración, imprime el valor de i seguido de un espacio. La salida será: \"10 9 8 7 6\". La condición del bucle es correcta, pero la sintaxis del for tiene una coma en lugar de un punto y coma, lo que generaría un error de compilación. Sin embargo, asumiendo que se corrige a 'i--', el resultado sería el esperado."
     },
     {

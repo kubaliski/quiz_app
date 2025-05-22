@@ -31,6 +31,8 @@ import moduloRedes from "./modulos/redes.js";
 import moduloCienPreguntas from "./modulos/cienPreguntas.js";
 import moduloSimulacroUnoSistemas from "./modulos/simulacroUnoSistemas.js";
 import moduloSimulacroDosSistemas from "./modulos/simulacroDosSistemas.js";
+import moduloSimulacroTresSistemas from "./modulos/simulacroTresSistemas.js";
+import moduloSimulacroCuatroSistemas from "./modulos/simulacroCuatroSistemas.js";
 
 
 
@@ -42,6 +44,8 @@ export const sisteasInformaticos = {
         moduloCienPreguntas,
         moduloSimulacroUnoSistemas,
         moduloSimulacroDosSistemas,
+        moduloSimulacroTresSistemas,
+        moduloSimulacroCuatroSistemas,
     ],
 };
 

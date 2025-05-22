@@ -94,7 +94,7 @@ x += 3;`,
       pregunta: "¿Qué hace este bucle for?",
       recurso: {
         tipo: "codigo",
-        contenido: `for (int i = 10; i >= 6, i--)
+        contenido: `for (int i = 10; i >= 6; i--){
 \tSystem.out.print(i + " ");
 }`,
         lenguaje: "java"

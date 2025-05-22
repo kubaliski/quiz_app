@@ -11,7 +11,7 @@
  * @property {Array<Object>} preguntas - Lista de preguntas para el quiz de este módulo
  */
 export const importanteExamen03 = {
-  id: 607,
+  id: 616,
   nombre: "Preguntas importantes. Bloque 3 (Temas 7 y 8)",
   esExamen: true,
   asignaturaId: 6,
@@ -20,7 +20,7 @@ export const importanteExamen03 = {
     // ---- Tema 7. Modificaciones de la relación laboral. ----.
     {
       id: 6760,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué dos modalidades de movilidad funcional contempla el Estatuto de los Trabajadores?",
       opciones: [
@@ -35,7 +35,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6761,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál es el límite máximo para un desplazamiento temporal de trabajadores dentro del territorio nacional?",
       opciones: [
@@ -50,7 +50,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6762,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Con cuánta antelación mínima debe comunicarse al trabajador un traslado definitivo?",
       opciones: [
@@ -65,7 +65,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6763,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Indica cuál de los siguientes motivos legitima una modificación sustancial de las condiciones de trabajo.",
       opciones: [
@@ -80,7 +80,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6764,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Si el contrato se extingue por causas objetivas (art. 52 ET), la indemnización que corresponde al trabajador es:",
       opciones: [
@@ -95,7 +95,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6765,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En un despido disciplinario, la resolución judicial puede declararlo:",
       opciones: [
@@ -110,7 +110,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6766,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Si el despido se declara improcedente, ¿qué opciones tiene el empresario?",
       opciones: [
@@ -125,7 +125,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6767,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En caso de despido improcedente, la indemnización a favor del trabajador es de:",
       opciones: [
@@ -140,7 +140,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6768,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Tras la sentencia que declara improcedente el despido, el empresario dispone de un plazo para optar entre readmitir o indemnizar. ¿Cuál es ese plazo?",
       opciones: [
@@ -155,7 +155,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6769,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué duración puede tener una excedencia voluntaria prevista en el art. 46.2 ET?",
       opciones: [
@@ -170,7 +170,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6770,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cómo se denomina la excedencia concedida por elección o designación para un cargo público que impide asistir al trabajo o por funciones sindicales de ámbito provincial o superior?",
       opciones: [
@@ -185,7 +185,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6771,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué duración tiene la excedencia forzosa regulada en el art. 46.1 ET?",
       opciones: [
@@ -200,7 +200,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6772,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál es el límite de duración para la excedencia por cuidado de cada hijo, por naturaleza, adopción o acogimiento?",
       opciones: [
@@ -215,7 +215,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6773,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál es el plazo máximo de la excedencia para cuidado de familiares hasta segundo grado que no puedan valerse por sí mismos?",
       opciones: [
@@ -230,7 +230,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6774,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "A efectos de solicitar la extinción indemnizada del contrato por incumplimiento empresarial (art. 50 ET), se considera falta grave de pago:",
       opciones: [
@@ -245,7 +245,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6775,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Con cuántos días de preaviso debe comunicarse al trabajador un despido por causas objetivas?",
       opciones: ["15 días.", "10 días.", "5 días.", "30 días."],
@@ -255,7 +255,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6776,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En un despido objetivo, la indemnización que debe ponerse a disposición del trabajador junto con la carta es:",
       opciones: [
@@ -270,7 +270,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6777,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál es el número máximo de miembros que puede integrar un comité de huelga?",
       opciones: [
@@ -286,7 +286,7 @@ export const importanteExamen03 = {
     // ---- Tema 8. La Seguridad Social. ----.
     {
       id: 6778,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué protege el sistema español de Seguridad Social, de acuerdo con el art. 41 CE y la Ley General de la Seguridad Social (LGSS 2015)?",
       opciones: [
@@ -301,7 +301,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6779,
-      moduloId: 607,
+      moduloId: 616,
       pregunta: "¿Qué clases de cotización distingue la LGSS?",
       opciones: [
         "Regímenes contributivos y no contributivos.",
@@ -315,7 +315,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6780,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál de los siguientes forma parte de un régimen especial de la Seguridad Social?",
       opciones: [
@@ -330,7 +330,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6781,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué entidad gestora centraliza el reconocimiento de la mayoría de prestaciones económicas de la Seguridad Social? (INSS)",
       opciones: [
@@ -345,7 +345,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6782,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué organismo gestiona las pensiones no contributivas y programas para personas mayores y dependientes? (IMSERSO)",
       opciones: [
@@ -360,7 +360,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6783,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué función principal desempeña la TGSS, Tesorería General de la Seguridad Social?",
       opciones: [
@@ -375,7 +375,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6784,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué organismo autónomo reconoce la prestación por desempleo y coordina las políticas activas de empleo? (SEPE)",
       opciones: [
@@ -390,7 +390,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6785,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué institución promueve la seguridad y salud en el trabajo proporcionando asistencia técnica? (INSST)",
       opciones: [
@@ -405,7 +405,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6786,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En caso de incapacidad temporal derivada de enfermedad común o accidente no laboral, ¿qué cuantía percibe la persona trabajadora?",
       opciones: [
@@ -420,7 +420,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6787,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Para la incapacidad temporal por accidente de trabajo o enfermedad profesional, ¿qué prestación se abona?",
       opciones: [
@@ -435,7 +435,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6788,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Según el art. 169 LGSS, ¿cuál es la duración máxima de la incapacidad temporal antes de pasar a prórroga o valoración de incapacidad permanente?",
       opciones: [
@@ -450,7 +450,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6789,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Qué prestación económica percibe la persona trabajadora declarada en Incapacidad Permanente Parcial derivada de contingencias comunes o profesionales?",
       opciones: [
@@ -465,7 +465,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6790,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En la Incapacidad Permanente Total, ¿qué porcentaje de la base reguladora corresponde a la pensión ordinaria?",
       opciones: [
@@ -480,7 +480,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6791,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Para la Incapacidad Permanente Absoluta, ¿cuál es la cuantía de la pensión sobre la base reguladora?",
       opciones: [
@@ -495,7 +495,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6792,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En caso de Gran Invalidez, además de la pensión del 100 % de la base reguladora, se abona:",
       opciones: [
@@ -510,7 +510,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6793,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "¿Cuál es la prestación económica que recibe una trabajadora en situación de riesgo durante el embarazo cuando es apartada de su puesto de trabajo?",
       opciones: [
@@ -525,7 +525,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6794,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "En caso de riesgo durante la lactancia natural de un menor de 9 meses, la trabajadora percibirá:",
       opciones: [
@@ -540,7 +540,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6795,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "Durante la prestación por nacimiento y cuidado de menor (anterior ‘maternidad / paternidad’), ¿qué porcentaje de la base reguladora perciben los progenitores?",
       opciones: [
@@ -555,7 +555,7 @@ export const importanteExamen03 = {
     },
     {
       id: 6796,
-      moduloId: 607,
+      moduloId: 616,
       pregunta:
         "La prestación para las personas trabajadoras que reducen su jornada al menos un 50 % para el cuidado de menores afectados por cáncer u otra enfermedad grave consiste en:",
       opciones: [

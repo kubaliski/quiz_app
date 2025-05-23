@@ -581,35 +581,35 @@ export const moduloExamenFinal2Entornos = {
         "La documentación facilita el mantenimiento porque disminuye la dependencia de los desarrolladores originales. Permite que nuevos desarrolladores comprendan el sistema más rápidamente, facilitando las tareas de mantenimiento y evolución del software.",
     },
     {
-      id:51041,
-      moduloId:510,
+      id: 51041,
+      moduloId: 510,
       pregunta:
-      "¿Qué elemento garantiza la trazabilidad entre requisitos y casos de prueba?",
-      opciones:[
+        "¿Qué elemento garantiza la trazabilidad entre requisitos y casos de prueba?",
+      opciones: [
         "El backlog",
-        "El cronograma de enrtegas",
+        "El cronograma de entregas",
         "La documentación estructurada del proyecto",
         "El entorno de desarrollo",
       ],
       respuestaCorrecta: 2,
       explicacion:
-      ""
+        "La documentación estructurada del proyecto garantiza la trazabilidad entre requisitos y casos de prueba. Esta documentación establece vínculos claros entre cada requisito funcional y no funcional con los casos de prueba específicos que los validan, permitiendo verificar que todos los requisitos están cubiertos por pruebas y facilitando el seguimiento de cambios. La trazabilidad es fundamental para asegurar la cobertura completa de pruebas y para el mantenimiento del sistema a largo plazo.",
     },
     {
-      id:51042,
-      moduloId:510,
+      id: 51042,
+      moduloId: 510,
       pregunta:
-      "Qué sucede tras la fase de implementación en el ciclo de vida del software?",
-      opciones:[
+        "¿Qué sucede tras la fase de implementación en el ciclo de vida del software?",
+      opciones: [
         "Se recoge la retroalimentación inicial",
         "Se eliminan los errores en tiempo de diseño",
         "Se realizan pruebas para validar el funcionamiento del sistema",
-        "Se redacta el código fuente"
+        "Se redacta el código fuente",
       ],
-      respuesta correccta: 2,
+      respuestaCorrecta: 2,
       explicacion:
-      ""
-    }
+        "Tras la fase de implementación se realizan pruebas para validar el funcionamiento del sistema. Una vez que el código ha sido desarrollado, es necesario verificar que funciona correctamente y cumple con los requisitos establecidos. La fase de pruebas incluye pruebas unitarias, de integración, de sistema y de aceptación para detectar errores y validar que el software satisface las especificaciones antes de su entrega al cliente.",
+    },
   ],
 };
 

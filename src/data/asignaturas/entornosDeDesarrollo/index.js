@@ -8,6 +8,7 @@ import moduloSimulacroEntornos from "./modulos/SimulacroEntornosUno.js";
 import moduloSimulacroDosEntornos from "./modulos/simulacroEntornosDos.js";
 import moduloSimulacroTresEntornos from "./modulos/simulacroEntornosTres.js";
 import moduloExamenFinalEntornos from "./modulos/examenEntornos.js";
+import moduloExamenFinal2Entornos from "./modulos/examenEntornosDos.js";
 
 export const entornosDeDesarrollo = {
   ...info,
@@ -21,6 +22,7 @@ export const entornosDeDesarrollo = {
     moduloSimulacroDosEntornos,
     moduloSimulacroTresEntornos,
     moduloExamenFinalEntornos,
+    moduloExamenFinal2Entornos,
   ],
 };
 export default entornosDeDesarrollo;

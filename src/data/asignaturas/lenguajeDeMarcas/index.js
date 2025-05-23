@@ -11,22 +11,24 @@ import moduloHTMLCSSLayout from "./modulos/layout";
 import simulacroUnoLenguajeDeMarcas from "./modulos/simulacroUnoLenguajeDeMarcas";
 import moduloSimulacroDosLenguajeDeMarcas from "./modulos/simulacroDosLenguajeDeMarcas";
 import moduloSimulacroTresLenguajeDeMarcas from "./modulos/simulacroTresLenguajeDeMarcas";
+import moduloExamenLenguajeMarcas from "./modulos/examenLenguaje";
 
 export const lenguajesMarcas = {
-    ...info,
-    modulos: [
-        moduloJavaScriptXML,
-        moduloJavaScript,
-        moduloBootstrap,
-        moduloIntroduccion,
-        moduloHTMLBasico,
-        moduloHTMLTablas,
-        moduloHTMLListas,
-        moduloHTMLFormularios,
-        moduloHTMLCSSLayout,
-        simulacroUnoLenguajeDeMarcas,
-        moduloSimulacroDosLenguajeDeMarcas,
-        moduloSimulacroTresLenguajeDeMarcas,
-    ],
-    };
+  ...info,
+  modulos: [
+    moduloJavaScriptXML,
+    moduloJavaScript,
+    moduloBootstrap,
+    moduloIntroduccion,
+    moduloHTMLBasico,
+    moduloHTMLTablas,
+    moduloHTMLListas,
+    moduloHTMLFormularios,
+    moduloHTMLCSSLayout,
+    simulacroUnoLenguajeDeMarcas,
+    moduloSimulacroDosLenguajeDeMarcas,
+    moduloSimulacroTresLenguajeDeMarcas,
+    moduloExamenLenguajeMarcas,
+  ],
+};
 export default lenguajesMarcas;

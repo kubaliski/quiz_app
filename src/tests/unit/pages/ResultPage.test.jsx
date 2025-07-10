@@ -29,7 +29,7 @@ vi.mock('@components/layout', () => ({
   )
 }));
 
-// Actualizar el mock de ResultSummary para mantener la compatibilidad con los tests
+// Mock actualizado para incluir PDFGenerator
 vi.mock('@components/quiz', () => ({
   ResultSummary: ({ puntuacion }) => {
     // En la vista real, no necesitamos mostrar "penalización" ya que usamos un nuevo sistema
@@ -66,6 +66,14 @@ vi.mock('@components/quiz', () => ({
         Respuesta:
         {respuestaUsuario !== undefined ? respuestaUsuario : 'Sin respuesta'}
       </div>
+    </div>
+  ),
+  // Agregar el mock de PDFGenerator
+  PDFGenerator: ({ preguntas, respuestas, asignatura, titulo, subtitulo, mostrarRespuestasUsuario, buttonText }) => (
+    <div data-testid="pdf-generator">
+      <button>{buttonText || 'Exportar PDF'}</button>
+      <span>Preguntas: {preguntas?.length || 0}</span>
+      <span>Asignatura: {asignatura?.nombre || 'Sin nombre'}</span>
     </div>
   )
 }));
@@ -149,6 +157,12 @@ describe('ResultsPage', () => {
     // Comprobar que se muestran las respuestas correctas e incorrectas
     expect(within(resultSummary).getByText(/Correctas:/)).toBeInTheDocument();
     expect(within(resultSummary).getByText(/Incorrectas:/)).toBeInTheDocument();
+
+    // Verificar que se muestra el PDFGenerator
+    const pdfGenerator = screen.getByTestId('pdf-generator');
+    expect(pdfGenerator).toBeInTheDocument();
+    expect(within(pdfGenerator).getByText(/Preguntas: 2/)).toBeInTheDocument();
+    expect(within(pdfGenerator).getByText(/Asignatura: Asignatura de Test/)).toBeInTheDocument();
 
     // Verificar que se muestran las revisiones de preguntas
     const questionReviews = screen.getAllByTestId('question-review');

@@ -1,6 +1,7 @@
 /**
  * Servicios para la gestión de datos relacionados con quizzes, asignaturas y módulos.
  * Implementa importaciones estáticas para mayor compatibilidad con Vite y entornos de producción.
+ * Incluye soporte para organización por años académicos.
  * @module quizDataService
  */
 
@@ -16,7 +17,7 @@ import entornosDeDesarrollo from '../data/asignaturas/entornosDeDesarrollo';
 import itinerarioParaLaEmpleabilidad from '../data/asignaturas/itinerarioParaLaEmpleabilidad';
 import moduloProfesionalOptativo from '../data/asignaturas/moduloProfesionalOptativo';
 
-// Mapa de módulos para acceso rápido por ID
+// Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
   1: sistemasInformaticos,
   2: basesDeDatos,
@@ -27,6 +28,28 @@ const modulosMap = {
   7: moduloProfesionalOptativo
 };
 
+// Asignaturas completas de primer año (basadas en modulosMap)
+const asignaturasCompletasPrimerAno = Object.values(modulosMap);
+
+// Asignaturas de segundo año (placeholder para futuras implementaciones)
+const asignaturasCompletasSegundoAno = [
+  // Aquí irán las futuras asignaturas de segundo año
+];
+
+// Nueva estructura organizada por años
+const asignaturasPorAno = {
+  1: {
+    nombre: "Primer Año",
+    asignaturas: asignaturasCompletasPrimerAno,
+    disponible: true
+  },
+  2: {
+    nombre: "Segundo Año",
+    asignaturas: asignaturasCompletasSegundoAno,
+    disponible: false // Marcamos como no disponible hasta que se implementen
+  }
+};
+
 /**
  * Obtiene la lista completa de asignaturas disponibles.
  * @async
@@ -35,7 +58,6 @@ const modulosMap = {
  */
 export const fetchAsignaturas = () => {
   return new Promise((resolve) => {
-    // Simulamos un retraso de red de 200ms
     setTimeout(() => {
       resolve(asignaturas);
     }, 200);
@@ -43,8 +65,74 @@ export const fetchAsignaturas = () => {
 };
 
 /**
+ * Obtiene asignaturas organizadas por año académico.
+ * @async
+ * @function fetchAsignaturasPorAno
+ * @returns {Promise<Object>} Promesa que resuelve con asignaturas organizadas por año
+ */
+export const fetchAsignaturasPorAno = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(asignaturasPorAno);
+    }, 200);
+  });
+};
+
+/**
+ * Obtiene asignaturas de un año específico.
+ * @async
+ * @function fetchAsignaturasPorAnoEspecifico
+ * @param {number} ano - Año académico
+ * @returns {Promise<Object|null>} Promesa que resuelve con los datos del año o null
+ */
+export const fetchAsignaturasPorAnoEspecifico = (ano) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(asignaturasPorAno[ano] || null);
+    }, 200);
+  });
+};
+
+/**
+ * Obtiene años académicos disponibles.
+ * @async
+ * @function fetchAnosDisponibles
+ * @returns {Promise<Array>} Promesa que resuelve con la lista de años disponibles
+ */
+export const fetchAnosDisponibles = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const anos = Object.keys(asignaturasPorAno).map(ano => ({
+        numero: parseInt(ano),
+        ...asignaturasPorAno[ano]
+      }));
+      resolve(anos);
+    }, 200);
+  });
+};
+
+/**
+ * Función auxiliar para buscar una asignatura por ID en todos los años.
+ * @param {string|number} asignaturaId - ID de la asignatura a buscar
+ * @returns {Object|null} Asignatura encontrada o null
+ */
+const buscarAsignaturaPorId = (asignaturaId) => {
+  const id = parseInt(asignaturaId, 10);
+
+  // Buscar en todas las asignaturas de todos los años
+  for (const ano of Object.values(asignaturasPorAno)) {
+    const asignatura = ano.asignaturas.find((asignatura) => asignatura.id === id);
+    if (asignatura) return asignatura;
+  }
+
+  // Fallback: buscar en modulosMap (retrocompatibilidad)
+  return modulosMap[id] || null;
+};
+
+/**
  * Obtiene una asignatura completa con todos sus módulos.
  * Utiliza importaciones estáticas para mayor compatibilidad.
+ * Ahora busca en la nueva estructura por años.
  *
  * @async
  * @function fetchAsignaturaCompleta
@@ -63,20 +151,22 @@ export const fetchAsignaturaCompleta = async (asignaturaId) => {
           return;
         }
 
-        const id = parseInt(asignaturaId, 10);
+        // Buscar la asignatura usando la nueva función
+        const asignatura = buscarAsignaturaPorId(asignaturaId);
 
-        if (modulosMap[id]) {
-          // Usar el módulo pre-importado
-          resolve(modulosMap[id]);
+        if (asignatura) {
+          resolve(asignatura);
         } else {
-          // Otras asignaturas (placeholder)
-          const asignatura = asignaturas.find((a) => a.id === id);
-          if (!asignatura) {
+          // Fallback: buscar en la lista básica de asignaturas
+          const id = parseInt(asignaturaId, 10);
+          const asignaturaBasica = asignaturas.find((a) => a.id === id);
+
+          if (!asignaturaBasica) {
             console.error("Asignatura no encontrada con ID:", id);
             reject(new Error(`Asignatura no encontrada con ID: ${id}`));
           } else {
             resolve({
-              ...asignatura,
+              ...asignaturaBasica,
               modulos: [],
             });
           }
@@ -132,60 +222,6 @@ export const fetchAllPreguntasByAsignatura = async (asignaturaId) => {
     console.error("Error cargando preguntas:", error);
     throw error;
   }
-};
-
-/**
- * Guarda los resultados de un quiz en el almacenamiento local.
- * @async
- * @function guardarResultadosQuiz
- * @param {Object} resultados - Objeto con los resultados del quiz a guardar
- * @returns {Promise<Object>} Promesa que resuelve con un objeto de confirmación
- */
-export const guardarResultadosQuiz = (resultados) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      try {
-        const historicoResultados = JSON.parse(
-          localStorage.getItem("quiz_historico") || "[]"
-        );
-        historicoResultados.push({
-          ...resultados,
-          fecha: new Date().toISOString(),
-        });
-        localStorage.setItem(
-          "quiz_historico",
-          JSON.stringify(historicoResultados)
-        );
-
-        resolve({ success: true, message: "Resultados guardados correctamente" });
-      } catch (error) {
-        console.error("Error al guardar resultados:", error);
-        resolve({ success: false, message: "No se pudieron guardar los resultados" });
-      }
-    }, 300);
-  });
-};
-
-/**
- * Obtiene el historial completo de resultados de quizzes realizados.
- * @async
- * @function obtenerHistorialResultados
- * @returns {Promise<Array<Object>>} Promesa que resuelve con el array de resultados históricos
- */
-export const obtenerHistorialResultados = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      try {
-        const historicoResultados = JSON.parse(
-          localStorage.getItem("quiz_historico") || "[]"
-        );
-        resolve(historicoResultados);
-      } catch (error) {
-        console.error("Error al obtener historial:", error);
-        resolve([]);
-      }
-    }, 300);
-  });
 };
 
 /**
@@ -250,4 +286,58 @@ export const fetchRandomPreguntasByAsignaturaExamen = async (
     console.error("Error cargando preguntas de examen:", error);
     throw error;
   }
+};
+
+/**
+ * Guarda los resultados de un quiz en el almacenamiento local.
+ * @async
+ * @function guardarResultadosQuiz
+ * @param {Object} resultados - Objeto con los resultados del quiz a guardar
+ * @returns {Promise<Object>} Promesa que resuelve con un objeto de confirmación
+ */
+export const guardarResultadosQuiz = (resultados) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      try {
+        const historicoResultados = JSON.parse(
+          localStorage.getItem("quiz_historico") || "[]"
+        );
+        historicoResultados.push({
+          ...resultados,
+          fecha: new Date().toISOString(),
+        });
+        localStorage.setItem(
+          "quiz_historico",
+          JSON.stringify(historicoResultados)
+        );
+
+        resolve({ success: true, message: "Resultados guardados correctamente" });
+      } catch (error) {
+        console.error("Error al guardar resultados:", error);
+        resolve({ success: false, message: "No se pudieron guardar los resultados" });
+      }
+    }, 300);
+  });
+};
+
+/**
+ * Obtiene el historial completo de resultados de quizzes realizados.
+ * @async
+ * @function obtenerHistorialResultados
+ * @returns {Promise<Array<Object>>} Promesa que resuelve con el array de resultados históricos
+ */
+export const obtenerHistorialResultados = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      try {
+        const historicoResultados = JSON.parse(
+          localStorage.getItem("quiz_historico") || "[]"
+        );
+        resolve(historicoResultados);
+      } catch (error) {
+        console.error("Error al obtener historial:", error);
+        resolve([]);
+      }
+    }, 300);
+  });
 };

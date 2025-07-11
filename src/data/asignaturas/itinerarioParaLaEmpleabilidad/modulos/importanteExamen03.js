@@ -19,7 +19,7 @@ export const importanteExamen03 = {
   preguntas: [
     // ---- Tema 7. Modificaciones de la relación laboral. ----.
     {
-      id: 6760,
+      id: 61601,
       moduloId: 616,
       pregunta:
         "¿Qué dos modalidades de movilidad funcional contempla el Estatuto de los Trabajadores?",
@@ -34,7 +34,7 @@ export const importanteExamen03 = {
         "La movilidad funcional puede ser ascendente (asignar tareas de un grupo profesional superior) o descendente (de nivel inferior). Ha de respetar los límites del art. 39 ET: titulación adecuada, necesidad técnica u organizativa y duración temporal.",
     },
     {
-      id: 6761,
+      id: 61602,
       moduloId: 616,
       pregunta:
         "¿Cuál es el límite máximo para un desplazamiento temporal de trabajadores dentro del territorio nacional?",
@@ -49,7 +49,7 @@ export const importanteExamen03 = {
         "Según el art. 40 ET, los desplazamientos que no superen 12 meses acumulados en 3 años se consideran temporales; si exceden ese tope, se tratarían como traslado.",
     },
     {
-      id: 6762,
+      id: 61603,
       moduloId: 616,
       pregunta:
         "¿Con cuánta antelación mínima debe comunicarse al trabajador un traslado definitivo?",
@@ -64,7 +64,7 @@ export const importanteExamen03 = {
         "El art. 40 ET establece que la empresa debe preavisar con 30 días naturales antes de la fecha efectiva del traslado individual.",
     },
     {
-      id: 6763,
+      id: 61604,
       moduloId: 616,
       pregunta:
         "Indica cuál de los siguientes motivos legitima una modificación sustancial de las condiciones de trabajo.",
@@ -79,7 +79,7 @@ export const importanteExamen03 = {
         "El art. 41 ET permite la modificación sustancial cuando existan probadas causas económicas, técnicas, organizativas o de producción vinculadas a la competitividad o productividad de la empresa.",
     },
     {
-      id: 6764,
+      id: 61605,
       moduloId: 616,
       pregunta:
         "Si el contrato se extingue por causas objetivas (art. 52 ET), la indemnización que corresponde al trabajador es:",
@@ -94,7 +94,7 @@ export const importanteExamen03 = {
         "Para extinciones objetivas (ineptitud, falta de adaptación, causas económicas, técnicas, organizativas o productivas) el ET fija 20 días por año trabajado hasta 12 mensualidades.",
     },
     {
-      id: 6765,
+      id: 61606,
       moduloId: 616,
       pregunta:
         "En un despido disciplinario, la resolución judicial puede declararlo:",
@@ -109,7 +109,7 @@ export const importanteExamen03 = {
         "Conforme a los arts. 55-56 ET, el juez calificará el despido disciplinario como procedente, improcedente o nulo, con efectos distintos en cada caso.",
     },
     {
-      id: 6766,
+      id: 61607,
       moduloId: 616,
       pregunta:
         "Si el despido se declara improcedente, ¿qué opciones tiene el empresario?",
@@ -124,7 +124,7 @@ export const importanteExamen03 = {
         "Art. 56 ET: ante el despido improcedente, la empresa puede elegir entre la readmisión (con abono de salarios de tramitación) o el pago de la indemnización correspondiente.",
     },
     {
-      id: 6767,
+      id: 61608,
       moduloId: 616,
       pregunta:
         "En caso de despido improcedente, la indemnización a favor del trabajador es de:",
@@ -139,7 +139,7 @@ export const importanteExamen03 = {
         "Para contratos celebrados tras el 12‑2‑2012, la indemnización por despido improcedente es de 33 días por año con tope de 24 mensualidades (DT 5.ª ET).",
     },
     {
-      id: 6768,
+      id: 61609,
       moduloId: 616,
       pregunta:
         "Tras la sentencia que declara improcedente el despido, el empresario dispone de un plazo para optar entre readmitir o indemnizar. ¿Cuál es ese plazo?",
@@ -154,7 +154,7 @@ export const importanteExamen03 = {
         "El art. 56 ET concede al empresario 5 días hábiles desde la notificación de la sentencia para comunicar su opción; de no hacerlo, se entiende que opta por la readmisión.",
     },
     {
-      id: 6769,
+      id: 61610,
       moduloId: 616,
       pregunta:
         "¿Qué duración puede tener una excedencia voluntaria prevista en el art. 46.2 ET?",
@@ -169,7 +169,7 @@ export const importanteExamen03 = {
         "La excedencia voluntaria requiere al menos un año de antigüedad y puede solicitarse por un plazo de 4 meses a 5 años; no genera reserva de puesto, solo preferencia para reingresar en vacantes de igual o similar categoría (art. 46.2 ET).",
     },
     {
-      id: 6770,
+      id: 61611,
       moduloId: 616,
       pregunta:
         "¿Cómo se denomina la excedencia concedida por elección o designación para un cargo público que impide asistir al trabajo o por funciones sindicales de ámbito provincial o superior?",
@@ -184,7 +184,7 @@ export const importanteExamen03 = {
         "La excedencia forzosa (art. 46.1 ET) garantiza la reserva del puesto y el cómputo de antigüedad durante el tiempo que dure el desempeño del cargo público o sindical.",
     },
     {
-      id: 6771,
+      id: 61612,
       moduloId: 616,
       pregunta:
         "¿Qué duración tiene la excedencia forzosa regulada en el art. 46.1 ET?",
@@ -199,7 +199,7 @@ export const importanteExamen03 = {
         "La excedencia forzosa coincide exactamente con la duración del mandato o cargo que la motiva, sin límite temporal; a su término el trabajador debe solicitar el reingreso en el plazo máximo de 30 días.",
     },
     {
-      id: 6772,
+      id: 61613,
       moduloId: 616,
       pregunta:
         "¿Cuál es el límite de duración para la excedencia por cuidado de cada hijo, por naturaleza, adopción o acogimiento?",
@@ -214,7 +214,7 @@ export const importanteExamen03 = {
         "El art. 46.3 ET concede hasta 3 años por cada hijo, computados desde su nacimiento o desde la resolución administrativa o judicial de adopción/acogimiento, con reserva del puesto el primer año.",
     },
     {
-      id: 6773,
+      id: 61614,
       moduloId: 616,
       pregunta:
         "¿Cuál es el plazo máximo de la excedencia para cuidado de familiares hasta segundo grado que no puedan valerse por sí mismos?",
@@ -229,7 +229,7 @@ export const importanteExamen03 = {
         "El mismo art. 46.3 ET reconoce una excedencia de hasta 2 años para atender a familiares dependientes hasta segundo grado; se disfruta de forma continua o fraccionada.",
     },
     {
-      id: 6774,
+      id: 61615,
       moduloId: 616,
       pregunta:
         "A efectos de solicitar la extinción indemnizada del contrato por incumplimiento empresarial (art. 50 ET), se considera falta grave de pago:",
@@ -244,7 +244,7 @@ export const importanteExamen03 = {
         "La jurisprudencia del TS equipara ‘grave incumplimiento’ a tres nóminas impagadas o retrasos reiterados durante, al menos, seis meses, legitimando al trabajador para rescindir el contrato con indemnización equivalente al despido improcedente.",
     },
     {
-      id: 6775,
+      id: 61616,
       moduloId: 616,
       pregunta:
         "¿Con cuántos días de preaviso debe comunicarse al trabajador un despido por causas objetivas?",
@@ -254,7 +254,7 @@ export const importanteExamen03 = {
         "El art. 53 ET exige preaviso escrito de 15 días naturales. Durante ese período el trabajador tiene derecho a una licencia retribuida de 6 horas semanales para buscar empleo.",
     },
     {
-      id: 6776,
+      id: 61617,
       moduloId: 616,
       pregunta:
         "En un despido objetivo, la indemnización que debe ponerse a disposición del trabajador junto con la carta es:",
@@ -269,7 +269,7 @@ export const importanteExamen03 = {
         "Conforme al art. 53 ET (en relación con el 52 ET), la extinción objetiva exige indemnizar con 20 días por año trabajado hasta 12 mensualidades, salvo empresas en concurso que pueden diferir el pago.",
     },
     {
-      id: 6777,
+      id: 61618,
       moduloId: 616,
       pregunta:
         "¿Cuál es el número máximo de miembros que puede integrar un comité de huelga?",
@@ -285,7 +285,7 @@ export const importanteExamen03 = {
     },
     // ---- Tema 8. La Seguridad Social. ----.
     {
-      id: 6778,
+      id: 61619,
       moduloId: 616,
       pregunta:
         "¿Qué protege el sistema español de Seguridad Social, de acuerdo con el art. 41 CE y la Ley General de la Seguridad Social (LGSS 2015)?",
@@ -300,7 +300,7 @@ export const importanteExamen03 = {
         "La acción protectora de la Seguridad Social comprende contingencias comunes (enfermedad común, maternidad, etc.) y profesionales (accidente de trabajo y enfermedad profesional) para toda la población, conforme al art. 41 CE y al art. 42 LGSS.",
     },
     {
-      id: 6779,
+      id: 61620,
       moduloId: 616,
       pregunta: "¿Qué clases de cotización distingue la LGSS?",
       opciones: [
@@ -314,7 +314,7 @@ export const importanteExamen03 = {
         "El art. 2 LGSS diferencia entre el sistema contributivo (financiado por cotizaciones de empresas y trabajadores) y el no contributivo (financiado vía impuestos).",
     },
     {
-      id: 6780,
+      id: 61621,
       moduloId: 616,
       pregunta:
         "¿Cuál de los siguientes forma parte de un régimen especial de la Seguridad Social?",
@@ -329,7 +329,7 @@ export const importanteExamen03 = {
         "Junto al Régimen General, la LGSS mantiene regímenes especiales (arts. 10‑13) para colectivos como autónomos (RETA), trabajadores del mar y mutualistas de la Administración (MUFACE, ISFAS, MUGEJU).",
     },
     {
-      id: 6781,
+      id: 61622,
       moduloId: 616,
       pregunta:
         "¿Qué entidad gestora centraliza el reconocimiento de la mayoría de prestaciones económicas de la Seguridad Social? (INSS)",
@@ -344,7 +344,7 @@ export const importanteExamen03 = {
         "El INSS (art. 48 LGSS y RD 2583/1996) tramita y reconoce prestaciones como incapacidad temporal, jubilación, viudedad, etc.",
     },
     {
-      id: 6782,
+      id: 61623,
       moduloId: 616,
       pregunta:
         "¿Qué organismo gestiona las pensiones no contributivas y programas para personas mayores y dependientes? (IMSERSO)",
@@ -359,7 +359,7 @@ export const importanteExamen03 = {
         "El IMSERSO, adscrito al Ministerio de Derechos Sociales, gestiona pensiones no contributivas, turismo social y servicios de atención a la dependencia.",
     },
     {
-      id: 6783,
+      id: 61624,
       moduloId: 616,
       pregunta:
         "¿Qué función principal desempeña la TGSS, Tesorería General de la Seguridad Social?",
@@ -374,7 +374,7 @@ export const importanteExamen03 = {
         "La TGSS (arts. 70‑73 LGSS) es la ‘caja única’: afilia a empresas y trabajadores, recauda cuotas e ingresa los recursos financieros del sistema.",
     },
     {
-      id: 6784,
+      id: 61625,
       moduloId: 616,
       pregunta:
         "¿Qué organismo autónomo reconoce la prestación por desempleo y coordina las políticas activas de empleo? (SEPE)",
@@ -389,7 +389,7 @@ export const importanteExamen03 = {
         "El SEPE, regulado por el RD 1383/2008, gestiona las prestaciones por desempleo y coordina programas de inserción laboral.",
     },
     {
-      id: 6785,
+      id: 61626,
       moduloId: 616,
       pregunta:
         "¿Qué institución promueve la seguridad y salud en el trabajo proporcionando asistencia técnica? (INSST)",
@@ -404,7 +404,7 @@ export const importanteExamen03 = {
         "El INSST, creado por la Ley 31/1995 y regulado por el RD 577/2023, elabora guías y estudios para la prevención de riesgos laborales.",
     },
     {
-      id: 6786,
+      id: 61627,
       moduloId: 616,
       pregunta:
         "En caso de incapacidad temporal derivada de enfermedad común o accidente no laboral, ¿qué cuantía percibe la persona trabajadora?",
@@ -419,7 +419,7 @@ export const importanteExamen03 = {
         "Arts. 169 y 172 LGSS: del día 4 al 20 → 60 % de la base reguladora; desde el 21 → 75 %. Los tres primeros días no se abonan salvo mejora convencional.",
     },
     {
-      id: 6787,
+      id: 61628,
       moduloId: 616,
       pregunta:
         "Para la incapacidad temporal por accidente de trabajo o enfermedad profesional, ¿qué prestación se abona?",
@@ -434,7 +434,7 @@ export const importanteExamen03 = {
         "Art. 173 LGSS: para contingencias profesionales, la cuantía es el 75 % de la base reguladora desde el día siguiente a la baja médica.",
     },
     {
-      id: 6788,
+      id: 61629,
       moduloId: 616,
       pregunta:
         "Según el art. 169 LGSS, ¿cuál es la duración máxima de la incapacidad temporal antes de pasar a prórroga o valoración de incapacidad permanente?",
@@ -449,7 +449,7 @@ export const importanteExamen03 = {
         "La IT dura 365 días y puede prorrogarse otros 180 días cuando se prevea recuperación en ese periodo; después se inicia expediente de incapacidad permanente o alta médica.",
     },
     {
-      id: 6789,
+      id: 61630,
       moduloId: 616,
       pregunta:
         "¿Qué prestación económica percibe la persona trabajadora declarada en Incapacidad Permanente Parcial derivada de contingencias comunes o profesionales?",
@@ -464,7 +464,7 @@ export const importanteExamen03 = {
         "Art. 196 LGSS: la incapacidad permanente parcial no genera pensión, sino una indemnización única de 24 mensualidades de la base reguladora.",
     },
     {
-      id: 6790,
+      id: 61631,
       moduloId: 616,
       pregunta:
         "En la Incapacidad Permanente Total, ¿qué porcentaje de la base reguladora corresponde a la pensión ordinaria?",
@@ -479,7 +479,7 @@ export const importanteExamen03 = {
         "Art. 197 LGSS: la IPT genera pensión del 55 % de la base reguladora; si el beneficiario tiene 55 años o más y dificultades para acceder a empleo, se incrementa al 75 %.",
     },
     {
-      id: 6791,
+      id: 61632,
       moduloId: 616,
       pregunta:
         "Para la Incapacidad Permanente Absoluta, ¿cuál es la cuantía de la pensión sobre la base reguladora?",
@@ -494,7 +494,7 @@ export const importanteExamen03 = {
         "Art. 198 LGSS: la IPA da derecho a pensión vitalicia equivalente al 100 % de la base reguladora.",
     },
     {
-      id: 6792,
+      id: 61633,
       moduloId: 616,
       pregunta:
         "En caso de Gran Invalidez, además de la pensión del 100 % de la base reguladora, se abona:",
@@ -509,7 +509,7 @@ export const importanteExamen03 = {
         "Art. 196.2 LGSS: la Gran Invalidez conlleva la pensión del 100 % de la base reguladora más un complemento para la persona cuidadora, calculado con el 45 % de la base mínima de cotización + 30 % de la última base del trabajador (no puede ser inferior al 45 % de la pensión reconocida).",
     },
     {
-      id: 6793,
+      id: 61634,
       moduloId: 616,
       pregunta:
         "¿Cuál es la prestación económica que recibe una trabajadora en situación de riesgo durante el embarazo cuando es apartada de su puesto de trabajo?",
@@ -524,7 +524,7 @@ export const importanteExamen03 = {
         "Art. 186 LGSS: la prestación por riesgo durante el embarazo asciende al 100 % de la base reguladora de contingencias profesionales y se inicia al día siguiente de la suspensión del contrato o cambio de puesto.",
     },
     {
-      id: 6794,
+      id: 61635,
       moduloId: 616,
       pregunta:
         "En caso de riesgo durante la lactancia natural de un menor de 9 meses, la trabajadora percibirá:",
@@ -539,7 +539,7 @@ export const importanteExamen03 = {
         "Art. 187 LGSS: la cuantía y el inicio de la prestación por riesgo durante la lactancia son idénticos a los del riesgo durante el embarazo: 100 % BR de contingencias profesionales desde el día siguiente a la suspensión.",
     },
     {
-      id: 6795,
+      id: 61636,
       moduloId: 616,
       pregunta:
         "Durante la prestación por nacimiento y cuidado de menor (anterior ‘maternidad / paternidad’), ¿qué porcentaje de la base reguladora perciben los progenitores?",
@@ -554,7 +554,7 @@ export const importanteExamen03 = {
         "Arts. 179‑183 LGSS: la prestación por nacimiento y cuidado de menor cubre el 100 % de la base reguladora (contingencias comunes) durante 16 semanas para cada progenitor, siendo intransferibles las 6 primeras.",
     },
     {
-      id: 6796,
+      id: 61637,
       moduloId: 616,
       pregunta:
         "La prestación para las personas trabajadoras que reducen su jornada al menos un 50 % para el cuidado de menores afectados por cáncer u otra enfermedad grave consiste en:",

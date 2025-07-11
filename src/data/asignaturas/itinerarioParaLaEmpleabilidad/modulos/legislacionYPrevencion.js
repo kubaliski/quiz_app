@@ -18,7 +18,7 @@ export const moduloLegislacionLaboral = {
     descripcion: "Conceptos fundamentales sobre legislación laboral española, derechos y obligaciones de trabajadores y empresarios, y prevención de riesgos laborales.",
     preguntas: [
       {
-        id: 6101,
+        id: 60101,
         moduloId: 601,
         pregunta: "Un trabajador desarrolla dolor de espalda por mala postura en su escritorio. ¿Qué tipo de condición de trabajo afecta su salud?",
         opciones: [
@@ -31,7 +31,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Las condiciones ergonómicas son aquellas relacionadas con la adaptación del puesto de trabajo a las características físicas y psicológicas del trabajador. Una mala postura en el escritorio está directamente relacionada con aspectos ergonómicos, ya que se refiere a la inadecuación entre el diseño del puesto de trabajo y las características anatómicas del trabajador. La ergonomía busca adaptar el trabajo a la persona, y no al revés, para evitar problemas como dolores de espalda, lesiones musculoesqueléticas y otras afecciones relacionadas con posturas inadecuadas.",
       },
       {
-        id: 6102,
+        id: 60102,
         moduloId: 601,
         pregunta: "Telmo empieza a hablar cada vez más. Tiene ahora mismo un año y un mes. No consigue terminar de decir los tres elementos que son necesarios para que un accidente tenga la condición de accidente laboral. Dice: \"existencia de una lesión corporal..\" (te mira, sonríe y continúa diciendo..) \"Trabajador por cuenta ajena....\" y...(ahí es donde se atasca). Ayuda a Telmo.",
         opciones: [
@@ -44,7 +44,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Para que un suceso sea considerado accidente laboral según la legislación española (Ley General de la Seguridad Social), deben cumplirse tres requisitos esenciales: la existencia de una lesión corporal, que el trabajador sea por cuenta ajena, y que exista una relación de causalidad entre el trabajo y la lesión. Esta relación de causalidad implica que la lesión se ha producido 'con ocasión o por consecuencia' del trabajo realizado. Sin este nexo causal, aunque exista una lesión y un trabajador por cuenta ajena, no podríamos hablar de un accidente laboral propiamente dicho.",
       },
       {
-        id: 6103,
+        id: 60103,
         moduloId: 601,
         pregunta: "Las condiciones de trabajo afectan directamente a la salud y bienestar de los empleados. En la clasificación de las condiciones de trabajo no se encuentran:",
         opciones: [
@@ -57,7 +57,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "En la clasificación estándar de las condiciones de trabajo según la normativa de prevención de riesgos laborales, no se incluye la categoría de 'condiciones mentales'. Las clasificaciones reconocidas incluyen: condiciones de seguridad (relacionadas con accidentes laborales), condiciones medioambientales (agentes físicos, químicos y biológicos), condiciones ergonómicas (adaptación del trabajo a la persona) y condiciones psicosociales (factores organizativos que afectan al bienestar). Aunque los aspectos mentales son importantes, se consideran dentro de las condiciones psicosociales, no como una categoría independiente.",
       },
       {
-        id: 6104,
+        id: 60104,
         moduloId: 601,
         pregunta: "Cuál de los siguientes no es un derecho del trabajador en materia de protección frente a riesgos laborales:",
         opciones: [
@@ -70,7 +70,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Evaluar los riesgos no es un derecho del trabajador sino una obligación del empresario según la Ley 31/1995 de Prevención de Riesgos Laborales. Esta ley establece claramente que la evaluación de riesgos es una responsabilidad empresarial fundamental para garantizar la seguridad y salud de los trabajadores. Los trabajadores tienen derechos como formular propuestas al empresario en materia preventiva, recibir vigilancia periódica de su estado de salud, e interrumpir su actividad y abandonar el lugar de trabajo cuando consideren que existe un riesgo grave e inminente para su vida o salud.",
       },
       {
-        id: 6105,
+        id: 60105,
         moduloId: 601,
         pregunta: "¿Cuál es la ley principal en materia de prevención de riesgos laborales en España?",
         opciones: [
@@ -83,7 +83,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales es la norma principal que regula esta materia en España. Esta ley transpuso al derecho español la Directiva 89/391/CEE y estableció el marco básico en el que se desarrollan las distintas acciones preventivas. Define los derechos y obligaciones de trabajadores y empresarios, establece los principios generales de la acción preventiva, regula los servicios de prevención, y determina las responsabilidades y sanciones relacionadas con el incumplimiento de la normativa preventiva. Es la piedra angular de toda la estructura normativa sobre seguridad y salud en el trabajo en España.",
       },
       {
-        id: 6106,
+        id: 60106,
         moduloId: 601,
         pregunta: "Un trabajador tiene derecho a interrumpir su actividad si existe un:",
         opciones: [
@@ -96,7 +96,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el artículo 21 de la Ley 31/1995 de Prevención de Riesgos Laborales, el trabajador tiene derecho a interrumpir su actividad y abandonar el lugar de trabajo cuando considere que dicha actividad entraña un 'riesgo grave e inminente' para su vida o su salud. La ley define específicamente este concepto como aquel que resulte probable que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores. Esta definición legal precisa implica tanto la gravedad del posible daño como la inminencia temporal del mismo, no siendo suficiente que el riesgo sea solo grave o solo inminente.",
       },
       {
-        id: 6107,
+        id: 60107,
         moduloId: 601,
         pregunta: "¿Cuáles son los tres tipos de bienestar en la salud según la OMS?",
         opciones: [
@@ -109,7 +109,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según la definición oficial de la Organización Mundial de la Salud (OMS), la salud es 'un estado de completo bienestar físico, mental y social, y no solamente la ausencia de afecciones o enfermedades'. Esta definición, adoptada en 1946 y que permanece vigente, reconoce que la salud es un concepto integral que abarca tres dimensiones fundamentales del bienestar humano. Este enfoque holístico supera la visión tradicional que limitaba la salud a la ausencia de enfermedad física, incorporando aspectos psicológicos y de adaptación e interacción social como componentes esenciales de una salud plena.",
       },
       {
-        id: 6108,
+        id: 60108,
         moduloId: 601,
         pregunta: "¿Qué categoría de daño profesional incluye enfermedades psicológicas como el estrés y el burnout?",
         opciones: [
@@ -122,7 +122,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Las enfermedades psicológicas como el estrés y el burnout se clasifican dentro de las Patologías Inespecíficas en el ámbito de los daños profesionales. Estas patologías, también conocidas como enfermedades relacionadas con el trabajo, no están incluidas en el cuadro oficial de enfermedades profesionales (que serían Patologías Específicas), pero tienen una clara relación con la actividad laboral. A diferencia de las enfermedades profesionales reconocidas, que tienen una relación causa-efecto directa y específica con determinados agentes o actividades, las patologías inespecíficas presentan un origen multicausal donde el trabajo actúa como factor contribuyente pero no único o exclusivo.",
       },
       {
-        id: 6109,
+        id: 60109,
         moduloId: 601,
         pregunta: "¿Qué organismo se encarga de la inspección y cumplimiento de la normativa laboral en España?",
         opciones: [
@@ -135,7 +135,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La Inspección de Trabajo y Seguridad Social (ITSS) es el organismo responsable de vigilar y exigir el cumplimiento de la normativa laboral en España. Como servicio público dependiente del Ministerio de Trabajo y Economía Social, la ITSS tiene como funciones principales la vigilancia y exigencia del cumplimiento de las normas legales, reglamentarias y del contenido de los convenios colectivos en diversos ámbitos: relaciones laborales, prevención de riesgos laborales, seguridad social, empleo y migraciones. Sus inspectores tienen carácter de autoridad pública y están facultados para entrar libremente en los centros de trabajo, realizar investigaciones, y proponer sanciones en caso de infracciones.",
       },
       {
-        id: 6110,
+        id: 60110,
         moduloId: 601,
         pregunta: "¿Qué organismo internacional establece normas sobre seguridad y salud en el trabajo?",
         opciones: [
@@ -148,7 +148,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La Organización Internacional del Trabajo (OIT) es el organismo especializado de las Naciones Unidas que se ocupa de establecer normas internacionales sobre seguridad y salud en el trabajo. Fundada en 1919 como parte del Tratado de Versalles, la OIT tiene una estructura tripartita única que reúne a gobiernos, empleadores y trabajadores para establecer normas laborales, desarrollar políticas y elaborar programas que promuevan el trabajo decente. En materia de seguridad y salud laboral, la OIT ha adoptado más de 40 convenios y recomendaciones específicos, además de desarrollar códigos de práctica y directrices técnicas que sirven como referencia internacional para las legislaciones nacionales.",
       },
       {
-        id: 6111,
+        id: 60111,
         moduloId: 601,
         pregunta: "¿Qué señal indica una obligación?",
         opciones: [
@@ -161,7 +161,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el Real Decreto 485/1997 sobre disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo, las señales de obligación tienen forma redonda con fondo azul y pictograma blanco. Estas señales indican comportamientos o acciones específicas que deben adoptarse obligatoriamente, como el uso de equipos de protección individual. Son fácilmente reconocibles por su color azul característico, que las diferencia de otras señales como las de advertencia (triángulo amarillo), prohibición (círculo rojo) o salvamento (rectángulo verde).",
       },
       {
-        id: 6112,
+        id: 60112,
         moduloId: 601,
         pregunta: "¿Qué grupo de agentes biológicos representa el mayor peligro?",
         opciones: [
@@ -174,7 +174,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el Real Decreto 664/1997 sobre la protección de los trabajadores contra los riesgos relacionados con la exposición a agentes biológicos, estos se clasifican en cuatro grupos según su nivel de riesgo. El Grupo 4 representa el mayor peligro, ya que incluye agentes que pueden causar enfermedades graves en el ser humano, suponen un serio peligro para los trabajadores, presentan un alto riesgo de propagación a la colectividad y no existe generalmente una profilaxis o tratamiento eficaz. Ejemplos de agentes del Grupo 4 incluyen virus como el Ébola o la viruela.",
       },
       {
-        id: 6113,
+        id: 60113,
         moduloId: 601,
         pregunta: "¿Cuál es un ejemplo de radiación ionizante?",
         opciones: [
@@ -187,7 +187,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Los rayos X son un ejemplo de radiación ionizante. Este tipo de radiación tiene suficiente energía para arrancar electrones de los átomos, creando iones, lo que puede provocar cambios en la estructura molecular de las células vivas y potencialmente causar daños genéticos. Las radiaciones ionizantes incluyen, además de los rayos X, los rayos gamma, partículas alfa, partículas beta y neutrones. En cambio, la luz visible, las microondas y la radiación infrarroja son ejemplos de radiaciones no ionizantes, que tienen menor energía y no pueden ionizar la materia.",
       },
       {
-        id: 6114,
+        id: 60114,
         moduloId: 601,
         pregunta: "¿Qué tipo de extintor es el indicado para apagar un incendio de aceite de cocina?",
         opciones: [
@@ -200,7 +200,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "El extintor tipo B es el indicado para apagar un incendio de aceite de cocina. Los extintores se clasifican según el tipo de fuego que pueden combatir, y los de tipo B están diseñados específicamente para fuegos de líquidos inflamables como aceites, grasas, pinturas, gasolina, etc. Funcionan principalmente sofocando el fuego y eliminando el oxígeno. Por el contrario, los extintores tipo A son para materiales sólidos comunes (madera, papel), los tipo C para fuegos de gases inflamables, y los tipo D para metales combustibles. Es importante usar el tipo correcto de extintor para cada clase de fuego, ya que utilizar uno inadecuado puede ser ineficaz o incluso peligroso.",
       },
       {
-        id: 6115,
+        id: 60115,
         moduloId: 601,
         pregunta: "¿Cuál de los siguientes no es un elemento necesario del tetraedro del fuego?",
         opciones: [
@@ -213,7 +213,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La chispa no es un elemento necesario del tetraedro del fuego. El tetraedro del fuego está formado por cuatro elementos esenciales: combustible (material que puede arder), comburente (generalmente oxígeno, que permite la combustión), calor (energía necesaria para iniciar y mantener la combustión) y reacción en cadena (proceso químico que sustenta y propaga el fuego). La chispa puede ser una fuente de ignición que proporciona el calor inicial, pero no es un elemento del tetraedro en sí mismo. Para extinguir un fuego, basta con eliminar cualquiera de los cuatro elementos que componen el tetraedro.",
       },
         {
-            id: 6116,
+            id: 60116,
             moduloId: 601,
             pregunta: "¿Qué técnica de prevención se centra en identificar situaciones peligrosas?",
             opciones: [
@@ -226,7 +226,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La Seguridad en el Trabajo es la técnica preventiva que se centra específicamente en identificar situaciones peligrosas, evaluando los riesgos de accidentes laborales y proponiendo medidas para su eliminación o reducción. Se ocupa principalmente de factores de riesgo mecánicos, eléctricos, de incendio o explosión, entre otros, que pueden causar lesiones traumáticas. A diferencia de esta, la Higiene Industrial se enfoca en agentes ambientales que pueden causar enfermedades profesionales, la Ergonomía busca adaptar el trabajo a las capacidades de las personas, y la Medicina del Trabajo se orienta a la vigilancia de la salud y atención sanitaria de los trabajadores.",
         },
         {
-            id: 6117,
+            id: 60117,
             moduloId: 601,
             pregunta: "¿Cuál es el primer principio de la prevención según la LPRL?",
             opciones: [
@@ -239,7 +239,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales (LPRL), el primer principio de la acción preventiva es 'evitar los riesgos'. Este principio fundamental establece que la primera medida a considerar siempre debe ser la eliminación completa del riesgo, antes de contemplar otras acciones como evaluarlo o reducirlo. La ley establece una jerarquía clara de principios preventivos, donde la prioridad absoluta es evitar que los riesgos lleguen a manifestarse, seguido por evaluar aquellos que no puedan evitarse, combatirlos en su origen, adaptar el trabajo a la persona, y así sucesivamente. Este enfoque preventivo prioriza la eliminación del riesgo sobre cualquier otra medida de control.",
         },
         {
-            id: 6118,
+            id: 60118,
             moduloId: 601,
             pregunta: "El control de exposición es una técnica que pertenece a la",
             opciones: [
@@ -252,7 +252,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El control de exposición es una técnica que pertenece fundamentalmente a la higiene industrial. La higiene industrial es la disciplina preventiva que se ocupa de identificar, evaluar y controlar los agentes físicos, químicos y biológicos presentes en el ambiente de trabajo que pueden causar enfermedades profesionales. El control de exposición se refiere específicamente a las medidas destinadas a reducir o eliminar la exposición de los trabajadores a estos agentes contaminantes, estableciendo límites de exposición profesional y aplicando medidas técnicas para mantener los niveles por debajo de dichos límites. Estas medidas pueden incluir controles de ingeniería, administrativos o el uso de equipos de protección individual.",
         },
         {
-            id: 6119,
+            id: 60119,
             moduloId: 601,
             pregunta: "¿Cuál de las siguientes medidas de protección es individual?",
             opciones: [
@@ -265,7 +265,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Las mascarillas de seguridad son un ejemplo de medida de protección individual. Los equipos de protección individual (EPI) son aquellos destinados a ser llevados o sujetados por el trabajador para protegerle de uno o varios riesgos que puedan amenazar su seguridad o salud. A diferencia de las medidas de protección colectiva, como la ventilación, la extracción de humos o la delimitación de zonas, que protegen a todos los trabajadores expuestos, los EPI protegen exclusivamente al individuo que los utiliza. Según la normativa de prevención, los EPI deben utilizarse cuando los riesgos no se puedan evitar o no puedan limitarse suficientemente mediante medidas de protección colectiva.",
         },
         {
-            id: 6120,
+            id: 60120,
             moduloId: 601,
             pregunta: "¿Qué método de extinción de incendios consiste en eliminar el oxígeno del área afectada?",
             opciones: [
@@ -278,7 +278,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La sofocación es el método de extinción de incendios que consiste en eliminar o reducir el oxígeno (comburente) del área afectada, impidiendo así que continúe la combustión. Este método se basa en aislar el combustible del oxígeno del aire, que es necesario para mantener la reacción del fuego. La sofocación puede lograrse mediante el uso de mantas ignífugas, arena, espuma, o ciertos agentes extintores como el CO2 que desplazan el oxígeno. Por el contrario, el enfriamiento actúa reduciendo la temperatura, eliminando el calor necesario para la combustión. El término 'disgusto' no es un método reconocido de extinción, y la dilución generalmente se refiere a reducir la concentración de sustancias peligrosas, no a la extinción de incendios.",
         },
         {
-            id: 6121,
+            id: 60121,
             moduloId: 601,
             pregunta: "¿Cuáles son los niveles de cualificación en prevención de riesgos laborales?",
             opciones: [
@@ -291,7 +291,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el Reglamento de los Servicios de Prevención (Real Decreto 39/1997), los niveles de cualificación en prevención de riesgos laborales son: básico, intermedio y superior. Cada nivel implica diferentes funciones y responsabilidades, así como distintos requisitos formativos. El nivel básico requiere un curso de formación mínima de 30-50 horas y permite realizar funciones preventivas elementales. El nivel intermedio exige una formación de 300 horas y permite realizar evaluaciones de riesgos que no requieran procedimientos complejos. El nivel superior requiere una formación de 600 horas y habilita para realizar funciones de mayor complejidad, incluyendo la especialización en áreas como seguridad, higiene industrial, ergonomía o psicosociología.",
         },
         {
-            id: 6122,
+            id: 60122,
             moduloId: 601,
             pregunta: "¿Cuál es la función principal del nivel básico en prevención de riesgos laborales?",
             opciones: [
@@ -304,7 +304,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La función principal del nivel básico en prevención de riesgos laborales es realizar tareas sencillas y de vigilancia bajo supervisión. Según el artículo 35 del Real Decreto 39/1997, las funciones del nivel básico incluyen: promover comportamientos seguros, realizar evaluaciones elementales de riesgos, proponer medidas preventivas básicas, colaborar en la evaluación y control de riesgos, y actuar en caso de emergencia. Estas funciones siempre se realizan bajo la supervisión de técnicos de niveles superiores. El nivel básico no está capacitado para gestionar planes de prevención de forma autónoma, realizar evaluaciones complejas de riesgos, ni formar y asesorar a otros profesionales, tareas que corresponden a los niveles intermedio y superior.",
         },
         {
-            id: 6123,
+            id: 60123,
             moduloId: 601,
             pregunta: "¿Cuántas horas de formación requiere el nivel superior de prevención de riesgos laborales?",
             opciones: [
@@ -317,7 +317,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El nivel superior de prevención de riesgos laborales requiere una formación mínima de 600 horas acreditadas por una universidad. Según el artículo 37 del Real Decreto 39/1997, para desempeñar funciones de nivel superior es necesario contar con una titulación universitaria y acreditar una formación específica en prevención de riesgos laborales de al menos 600 horas. Esta formación debe incluir una parte común y otra de especialización en al menos una de las siguientes áreas: Seguridad en el Trabajo, Higiene Industrial, Ergonomía y Psicosociología Aplicada, o Medicina del Trabajo (esta última requiere ser médico especialista). El alto número de horas refleja la complejidad y responsabilidad de las funciones asociadas a este nivel.",
         },
         {
-            id: 6124,
+            id: 60124,
             moduloId: 601,
             pregunta: "¿Quiénes conforman el Comité de Seguridad y Salud?",
             opciones: [
@@ -330,7 +330,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El Comité de Seguridad y Salud está conformado por representantes de la empresa y trabajadores en igual número. Según el artículo 38 de la Ley 31/1995 de Prevención de Riesgos Laborales, este órgano paritario y colegiado está formado, por un lado, por los Delegados de Prevención (representantes de los trabajadores con funciones específicas en materia preventiva) y, por otro lado, por el empresario y/o sus representantes en igual número. Esta composición equilibrada garantiza que todas las partes implicadas en la prevención tengan voz y voto en las decisiones sobre seguridad y salud laboral, fomentando la participación y el diálogo entre empresa y trabajadores para mejorar las condiciones de trabajo.",
         },
         {
-            id: 6125,
+            id: 60125,
             moduloId: 601,
             pregunta: "¿Cada cuánto debe reunirse el Comité de Seguridad y Salud?",
             opciones: [
@@ -343,7 +343,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el artículo 38.3 de la Ley 31/1995 de Prevención de Riesgos Laborales, el Comité de Seguridad y Salud debe reunirse trimestralmente (cada tres meses) y siempre que lo solicite alguna de las representaciones en el mismo. Esta frecuencia trimestral asegura un seguimiento regular de las cuestiones de seguridad y salud en la empresa, permitiendo abordar problemas recurrentes y evaluar la eficacia de las medidas preventivas implementadas. La posibilidad de convocar reuniones adicionales cuando sea necesario proporciona flexibilidad para tratar situaciones urgentes o imprevistas que requieran la atención inmediata del Comité, como accidentes graves o cambios significativos en las condiciones de trabajo.",
         },
         {
-            id: 6126,
+            id: 60126,
             moduloId: 601,
             pregunta: "¿Cómo se designan los Delegados de Prevención?",
             opciones: [
@@ -356,7 +356,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el artículo 35.2 de la Ley 31/1995 de Prevención de Riesgos Laborales, los Delegados de Prevención son designados por y entre los representantes del personal. Esto significa que son los propios representantes legales de los trabajadores (delegados de personal o miembros del comité de empresa) quienes eligen de entre ellos mismos a quiénes ejercerán adicionalmente las funciones específicas en materia de prevención. Esta fórmula busca aprovechar la legitimidad y conocimiento de la empresa que ya tienen los representantes electos. El número de Delegados de Prevención varía según el tamaño de la empresa, desde uno en empresas de hasta 49 trabajadores hasta ocho en empresas de más de 4.000 trabajadores.",
         },
         {
-            id: 6127,
+            id: 60127,
             moduloId: 601,
             pregunta: "¿En qué empresas puede asumir la prevención de riesgos laborales el propio empresario?",
             opciones: [
@@ -369,7 +369,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el artículo 11 del Real Decreto 39/1997, el empresario puede asumir personalmente la actividad preventiva en empresas de hasta 10 trabajadores, siempre que cumpla con estos requisitos adicionales: que desarrolle habitualmente su actividad profesional en el centro de trabajo, que tenga la capacidad correspondiente a las funciones preventivas que va a desarrollar (formación mínima de nivel básico), y que la empresa no realice actividades incluidas en el Anexo I (actividades consideradas especialmente peligrosas). Esta posibilidad busca facilitar el cumplimiento de las obligaciones preventivas en las microempresas, reduciendo las cargas administrativas sin comprometer la seguridad y salud de los trabajadores.",
         },
         {
-            id: 6128,
+            id: 60128,
             moduloId: 601,
             pregunta: "¿Qué tipo de empresas están obligadas a tener un Servicio de Prevención Propio?",
             opciones: [
@@ -382,7 +382,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el artículo 14 del Real Decreto 39/1997, están obligadas a constituir un Servicio de Prevención Propio las empresas con más de 500 trabajadores, así como aquellas que tengan entre 250 y 500 trabajadores y desarrollen actividades peligrosas incluidas en el Anexo I del mismo decreto. También deben constituirlo, independientemente de su tamaño, las empresas a las que la Autoridad Laboral lo imponga por la peligrosidad de su actividad o frecuencia/gravedad de su siniestralidad. Esta obligación se justifica porque las empresas grandes o con actividades de especial riesgo requieren una gestión preventiva más intensa y especializada, que difícilmente podría ser proporcionada adecuadamente por medios externos a tiempo completo.",
         },
         {
-            id: 6129,
+            id: 60129,
             moduloId: 601,
             pregunta: "¿Cuál es el color de la tarjeta que se utiliza en el triaje para los heridos más graves?",
             opciones: [
@@ -395,7 +395,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "En el sistema de triaje, el color rojo se utiliza para identificar a los heridos más graves que requieren atención médica inmediata. Este sistema de clasificación de víctimas, utilizado en situaciones de emergencia y catástrofes con múltiples heridos, asigna colores según la gravedad y prioridad de atención. El color rojo (Prioridad 1) indica pacientes críticos con riesgo vital que necesitan tratamiento inmediato. El amarillo (Prioridad 2) designa heridos graves pero estables que pueden esperar horas. El verde (Prioridad 3) se asigna a heridos leves que pueden esperar incluso días. El negro suele indicar fallecidos o personas con lesiones incompatibles con la vida. El ámbar no es un color estándar en los sistemas de triaje principales.",
         },
         {
-            id: 6130,
+            id: 60130,
             moduloId: 601,
             pregunta: "¿Qué empresa debe contar con un botiquín de primeros auxilios?",
             opciones: [
@@ -408,7 +408,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Según el Real Decreto 486/1997 sobre disposiciones mínimas de seguridad y salud en los lugares de trabajo, todas las empresas deben contar con un botiquín de primeros auxilios. En su Anexo VI se establece que los lugares de trabajo dispondrán de material para primeros auxilios en caso de accidente, adecuado en cuanto a su cantidad y características, al número de trabajadores, a los riesgos a que estén expuestos y a las facilidades de acceso al centro de asistencia médica más próximo. Este material debe estar claramente señalizado y ser de fácil acceso. La obligatoriedad para todas las empresas, independientemente de su tamaño o actividad, refleja la importancia de proporcionar una primera atención inmediata ante cualquier accidente laboral.",
         },
         {
-            id: 6131,
+            id: 60131,
             moduloId: 601,
             pregunta: "¿En qué contexto histórico surge el Derecho del Trabajo?",
             opciones: [
@@ -421,7 +421,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El Derecho del Trabajo surge como disciplina jurídica autónoma durante la Revolución Industrial (siglos XVIII y XIX). Este período de profunda transformación económica y social, caracterizado por la mecanización de la producción y la concentración de trabajadores en fábricas, generó nuevas formas de relaciones laborales que necesitaban regulación específica. Las duras condiciones de trabajo (jornadas extenuantes, salarios insuficientes, empleo infantil, inseguridad laboral), junto con la organización del movimiento obrero y las primeras huelgas, evidenciaron la necesidad de normas que equilibraran la desigualdad inherente entre trabajadores y empleadores. Así nació el Derecho del Trabajo, inicialmente con leyes puntuales sobre aspectos como el trabajo infantil, y posteriormente como un sistema jurídico completo para regular las relaciones laborales.",
         },
         {
-            id: 6132,
+            id: 60132,
             moduloId: 601,
             pregunta: "¿Qué organización internacional fue creada en 1919 para promover la justicia social en el ámbito laboral?",
             opciones: [
@@ -434,7 +434,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La Organización Internacional del Trabajo (OIT) fue creada en 1919 como parte del Tratado de Versalles que puso fin a la Primera Guerra Mundial, convirtiéndose en la primera agencia especializada de la ONU en 1946. Su fundación respondió a la convicción de que la paz universal y permanente solo puede basarse en la justicia social. La OIT tiene una estructura tripartita única que reúne a gobiernos, empleadores y trabajadores para establecer normas laborales, desarrollar políticas y crear programas que promuevan el trabajo decente para todos. A lo largo de su historia, ha adoptado numerosos convenios y recomendaciones internacionales que establecen estándares mínimos en materia de derechos laborales fundamentales, como libertad sindical, trabajo forzoso, trabajo infantil y discriminación.",
         },
         {
-            id: 6133,
+            id: 60133,
             moduloId: 601,
             pregunta: "¿Cuál de las siguientes es una relación laboral especial?",
             opciones: [
@@ -447,7 +447,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Los trabajadores del hogar (empleados de servicio doméstico) constituyen una relación laboral especial según el artículo 2.1.b del Estatuto de los Trabajadores y están regulados por el Real Decreto 1620/2011. Las relaciones laborales especiales son aquellas que, por sus peculiaridades, reciben una regulación específica distinta de la común, aunque mantienen las características esenciales de la relación laboral. En el caso del servicio doméstico, sus particularidades (trabajo en un hogar familiar, relación de confianza, etc.) justifican esta regulación especial. Por el contrario, los funcionarios públicos tienen una relación estatutaria (no laboral), los voluntarios no tienen relación laboral al no percibir retribución, y los consejeros de empresa generalmente mantienen una relación mercantil, no laboral.",
         },
         {
-            id: 6134,
+            id: 60134,
             moduloId: 601,
             pregunta: "¿Cuál es la norma jerárquicamente más alta en el Derecho del Trabajo español?",
             opciones: [
@@ -460,7 +460,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La Constitución Española de 1978 es la norma jerárquicamente más alta en el Derecho del Trabajo español, como lo es en todo el ordenamiento jurídico nacional. Como norma fundamental del Estado, establece los principios básicos que deben regir las relaciones laborales y reconoce derechos fundamentales relacionados con el trabajo, como el derecho al trabajo (art. 35), a la libertad sindical (art. 28.1), a la huelga (art. 28.2) y a la negociación colectiva (art. 37). Todas las demás normas laborales, incluido el Estatuto de los Trabajadores, los convenios colectivos y los usos y costumbres profesionales, están subordinadas a la Constitución y deben interpretarse conforme a ella. La jerarquía normativa garantiza la coherencia del sistema jurídico laboral.",
         },
         {
-            id: 6135,
+            id: 60135,
             moduloId: 601,
             pregunta: "¿Cuál es el principio que garantiza que siempre se aplicará la norma más beneficiosa para el trabajador?",
             opciones: [
@@ -473,7 +473,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El principio de norma más favorable es el que garantiza que, en caso de concurrencia de normas laborales aplicables a una misma situación, se aplicará aquella que resulte más beneficiosa para el trabajador en su conjunto. Este principio, recogido en el artículo 3.3 del Estatuto de los Trabajadores, constituye una excepción al principio general de jerarquía normativa, permitiendo que normas de rango inferior (como convenios colectivos) puedan prevalecer sobre normas superiores cuando establecen condiciones más ventajosas. Se trata de un principio fundamental del Derecho Laboral que refleja su carácter tuitivo o protector, orientado a compensar la desigualdad intrínseca de la relación laboral mediante mecanismos jurídicos que favorecen a la parte más débil.",
         },
         {
-            id: 6136,
+            id: 60136,
             moduloId: 601,
             pregunta: "¿Cuáles son los principales órganos judiciales en materia laboral?",
             opciones: [
@@ -486,7 +486,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "Los principales órganos judiciales en materia laboral son los Juzgados de lo Social, Tribunal Superior de Justicia, Tribunal Supremo y Audiencia Nacional. Esta estructura jurisdiccional está regulada por la Ley 36/2011, Reguladora de la Jurisdicción Social. Los Juzgados de lo Social conocen en primera instancia de la mayoría de los litigios laborales individuales. Las Salas de lo Social de los Tribunales Superiores de Justicia conocen recursos contra resoluciones de los Juzgados de lo Social y asuntos colectivos de ámbito autonómico. La Sala de lo Social de la Audiencia Nacional conoce conflictos colectivos de ámbito superior a una Comunidad Autónoma. La Sala de lo Social del Tribunal Supremo es el órgano superior, que unifica doctrina mediante recursos de casación.",
         },
         {
-            id: 6137,
+            id: 60137,
             moduloId: 601,
             pregunta: "¿Cuál de las siguientes se considera una relación laboral excluida?",
             opciones: [
@@ -499,7 +499,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El caso de Lucas, que trabaja en el bar de su tío Juan, dependiendo económicamente de él y conviviendo con él, se considera una relación laboral excluida según el artículo 1.3.e del Estatuto de los Trabajadores. Este artículo excluye del ámbito laboral 'los trabajos familiares, salvo que se demuestre la condición de asalariados de quienes los llevan a cabo'. Se consideran trabajos familiares aquellos realizados por familiares del empresario hasta el segundo grado inclusive (el tío es familiar de segundo grado) que convivan con él y estén a su cargo. Esta exclusión se debe a la presunción de que las relaciones familiares se rigen por vínculos de colaboración y solidaridad diferentes a los propios de una relación laboral.",
         },
         {
-            id: 6138,
+            id: 60138,
             moduloId: 601,
             pregunta: "¿Qué derecho NO está protegido por la legislación laboral española?",
             opciones: [
@@ -512,7 +512,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El derecho a elegir libremente las vacaciones no está protegido como tal por la legislación laboral española. Según el artículo 38 del Estatuto de los Trabajadores, el período de vacaciones se fijará de común acuerdo entre empresario y trabajador, conforme a lo establecido en la negociación colectiva sobre planificación anual de vacaciones. En caso de desacuerdo, la jurisdicción social determinará la fecha de disfrute. Por tanto, no existe un derecho absoluto del trabajador a decidir unilateralmente cuándo disfrutar sus vacaciones. Por el contrario, los otros derechos mencionados están expresamente protegidos: el derecho a huelga (art. 28.2 CE), el derecho a la no discriminación (art. 14 CE y 17 ET) y el derecho a la negociación colectiva (art. 37 CE).",
         },
         {
-            id: 6139,
+            id: 60139,
             moduloId: 601,
             pregunta: "¿Cuál es la función del Servicio de Mediación, Arbitraje y Conciliación (SMAC)?",
             opciones: [
@@ -525,7 +525,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "La función principal del Servicio de Mediación, Arbitraje y Conciliación (SMAC) es resolver conflictos laborales sin necesidad de juicio. Este organismo administrativo dependiente de las Comunidades Autónomas realiza la conciliación previa obligatoria antes de acudir a la vía judicial en la mayoría de los litigios laborales, según establece el artículo 63 de la Ley Reguladora de la Jurisdicción Social. En el acto de conciliación, un funcionario intenta que las partes (trabajador y empresa) lleguen a un acuerdo que evite el posterior proceso judicial. Si se alcanza un acuerdo, este tiene fuerza ejecutiva equivalente a una sentencia. Este sistema busca descongestionar los tribunales y proporcionar una solución más rápida y menos costosa a los conflictos laborales.",
         },
         {
-            id: 6140,
+            id: 60140,
             moduloId: 601,
             pregunta: "¿Qué principio establece que los derechos adquiridos por los trabajadores no pueden ser reducidos?",
             opciones: [
@@ -538,7 +538,7 @@ export const moduloLegislacionLaboral = {
             explicacion: "El principio de condición más beneficiosa establece que los derechos adquiridos por los trabajadores no pueden ser reducidos unilateralmente por el empresario. Este principio, desarrollado jurisprudencialmente y con base en el artículo 3.1.c del Estatuto de los Trabajadores, protege aquellas condiciones laborales más favorables que el trabajador ha incorporado a su relación laboral por voluntad unilateral del empresario o por acuerdo entre ambas partes, y que no tienen su origen en una norma jurídica o convenio colectivo. Para que opere este principio, es necesario que la condición se haya consolidado, sea clara y regular, y se haya otorgado por voluntad clara del empresario de incorporarla al nexo contractual. Una vez consolidada, esta condición no puede ser suprimida ni disminuida unilateralmente por el empresario.",
         },
     {
-        id: 6141,
+        id: 60141,
         moduloId: 601,
         pregunta: "Matías es técnico superior en calidad alimentaria ¿Cuánto puede durar su periodo de prueba si en el convenio colectivo aplicable no se establece nada al respecto?",
         opciones: [
@@ -551,7 +551,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el artículo 14.1 del Estatuto de los Trabajadores, el periodo de prueba de Matías como técnico superior en calidad alimentaria puede durar un máximo de 6 meses si en el convenio colectivo no se establece nada al respecto. La ley distingue entre técnicos titulados y el resto de trabajadores. Para los técnicos titulados (personas con formación universitaria o formación profesional de grado superior que realizan funciones propias de su titulación), el límite máximo es de 6 meses; mientras que para los demás trabajadores, es de 2 meses en empresas con más de 25 trabajadores y 3 meses en empresas más pequeñas. Al ser Matías un técnico superior, se aplica el límite de 6 meses, salvo que el convenio colectivo establezca otra duración.",
       },
       {
-        id: 6142,
+        id: 60142,
         moduloId: 601,
         pregunta: "Imagina que el convenio colectivo de Matías estableciera que el periodo de prueba fuera de un año. ¿Sería válido?",
         opciones: [
@@ -564,7 +564,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Si el convenio colectivo de Matías estableciera un periodo de prueba de un año, esto sería válido. El artículo 14.1 del Estatuto de los Trabajadores establece expresamente que los límites de duración del periodo de prueba (6 meses para técnicos titulados y 2 o 3 meses para el resto) se aplicarán 'en defecto de pacto en convenio'. Esto significa que estos límites legales son supletorios y sólo se aplican cuando el convenio colectivo no regula la duración del periodo de prueba. Si el convenio establece una duración diferente, incluso mayor, prevalece lo dispuesto en el convenio. La única excepción sería si se tratara de un contrato temporal de duración determinada inferior a 6 meses, en cuyo caso el periodo de prueba no podría exceder de un tercio de la duración del contrato.",
       },
       {
-        id: 6143,
+        id: 60143,
         moduloId: 601,
         pregunta: "¿Qué pasa si el trabajador se incapacita temporalmente durante el período de prueba?",
         opciones: [
@@ -577,7 +577,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el artículo 14.3 del Estatuto de los Trabajadores, cuando el trabajador se incapacita temporalmente durante el período de prueba, este se interrumpe automáticamente, salvo pacto en contrario. Esto significa que el cómputo del tiempo del periodo de prueba se detiene mientras dura la situación de incapacidad temporal y se reanuda cuando el trabajador se reincorpora al trabajo. Esta interrupción protege tanto los intereses del trabajador (que tendrá la oportunidad de demostrar su valía durante el periodo completo) como los del empresario (que podrá evaluar adecuadamente las aptitudes del trabajador). Esta regla se aplica también en otras situaciones como riesgo durante el embarazo, nacimiento, adopción, guarda con fines de adopción, acogimiento o riesgo durante la lactancia.",
       },
       {
-        id: 6144,
+        id: 60144,
         moduloId: 601,
         pregunta: "¿Qué caracteriza a un contrato de sustitución?",
         opciones: [
@@ -590,7 +590,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "El contrato de sustitución (anteriormente llamado de interinidad) se caracteriza por usarse para reemplazar temporalmente a un trabajador con derecho a reserva de puesto. Según el artículo 15.3 del Estatuto de los Trabajadores, este contrato se puede celebrar para sustituir a personas con derecho a reserva del puesto de trabajo (por ejemplo, trabajadores en incapacidad temporal, excedencia, maternidad/paternidad) o para cubrir temporalmente un puesto durante un proceso de selección. El contrato debe especificar el nombre del sustituido y la causa de la sustitución. Su duración está vinculada al tiempo que persista el derecho de reserva del trabajador sustituido o a la duración del proceso de selección, que no puede exceder de tres meses en el sector privado.",
       },
       {
-        id: 6145,
+        id: 60145,
         moduloId: 601,
         pregunta: "¿Qué modalidad de contrato se usa para facilitar la jubilación parcial de un trabajador?",
         opciones: [
@@ -603,7 +603,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "El contrato de relevo es la modalidad utilizada para facilitar la jubilación parcial de un trabajador. Según los artículos 12.7 del Estatuto de los Trabajadores y 215 de la Ley General de la Seguridad Social, cuando un trabajador accede a la jubilación parcial, reduciendo su jornada y salario entre un 25% y un 50% (o hasta un 75% en ciertos casos), la empresa debe contratar simultáneamente a otro trabajador (el relevista) para cubrir, como mínimo, la jornada dejada vacante por el jubilado parcial. Este contrato permite una transición gradual hacia la jubilación total, facilita el relevo generacional y garantiza la transmisión de conocimientos y experiencia. El contrato del relevista puede ser indefinido o de duración determinada hasta que el trabajador relevado alcance la edad de jubilación ordinaria.",
       },
       {
-        id: 6146,
+        id: 60146,
         moduloId: 601,
         pregunta: "¿Tiene derecho un trabajador relevista a una indemnización cuando finaliza su contrato?",
         opciones: [
@@ -616,7 +616,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Un trabajador relevista con contrato temporal tiene derecho a una indemnización de 12 días de salario por año trabajado cuando finaliza su contrato, según establece el artículo 49.1.c del Estatuto de los Trabajadores para los contratos temporales. Esta indemnización se aplica a los contratos de relevo de duración determinada, que finalizan cuando el trabajador relevado alcanza la edad de jubilación ordinaria. Sin embargo, si el contrato de relevo es indefinido (como suele ser habitual cuando el trabajador relevado reduce su jornada en un 75%), no corresponde esta indemnización por finalización de contrato temporal. En caso de despido improcedente, la indemnización sería de 33 días por año trabajado, como para cualquier otro trabajador indefinido.",
       },
       {
-        id: 6147,
+        id: 60147,
         moduloId: 601,
         pregunta: "Un contrato para la obtención de la práctica profesional tendrá una duración de:",
         opciones: [
@@ -629,7 +629,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el artículo 11.3 del Estatuto de los Trabajadores, un contrato para la obtención de la práctica profesional tendrá una duración de entre seis meses y un año. Este contrato, que sustituyó al antiguo contrato en prácticas tras la reforma laboral de 2021 (Real Decreto-ley 32/2021), está destinado a quienes posean un título universitario, de formación profesional, o certificado del sistema de formación profesional. Debe formalizarse dentro de los tres años siguientes a la terminación de los estudios (cinco años para personas con discapacidad) y permite adquirir práctica profesional adecuada al nivel de estudios. El periodo de prueba no puede exceder de un mes y el trabajador debe recibir formación teórica complementaria a la práctica. A su finalización, el trabajador tiene derecho a una certificación del contenido de la práctica realizada.",
       },
       {
-        id: 6148,
+        id: 60148,
         moduloId: 601,
         pregunta: "En un contrato de tiempo parcial las horas complementarias pactadas, no podrán superar:",
         opciones: [
@@ -642,7 +642,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Según el artículo 12.5.c del Estatuto de los Trabajadores, en un contrato a tiempo parcial, las horas complementarias pactadas no podrán exceder del 30% de las horas ordinarias contratadas. No obstante, los convenios colectivos pueden establecer otro porcentaje máximo, que en ningún caso puede superar el 60% de las horas ordinarias contratadas. Las horas complementarias son aquellas cuya realización ha sido acordada como adición a las horas ordinarias pactadas en el contrato a tiempo parcial. Deben formalizarse por escrito, son voluntarias para el trabajador (salvo que se hayan pactado expresamente) y se retribuyen como ordinarias. Su finalidad es dotar de mayor flexibilidad a esta modalidad contractual, permitiendo adaptar la jornada a las necesidades productivas dentro de ciertos límites que garanticen seguridad al trabajador.",
       },
       {
-        id: 6149,
+        id: 60149,
         moduloId: 601,
         pregunta: "Matías tiene miedo de que su jefe le pegue un palizón si no renueva su contrato de trabajo. ¿Qué elemento esencial del contrato de trabajo no se cumple?",
         opciones: [
@@ -655,7 +655,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "En el caso de Matías, no se cumple el elemento esencial del consentimiento. Según el artículo 1265 del Código Civil, aplicable a los contratos de trabajo, es nulo el consentimiento prestado por error, violencia, intimidación o dolo. En este caso, Matías está sometido a intimidación (amenaza de sufrir un mal inminente y grave) por parte de su jefe, lo que vicia su consentimiento. El contrato de trabajo, como todo contrato, requiere para su validez consentimiento libre y voluntario de ambas partes (artículo 1261 CC). Los otros elementos esenciales son el objeto (los servicios que se compromete a prestar el trabajador a cambio de una retribución) y la causa (el intercambio de trabajo por salario). 'Viva Albacete' no es un elemento contractual.",
       },
       {
-        id: 6150,
+        id: 60150,
         moduloId: 601,
         pregunta: "Se contrata a Lucius Malfoy como trabajador de Voldemort S.A.U. No se indican sus funciones, simplemente en el contrato se establece que se le hace un contrato para funciones generales. ¿Faltaría algún elemento esencial en el contrato referido?",
         opciones: [
@@ -668,7 +668,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "En el contrato de Lucius Malfoy faltaría la determinación clara del objeto. El objeto del contrato de trabajo debe ser determinado o determinable, lícito y posible. Al establecer simplemente 'funciones generales' sin concretar qué servicios debe prestar el trabajador, el objeto resulta indeterminado. Según el artículo 22 del Estatuto de los Trabajadores, el trabajador debe ser asignado a un grupo profesional que agrupe unitariamente aptitudes profesionales, titulaciones y contenido general de la prestación. La falta de concreción de las funciones podría implicar la nulidad parcial del contrato o su calificación como fraudulento si se pretende con ello eludir limitaciones legales. El consentimiento parece existir y la causa (intercambio de trabajo por salario) también estaría presente.",
       },
     {
-        id: 6151,
+        id: 60151,
         moduloId: 601,
         pregunta: "Eres trabajador/a/e de una importante empresa. Durante el año 2024 te han retenido en el total de tus nóminas en concepto de IRPF 5000 euros. Cuando haces la declaración el resultado de la misma es de 6.000 euros. Responde sabiamente respecto a cómo computa la cantidad referida en primer lugar:",
         opciones: [
@@ -681,7 +681,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Si durante el año 2024 te han retenido un total de 5.000 euros en concepto de IRPF y al hacer la declaración el resultado es de 6.000 euros, deberás pagar 1.000 euros adicionales. Esto se debe a que las retenciones practicadas en nómina son pagos a cuenta del IRPF, que se descuentan de la cuota final resultante de la declaración anual. En este caso, la liquidación sería: Cuota íntegra (resultado de la declaración) = 6.000€, menos Retenciones ya practicadas = 5.000€, lo que da un resultado a ingresar de 1.000€. Si la situación fuera inversa (retenciones mayores que la cuota resultante), habría una devolución. Este sistema de retenciones a cuenta permite distribuir el pago del impuesto a lo largo del año en lugar de abonarlo en un único pago.",
       },
       {
-        id: 6152,
+        id: 60152,
         moduloId: 601,
         pregunta: "Tu hijo te pregunta cuáles son los conceptos por los que te detraen (detraer significa restar) cantidades de dinero de tu nómina. Respóndele para no quedar mal delante suya (sabes que se va a creer cualquier cosa que le digas, pero está feo mentirle)",
         opciones: [
@@ -694,7 +694,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Los principales conceptos por los que se detraen cantidades de una nómina son: Contingencias comunes (aportación del trabajador a la Seguridad Social para cubrir enfermedad común y accidente no laboral), Contingencias por Accidentes de trabajo y enfermedades profesionales (aportación para cubrir riesgos laborales), y el IRPF (retención a cuenta del Impuesto sobre la Renta de las Personas Físicas). También pueden existir otras deducciones como desempleo, formación profesional, horas extraordinarias, cuotas sindicales voluntarias o anticipos. Las deducciones se reflejan en la parte inferior de la nómina, en el apartado de 'Deducciones', y representan las cantidades que se restan del salario bruto para obtener el salario neto o 'líquido a percibir'.",
       },
       {
-        id: 6153,
+        id: 60153,
         moduloId: 601,
         pregunta: "En la nómina de una trabajadora, en la parte correspondiente a los devengos, están los siguientes conceptos: Salario base: 1000 €; Complemento de antigüedad 100 euros; Complemento de especial dedicación 200 euros; Prorrateo de pagas extra 500 euros; horas extraordinarias: 100 euros. ¿Cuál será el importe de la base de cotización por contingencias comunes?",
         opciones: [
@@ -707,7 +707,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La base de cotización por contingencias comunes será de 1.800 euros. Según el artículo 147 de la Ley General de la Seguridad Social y el artículo 23 del Reglamento General sobre Cotización (RD 2064/1995), la base de cotización por contingencias comunes incluye todas las percepciones salariales, excluyendo las horas extraordinarias. Por tanto, se suman: Salario base (1.000€) + Complemento de antigüedad (100€) + Complemento de especial dedicación (200€) + Prorrateo de pagas extra (500€) = 1.800€. Las horas extraordinarias (100€) no se incluyen en esta base, sino que cotizan separadamente con tipos especiales. Esta base está sujeta a los límites mínimo y máximo establecidos anualmente, aunque en este caso no superan el límite máximo ni están por debajo del mínimo.",
       },
       {
-        id: 6154,
+        id: 60154,
         moduloId: 601,
         pregunta: "En la nómina de una trabajadora, en la parte correspondiente a los devengos, están los siguientes conceptos: Salario base: 1000 €; Complemento de antigüedad 100 euros; Complemento de especial dedicación 200 euros; Prorrateo de pagas extra 500 euros; horas extraordinarias: 100 euros. ¿Cuál será el importe de la base de cotización por contingencias profesionales?",
         opciones: [
@@ -720,7 +720,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La base de cotización por contingencias profesionales será de 1.900 euros. Según el artículo 147 de la Ley General de la Seguridad Social y el artículo 23 del Reglamento General sobre Cotización (RD 2064/1995), la base de cotización por contingencias profesionales (accidentes de trabajo y enfermedades profesionales) incluye todas las percepciones salariales, incluyendo el valor de las horas extraordinarias. Por tanto, se suman: Salario base (1.000€) + Complemento de antigüedad (100€) + Complemento de especial dedicación (200€) + Prorrateo de pagas extra (500€) + Horas extraordinarias (100€) = 1.900€. A diferencia de la base por contingencias comunes, en esta base sí se incluyen las horas extraordinarias, lo que explica la diferencia de 100€ entre ambas bases.",
       },
       {
-        id: 6155,
+        id: 60155,
         moduloId: 601,
         pregunta: "En la nómina de una trabajadora, en la parte correspondiente a los devengos, están los siguientes conceptos: Salario base: 1500 €; Complemento de antigüedad 100 euros; Complemento de especial dedicación 200 euros; Prorrateo de pagas extra 500 euros; horas extraordinarias: 100 euros. Recibe 500 euros de kilometraje de los que 200 euros se consideran retribuidos en exceso ¿Cuál será la base sobre la que se calculará el IRPF?",
         opciones: [
@@ -733,7 +733,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La base sobre la que se calculará el IRPF será de 2.800 euros. Para calcular la base del IRPF, se deben sumar todas las percepciones salariales y la parte de los conceptos extrasalariales que excedan los límites exentos. En este caso: Salario base (1.500€) + Complemento de antigüedad (100€) + Complemento de especial dedicación (200€) + Prorrateo de pagas extra (500€) + Horas extraordinarias (100€) + Kilometraje retribuido en exceso (200€) = 2.600€. El kilometraje está exento de tributación hasta ciertos límites (0,19€/km en coche); los 200€ que exceden este límite se consideran retribución en especie y tributan por IRPF. Por tanto, de los 500€ de kilometraje, solo 300€ están exentos y 200€ tributan, sumándose a la base del IRPF para un total de 2.800€.",
       },
       {
-        id: 6156,
+        id: 60156,
         moduloId: 601,
         pregunta: "Las deducciones por contingencias comunes tienen como finalidad:",
         opciones: [
@@ -746,7 +746,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Las deducciones por contingencias comunes tienen como finalidad contribuir a la cobertura de los riesgos derivados de situaciones que no están relacionadas con el trabajo. Según el artículo 87 de la Ley General de la Seguridad Social, las contingencias comunes incluyen la enfermedad común (cualquier alteración de la salud no calificada como enfermedad profesional) y el accidente no laboral (el que no sea accidente de trabajo). Estas contingencias son ajenas a la actividad laboral, a diferencia de las contingencias profesionales (accidentes de trabajo y enfermedades profesionales) que sí están vinculadas directamente con el trabajo. Las cotizaciones por contingencias comunes financian principalmente prestaciones por incapacidad temporal derivada de causas comunes, asistencia sanitaria por enfermedad común, y pensiones por incapacidad permanente, jubilación, muerte y supervivencia.",
       },
       {
-        id: 6157,
+        id: 60157,
         moduloId: 601,
         pregunta: "Te han nombrado jurado popular en un juicio por el asesinamiento de un número todavía por determinar de políticos. ¿Tendrías derecho a disfrutar de algún permiso?",
         opciones: [
@@ -759,7 +759,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "Si te han nombrado jurado popular, tendrías derecho a disfrutar de un permiso retribuido por el tiempo indispensable para el cumplimiento de este deber inexcusable de carácter público y personal. Según el artículo 37.3.d del Estatuto de los Trabajadores, el trabajador podrá ausentarse del trabajo, con derecho a remuneración, para cumplir deberes inexcusables de carácter público y personal. La Ley Orgánica 5/1995 del Tribunal del Jurado establece en su artículo 7.2 que ser jurado es un deber inexcusable para quienes no estén afectados por alguna de las causas de incapacidad, incompatibilidad o prohibición. El permiso abarcará el tiempo necesario para desempeñar esta función, que puede variar según la duración del juicio, y no está limitado a un número concreto de días.",
       },
       {
-        id: 6158,
+        id: 60158,
         moduloId: 601,
         pregunta: "¿Cuántos festivos puede haber al año, como máximo, en España?",
         opciones: [
@@ -772,7 +772,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "En España, puede haber un máximo de 14 días festivos al año. Según el artículo 37.2 del Estatuto de los Trabajadores, las fiestas laborales de carácter retribuido y no recuperable no podrán exceder de 14 al año, de las cuales dos serán locales. Del total de 14 festivos, nueve son fiestas nacionales no sustituibles establecidas por el Estado, tres son fiestas autonómicas (que pueden ser sustituidas por las Comunidades Autónomas) y dos son fiestas locales determinadas por cada municipio. El calendario oficial de fiestas se publica anualmente en el BOE. Los 14 días festivos son adicionales a los descansos semanales y vacaciones anuales, y durante estos días el trabajador tiene derecho a descansar manteniendo su remuneración normal.",
       },
       {
-        id: 6159,
+        id: 60159,
         moduloId: 601,
         pregunta: "¿Quién está obligado a acreditar que se lleva a cabo el registro horario de forma correcta?",
         opciones: [
@@ -785,7 +785,7 @@ export const moduloLegislacionLaboral = {
         explicacion: "La empresa es la obligada a acreditar que se lleva a cabo el registro horario de forma correcta. Según el artículo 34.9 del Estatuto de los Trabajadores, introducido por el Real Decreto-ley 8/2019, la empresa debe garantizar el registro diario de jornada, que deberá incluir el horario concreto de inicio y finalización de la jornada de trabajo de cada persona trabajadora. La norma establece expresamente que 'la empresa conservará los registros durante cuatro años, permaneciendo a disposición de las personas trabajadoras, sus representantes legales y la Inspección de Trabajo y Seguridad Social'. Por tanto, es responsabilidad empresarial implementar, mantener y poder acreditar el correcto funcionamiento del sistema de registro horario, siendo sancionable su incumplimiento conforme a la Ley sobre Infracciones y Sanciones en el Orden Social.",
       },
       {
-        id: 6160,
+        id: 60160,
         moduloId: 601,
         pregunta: "Lucas tiene que cuidar de su padre. Éste no puede valerse por sí mismo ni desempeña una actividad retribuida. ¿Cuál es el límite de esa reducción?",
         opciones: [

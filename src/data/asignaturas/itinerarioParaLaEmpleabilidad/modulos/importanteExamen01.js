@@ -19,7 +19,7 @@ export const importanteExamen01 = {
   preguntas: [
     // ---- Tema 1. La salud laboral y la prevención. ----.
     {
-      id: 6601,
+      id: 60601,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los daños que sufra el trabajador al ir o volver del trabajo'.",
@@ -32,7 +32,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6602,
+      id: 60602,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los que sufra el trabajador con ocasión o como consecuencia del desempeño de cargos electivos de carácter sindical, así como los ocurridos al ir o al volver del lugar en que se ejerciten las funciones propias de dichos cargos'.",
@@ -45,7 +45,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6603,
+      id: 60603,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los ocurridos con ocasión o por consecuencia de las tareas que, aun siendo distintas a las de su grupo profesional, ejecute el trabajador en cumplimiento de las órdenes del empresario o espontáneamente en interés del buen funcionamiento de la empresa'.",
@@ -58,7 +58,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6604,
+      id: 60604,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los acaecidos en actos de salvamento y en otros de naturaleza análoga, cuando unos y otros tengan conexión con el trabajo'.",
@@ -71,7 +71,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6605,
+      id: 60605,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Las enfermedades que contraiga el trabajador con motivo de la realización de su trabajo, siempre que se pruebe que la enfermedad tuvo por causa exclusiva la ejecución del mismo'.",
@@ -84,7 +84,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6606,
+      id: 60606,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Las enfermedades o defectos, padecidos con anterioridad por el trabajador, que se agraven como consecuencia de la lesión constitutiva del accidente'.",
@@ -97,7 +97,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6607,
+      id: 60607,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'las lesiones que sufra el trabajador durante el tiempo y en el lugar del trabajo'.",
@@ -110,7 +110,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que tiene consideración de accidente laboral.",
     },
     {
-      id: 6608,
+      id: 60608,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los que sean debidos a fuerza mayor extraña al trabajo, entendiéndose por esta la que sea de tal naturaleza que no guarde relación alguna con el trabajo que se ejecutaba al ocurrir el accidente'.",
@@ -123,7 +123,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que NO tiene consideración de accidente laboral.",
     },
     {
-      id: 6609,
+      id: 60609,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'Los que sean debidos a dolo o a imprudencia temeraria del trabajador accidentado'.",
@@ -136,7 +136,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que NO tiene consideración de accidente laboral.",
     },
     {
-      id: 6610,
+      id: 60610,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'La imprudencia profesional que sea consecuencia del ejercicio habitual de un trabajo y se derive de la confianza que este inspira'.",
@@ -149,7 +149,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que este tipo de accidente 'no impide su calificación como un accidente de trabajo'. A efectos prácticos y según los ejemplos propuestos por Carlos en clase, lo tomaremos como que SÍ es un accidente de trabajo, sin entrar en detalles.",
     },
     {
-      id: 6611,
+      id: 60611,
       moduloId: 606,
       pregunta:
         "Indica si se considera accidente de trabajo o no: 'La concurrencia de culpabilidad civil o criminal del empresario, de un compañero de trabajo del accidentado o de un tercero, salvo que no guarde relación alguna con el trabajo'.",
@@ -162,7 +162,7 @@ export const importanteExamen01 = {
         "El Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social indica en su artículo 156 que este tipo de accidente 'no impide su calificación como un accidente de trabajo'. A efectos prácticos y según los ejemplos propuestos por Carlos en clase, lo tomaremos como que SÍ es un accidente de trabajo, sin entrar en detalles.",
     },
     {
-      id: 6612,
+      id: 60612,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo'.",
@@ -177,7 +177,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6613,
+      id: 60613,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Posibilidad de que un trabajador sufra un determinado daño derivado del trabajo'.",
@@ -192,7 +192,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6614,
+      id: 60614,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo'.",
@@ -207,7 +207,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6615,
+      id: 60615,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Aquel que resulte probable racionalmente que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores'.",
@@ -222,7 +222,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6616,
+      id: 60616,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Aquellos que, en ausencia de medidas preventivas específicas, originen riesgos para la seguridad y la salud de los trabajadores que los desarrollan o utilizan'.",
@@ -237,7 +237,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6617,
+      id: 60617,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo'.",
@@ -252,7 +252,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6618,
+      id: 60618,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Cualquier característica del mismo que pueda tener una influencia significativa en la generación de riesgos para la seguridad y la salud del trabajador'.",
@@ -267,7 +267,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6619,
+      id: 60619,
       moduloId: 606,
       pregunta:
         "Señale a qué concepto de la Ley PRL hace referencia: 'Cualquier equipo destinado a ser llevado o sujetado por el trabajador para que le proteja de uno o varios riesgos que puedan amenazar su seguridad o su salud en el trabajo, así como cualquier complemento o accesorio destinado a tal fin'.",
@@ -282,7 +282,7 @@ export const importanteExamen01 = {
         "Todas las definiciones las encontramos en el artículo 4 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
     },
     {
-      id: 6620,
+      id: 60620,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 1?.",
@@ -297,7 +297,7 @@ export const importanteExamen01 = {
         "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
-      id: 6621,
+      id: 60621,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 2?.",
@@ -312,7 +312,7 @@ export const importanteExamen01 = {
         "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
-      id: 6622,
+      id: 60622,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 3?.",
@@ -327,7 +327,7 @@ export const importanteExamen01 = {
         "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
-      id: 6623,
+      id: 60623,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 4?.",
@@ -342,7 +342,7 @@ export const importanteExamen01 = {
         "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
-      id: 6624,
+      id: 60624,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 5?.",
@@ -357,7 +357,7 @@ export const importanteExamen01 = {
         "Podemos encontrar la clasifiación del cuadro de enfermades profesionales en el Real Decreto 1299/2006, de 10 de noviembre, por el que se aprueba el cuadro de enfermedades profesionales en el sistema de la Seguridad Social y se establecen criterios para su notificación y registro.",
     },
     {
-      id: 6625,
+      id: 60625,
       moduloId: 606,
       pregunta:
         "Las enfermedades profesionales se clasifican numeradas del 1 al 6. ¿Qué tipo de enfermadades pertenecen al grupo 6?.",
@@ -372,7 +372,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6626,
+      id: 60626,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -387,7 +387,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6627,
+      id: 60627,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -402,7 +402,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6628,
+      id: 60628,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -417,7 +417,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6629,
+      id: 60629,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -432,7 +432,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6630,
+      id: 60630,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -447,7 +447,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6631,
+      id: 60631,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -462,7 +462,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6632,
+      id: 60632,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -477,7 +477,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6633,
+      id: 60633,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -492,7 +492,7 @@ export const importanteExamen01 = {
         "Los principios de la citada ley podemos se encuentran en el artículo 15 (Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales).",
     },
     {
-      id: 6634,
+      id: 60634,
       moduloId: 606,
       pregunta:
         "Indica cuál de los siguientes es un principio de la Ley de Prevención de Riesgos Laborales.",
@@ -508,7 +508,7 @@ export const importanteExamen01 = {
     },
     // ---- Tema 2. Riesgos profesionales y prevención ----.
     {
-      id: 6635,
+      id: 60635,
       moduloId: 606,
       pregunta:
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Estudio de todas las consecuencias derivadas de las condiciones materiales y ambientales que afecten a las personas buscando así reducir al máximo la posibilidad de que surjan enfermedades a consecuencia de la actividad normal en una empresa'.",
@@ -523,7 +523,7 @@ export const importanteExamen01 = {
         "La medicina en el trabajo está regulada en el marco de la Ley de Prevención de Riesgos Laborales y tiene como objetivo preservar la salud de los trabajadores mediante reconocimientos médicos y vigilancia sanitaria.",
     },
     {
-      id: 6636,
+      id: 60636,
       moduloId: 606,
       pregunta:
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Se encarga del estudio de todos los daños de carácter psicológico que pueda sufrir un trabajador en el ejercicio de sus funciones en una empresa'.",
@@ -538,7 +538,7 @@ export const importanteExamen01 = {
         "La psicosociología analiza factores como el estrés laboral, la carga mental o los conflictos interpersonales, con base en lo recogido por la normativa sobre condiciones psicosociales del trabajo.",
     },
     {
-      id: 6637,
+      id: 60637,
       moduloId: 606,
       pregunta:
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que se encarga del estudio de la adecuación de las capacidad de las personas a las exigencias previstas en sus respectivos trabajos con el objetivo de mejorar sus capacidades funcionales y rendimiento'.",
@@ -553,7 +553,7 @@ export const importanteExamen01 = {
         "La ergonomía busca adaptar el entorno laboral a las características del trabajador, tal como establece el INSST en sus directrices para la prevención de riesgos ergonómicos.",
     },
     {
-      id: 6638,
+      id: 60638,
       moduloId: 606,
       pregunta:
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que tiene como objetivo la identificación, evaluación y control de todos los elementos de origen químico, físico o biológico que puedan perjudicar a los trabajadores en el ejercicio de sus funciones'.",
@@ -568,7 +568,7 @@ export const importanteExamen01 = {
         "La higiene industrial se basa en la anticipación y control de contaminantes, conforme a lo estipulado en el Real Decreto 374/2001 sobre protección frente a agentes químicos.",
     },
     {
-      id: 6639,
+      id: 60639,
       moduloId: 606,
       pregunta:
         "Selecciona la técnica de prevención a la que pertenece la siguiente definición: 'Disciplina que estudia los riesgos en sí y las condiciones en el trabajo que puedan afectar a los trabajadores pudiendo producir entre otros accidentes de trabajo'.",
@@ -583,7 +583,7 @@ export const importanteExamen01 = {
         "La seguridad en el trabajo se centra en evitar accidentes mediante medidas de control de riesgos mecánicos, eléctricos o estructurales, en cumplimiento del artículo 15 de la Ley 31/1995.",
     },
     {
-      id: 6640,
+      id: 60640,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Proporciona información clara y concisa sobre los riesgos específicos y las medidas de seguridad que deben tomarse en ciertas áreas o situaciones'.",
@@ -593,7 +593,7 @@ export const importanteExamen01 = {
         "Este tipo de señalización está regulada por el Real Decreto 485/1997 y tiene como fin informar sin necesidad de exigir una acción inmediata.",
     },
     {
-      id: 6641,
+      id: 60641,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Alerta a los trabajadores sobre la presencia de peligros potenciales y les recuerda la necesidad de seguir procedimientos seguros'.",
@@ -603,7 +603,7 @@ export const importanteExamen01 = {
         "La señalización preventiva busca evitar situaciones de riesgo antes de que ocurran, como parte del principio de acción preventiva.",
     },
     {
-      id: 6642,
+      id: 60642,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Guía a los trabajadores y visitantes hacia salidas de emergencia, equipos de protección, áreas seguras y otros lugares relevantes'.",
@@ -613,7 +613,7 @@ export const importanteExamen01 = {
         "La señalización de orientación facilita la evacuación o localización rápida de zonas importantes en situaciones de emergencia, según normativas como ISO 7010.",
     },
     {
-      id: 6643,
+      id: 60643,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Avisa sobre situaciones peligrosas inminentes que requieren atención inmediata y precaución'.",
@@ -623,7 +623,7 @@ export const importanteExamen01 = {
         "Las señales de advertencia se usan cuando existe un peligro concreto y presente, y deben cumplir criterios visuales normalizados (forma triangular y colores llamativos).",
     },
     {
-      id: 6644,
+      id: 60644,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Indica acciones o comportamientos que están prohibidos para prevenir accidentes o daños a la salud'.",
@@ -633,7 +633,7 @@ export const importanteExamen01 = {
         "Estas señales están diseñadas para evitar comportamientos peligrosos mediante una prohibición clara, y su formato visual está recogido en el RD 485/1997.",
     },
     {
-      id: 6645,
+      id: 60645,
       moduloId: 606,
       pregunta:
         "¿A qué tipo de señalización hace referencia? 'Facilita la respuesta rápida y eficaz ante emergencias como incendios, escapes de sustancias peligrosas u otras situaciones críticas'.",
@@ -643,7 +643,7 @@ export const importanteExamen01 = {
         "La señalización de emergencia incluye salidas, equipos de extinción o primeros auxilios, y se basa en estándares europeos de seguridad en evacuaciones.",
     },
     {
-      id: 6646,
+      id: 60646,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en rojo sobre fondo blanco que indican acciones o comportamientos prohibidos (por ejemplo, no fumar). En forma de círculo, bordes rojos, fondo blanco y pictograma negro'.",
@@ -653,7 +653,7 @@ export const importanteExamen01 = {
         "La descripción ya contiene los elementos clave que definen la señal de prohibición.",
     },
     {
-      id: 6647,
+      id: 60647,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en blanco sobre fondo azul que indican la obligación de llevar a cabo una acción específica (por ejemplo, uso de equipo de protección personal). En forma de círculo,  fondo azul y pictograma blanco'.",
@@ -663,7 +663,7 @@ export const importanteExamen01 = {
         "La forma, color y contenido de la señal indican claramente una obligación.",
     },
     {
-      id: 6648,
+      id: 60648,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Triángulo amarillo con símbolos o palabras negras que alertan sobre posibles peligros o riesgos (por ejemplo, precaución: suelo mojado). En forma de triángulo, bordes negros, fondo amarillo y pictograma negro'.",
@@ -673,7 +673,7 @@ export const importanteExamen01 = {
         "La forma triangular y el color amarillo con negro son característicos de las señales de advertencia.",
     },
     {
-      id: 6649,
+      id: 60649,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en verde sobre fondo blanco que indican la ubicación de equipos de salvamento o primeros auxilios. En forma de rectángulo, fondo verde y pictograma blanco'.",
@@ -688,7 +688,7 @@ export const importanteExamen01 = {
         "El color verde y la referencia a primeros auxilios indican una señal de salvamento.",
     },
     {
-      id: 6650,
+      id: 60650,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Símbolos o palabras en rojo sobre fondo blanco que indican la ubicación de equipos para la extinción de incendios (por ejemplo, extintor). En forma de cuadrado, fondo rojo y pictograma blanco'.",
@@ -703,7 +703,7 @@ export const importanteExamen01 = {
         "Las señales de extinción de incendios se identifican por su fondo rojo y pictogramas blancos.",
     },
     {
-      id: 6651,
+      id: 60651,
       moduloId: 606,
       pregunta:
         "Indica el tipo de señal al que se refiere la siguiente descripción: 'Marcas visuales (generalmente en el suelo) que alertan sobre desniveles, escalones u otros obstáculos que podrían causar tropiezos o caídas. Rayas amarillas y negras'.",
@@ -718,7 +718,7 @@ export const importanteExamen01 = {
         "Las franjas amarillas y negras se usan comúnmente para señalar obstáculos o desniveles peligrosos.",
     },
     {
-      id: 6652,
+      id: 60652,
       moduloId: 606,
       pregunta:
         "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es cualquier material que pueda arder. Pueden ser sólidos (madera, papel), líquidos (gasolina, aceites), gases (propano, butano) o incluso metales combustibles'.",
@@ -728,7 +728,7 @@ export const importanteExamen01 = {
         "Sin este componente, no hay materia que reaccione con el oxígeno para producir fuego.",
     },
     {
-      id: 6653,
+      id: 60653,
       moduloId: 606,
       pregunta:
         "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es el componente del aire que reacciona con el combustible durante la combustión. Se necesita un mínimo de concentración de oxígeno para que un material arda'.",
@@ -738,7 +738,7 @@ export const importanteExamen01 = {
         "Sin este elemento, la reacción de combustión no puede mantenerse, ya que actúa como agente oxidante.",
     },
     {
-      id: 6654,
+      id: 60654,
       moduloId: 606,
       pregunta:
         "El tetraedro de fuego es un modelo conceptual que describe los cuatro elementos necesarios para que ocurra un incendio. Indica a qué elemento del mismo corresponde la siguiente descripción:'Es la energía suficiente para iniciar y mantener la reacción química de la combustión. Puede provenir de una fuente externa como una chispa, llama o radiante'.",
@@ -748,7 +748,7 @@ export const importanteExamen01 = {
         "Este factor actúa como iniciador del proceso de combustión y es clave para romper la inercia química del combustible.",
     },
     {
-      id: 6655,
+      id: 60655,
       moduloId: 606,
       pregunta:
         "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para materiales sólidos combustibles (madera, papel, tela, cartón, etc.)?",
@@ -758,7 +758,7 @@ export const importanteExamen01 = {
         "Los fuegos de clase A se apagan con extintores que actúan por enfriamiento, como los de agua pulverizada.",
     },
     {
-      id: 6656,
+      id: 60656,
       moduloId: 606,
       pregunta:
         "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para gases inflamables (butano, propano, gas natural)?",
@@ -768,7 +768,7 @@ export const importanteExamen01 = {
         "Los fuegos de clase C implican gases y suelen extinguirse cortando el suministro y usando polvo químico seco.",
     },
     {
-      id: 6657,
+      id: 60657,
       moduloId: 606,
       pregunta:
         "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para metales combustibles (magnesio, aluminio, sodio)?",
@@ -778,7 +778,7 @@ export const importanteExamen01 = {
         "Los fuegos de clase D requieren agentes especiales como polvo seco específico que no reaccione con los metales.",
     },
     {
-      id: 6658,
+      id: 60658,
       moduloId: 606,
       pregunta:
         "Existen diferentes tipos de fuego, clasificados según el tipo de combustible involucrado. Cada clase de fuego requiere un tipo específico de extintor para apagarlo de manera segura y efectiva. ¿Cuál se usa para líquidos inflamables (gasolina, aceites, pintura, alcohol)?",
@@ -788,7 +788,7 @@ export const importanteExamen01 = {
         "Los fuegos de clase B deben sofocarse con extintores que impidan la emisión de vapores inflamables, como espuma o CO₂.",
     },
     {
-      id: 6659,
+      id: 60659,
       moduloId: 606,
       pregunta:
         "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que consiste en eliminar el oxígeno del área afectada para interrumpir la combustión?",
@@ -798,7 +798,7 @@ export const importanteExamen01 = {
         "Este método actúa sobre el comburente, impidiendo que el oxígeno alimente el fuego.",
     },
     {
-      id: 6660,
+      id: 60660,
       moduloId: 606,
       pregunta:
         "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que se basa en reducir la temperatura del combustible por debajo de su punto de ignición?",
@@ -808,7 +808,7 @@ export const importanteExamen01 = {
         "Actúa sobre el calor, eliminando la energía necesaria para que continúe la combustión.",
     },
     {
-      id: 6661,
+      id: 60661,
       moduloId: 606,
       pregunta:
         "Existen varios métodos utilizados para extinguir incendios, cada uno diseñado para abordar un aspecto específico del tetraedro de fuego. ¿Cuál es aquel que consiste en reducir la concentración de combustible en el área afectada?",
@@ -818,7 +818,7 @@ export const importanteExamen01 = {
         "Este método interrumpe la reacción al limitar la cantidad de material que puede arder.",
     },
     {
-      id: 6662,
+      id: 60662,
       moduloId: 606,
       pregunta:
         "¿Qué tipo de radiación es aquella con suficiente energía para ionizar átomos o moléculas, es decir, para arrancar electrones de los átomos, creando iones?",
@@ -833,7 +833,7 @@ export const importanteExamen01 = {
         "Este tipo de radiación puede dañar el ADN y tejidos vivos, por lo que es especialmente peligrosa en entornos laborales.",
     },
     {
-      id: 6663,
+      id: 60663,
       moduloId: 606,
       pregunta:
         "¿Qué tipo de radiación es aquella que no tiene suficiente energía para ionizar átomos o moléculas?",
@@ -848,7 +848,7 @@ export const importanteExamen01 = {
         "A pesar de no ser ionizante, puede provocar efectos térmicos o biológicos a largo plazo si hay sobreexposición.",
     },
     {
-      id: 6664,
+      id: 60664,
       moduloId: 606,
       pregunta:
         "¿Qué tipo de radiación son los rayos X, rayos gamma, partículas alfa, partículas beta y neutrones?",
@@ -863,7 +863,7 @@ export const importanteExamen01 = {
         "Estos tipos de radiación tienen aplicaciones médicas e industriales, pero requieren estrictos controles de protección.",
     },
     {
-      id: 6665,
+      id: 60665,
       moduloId: 606,
       pregunta:
         "¿Qué tipo de radiación son la ultravioleta, la luz visible, las microondas, las radiofrecuencias y los campos electromagnéticos?",
@@ -878,7 +878,7 @@ export const importanteExamen01 = {
         "Estas radiaciones forman parte del espectro electromagnético común y se encuentran en nuestro entorno cotidiano.",
     },
     {
-      id: 6666,
+      id: 60666,
       moduloId: 606,
       pregunta: "¿Cómo se clasifican los riesgos biológicos?",
       opciones: [
@@ -892,7 +892,7 @@ export const importanteExamen01 = {
         "La clasificación sigue una escala creciente de peligrosidad en función del nivel de riesgo para la salud humana.",
     },
     {
-      id: 6667,
+      id: 60667,
       moduloId: 606,
       pregunta:
         "La temperatura de los locales donde se realicen trabajos sedentarios propios de oficinas o similares estará comprendida entre:",
@@ -907,7 +907,7 @@ export const importanteExamen01 = {
         "Este rango busca garantizar el confort térmico para trabajadores en actividad mínima.",
     },
     {
-      id: 6668,
+      id: 60668,
       moduloId: 606,
       pregunta:
         "La temperatura de los locales donde se realicen trabajos ligeros estará comprendida entre:",
@@ -923,7 +923,7 @@ export const importanteExamen01 = {
     },
     // ---- Tema 3. Prevención de riesgos laborales y primeros auxilios. ----
     {
-      id: 6669,
+      id: 60669,
       moduloId: 606,
       pregunta: "¿Qué tipos de niveles de cualificación existen en la PRL?",
       opciones: [
@@ -937,7 +937,7 @@ export const importanteExamen01 = {
         "Según el Real Decreto 39/1997, los niveles de formación en prevención de riesgos laborales son: básico, intermedio y superior. Cada uno capacita para funciones preventivas distintas dentro de la empresa.",
     },
     {
-      id: 6670,
+      id: 60670,
       moduloId: 606,
       pregunta:
         "El nivel básico para la cualificación en prevención de riesgos laborales necesita de un mínimo de horas para ser acreditado en función de las características de la actividad de la empresa. Esta cantidad de horas sería:",
@@ -952,7 +952,7 @@ export const importanteExamen01 = {
         "El artículo 35 del Real Decreto 39/1997 establece que el nivel básico requiere al menos 50 horas de formación en empresas con riesgos importantes y 30 horas para el resto.",
     },
     {
-      id: 6671,
+      id: 60671,
       moduloId: 606,
       pregunta:
         "¿Cuántas horas de formación requiere el nivel superior de prevención de riesgos laborales?",
@@ -967,7 +967,7 @@ export const importanteExamen01 = {
         "Según el Anexo VI del Real Decreto 39/1997, el nivel superior requiere una formación mínima de 600 horas impartidas por una universidad para poder desempeñar funciones como técnico superior en PRL.",
     },
     {
-      id: 6672,
+      id: 60672,
       moduloId: 606,
       pregunta:
         "Son los representantes de los trabajadores en materia de seguridad y salud en el trabajo:",
@@ -982,7 +982,7 @@ export const importanteExamen01 = {
         "Según el artículo 35 de la Ley 31/1995 de Prevención de Riesgos Laborales, los Delegados de Prevención son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo.",
     },
     {
-      id: 6673,
+      id: 60673,
       moduloId: 606,
       pregunta:
         "Son los representantes de los trabajadores en empresas que tienen entre 10 y 50 trabajadores:",
@@ -997,7 +997,7 @@ export const importanteExamen01 = {
         "De acuerdo con el Estatuto de los Trabajadores (artículo 62) y la LPRL (artículo 34), en empresas de entre 10 y 49 trabajadores los Delegados de Personal representan a los trabajadores ante la empresa.",
     },
     {
-      id: 6674,
+      id: 60674,
       moduloId: 606,
       pregunta:
         "Son órganos de representación de los trabajadores en empresas que cuentan con 50 o más empleados. Están compuestos por representantes elegidos por los trabajadores:",
@@ -1012,7 +1012,7 @@ export const importanteExamen01 = {
         "Según el artículo 63 del Estatuto de los Trabajadores, las empresas con 50 o más trabajadores deben constituir un Comité de Empresa como órgano representativo de los trabajadores.",
     },
     {
-      id: 6675,
+      id: 60675,
       moduloId: 606,
       pregunta:
         "Son órganos formados por representantes de la empresa y de los trabajadores con la finalidad de velar por la seguridad y salud en el trabajo. En las empresas de 50 o más trabajadores, debe existir:",
@@ -1027,7 +1027,7 @@ export const importanteExamen01 = {
         "Según el artículo 38 de la Ley 31/1995, en empresas con 50 o más trabajadores debe constituirse un Comité de Seguridad y Salud como órgano paritario y colegiado de participación en materia preventiva.",
     },
     {
-      id: 6676,
+      id: 60676,
       moduloId: 606,
       pregunta:
         "¿Con qué frecuencia debe reunirse el Comité de Seguridad y Salud en las empresas?",
@@ -1042,7 +1042,7 @@ export const importanteExamen01 = {
         "Según el artículo 38.3 de la Ley 31/1995 de Prevención de Riesgos Laborales, el Comité de Seguridad y Salud debe reunirse al menos cada tres meses y siempre que lo solicite alguna de las representaciones en el mismo.",
     },
     {
-      id: 6677,
+      id: 60677,
       moduloId: 606,
       pregunta:
         "¿Cuál es el número mínimo y máximo de Delegados de Prevención que puede tener una empresa según su tamaño?",
@@ -1057,7 +1057,7 @@ export const importanteExamen01 = {
         "El artículo 35.2 de la Ley 31/1995 establece que el número de Delegados de Prevención varía según el tamaño de la plantilla, partiendo de un mínimo de 1 (para empresas de hasta 49 trabajadores) y aumentando hasta un máximo de 8 en empresas de 2.000 trabajadores o más.",
     },
     {
-      id: 6678,
+      id: 60678,
       moduloId: 606,
       pregunta:
         "¿Qué formas de organización de la actividad preventiva puede adoptar una empresa según la normativa vigente?",
@@ -1072,7 +1072,7 @@ export const importanteExamen01 = {
         "Según el artículo 10 del Real Decreto 39/1997, una empresa puede organizar la prevención mediante: 1) Asunción por el empresario; 2) Designación de uno o varios trabajadores; 3) Constitución de un servicio de prevención propio; 4) Servicio de prevención mancomunado; y 5) Recurso a un servicio de prevención ajeno.",
     },
     {
-      id: 6679,
+      id: 60679,
       moduloId: 606,
       pregunta:
         "¿En qué condiciones puede el propio empresario asumir personalmente la actividad preventiva?",
@@ -1087,7 +1087,7 @@ export const importanteExamen01 = {
         "Según el artículo 11 del Real Decreto 39/1997, el empresario puede asumir la prevención si su empresa tiene hasta 10 trabajadores, o hasta 25 si desarrolla su actividad en un único centro y no realiza actividades peligrosas, y siempre que tenga la formación adecuada.",
     },
     {
-      id: 6680,
+      id: 60680,
       moduloId: 606,
       pregunta:
         "¿Cuántas especialidades preventivas debe cubrir como mínimo un servicio de prevención propio?",
@@ -1102,7 +1102,7 @@ export const importanteExamen01 = {
         "El artículo 14.2 del Real Decreto 39/1997 establece que el servicio de prevención propio debe disponer, al menos, de dos de las especialidades preventivas exigidas (medicina del trabajo, seguridad, higiene, ergonomía y psicosociología). Las demás pueden ser cubiertas por un servicio ajeno.",
     },
     {
-      id: 6681,
+      id: 60681,
       moduloId: 606,
       pregunta:
         "¿Cuántas especialidades debe cubrir como mínimo un servicio de prevención mancomunado?",
@@ -1117,7 +1117,7 @@ export const importanteExamen01 = {
         "Según el artículo 21 del Real Decreto 39/1997, el servicio de prevención mancomunado debe contar, como mínimo, con tres especialidades preventivas. El resto pueden ser concertadas con servicios ajenos si no se dispone de los recursos necesarios.",
     },
     {
-      id: 6682,
+      id: 60682,
       moduloId: 606,
       pregunta:
         "¿Cuáles son las fases del proceso de evaluación de riesgos laborales?",
@@ -1132,7 +1132,7 @@ export const importanteExamen01 = {
         "El proceso de evaluación de riesgos laborales consta de tres fases básicas: 1) Identificación del peligro, 2) Evaluación del riesgo (probabilidad x consecuencias), y 3) Valoración del riesgo en función de su aceptabilidad. Estas fases están recogidas de forma implícita en los artículos 3 y 5 del Real Decreto 39/1997, Reglamento de los Servicios de Prevención.",
     },
     {
-      id: 6683,
+      id: 60683,
       moduloId: 606,
       pregunta:
         "¿Cómo se denomina una situación de emergencia menor que puede ser controlada rápidamente sin afectar a la operativa normal?",
@@ -1147,7 +1147,7 @@ export const importanteExamen01 = {
         "Un conato de emergencia es una situación de peligro inicial o muy limitado que puede ser controlado de forma rápida por medios locales, sin que llegue a interrumpir la actividad general. Esta clasificación se basa en los criterios establecidos en planes de emergencia y autoprotección según la Norma Básica de Autoprotección (Real Decreto 393/2007).",
     },
     {
-      id: 6684,
+      id: 60684,
       moduloId: 606,
       pregunta:
         "¿Cómo se clasifica una emergencia que afecta a una parte significativa del centro de trabajo, pero no a su totalidad?",
@@ -1162,7 +1162,7 @@ export const importanteExamen01 = {
         "Una emergencia parcial implica una situación que, aunque más grave que un conato, solo afecta a una parte del centro de trabajo y puede requerir la intervención de equipos internos de emergencia. Esta tipología se recoge en la planificación de emergencias según el Real Decreto 393/2007, sobre planes de autoprotección.",
     },
     {
-      id: 6685,
+      id: 60685,
       moduloId: 606,
       pregunta:
         "¿Qué tipo de emergencia implica un riesgo grave que afecta a la totalidad del centro de trabajo?",
@@ -1177,7 +1177,7 @@ export const importanteExamen01 = {
         "La emergencia general se refiere a situaciones que comprometen seriamente la seguridad de todo el centro de trabajo, pudiendo afectar a personas, instalaciones o al entorno. Este concepto está contemplado en el marco de los planes de emergencia y autoprotección conforme al Real Decreto 393/2007.",
     },
     {
-      id: 6700,
+      id: 60686,
       moduloId: 606,
       pregunta: "¿Qué significan las siglas PAS en primeros auxilios?",
       opciones: [
@@ -1191,7 +1191,7 @@ export const importanteExamen01 = {
         "PAS es el protocolo básico de actuación ante una emergencia: Proteger el lugar del accidente, Avisar a los servicios de emergencia y Socorrer a la víctima sin poner en riesgo la propia seguridad.",
     },
     {
-      id: 6701,
+      id: 60687,
       moduloId: 606,
       pregunta:
         "¿Qué se evalúa en la primera evaluación de una víctima en primeros auxilios?",
@@ -1206,7 +1206,7 @@ export const importanteExamen01 = {
         "En la primera evaluación se valora si la víctima está consciente, respira adecuadamente y tiene pulso. Es clave para detectar situaciones críticas que requieren actuación inmediata.",
     },
     {
-      id: 6702,
+      id: 60688,
       moduloId: 606,
       pregunta: "¿Qué aspectos incluye la segunda evaluación de la víctima?",
       opciones: [
@@ -1220,7 +1220,7 @@ export const importanteExamen01 = {
         "La segunda evaluación consiste en una exploración completa del cuerpo, de cabeza a pies, para localizar heridas, fracturas, quemaduras u otros daños que no sean evidentes a primera vista.",
     },
     {
-      id: 6703,
+      id: 60689,
       moduloId: 606,
       pregunta: "¿Qué significan las siglas RCP?",
       opciones: [
@@ -1234,7 +1234,7 @@ export const importanteExamen01 = {
         "RCP significa Reanimación Cardio-Pulmonar, un conjunto de maniobras destinadas a mantener la circulación sanguínea y la oxigenación en casos de paro cardiorrespiratorio.",
     },
     {
-      id: 6704,
+      id: 60690,
       moduloId: 606,
       pregunta:
         "¿Cuál es el estándar actual en adultos para realizar la RCP básica?",
@@ -1249,7 +1249,7 @@ export const importanteExamen01 = {
         "El protocolo internacional de RCP básica en adultos establece una relación de 30 compresiones torácicas por 2 insuflaciones (ventilaciones).",
     },
     {
-      id: 6705,
+      id: 60691,
       moduloId: 606,
       pregunta:
         "¿En cuántos grados se clasifican las quemaduras y cuál es el más grave?",
@@ -1264,7 +1264,7 @@ export const importanteExamen01 = {
         "Las quemaduras se clasifican en tres grados. El primero afecta solo a la epidermis (menos grave), el segundo a la dermis (moderada) y el tercero a todas las capas de la piel, incluso tejidos más profundos (más grave).",
     },
     {
-      id: 6706,
+      id: 60692,
       moduloId: 606,
       pregunta: "¿Qué indica el color rojo en un triaje de emergencia?",
       opciones: [
@@ -1278,7 +1278,7 @@ export const importanteExamen01 = {
         "El color rojo en el triaje significa que la víctima tiene lesiones que amenazan la vida y necesita atención inmediata para sobrevivir.",
     },
     {
-      id: 6707,
+      id: 60693,
       moduloId: 606,
       pregunta: "¿Qué indica el color amarillo en un triaje de emergencia?",
       opciones: [
@@ -1292,7 +1292,7 @@ export const importanteExamen01 = {
         "El color amarillo en el triaje representa urgencias que no son críticas pero sí importantes, y que deben atenderse tras los casos rojos.",
     },
     {
-      id: 6708,
+      id: 60694,
       moduloId: 606,
       pregunta: "¿Qué indica el color verde en un triaje de emergencia?",
       opciones: [
@@ -1306,7 +1306,7 @@ export const importanteExamen01 = {
         "El color verde en el triaje indica que el paciente presenta lesiones leves y puede esperar tratamiento o incluso valerse por sí mismo.",
     },
     {
-      id: 6709,
+      id: 60695,
       moduloId: 606,
       pregunta: "¿Qué indica el color negro en un triaje de emergencia?",
       opciones: [

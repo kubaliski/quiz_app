@@ -12,14 +12,8 @@ import lenguajesMarcas from "./asignaturas/lenguajeDeMarcas";
 import itinerarioEmpleabilidad from "./asignaturas/itinerarioParaLaEmpleabilidad";
 import moduloProfesionalOptativo from "./asignaturas/moduloProfesionalOptativo";
 
-
-
-
-// Exporta la lista simple de asignaturas (solo metadatos)
-export { asignaturas };
-
-// Exporta las asignaturas completas con sus módulos
-export const asignaturasCompletas = [
+// Asignaturas de primer año (las actuales)
+const asignaturasPrimerAno = [
   sistemasInformaticos,
   basesDeDatos,
   programacion,
@@ -29,16 +23,48 @@ export const asignaturasCompletas = [
   moduloProfesionalOptativo,
 ];
 
-// Función auxiliar para obtener una asignatura por su ID
-export const obtenerAsignaturaPorId = (id) => {
-  return asignaturasCompletas.find((asignatura) => asignatura.id === id);
+// Asignaturas de segundo año (placeholder para futuras implementaciones)
+const asignaturasSegundoAno = [
+  // Aquí irán las futuras asignaturas de segundo año
+];
+
+// Exporta la lista simple de asignaturas (solo metadatos)
+export { asignaturas };
+
+// Exporta las asignaturas completas con sus módulos (retrocompatibilidad)
+export const asignaturasCompletas = asignaturasPrimerAno;
+
+// Nueva estructura organizada por años
+export const asignaturasPorAno = {
+  1: {
+    nombre: "Primer Año",
+    asignaturas: asignaturasPrimerAno,
+    disponible: true
+  },
+  2: {
+    nombre: "Segundo Año",
+    asignaturas: asignaturasSegundoAno,
+    disponible: false // Marcamos como no disponible hasta que se implementen
+  }
 };
 
-// Función auxiliar para obtener un módulo por su ID
+// Función auxiliar para obtener una asignatura por su ID (busca en todos los años)
+export const obtenerAsignaturaPorId = (id) => {
+  // Buscar en todas las asignaturas de todos los años
+  for (const ano of Object.values(asignaturasPorAno)) {
+    const asignatura = ano.asignaturas.find((asignatura) => asignatura.id === id);
+    if (asignatura) return asignatura;
+  }
+  return null;
+};
+
+// Función auxiliar para obtener un módulo por su ID (busca en todos los años)
 export const obtenerModuloPorId = (moduloId) => {
-  for (const asignatura of asignaturasCompletas) {
-    const modulo = asignatura.modulos.find((m) => m.id === moduloId);
-    if (modulo) return modulo;
+  for (const ano of Object.values(asignaturasPorAno)) {
+    for (const asignatura of ano.asignaturas) {
+      const modulo = asignatura.modulos.find((m) => m.id === moduloId);
+      if (modulo) return modulo;
+    }
   }
   return null;
 };
@@ -49,12 +75,28 @@ export const obtenerModulosPorAsignatura = (asignaturaId) => {
   return asignatura ? asignatura.modulos : [];
 };
 
+// Función para obtener asignaturas de un año específico
+export const obtenerAsignaturasPorAno = (ano) => {
+  return asignaturasPorAno[ano] || null;
+};
+
+// Función para obtener todos los años disponibles
+export const obtenerAnosDisponibles = () => {
+  return Object.keys(asignaturasPorAno).map(ano => ({
+    numero: parseInt(ano),
+    ...asignaturasPorAno[ano]
+  }));
+};
+
 // Crea un objeto estructurado para acceso fácil
 export const quizData = {
-  asignaturas: asignaturasCompletas,
+  asignaturas: asignaturasCompletas, // Retrocompatibilidad
+  asignaturasPorAno,
   obtenerAsignaturaPorId,
   obtenerModuloPorId,
   obtenerModulosPorAsignatura,
+  obtenerAsignaturasPorAno,
+  obtenerAnosDisponibles,
 };
 
 export default quizData;

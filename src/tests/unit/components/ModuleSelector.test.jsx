@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import ModuleSelector from '@components/quiz/ModuleSelector';
+import {ModuleSelector} from '@components/quiz';
 
 // Mock de useNavigate
 vi.mock('react-router-dom', async () => {

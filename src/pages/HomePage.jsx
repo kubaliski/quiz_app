@@ -1,5 +1,5 @@
 /**
- * Página principal de la aplicación que muestra el selector de asignaturas.
+ * Página principal de la aplicación que muestra el selector de asignaturas organizadas por años.
  * Carga la lista de asignaturas disponibles y gestiona los estados de carga y error.
  * Incluye sección para retomar quizzes pendientes y acceder a preguntas favoritas.
  *
@@ -14,38 +14,36 @@ import { useEffect, useState } from 'react';
 import { Layout, PageHeader } from '@components/layout';
 import { SubjectSelector, PendingQuizzes, FavoriteQuizzes } from '@components/quiz';
 import { LoadingSpinner, ErrorMessage, ToastContainer } from '@components/common';
-import { fetchAsignaturas } from '@services/quizDataService';
+import { fetchAsignaturasPorAno } from '@services/quizDataService';
 
 export default function HomePage() {
-  // Usamos estado local en lugar del contexto
-  const [asignaturas, setAsignaturas] = useState([]);
+  // Estado para asignaturas organizadas por año
+  const [asignaturasPorAno, setAsignaturasPorAno] = useState({});
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState(null);
-  // Añadimos un estado para controlar si ya se ha hecho la carga inicial
   const [cargaInicial, setCargaInicial] = useState(false);
 
   useEffect(() => {
-    // Cargamos las asignaturas al montar el componente, solo si no se han cargado
     const loadAsignaturas = async () => {
       try {
         setCargando(true);
-        const data = await fetchAsignaturas();
-        setAsignaturas(data);
+        // Ahora cargamos las asignaturas organizadas por año
+        const data = await fetchAsignaturasPorAno();
+        setAsignaturasPorAno(data);
       } catch (err) {
         console.error("Error al cargar asignaturas:", err);
         setError("No se pudieron cargar las asignaturas. Por favor, inténtelo de nuevo.");
       } finally {
         setCargando(false);
-        // Marcamos que ya se ha realizado la carga inicial
         setCargaInicial(true);
       }
     };
 
     // Solo cargamos la primera vez
-    if (!cargaInicial && asignaturas.length === 0) {
+    if (!cargaInicial && Object.keys(asignaturasPorAno).length === 0) {
       loadAsignaturas();
     }
-  }, [cargaInicial, asignaturas.length]);
+  }, [cargaInicial, asignaturasPorAno]);
 
   if (error) {
     return (
@@ -87,7 +85,7 @@ export default function HomePage() {
             <LoadingSpinner />
           </div>
         ) : (
-          <SubjectSelector asignaturas={asignaturas} />
+          <SubjectSelector asignaturasPorAno={asignaturasPorAno} />
         )}
       </div>
 

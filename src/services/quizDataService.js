@@ -21,6 +21,7 @@ import infoItinearioParaLaEmpleabilidad2 from '../data/asignaturas/itinearioPara
 import moduloProfesionalOptativo2 from '../data/asignaturas/moduloProfesionalOptativo2';
 import entornoServidor from '../data/asignaturas/entornoServidor';
 import entornoCliente from '../data/asignaturas/entornoCliente';
+import disenoInterfaces from '../data/asignaturas/disenoInterfaces';
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -43,7 +44,8 @@ const asignaturasCompletasSegundoAno = [
   infoItinearioParaLaEmpleabilidad2,
   moduloProfesionalOptativo2,
   entornoServidor,
-  entornoCliente
+  entornoCliente,
+  disenoInterfaces
 
 ];
 

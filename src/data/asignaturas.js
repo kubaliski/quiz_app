@@ -1,4 +1,6 @@
 /**
+ * 
+ * DEPRECATED: Este archivo ya no se utiliza en la aplicación. 
  * Lista de asignaturas disponibles en la aplicación.
  *
  * @type {Array<Object>}

@@ -16,6 +16,14 @@ import lenguajeDeMarcas from '../data/asignaturas/lenguajeDeMarcas';
 import entornosDeDesarrollo from '../data/asignaturas/entornosDeDesarrollo';
 import itinerarioParaLaEmpleabilidad from '../data/asignaturas/itinerarioParaLaEmpleabilidad';
 import moduloProfesionalOptativo from '../data/asignaturas/moduloProfesionalOptativo';
+import despliegueDeAplicacionesWeb from '../data/asignaturas/despliegueDeAplicacionesWeb';
+import infoItinearioParaLaEmpleabilidad2 from '../data/asignaturas/itinearioParaLaEmpleabilidad2';
+import moduloProfesionalOptativo2 from '../data/asignaturas/moduloProfesionalOptativo2';
+import entornoServidor from '../data/asignaturas/entornoServidor';
+import entornoCliente from '../data/asignaturas/entornoCliente';
+import disenoInterfaces from '../data/asignaturas/disenoInterfaces';
+import digitalizacion from "../data/asignaturas/digitalizacion";
+import sostenibilidad from "../data/asignaturas/sostenibilidad";
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -25,7 +33,7 @@ const modulosMap = {
   4: lenguajeDeMarcas,
   5: entornosDeDesarrollo,
   6: itinerarioParaLaEmpleabilidad,
-  7: moduloProfesionalOptativo
+  7: moduloProfesionalOptativo,
 };
 
 // Asignaturas completas de primer año (basadas en modulosMap)
@@ -34,6 +42,15 @@ const asignaturasCompletasPrimerAno = Object.values(modulosMap);
 // Asignaturas de segundo año (placeholder para futuras implementaciones)
 const asignaturasCompletasSegundoAno = [
   // Aquí irán las futuras asignaturas de segundo año
+  despliegueDeAplicacionesWeb,
+  infoItinearioParaLaEmpleabilidad2,
+  moduloProfesionalOptativo2,
+  entornoServidor,
+  entornoCliente,
+  disenoInterfaces,
+  digitalizacion,
+  sostenibilidad
+
 ];
 
 // Nueva estructura organizada por años
@@ -46,7 +63,7 @@ const asignaturasPorAno = {
   2: {
     nombre: "Segundo Año",
     asignaturas: asignaturasCompletasSegundoAno,
-    disponible: false // Marcamos como no disponible hasta que se implementen
+    disponible: true 
   }
 };
 

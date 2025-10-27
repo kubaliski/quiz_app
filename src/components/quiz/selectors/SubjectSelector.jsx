@@ -28,7 +28,7 @@ import { Card, Button } from '@components/common';
 
 export default function SubjectSelector({ asignaturasPorAno }) {
   const navigate = useNavigate();
-  const [expandedYears, setExpandedYears] = useState({ 1: true }); // Primer año expandido por defecto
+  const [expandedYears, setExpandedYears] = useState({ 2: true }); // Segundo año expandido por defecto
 
   const handleSelectSubject = (id) => {
     navigate(`/asignaturas/${id}`);

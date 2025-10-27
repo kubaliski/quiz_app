@@ -19,6 +19,7 @@ import moduloProfesionalOptativo from '../data/asignaturas/moduloProfesionalOpta
 import despliegueDeAplicacionesWeb from '../data/asignaturas/despliegueDeAplicacionesWeb';
 import infoItinearioParaLaEmpleabilidad2 from '../data/asignaturas/itinearioParaLaEmpleabilidad2';
 import moduloProfesionalOptativo2 from '../data/asignaturas/moduloProfesionalOptativo2';
+import entornoServidor from '../data/asignaturas/entornoServidor';
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -39,7 +40,8 @@ const asignaturasCompletasSegundoAno = [
   // Aquí irán las futuras asignaturas de segundo año
   despliegueDeAplicacionesWeb,
   infoItinearioParaLaEmpleabilidad2,
-  moduloProfesionalOptativo2
+  moduloProfesionalOptativo2,
+  entornoServidor
 
 ];
 

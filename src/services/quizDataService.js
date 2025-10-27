@@ -17,6 +17,7 @@ import entornosDeDesarrollo from '../data/asignaturas/entornosDeDesarrollo';
 import itinerarioParaLaEmpleabilidad from '../data/asignaturas/itinerarioParaLaEmpleabilidad';
 import moduloProfesionalOptativo from '../data/asignaturas/moduloProfesionalOptativo';
 import despliegueDeAplicacionesWeb from '../data/asignaturas/despliegueDeAplicacionesWeb';
+import infoItinearioParaLaEmpleabilidad2 from '../data/asignaturas/itinearioParaLaEmpleabilidad2';
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -35,7 +36,9 @@ const asignaturasCompletasPrimerAno = Object.values(modulosMap);
 // Asignaturas de segundo año (placeholder para futuras implementaciones)
 const asignaturasCompletasSegundoAno = [
   // Aquí irán las futuras asignaturas de segundo año
-  despliegueDeAplicacionesWeb
+  despliegueDeAplicacionesWeb,
+  infoItinearioParaLaEmpleabilidad2,
+
 ];
 
 // Nueva estructura organizada por años

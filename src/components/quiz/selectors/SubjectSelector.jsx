@@ -49,8 +49,12 @@ export default function SubjectSelector({ asignaturasPorAno }) {
             {/* Header del año */}
             <button
               onClick={() => toggleYear(year)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 rounded-t-lg"
+              className={`w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 rounded-t-lg ${
+                yearData.disponible ? 'cursor-pointer' : 'cursor-not-allowed'
+              }`}
               disabled={!yearData.disponible}
+              aria-expanded={Boolean(expandedYears[year])}
+              aria-controls={`year-${year}-panel`}
             >
               <div className="flex items-center">
                 <h3 className={`text-lg font-semibold ${
@@ -81,7 +85,7 @@ export default function SubjectSelector({ asignaturasPorAno }) {
 
             {/* Lista de asignaturas */}
             {yearData.disponible && expandedYears[year] && yearData.asignaturas.length > 0 && (
-              <div className="p-4 pt-0">
+              <div id={`year-${year}-panel`} className="p-4 pt-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {yearData.asignaturas.map(asignatura => (
                     <Button

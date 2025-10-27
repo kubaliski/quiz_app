@@ -23,6 +23,7 @@ import entornoServidor from '../data/asignaturas/entornoServidor';
 import entornoCliente from '../data/asignaturas/entornoCliente';
 import disenoInterfaces from '../data/asignaturas/disenoInterfaces';
 import digitalizacion from "../data/asignaturas/digitalizacion";
+import sostenibilidad from "../data/asignaturas/sostenibilidad";
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -47,7 +48,8 @@ const asignaturasCompletasSegundoAno = [
   entornoServidor,
   entornoCliente,
   disenoInterfaces,
-  digitalizacion
+  digitalizacion,
+  sostenibilidad
 
 ];
 

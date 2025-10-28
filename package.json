@@ -11,9 +11,9 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest run --coverage",
-    "verify-version": "node verify-version.js",
-    "verify-prod": "node verify-version.js https://kubaquizapp.netlify.app/",
-    "postbuild": "node netlify-postbuild.js"
+    "verify-version": "node scripts/verify-version.js",
+    "verify-prod": "node scripts/verify-version.js https://kubaquizapp.netlify.app/",
+    "postbuild": "node scripts/netlify-postbuild.js"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",

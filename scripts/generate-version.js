@@ -12,16 +12,20 @@ import { execSync } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// Raíz del proyecto (un nivel arriba de scripts/)
+const projectRoot = path.resolve(__dirname, '..');
+
 // Directorio de salida, asumiendo que es 'dist' para Vite
-const outputDir = path.resolve(__dirname, 'dist');
+const outputDir = path.resolve(projectRoot, 'dist');
 
 // Asegurarse de que el directorio existe
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Obtener información de versión del package.json
-const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+// Obtener información de versión del package.json en la raíz del proyecto
+const packageJsonPath = path.join(projectRoot, 'package.json');
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 const version = packageJson.version || '1.0.0';
 
 // Obtener SOLO el hash del último commit de Git (sin rama)
@@ -45,7 +49,7 @@ const versionData = {
   notes: process.env.VERSION_NOTES || (isProduction ? 'Actualización de la aplicación' : 'Versión de desarrollo')
 };
 
-// Escribir archivo version.json
+// Escribir archivo version.json en dist de la raíz del proyecto
 const versionFilePath = path.join(outputDir, 'version.json');
 fs.writeFileSync(versionFilePath, JSON.stringify(versionData, null, 2));
 

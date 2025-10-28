@@ -125,7 +125,7 @@ const moduloUnidadTresSeguridadAWS = {
     {
       id: 10034,
       pregunta: "¿Qué usuario debe tener MFA siempre activado?",
-      opciones: ["La cuenta", "Los desarrolladores", "Los testers", "Nadie"],
+      opciones: ["La cuenta root", "Los desarrolladores", "Los testers", "Nadie"],
       respuestaCorrecta: 0,
       explicacion: "El usuario root de la cuenta debe tener MFA obligatorio por su alto nivel de privilegios."
     },

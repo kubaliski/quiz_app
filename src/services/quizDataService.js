@@ -246,12 +246,12 @@ export const fetchAllPreguntasByAsignatura = async (asignaturaId) => {
  * @async
  * @function fetchRandomPreguntasByAsignatura
  * @param {string|number} asignaturaId - Identificador de la asignatura
- * @param {number} [limit=40] - Número máximo de preguntas a retornar
+ * @param {number} [limit=30] - Número máximo de preguntas a retornar
  * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias
  */
 export const fetchRandomPreguntasByAsignatura = async (
   asignaturaId,
-  limit = 40
+  limit = 30
 ) => {
   try {
     // Obtenemos todas las preguntas de la asignatura
@@ -273,13 +273,13 @@ export const fetchRandomPreguntasByAsignatura = async (
  * @async
  * @function fetchRandomPreguntasByAsignaturaExamen
  * @param {string|number} asignaturaId - Identificador de la asignatura
- * @param {number} [limit=40] - Número máximo de preguntas a retornar
+ * @param {number} [limit=30] - Número máximo de preguntas a retornar
  * @returns {Promise<Array<Object>>} Promesa que resuelve con un array de preguntas aleatorias de examen
  * @throws {Error} Si la asignatura no existe o hay error al cargar sus módulos
  */
 export const fetchRandomPreguntasByAsignaturaExamen = async (
   asignaturaId,
-  limit = 40
+  limit = 30
 ) => {
   try {
     const asignatura = await fetchAsignaturaCompleta(asignaturaId);

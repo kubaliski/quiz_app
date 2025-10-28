@@ -192,10 +192,10 @@ export const clearFavorites = (asignaturaId) => {
  * @async
  * @function startFavoritesQuiz
  * @param {string|number} asignaturaId - Identificador de la asignatura
- * @param {number} [limit=40] - Número máximo de preguntas a incluir
+ * @param {number} [limit=30] - Número máximo de preguntas a incluir
  * @returns {Promise<Object>} Promesa que resuelve con las preguntas preparadas para el quiz
  */
-export const startFavoritesQuiz = async (asignaturaId, limit = 40) => {
+export const startFavoritesQuiz = async (asignaturaId, limit = 30) => {
   try {
     // Obtener favoritos
     const favorites = await getFavoritesByAsignatura(asignaturaId);

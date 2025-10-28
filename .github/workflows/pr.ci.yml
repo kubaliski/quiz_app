@@ -48,7 +48,7 @@ jobs:
         run: test -f dist/version.json && echo "version.json OK" || (echo "version.json no generado" && exit 1)
 
       - name: Verificador local (informativo)
-        run: node verify-version.js
+        run: node scripts/verify-version.js
 
   verify-prod:
     name: Verificar versión en Netlify (producción)
@@ -61,4 +61,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Verificar versión remota
-        run: node verify-version.js https://kubaquizapp.netlify.app/
+        run: node scripts/verify-version.js https://kubaquizapp.netlify.app/

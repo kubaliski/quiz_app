@@ -125,6 +125,8 @@ Si quieres contribuir al código de la aplicación:
 
 ## Estructura para contribuciones de contenido
 
+> Guía extendida paso a paso: consulta `docs/adding-content.md` para ver cómo crear asignaturas, módulos, preguntas y añadir recursos (imágenes y bloques de código) con ejemplos y checklist.
+
 Si estás añadiendo nuevos tests, sigue esta estructura:
 
 ### Para un nuevo módulo en una asignatura existente:

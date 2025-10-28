@@ -191,6 +191,15 @@ export default defineConfig({
     }),
     generateVersionPlugin(),
   ],
+  // Configuración de puertos para aislar el origen y evitar colisiones de localStorage
+  server: {
+    port: 5174,
+    strictPort: true, // si el 5174 está ocupado, falla en lugar de cambiar de puerto
+  },
+  preview: {
+    port: 5175,
+    strictPort: true,
+  },
   build: {
     // Asegurarse de que el contenido hash cambie cuando se actualiza el contenido
     rollupOptions: {

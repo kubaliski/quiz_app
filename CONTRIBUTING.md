@@ -60,48 +60,68 @@ Si quieres contribuir al código de la aplicación:
 
 ## Flujo de trabajo con Git
 
+> Estrategia de ramas
+>
+> - main: rama de producción (deploy automático en Netlify).
+> - release/x.y.z: rama de integración para preparar una versión. Aquí llegan las PRs “normales”.
+> - hotfix/...: ramas de corrección urgente que van directas a main mediante PR.
+
 1. **Fork**: Haz un fork del repositorio a tu cuenta de GitHub
 
-   ```bash
-   # En la interfaz web de GitHub, pulsa el botón "Fork"
-   ```
+  ```bash
+  # En la interfaz web de GitHub, pulsa el botón "Fork"
+  ```
 
 2. **Clone**: Clona tu fork a tu máquina local
 
-   ```bash
-   git clone https://github.com/tu-usuario/quiz-app.git
-   cd quiz-app
-   ```
+  ```bash
+  git clone https://github.com/tu-usuario/quiz-app.git
+  cd quiz-app
+  ```
 
-3. **Rama**: Crea una rama para tu contribución
+3. **Rama**: Crea una rama para tu contribución según el destino de la PR
 
-   ```bash
-   git checkout -b nombre-descriptivo-de-tu-cambio
-   ```
+  - Cambios normales (features, mejoras, refactors, docs):
+    - Crea tu rama desde la release objetivo.
+    - Nombra tu rama como `feature/...`, `fix/...`, `chore/...`, `docs/...`.
+    - Abre PR hacia `release/x.y.z` correspondiente.
 
-   - Para nuevos módulos: `add-modulo-nombre`
-   - Para correcciones: `fix-descripcion-del-error`
-   - Para mejoras: `feature-nombre-funcionalidad`
+    ```bash
+    # Ejemplo: trabajar para la versión 2.1.0
+    git fetch origin
+    git checkout -b feature/nueva-funcionalidad origin/release/2.1.0
+    ```
+
+  - Hotfix (parches urgentes para producción):
+    - Crea tu rama desde `main`.
+    - Nómbrala `hotfix/descripcion-corta`.
+    - Abre PR hacia `main`.
+
+    ```bash
+    git fetch origin
+    git checkout -b hotfix/corrige-crash origin/main
+    ```
 
 4. **Desarrollo**: Realiza tus cambios siguiendo las convenciones del proyecto
 
 5. **Commit**: Haz commits con mensajes descriptivos
 
-   ```bash
-   git add .
-   git commit -m "Descripción clara de los cambios realizados"
-   ```
+  ```bash
+  git add .
+  git commit -m "feat: descripción clara del cambio"
+  ```
 
 6. **Push**: Sube tus cambios a tu fork
 
-   ```bash
-   git push origin nombre-descriptivo-de-tu-cambio
-   ```
+  ```bash
+  git push origin nombre-de-tu-rama
+  ```
 
 7. **Pull Request**: Crea un PR desde la interfaz de GitHub
-   - Utiliza la plantilla de PR correspondiente al tipo de contribución
-   - Vincula con el issue relacionado si existe
-   - Proporciona una descripción clara de los cambios
+  - Cambios normales: base = `release/x.y.z` correspondiente
+  - Hotfix: base = `main`
+  - Si no existe la rama release objetivo, solicita su creación en un issue
+  - Utiliza la plantilla de PR correspondiente y vincula el issue relacionado si existe
 
 ## Estructura para contribuciones de contenido
 
@@ -170,11 +190,23 @@ Consulta el README para información más detallada sobre la estructura del proy
 
 Al enviar un Pull Request:
 
-1. Verifica que todos los tests pasen (si existen)
-2. Asegúrate de que el código esté lintado
-3. Utiliza la plantilla de PR adecuada
-4. Responde a los comentarios y solicitudes de cambios
-5. Actualiza tu rama si hay conflictos con la rama principal
+1. Destino de la PR
+  - Cambios normales: hacia `release/x.y.z` correspondiente.
+  - Hotfix: hacia `main`.
+
+2. Requisitos de CI (obligatorios en las PRs)
+  - Lint: `npm run lint`
+  - Tests: `npm run test -- --run`
+  - Build: `npm run build` (genera `dist/version.json` y lo valida en CI)
+
+3. Buenas prácticas
+  - Títulos con prefijo: `feat:`, `fix:`, `chore:`, `docs:`
+  - Vincula issues relacionados y describe el alcance.
+  - Mantén los cambios enfocados y con cobertura de tests cuando aplique.
+
+4. Despliegue
+  - Al fusionar en `main`, Netlify despliega automáticamente a producción.
+  - Las ramas `release/*` no despliegan a producción automáticamente.
 
 ## Contacto
 

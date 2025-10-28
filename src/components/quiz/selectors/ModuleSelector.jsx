@@ -80,11 +80,11 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
             fullWidth
             onClick={handleSelectAllModules}
           >
-            40 preguntas aleatorias de todos los módulos
+            30 preguntas aleatorias de todos los módulos
           </Button>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 text-center">
-            {totalPreguntas > 40
-              ? `Se seleccionarán 40 preguntas aleatorias de un total de ${totalPreguntas}`
+            {totalPreguntas > 30
+              ? `Se seleccionarán 30 preguntas aleatorias de un total de ${totalPreguntas}`
               : `Se seleccionarán todas las ${totalPreguntas} preguntas disponibles`}
           </p>
 
@@ -98,11 +98,11 @@ export default function ModuleSelector({ modulos, asignaturaId }) {
               className="bg-red-600 hover:bg-red-700 focus:ring-red-500 dark:bg-red-700 dark:hover:bg-red-800"
               onClick={handleSelectExamenModules}
             >
-              40 preguntas aleatorias de test de examen
+              30 preguntas aleatorias de test de examen
             </Button>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 text-center">
-              {totalPreguntasExamen > 40
-                ? `Se seleccionarán 40 preguntas aleatorias de un total de ${totalPreguntasExamen} (solo módulos de examen)`
+              {totalPreguntasExamen > 30
+                ? `Se seleccionarán 30 preguntas aleatorias de un total de ${totalPreguntasExamen} (solo módulos de examen)`
                 : `Se seleccionarán todas las ${totalPreguntasExamen} preguntas disponibles (solo módulos de examen)`}
             </p>
             </>

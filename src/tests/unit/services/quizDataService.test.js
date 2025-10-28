@@ -6,7 +6,7 @@
 import { describe, it, expect } from 'vitest';
 
 // Implementación simplificada de la función que queremos probar
-function fetchRandomPreguntasByAsignaturaExamen(asignatura, limit = 40) {
+function fetchRandomPreguntasByAsignaturaExamen(asignatura, limit = 30) {
   // Filtrar solo los módulos de examen
   const modulosExamen = asignatura.modulos.filter(m => m.esExamen);
 

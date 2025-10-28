@@ -142,7 +142,7 @@ export function useQuizLoader({
 
         if (moduloId === 'examen' || tipoQuiz === 'examen') {
           // Modo examen: cargar preguntas aleatorias de módulos de examen
-          const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId, 40);
+          const preguntasExamen = await fetchRandomPreguntasByAsignaturaExamen(asigId);
 
           if (!mounted.current) return;
 
@@ -152,7 +152,7 @@ export function useQuizLoader({
           quizTipoToSet = 'examen';
         } else if (moduloId === 'todos' || tipoQuiz === 'todos') {
           // Modo todos: cargar preguntas aleatorias de todos los módulos
-          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId, 40);
+          const preguntasAleatorias = await fetchRandomPreguntasByAsignatura(asigId);
 
           if (!mounted.current) return;
 

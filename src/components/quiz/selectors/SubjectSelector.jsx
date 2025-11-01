@@ -22,13 +22,24 @@
  *
  * <SubjectSelector asignaturasPorAno={asignaturasPorAno} />
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Button } from '@components/common';
 
 export default function SubjectSelector({ asignaturasPorAno }) {
   const navigate = useNavigate();
   const [expandedYears, setExpandedYears] = useState({ 2: true }); // Segundo año expandido por defecto
+  // Detecta el modo oscuro leyendo la clase en <html> y reacciona a cambios
+  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(root.classList.contains('dark'));
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   const handleSelectSubject = (id) => {
     navigate(`/asignaturas/${id}`);
@@ -49,7 +60,9 @@ export default function SubjectSelector({ asignaturasPorAno }) {
             {/* Header del año */}
             <button
               onClick={() => toggleYear(year)}
-              className={`w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 rounded-t-lg ${
+              className={`w-full flex items-center justify-between p-4 text-left transition-colors duration-200 rounded-t-lg ${
+                isDarkMode ? 'hover:bg-gray-900' : 'hover:bg-gray-50'
+              } ${
                 yearData.disponible ? 'cursor-pointer' : 'cursor-not-allowed'
               }`}
               disabled={!yearData.disponible}

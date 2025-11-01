@@ -69,7 +69,7 @@ vi.mock('@components/quiz', () => ({
     </div>
   ),
   // Agregar el mock de PDFGenerator
-  PDFGenerator: ({ preguntas, respuestas, asignatura, titulo, subtitulo, mostrarRespuestasUsuario, buttonText }) => (
+  PDFGenerator: ({ preguntas,asignatura, buttonText }) => (
     <div data-testid="pdf-generator">
       <button>{buttonText || 'Exportar PDF'}</button>
       <span>Preguntas: {preguntas?.length || 0}</span>

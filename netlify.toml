@@ -1,5 +1,5 @@
 [build]
-command = "npm run build && node netlify-postbuild.js"
+command = "npm run build && node scripts/netlify-postbuild.js"
 publish = "dist"
 
 # Configuración de headers para la detección de versiones

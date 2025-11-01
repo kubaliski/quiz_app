@@ -67,14 +67,14 @@ export default function FavoriteQuizzes() {
     setShowModal(false);
   };
 
-  // Manejar el clic para iniciar un quiz con 40 preguntas aleatorias
+  // Manejar el clic para iniciar un quiz con 30 preguntas aleatorias
   const handleStartRandomQuiz = (quiz) => {
     // Utilizamos sessionStorage para guardar la info necesaria para iniciar el quiz
     sessionStorage.setItem('start_favorites_quiz', 'true');
     sessionStorage.setItem('favorites_quiz_asignatura_id', quiz.id);
     sessionStorage.setItem('favorites_quiz_asignatura_nombre', quiz.nombre);
-    sessionStorage.setItem('favorites_quiz_random', 'true'); // Indicador para seleccionar 40 preguntas aleatorias
-    sessionStorage.setItem('favorites_quiz_limit', '40'); // Límite de preguntas
+    sessionStorage.setItem('favorites_quiz_random', 'true'); // Indicador para seleccionar 30 preguntas aleatorias
+    sessionStorage.setItem('favorites_quiz_limit', '30'); // Límite de preguntas
 
     // Redirigir a la ruta del quiz especial "favoritos"
     navigate(`/quiz/${quiz.id}/favoritos`);
@@ -261,15 +261,15 @@ export default function FavoriteQuizzes() {
                       >
                         Practicar
                       </Button>
-                      {/* Botón para practicar con 40 preguntas aleatorias - Solo visible cuando hay más de 40 preguntas */}
-                      {quiz.totalPreguntas > 40 && (
+                      {/* Botón para practicar con 30 preguntas aleatorias - Solo visible cuando hay más de 30 preguntas */}
+                      {quiz.totalPreguntas > 30 && (
                         <Button
                           variant="primary"
                           size="small"
                           className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
                           onClick={() => handleStartRandomQuiz(quiz)}
                         >
-                          40 aleatorias
+                          30 aleatorias
                         </Button>
                       )}
                       <Button

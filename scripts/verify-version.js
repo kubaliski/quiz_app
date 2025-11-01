@@ -1,6 +1,6 @@
 /**
  * Script para verificar la configuración de versión en entorno de producción
- * Ejecutar con: node verify-version.js
+ * Ejecutar con: node scripts/verify-version.js
  */
 import fs from 'fs';
 import path from 'path';
@@ -209,6 +209,6 @@ if (process.argv.length > 2) {
   req.end();
 } else {
   console.log(`\n${colors.yellow}ℹ Para verificar la versión en producción, ejecuta:${colors.reset}`);
-  console.log(`  node ${path.basename(__filename)} https://kubaquizapp.netlify.app/`);
+  console.log(`  node scripts/verify-version.js https://kubaquizapp.netlify.app/`);
   console.log('\nVerificación local completa.');
 }

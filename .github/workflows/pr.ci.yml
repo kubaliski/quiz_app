@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+      - 'release/**'
+  push:
+    branches:
+      - main
+      - 'release/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test-lint:
+    name: Lint, Test y Build
+    runs-on: ubuntu-latest
+    # Evitar ejecutar en el evento pull_request cuando está cerrado (cerrado/mergeado)
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Necesario para que netlify-postbuild.js pueda leer info de git (hash y rama)
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tests
+        run: npm run test -- --run
+
+      - name: Build
+        run: npm run build
+
+      - name: Verificar version.json generado
+        run: test -f dist/version.json && echo "version.json OK" || (echo "version.json no generado" && exit 1)
+
+      - name: Verificador local (informativo)
+        run: node scripts/verify-version.js
+
+  tag-release:
+    name: Crear tag al merge de release → main
+    # Solo cuando se cierra un PR por merge hacia main desde release/*
+    if: |
+      github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main' &&
+      startsWith(github.event.pull_request.head.ref, 'release/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout (historia completa)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Calcular versión desde package.json y validar
+        id: ver
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION=$(node -p "require('./package.json').version")
+          if [ -z "$VERSION" ]; then
+            echo "No se pudo leer la versión de package.json" >&2
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+          HEAD_REF='${{ github.event.pull_request.head.ref }}'
+          BRANCH_VERSION="${HEAD_REF#release/}"
+          echo "PR desde: $HEAD_REF | version package.json: $VERSION"
+          if [ "$BRANCH_VERSION" != "$VERSION" ]; then
+            echo "  Aviso: la versión de la rama (release/$BRANCH_VERSION) no coincide con package.json ($VERSION). Se usará package.json para el tag." >&2
+          fi
+
+      - name: Configurar git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Crear y subir tag si no existe
+        env:
+          VERSION: ${{ steps.ver.outputs.version }}
+        run: |
+          set -euo pipefail
+          git fetch --tags
+          if git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
+            echo "Tag v$VERSION ya existe. Nada que hacer."
+            exit 0
+          fi
+
+          # Asegurar que etiquetamos el HEAD actual de main
+          git checkout main
+          git pull --ff-only origin main
+
+          git tag -a "v$VERSION" -m "Release v$VERSION (auto-tag desde merge de release)"
+          git push origin "v$VERSION"
+          echo "Tag v$VERSION creado y empujado."
+
+  verify-prod:
+    name: Verificar versión en Netlify (producción)
+    # Solo cuando se hace push a main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build-test-lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verificar versión remota
+        run: node scripts/verify-version.js https://kubaquizapp.netlify.app/

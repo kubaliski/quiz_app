@@ -57,7 +57,7 @@ describe('ModuleSelector', () => {
     expect(botonModuloRegular).toHaveClass('hover:bg-indigo-700');
   });
 
-  it('muestra el botón de 40 preguntas aleatorias de examen cuando hay módulos de examen', () => {
+  it('muestra el botón de 30 preguntas aleatorias de examen cuando hay módulos de examen', () => {
     render(
       <BrowserRouter>
         <ModuleSelector modulos={modulos} asignaturaId={1} />
@@ -65,7 +65,7 @@ describe('ModuleSelector', () => {
     );
 
     // Verificar que el botón de examen está presente
-    expect(screen.getByText('40 preguntas aleatorias de test de examen')).toBeInTheDocument();
+    expect(screen.getByText('30 preguntas aleatorias de test de examen')).toBeInTheDocument();
   });
 
   it('no muestra el botón de examen cuando no hay módulos de examen', () => {
@@ -95,6 +95,6 @@ describe('ModuleSelector', () => {
     );
 
     // Verificar que el botón de examen NO está presente
-    expect(screen.queryByText('40 preguntas aleatorias de test de examen')).not.toBeInTheDocument();
+    expect(screen.queryByText('30 preguntas aleatorias de test de examen')).not.toBeInTheDocument();
   });
 });

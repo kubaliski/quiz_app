@@ -103,9 +103,12 @@ export const calcularPuntuacion = (preguntas, respuestas) => {
   let sinResponder = 0;
   let total = preguntas.length;
 
-  // Valor de cada respuesta según las nuevas reglas
-  const valorRespuestaCorrecta = 0.25;
-  const valorRespuestaIncorrecta = -0.0833; // Un tercio del valor de una correcta, en negativo
+  // Valor dinámico de cada respuesta para que el máximo siempre sea 10 puntos
+  // - Cada correcta suma 10 / total
+  // - Cada incorrecta resta un tercio de una correcta (penalización 1/3)
+  // Mantiene compatibilidad con exámenes de 30 preguntas: correcta = 0.3333..., incorrecta = -0.1111...
+  const valorRespuestaCorrecta = 10 / total;
+  const valorRespuestaIncorrecta = -(valorRespuestaCorrecta / 3);
 
   // Asegurar que respuestas sea un objeto válido
   const respuestasObj = respuestas || {};
@@ -134,13 +137,13 @@ export const calcularPuntuacion = (preguntas, respuestas) => {
   const puntosPorIncorrectas = incorrectas * valorRespuestaIncorrecta;
   const puntosTotales = Math.max(0, puntosPorCorrectas + puntosPorIncorrectas);
 
-  // Calculamos el porcentaje (sobre el máximo posible que sería total * valorRespuestaCorrecta)
-  const maximoPosible = total * valorRespuestaCorrecta;
+  // Calculamos el porcentaje (sobre el máximo posible que es 10 con la fórmula dinámica)
+  const maximoPosible = total * valorRespuestaCorrecta; // será 10
   const porcentajeSinRedondear = maximoPosible > 0 ? (puntosTotales / maximoPosible) * 100 : 0;
   const porcentajeRedondeado = Math.round(porcentajeSinRedondear);
 
   // Calculamos la nota sobre 10
-  const notaSobre10SinRedondear = maximoPosible > 0 ? (puntosTotales / maximoPosible) * 10 : 0;
+  const notaSobre10SinRedondear = maximoPosible > 0 ? (puntosTotales / maximoPosible) * 10 : 0; // equivale a puntosTotales
 
   // Redondeamos la nota al entero más cercano, con el .5 redondeando hacia arriba
   const notaRedondeada = isNaN(notaSobre10SinRedondear) ? 0 :

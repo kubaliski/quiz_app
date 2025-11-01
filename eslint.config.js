@@ -8,7 +8,8 @@ export default [
     'dist/**',
     'dev-dist/**', // Añadido para ignorar los archivos generados de PWA
     'build/**',
-    'node_modules/**'
+    'node_modules/**',
+    'coverage/**',
   ]},
   {
     // Configuración para archivos JavaScript y JSX

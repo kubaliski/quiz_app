@@ -47,18 +47,24 @@ export default function ResultSummary({ puntuacion }) {
     return Number(puntos).toFixed(2);
   };
 
-  // Calcular puntos máximos posibles (0.25 por cada pregunta)
-  const puntosTotalesMaximos = puntuacion.total * 0.25;
+  // Cálculo dinámico según T (total de preguntas):
+  //  - correcta = 10 / T
+  //  - incorrecta = -(10 / T) / 3
+  const valorRespuestaCorrecta = puntuacion.total > 0 ? 10 / puntuacion.total : 0;
+  const valorRespuestaIncorrecta = -(valorRespuestaCorrecta / 3);
+
+  // Puntos máximos posibles con la fórmula dinámica (si todas correctas) => 10
+  const puntosTotalesMaximos = puntuacion.total > 0 ? puntuacion.total * valorRespuestaCorrecta : 0;
 
   // Calcular puntos por correctas si no están disponibles
   const puntosPorCorrectas = puntuacion.puntosPorCorrectas !== undefined && !isNaN(puntuacion.puntosPorCorrectas)
     ? puntuacion.puntosPorCorrectas
-    : puntuacion.correctas * 0.25;
+    : puntuacion.correctas * valorRespuestaCorrecta;
 
   // Calcular puntos por incorrectas si no están disponibles
   const puntosPorIncorrectas = puntuacion.puntosPorIncorrectas !== undefined && !isNaN(puntuacion.puntosPorIncorrectas)
     ? puntuacion.puntosPorIncorrectas
-    : puntuacion.incorrectas * -0.0833;
+    : puntuacion.incorrectas * valorRespuestaIncorrecta;
 
   // Calcular puntos totales si no están disponibles
   const puntosTotales = puntuacion.puntosTotales !== undefined && !isNaN(puntuacion.puntosTotales)
@@ -151,7 +157,7 @@ export default function ResultSummary({ puntuacion }) {
               fontSize: '0.875rem',
               fontStyle: 'italic'
             }}>
-              (Cada respuesta correcta suma 0.25 puntos y cada incorrecta resta 0.0833 puntos)
+              {`(Fórmula dinámica: correcta = ${valorRespuestaCorrecta.toFixed(2)} pts, incorrecta = ${Math.abs(valorRespuestaIncorrecta).toFixed(2)} pts; T = ${puntuacion.total})`}
             </p>
           </div>
         </div>

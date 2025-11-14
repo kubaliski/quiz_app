@@ -27,7 +27,7 @@ const MenuItem = memo(function MenuItem({ to, label, onClick }) {
   return (
     <Link
       to={to}
-      className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors duration-200"
+      className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-700 dark:hover:bg-brand-600 transition-colors duration-200"
       onClick={onClick}
     >
       {label}
@@ -62,7 +62,7 @@ const MobileMenu = memo(function MobileMenu({ navItems, isHeaderVisible }) {
 
   // Memoizar clases del menú para evitar recálculos
   const menuClasses = useMemo(() => {
-    const baseClasses = "absolute left-0 right-0 top-16 bg-indigo-600 dark:bg-indigo-800 shadow-md z-50";
+    const baseClasses = "absolute left-0 right-0 top-16 bg-brand-600 dark:bg-brand-800 shadow-md z-50";
     const transitionClasses = "transition-all transform duration-200 ease-in-out";
     const visibilityClasses = isOpen
       ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -83,7 +83,7 @@ const MobileMenu = memo(function MobileMenu({ navItems, isHeaderVisible }) {
       {/* Botón para abrir/cerrar el menú */}
       <button
         onClick={toggleMenu}
-        className="text-white p-2 rounded-md hover:bg-indigo-800 dark:hover:bg-indigo-700 focus:outline-none transition-colors duration-200"
+        className="text-white p-2 rounded-md hover:bg-brand-800 dark:hover:bg-brand-700 focus:outline-none transition-colors duration-200"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Cerrar menú principal" : "Abrir menú principal"}
         aria-controls="mobile-menu"

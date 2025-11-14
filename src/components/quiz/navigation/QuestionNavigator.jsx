@@ -128,7 +128,7 @@ export default function QuestionNavigator() {
 
     switch (status) {
       case 'current':
-        return `${baseClasses} bg-indigo-600 text-white border-indigo-700 shadow-md current-question`;
+        return `${baseClasses} bg-brand-600 text-white border-brand-700 shadow-md current-question`;
       case 'answered':
         return `${baseClasses} bg-green-500 text-white border-green-600`;
       default: // unanswered
@@ -298,7 +298,7 @@ export default function QuestionNavigator() {
                         ? 'active:scale-95 touch-manipulation' // Efecto al pulsar en móvil
                         : 'hover:opacity-90 hover:scale-105'
                       }
-                      focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:outline-none
+                      focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 focus:outline-none
                     `}
                     aria-label={`Ir a pregunta ${index + 1}`}
                     title={`Pregunta ${index + 1}${status === 'answered' ? ' - Respondida' : status === 'unanswered' ? ' - Sin responder' : ''}`}

@@ -33,7 +33,7 @@ const Header = memo(function Header() {
 
   // Calculamos las clases CSS de manera optimizada
   const headerClasses = useMemo(() => {
-    const baseClasses = 'bg-indigo-700 dark:bg-indigo-900 shadow-md z-50';
+    const baseClasses = 'bg-brand-700 dark:bg-brand-600 shadow-md z-50';
     const positionClasses = isMobile
       ? 'fixed top-0 left-0 right-0 transition-transform duration-300 ease-in-out'
       : 'relative';

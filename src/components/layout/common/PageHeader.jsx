@@ -68,7 +68,11 @@ export default function PageHeader({
                     {crumb.to ? (
                       <Link
                         to={crumb.to}
-                        className={`${isLast ? 'text-gray-700 dark:text-gray-300 font-medium' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'} transition-colors duration-200`}
+                        className={`${
+                          isLast
+                            ? 'text-gray-700 dark:text-gray-300 font-medium'
+                            : 'text-gray-500 dark:text-gray-400 hover:text-brand-700 dark:hover:text-brand-300'
+                        } transition-colors duration-200`}
                       >
                         {crumb.label}
                       </Link>

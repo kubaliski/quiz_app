@@ -266,7 +266,7 @@ export default function FavoriteQuizzes() {
                         <Button
                           variant="primary"
                           size="small"
-                          className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
+                          className="bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-600 hover:to-brand-800"
                           onClick={() => handleStartRandomQuiz(quiz)}
                         >
                           30 aleatorias
@@ -411,7 +411,7 @@ export default function FavoriteQuizzes() {
 
                       {/* Respuesta correcta */}
                       <div className="mt-2 text-sm">
-                        <span className="font-medium text-green-600 dark:text-green-400">
+                        <span className="font-medium text-brand-600 dark:text-brand-400">
                           Respuesta correcta:
                         </span>
                         <span className="ml-2 text-gray-700 dark:text-gray-300">
@@ -419,7 +419,7 @@ export default function FavoriteQuizzes() {
                         </span>
                       </div>
                        <div className="mt-2 text-sm">
-                         <span className="font-medium text-green-600 dark:text-green-400">
+                         <span className="font-medium text-brand-600 dark:text-brand-400">
                           Explicación:
                         </span>
                          <span className="ml-2 text-gray-700 dark:text-gray-300">

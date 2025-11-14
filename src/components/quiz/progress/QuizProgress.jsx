@@ -19,7 +19,7 @@ export default function QuizProgress() {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <div className="text-sm font-medium bg-indigo-100 text-indigo-800 py-1 px-3 rounded-full">
+        <div className="text-sm font-medium bg-brand-100 text-brand-800 py-1 px-3 rounded-full">
           Pregunta {preguntaActual + 1} de {totalPreguntas}
         </div>
 
@@ -32,7 +32,7 @@ export default function QuizProgress() {
 
       <ProgressBar
         progreso={progreso}
-        className={`mb-6 ${modoExamen ? 'bg-red-600' : 'bg-indigo-600'}`}
+        className={`mb-6 ${modoExamen ? 'bg-red-600' : 'bg-brand-600'}`}
       />
     </>
   );

@@ -45,16 +45,16 @@ textarea:focus,
 select:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  border-color: rgb(99, 102, 241); /* border-indigo-500 */
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* ring-indigo-500 ring-opacity-20 */
+  border-color: var(--color-brand-600); /* border-brand-600 */
+  box-shadow: 0 0 0 3px rgba(var(--color-brand-600-rgb), 0.2); /* ring-brand-600 ring-opacity-20 */
 }
 
 /* Estado de focus en modo oscuro */
 .dark input:focus,
 .dark textarea:focus,
 .dark select:focus {
-  border-color: rgb(129, 140, 248); /* dark:border-indigo-400 */
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2); /* dark:ring-indigo-400 ring-opacity-20 */
+  border-color: var(--color-brand-400); /* dark:border-brand-400 */
+  box-shadow: 0 0 0 3px rgba(var(--color-brand-400-rgb), 0.2); /* dark:ring-brand-400 ring-opacity-20 */
 }
 
 /* Estado de error */
@@ -100,7 +100,7 @@ select:focus {
 /* Checkbox y Radio buttons */
 input[type="checkbox"],
 input[type="radio"] {
-  color: rgb(79, 70, 229); /* text-indigo-600 */
+  color: rgb(79, 70, 229); /* text-brand-600 */
   border-color: rgb(209, 213, 219); /* border-gray-300 */
   border-radius: 0.25rem;
   width: 1rem;
@@ -109,7 +109,7 @@ input[type="radio"] {
 
 .dark input[type="checkbox"],
 .dark input[type="radio"] {
-  color: rgb(129, 140, 248); /* dark:text-indigo-400 */
+  color: rgb(129, 140, 248); /* dark:text-brand-400 */
   border-color: rgb(55, 65, 81); /* dark:border-gray-700 */
 }
 
@@ -154,7 +154,7 @@ label {
 
 /* Botones de formulario */
 button[type="submit"] {
-  background-color: rgb(79, 70, 229); /* bg-indigo-600 */
+  background-color: rgb(79, 70, 229); /* bg-brand-600 */
   color: white;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -165,15 +165,15 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: rgb(67, 56, 202); /* bg-indigo-700 */
+  background-color: rgb(67, 56, 202); /* bg-brand-700 */
 }
 
 .dark button[type="submit"] {
-  background-color: rgb(67, 56, 202); /* dark:bg-indigo-700 */
+  background-color: rgb(67, 56, 202); /* dark:bg-brand-700 */
 }
 
 .dark button[type="submit"]:hover {
-  background-color: rgb(55, 48, 163); /* dark:bg-indigo-800 */
+  background-color: rgb(55, 48, 163); /* dark:bg-brand-800 */
 }
 
 /* Botón deshabilitado */
@@ -221,7 +221,7 @@ button:disabled {
   margin-top: -0.75rem;
   margin-left: -0.75rem;
   border: 3px solid rgb(229, 231, 235); /* border-gray-200 */
-  border-top-color: rgb(79, 70, 229); /* border-indigo-600 */
+  border-top-color: rgb(79, 70, 229); /* border-brand-600 */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

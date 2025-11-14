@@ -24,6 +24,7 @@
 /* Utilidades y sistemas de color */
 @import "./utils/animations.css";        /* Animaciones y transiciones */
 @import "./utils/safe-colors.css";       /* Sistema de colores web seguros */
+@import "./utils/theme.css";             /* Tokens de color de marca */
 @import "./utils/accessibility.css";     /* Mejoras de accesibilidad y correcciones */
 
 /* Responsive y adaptación a dispositivos */

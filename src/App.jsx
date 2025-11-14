@@ -57,7 +57,7 @@ function RouteErrorBoundary({ children }) {
                   window.location.reload(true);
                 }
               }}
-              className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700"
+              className="bg-brand-600 text-white py-2 px-4 rounded hover:bg-brand-700"
             >
               Recargar la aplicación
             </Button>

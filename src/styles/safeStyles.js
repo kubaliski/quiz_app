@@ -69,22 +69,36 @@ export const SAFE_COLORS = {
   /**
    * Colores seguros para componentes específicos según estado y tema
    */
+  // Paleta de marca (usa variables CSS definidas en theme.css)
+  const BRAND_COLORS = {
+    50: 'var(--color-brand-50)',
+    100: 'var(--color-brand-100)',
+    200: 'var(--color-brand-200)',
+    300: 'var(--color-brand-300)',
+    400: 'var(--color-brand-400)',
+    500: 'var(--color-brand-500)',
+    600: 'var(--color-brand-600)',
+    700: 'var(--color-brand-700)',
+    800: 'var(--color-brand-800)',
+    900: 'var(--color-brand-900)'
+  };
+
   export const COMPONENT_COLORS = {
-    // Para respuestas y estados correctos/éxito
-    correct: {
-      light: {
-        bg: SAFE_COLORS.green[100],
-        bgOpacity: SAFE_COLORS.green[50],
-        border: SAFE_COLORS.green[200],
-        text: SAFE_COLORS.green[600]
+      // Para respuestas y estados correctos/éxito (migrado a brand)
+      correct: {
+        light: {
+          bg: BRAND_COLORS[100],
+          bgOpacity: BRAND_COLORS[50],
+          border: BRAND_COLORS[200],
+          text: BRAND_COLORS[600]
+        },
+        dark: {
+          bg: `rgba(var(--color-brand-900-rgb), 0.25)`,
+          bgOpacity: `rgba(var(--color-brand-900-rgb), 0.15)`,
+          border: BRAND_COLORS[800],
+          text: BRAND_COLORS[400]
+        }
       },
-      dark: {
-        bg: `rgba(20, 83, 45, 0.2)`, // verde 900 con transparencia
-        bgOpacity: `rgba(20, 83, 45, 0.1)`,
-        border: SAFE_COLORS.green[800],
-        text: SAFE_COLORS.green[400]
-      }
-    },
 
     // Para respuestas y estados incorrectos/error
     incorrect: {
@@ -299,9 +313,9 @@ export const SAFE_COLORS = {
 
     // Colores para el círculo de puntuación
     const scoreCircleColors = {
-      excellent: isDarkMode ? SAFE_COLORS.green[500] : SAFE_COLORS.green[600],
-      good: isDarkMode ? SAFE_COLORS.green[400] : SAFE_COLORS.green[500],
-      decent: isDarkMode ? SAFE_COLORS.green[300] : SAFE_COLORS.green[400],
+      excellent: isDarkMode ? BRAND_COLORS[500] : BRAND_COLORS[600],
+      good: isDarkMode ? BRAND_COLORS[400] : BRAND_COLORS[500],
+      decent: isDarkMode ? BRAND_COLORS[300] : BRAND_COLORS[400],
       pass: isDarkMode ? SAFE_COLORS.yellow[400] : SAFE_COLORS.yellow[500],
       borderPass: isDarkMode ? SAFE_COLORS.yellow[300] : SAFE_COLORS.yellow[400],
       fail: isDarkMode ? SAFE_COLORS.red[400] : SAFE_COLORS.red[500]
@@ -309,9 +323,9 @@ export const SAFE_COLORS = {
 
     // Colores para la sección de detalles
     const detailsSectionColors = {
-      excellent: isDarkMode ? 'rgba(20, 83, 45, 0.3)' : SAFE_COLORS.green[100],
-      good: isDarkMode ? 'rgba(20, 83, 45, 0.2)' : SAFE_COLORS.green[50],
-      decent: isDarkMode ? 'rgba(20, 83, 45, 0.15)' : SAFE_COLORS.green[50],
+      excellent: isDarkMode ? 'rgba(var(--color-brand-900-rgb), 0.35)' : BRAND_COLORS[100],
+      good: isDarkMode ? 'rgba(var(--color-brand-900-rgb), 0.25)' : BRAND_COLORS[50],
+      decent: isDarkMode ? 'rgba(var(--color-brand-900-rgb), 0.20)' : BRAND_COLORS[50],
       pass: isDarkMode ? 'rgba(113, 63, 18, 0.2)' : SAFE_COLORS.yellow[50],
       borderPass: isDarkMode ? 'rgba(113, 63, 18, 0.15)' : SAFE_COLORS.yellow[50],
       fail: isDarkMode ? 'rgba(127, 29, 29, 0.2)' : SAFE_COLORS.red[50]
@@ -353,10 +367,10 @@ export const SAFE_COLORS = {
         height: '100%',
         width: `${percentage}%`,
         backgroundColor: isDarkMode ?
-          (percentage >= 70 ? 'rgba(20, 83, 45, 0.8)' :
+          (percentage >= 70 ? 'rgba(var(--color-brand-600-rgb), 0.85)' :
            percentage >= 50 ? 'rgba(113, 63, 18, 0.8)' :
            'rgba(127, 29, 29, 0.8)') :
-          (percentage >= 70 ? SAFE_COLORS.green[500] :
+          (percentage >= 70 ? BRAND_COLORS[600] :
            percentage >= 50 ? SAFE_COLORS.yellow[500] :
            SAFE_COLORS.red[500]),
         borderRadius: '0.5rem',

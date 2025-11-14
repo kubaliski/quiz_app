@@ -100,16 +100,16 @@ const PWAInstallPrompt = () => {
         }
       >
         <div className="flex items-start space-x-3">
-          <div className="text-indigo-600 dark:text-indigo-400 mt-0.5">
+          <div className="text-brand-600 dark:text-brand-400 mt-0.5">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd" />
             </svg>
           </div>
           <p
             className={`text-sm font-medium ${
-              darkMode ? 'text-indigo-300' : 'text-indigo-700'
+              darkMode ? 'text-brand-300' : 'text-brand-700'
             }`}
-            style={{ color: darkMode ? 'rgb(165, 180, 252)' : 'rgb(67, 56, 202)' }}
+            style={{ color: darkMode ? 'var(--color-brand-300)' : 'var(--color-brand-700)' }}
           >
             Instala Quiz App en tu dispositivo para acceder rápidamente y practicar tus tests sin conexión.
           </p>

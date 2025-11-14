@@ -1,0 +1,44 @@
+/*********************************************
+ * THEME TOKENS (Restaurado)
+ * Paleta de marca (verde principal #1EA896)
+ *********************************************/
+
+:root {
+  --color-brand-50:  #e9fbf7;
+  --color-brand-100: #d3f7f0;
+  --color-brand-400: #4fd6c2;
+  --color-brand-500: #30a896;
+  --color-brand-600: #1ea896; /* principal */
+  --color-brand-700: #198f80;
+  --color-brand-800: #157a6d;
+  --color-brand-900: #0f5d51;
+
+  --color-brand-50-rgb: 233, 251, 247;
+  --color-brand-100-rgb: 211, 247, 240;
+  --color-brand-400-rgb: 79, 214, 194;
+  --color-brand-500-rgb: 48, 168, 150;
+  --color-brand-600-rgb: 30, 168, 150;
+  --color-brand-700-rgb: 25, 143, 128;
+  --color-brand-800-rgb: 21, 122, 109;
+  --color-brand-900-rgb: 15, 93, 81;
+}
+
+/* Utilidades básicas */
+.bg-brand-50 { background-color: var(--color-brand-50); }
+.bg-brand-100 { background-color: var(--color-brand-100); }
+.bg-brand-600 { background-color: var(--color-brand-600); }
+.bg-brand-700 { background-color: var(--color-brand-700); }
+.bg-brand-800 { background-color: var(--color-brand-800); }
+.bg-brand-900 { background-color: var(--color-brand-900); }
+
+.text-brand-400 { color: var(--color-brand-400); }
+.text-brand-600 { color: var(--color-brand-600); }
+.text-brand-700 { color: var(--color-brand-700); }
+.text-brand-800 { color: var(--color-brand-800); }
+.text-brand-900 { color: var(--color-brand-900); }
+
+.border-brand-400 { border-color: var(--color-brand-400); }
+.border-brand-600 { border-color: var(--color-brand-600); }
+.border-brand-700 { border-color: var(--color-brand-700); }
+.border-brand-800 { border-color: var(--color-brand-800); }
+.border-brand-900 { border-color: var(--color-brand-900); }

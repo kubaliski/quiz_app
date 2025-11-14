@@ -53,8 +53,8 @@ describe('ModuleSelector', () => {
     expect(botonModuloExamen).toHaveClass('hover:bg-red-700');
 
     // Verificar que el módulo regular no tiene la clase de estilo rojo
-    expect(botonModuloRegular).toHaveClass('bg-indigo-600');
-    expect(botonModuloRegular).toHaveClass('hover:bg-indigo-700');
+    expect(botonModuloRegular).toHaveClass('bg-brand-600');
+    expect(botonModuloRegular).toHaveClass('hover:bg-brand-700');
   });
 
   it('muestra el botón de 30 preguntas aleatorias de examen cuando hay módulos de examen', () => {

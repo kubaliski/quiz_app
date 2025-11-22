@@ -181,7 +181,7 @@ export default function QuestionCard({
               key={index}
               className={`w-full text-left hover:cursor-pointer p-4 rounded-lg border transition duration-200 ${
                 isSelected
-                  ? 'bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 border-indigo-300 dark:border-indigo-700 ring-2 ring-indigo-500 dark:ring-indigo-400'
+                  ? 'bg-brand-100 dark:bg-brand-900 dark:bg-opacity-40 border-brand-300 dark:border-brand-700 ring-2 ring-brand-500 dark:ring-brand-400'
                   : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
               onClick={() => handleClickOption(pregunta.id, index)}
@@ -189,7 +189,7 @@ export default function QuestionCard({
               <div className="flex items-start">
                 <div className={`flex-shrink-0 h-5 w-5 rounded-full border ${
                   isSelected
-                    ? 'bg-indigo-600 border-indigo-600'
+                    ? 'bg-brand-600 border-brand-600'
                     : 'border-gray-400 dark:border-gray-500'
                 } mt-0.5 mr-3 flex items-center justify-center`}>
                   {isSelected && (

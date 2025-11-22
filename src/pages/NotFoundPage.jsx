@@ -19,7 +19,7 @@ export default function NotFoundPage() {
       <div className="min-h-screen bg-gray-100 flex flex-col justify-center">
         <div className="py-12 sm:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="text-9xl font-extrabold text-indigo-600 tracking-tight">
+            <div className="text-9xl font-extrabold text-brand-600 tracking-tight">
               404
             </div>
 

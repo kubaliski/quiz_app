@@ -27,7 +27,7 @@ const DesktopNav = memo(function DesktopNav({ navItems }) {
           <Link
             key={index}
             to={item.to}
-            className="text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-indigo-800 dark:hover:bg-indigo-700"
+            className="text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-brand-800 dark:hover:bg-brand-700"
           >
             {item.label}
           </Link>

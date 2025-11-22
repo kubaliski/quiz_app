@@ -76,14 +76,13 @@ export default function Toast({ message, type = 'info', duration = 3000, onClose
     // En móvil, reducir transparencia para mejor visualización
     if (isMobile) {
       if (darkMode) {
-        // En modo oscuro en móvil, usar colores más sólidos
-        bgColor = component === 'correct' ? SAFE_COLORS.green[900] :
+        // En modo oscuro en móvil, usar colores más sólidos (brand para success)
+        bgColor = component === 'correct' ? 'var(--color-brand-900)' :
                   component === 'incorrect' ? SAFE_COLORS.red[900] :
                   SAFE_COLORS.yellow[900];
-        bgColor = `${bgColor}`;  // Sin transparencia para móvil
       } else {
-        // En modo claro en móvil, usar colores más sólidos
-        bgColor = component === 'correct' ? SAFE_COLORS.green[100] :
+        // En modo claro en móvil, usar colores más sólidos (brand para success)
+        bgColor = component === 'correct' ? 'var(--color-brand-100)' :
                   component === 'incorrect' ? SAFE_COLORS.red[100] :
                   SAFE_COLORS.yellow[100];
       }
@@ -134,7 +133,7 @@ export default function Toast({ message, type = 'info', duration = 3000, onClose
   // Color de progreso basado en el tipo
   const getProgressColor = () => {
     switch (type) {
-      case 'success': return darkMode ? SAFE_COLORS.green[500] : SAFE_COLORS.green[600];
+      case 'success': return darkMode ? 'var(--color-brand-500)' : 'var(--color-brand-600)';
       case 'error': return darkMode ? SAFE_COLORS.red[500] : SAFE_COLORS.red[600];
       case 'warning': return darkMode ? SAFE_COLORS.yellow[500] : SAFE_COLORS.yellow[600];
       case 'info':

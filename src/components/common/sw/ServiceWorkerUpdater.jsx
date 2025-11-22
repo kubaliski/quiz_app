@@ -201,7 +201,7 @@ export default function ServiceWorkerUpdater() {
   if (updateAvailable) {
     return (
       <>
-        <div className="fixed bottom-0 left-0 right-0 bg-indigo-600 text-white p-3 flex justify-between items-center shadow-lg z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-brand-600 text-white p-3 flex justify-between items-center shadow-lg z-50">
           <div className="flex-1">
             <span className="font-medium">¡Hay una nueva versión disponible!</span>
             {updateInfo && updateInfo.notes && (
@@ -236,7 +236,7 @@ export default function ServiceWorkerUpdater() {
           {updateDelayed ? (
             <button
               onClick={confirmUpdate}
-              className="bg-white text-indigo-600 px-4 py-1 rounded font-medium text-sm ml-4"
+              className="bg-white text-brand-600 px-4 py-1 rounded font-medium text-sm ml-4"
             >
               Actualizar ahora de todos modos
             </button>
@@ -246,7 +246,7 @@ export default function ServiceWorkerUpdater() {
                 onClick={confirmUpdate}
                 disabled={isApplying}
                 className={`
-                  bg-white text-indigo-600 px-4 py-1 rounded font-medium text-sm
+                  bg-white text-brand-600 px-4 py-1 rounded font-medium text-sm
                   ${isApplying ? 'opacity-75 cursor-not-allowed' : 'hover:bg-gray-100'}
                 `}
               >

@@ -44,7 +44,7 @@ export default function Button({
 
   // Variant-specific styles
   const variantStyles = {
-    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-indigo-700 dark:hover:bg-indigo-800',
+    primary: 'bg-brand-600 hover:bg-brand-700 text-white dark:bg-brand-700 dark:hover:bg-brand-800',
     secondary: 'bg-gray-500 hover:bg-gray-600 text-white dark:bg-gray-600 dark:hover:bg-gray-700',
     danger: 'bg-red-600 hover:bg-red-700 text-white dark:bg-red-700 dark:hover:bg-red-800',
     success: 'bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-800'
@@ -67,7 +67,7 @@ export default function Button({
 
   // Focus ring styles
   const focusRingStyle = `focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-${
-    variant === 'primary' ? 'indigo' :
+    variant === 'primary' ? 'brand' :
     variant === 'secondary' ? 'gray' :
     variant === 'danger' ? 'red' : 'green'
   }-500`;

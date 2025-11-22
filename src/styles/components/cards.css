@@ -13,16 +13,16 @@
   }
 
   /* Bloques de notas e información */
-  .bg-indigo-50,
+  .bg-brand-50,
   .bg-yellow-50 {
-    background-color: rgb(238, 242, 255) !important; /* bg-indigo-50 */
-    border-color: rgb(99, 102, 241) !important; /* border-indigo-500 */
+    background-color: var(--color-brand-50) !important; /* bg-brand-50 -> brand-50 */
+    border-color: var(--color-brand-600) !important; /* border-brand-500 -> brand-600 */
   }
 
-  html.dark .bg-indigo-50,
-  html.dark .dark\:bg-indigo-900.dark\:bg-opacity-40 {
-    background-color: rgba(49, 46, 129, 0.4) !important; /* dark:bg-indigo-900 with opacity */
-    border-color: rgb(129, 140, 248) !important; /* dark:border-indigo-400 */
+  html.dark .bg-brand-50,
+  html.dark .dark\:bg-brand-900.dark\:bg-opacity-40 {
+    background-color: rgba(var(--color-brand-900-rgb), 0.4) !important; /* dark:bg-brand-900 with opacity */
+    border-color: var(--color-brand-400) !important; /* dark:border-brand-400 -> brand-400 */
   }
 
   html.dark .bg-yellow-50,

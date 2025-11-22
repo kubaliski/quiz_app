@@ -38,12 +38,12 @@ body {
 
   /* Estilos para enlaces */
   a {
-    color: rgb(79, 70, 229) !important; /* text-indigo-600 */
+    color: var(--color-brand-600) !important; /* text-brand-600 */
     transition: color 0.2s;
   }
 
   .dark a {
-    color: rgb(129, 140, 248) !important; /* dark:text-indigo-400 */
+    color: var(--color-brand-400) !important; /* dark:text-brand-400 */
   }
 
   a:hover {
@@ -92,8 +92,8 @@ body {
     background-color: rgb(229, 231, 235) !important; /* bg-gray-200 */
   }
 
-  .bg-indigo-100 {
-    background-color: rgb(224, 231, 255) !important; /* bg-indigo-100 */
+  .bg-brand-100 {
+    background-color: rgb(224, 231, 255) !important; /* bg-brand-100 */
   }
 
   /* Fondos en modo oscuro */
@@ -109,12 +109,12 @@ body {
     background-color: rgb(17, 24, 39) !important; /* dark:bg-gray-900 */
   }
 
-  html.dark .dark\:bg-indigo-900 {
-    background-color: rgb(49, 46, 129) !important; /* dark:bg-indigo-900 */
+  html.dark .dark\:bg-brand-900 {
+    background-color: rgb(49, 46, 129) !important; /* dark:bg-brand-900 */
   }
 
-  html.dark .dark\:bg-indigo-700 {
-    background-color: rgb(67, 56, 202) !important; /* dark:bg-indigo-700 */
+  html.dark .dark\:bg-brand-700 {
+    background-color: rgb(67, 56, 202) !important; /* dark:bg-brand-700 */
   }
 
   /*********************************************
@@ -134,8 +134,8 @@ body {
     color: rgb(17, 24, 39) !important; /* text-gray-900 */
   }
 
-  .text-indigo-800 {
-    color: rgb(55, 48, 163) !important; /* text-indigo-800 */
+  .text-brand-800 {
+    color: rgb(55, 48, 163) !important; /* text-brand-800 */
   }
 
   /* Colores de texto para modo oscuro */
@@ -169,8 +169,8 @@ body {
     border-color: rgb(55, 65, 81) !important; /* dark:border-gray-700 */
   }
 
-  html.dark .dark\:border-indigo-700 {
-    border-color: rgb(67, 56, 202) !important; /* dark:border-indigo-700 */
+  html.dark .dark\:border-brand-700 {
+    border-color: rgb(67, 56, 202) !important; /* dark:border-brand-700 */
   }
 
   /*********************************************

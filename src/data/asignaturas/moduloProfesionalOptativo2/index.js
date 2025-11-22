@@ -3,6 +3,7 @@ import moduloUnidadUnoCloudComputing from './modulos/unidad1.js';
 import moduloUnidadDosInfraestructuraGlobal from './modulos/unidad2.js';
 import moduloUnidadTresSeguridadAWS from './modulos/unidad3.js';
 import moduloUnidadCuatroRedesEnLaNube from './modulos/unidad4.js';
+import moduloUnidadCincoServiciosDeComputo from './modulos/unidad5.js';
 
 export const moduloProfesionalOptativo = {
     ...info,
@@ -10,7 +11,8 @@ export const moduloProfesionalOptativo = {
         moduloUnidadUnoCloudComputing,
         moduloUnidadDosInfraestructuraGlobal,
         moduloUnidadTresSeguridadAWS,
-        moduloUnidadCuatroRedesEnLaNube
+        moduloUnidadCuatroRedesEnLaNube,
+        moduloUnidadCincoServiciosDeComputo
     ],
 };
 export default moduloProfesionalOptativo;

@@ -3,6 +3,7 @@ import moduloUnidadDosTecnologiasHabilitadorasDigitales from './modulos/unidadDo
 import moduloUnidadTresSistemasConectados from './modulos/unidadTres.js';
 import moduloUnidadCuatroIAyBigData from './modulos/unidadCuatro.js';
 import moduloUnidadCincoValorDelDato from './modulos/unidadCinco.js';
+import moduloUnidadSeisTransformacionDigital from './modulos/unidadSeis.js';
 
 export const digitalizacion = {
     ...info,
@@ -10,7 +11,8 @@ export const digitalizacion = {
         moduloUnidadDosTecnologiasHabilitadorasDigitales,
         moduloUnidadTresSistemasConectados,
         moduloUnidadCuatroIAyBigData,   
-        moduloUnidadCincoValorDelDato
+        moduloUnidadCincoValorDelDato,
+        moduloUnidadSeisTransformacionDigital,
     ]
 }; 
 export default digitalizacion;

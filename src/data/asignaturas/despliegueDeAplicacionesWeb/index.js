@@ -3,6 +3,8 @@ import moduloUnidadDosArquitecturaYProtocolos from './modulos/unidadDos.js';
 import moduloUnidadTresServidoresWeb from './modulos/unidadTres.js';
 import moduloUnidadCuatroServiciosRed from './modulos/unidadCuatro.js';
 import moduloUnidadCincoServidoresDespliegue from './modulos/unidadCinco.js';
+import moduloUnidadSeisAutomatizacionContenedoresCICD from './modulos/unidadSeis.js';
+import moduloUnidadSieteSeguridadDespliegue from './modulos/unidadSiete.js';
 
 export const despliegueDeAplicacionesWeb = {
   ...info,
@@ -10,7 +12,9 @@ export const despliegueDeAplicacionesWeb = {
     moduloUnidadDosArquitecturaYProtocolos,
     moduloUnidadTresServidoresWeb,
     moduloUnidadCuatroServiciosRed,
-    moduloUnidadCincoServidoresDespliegue
+    moduloUnidadCincoServidoresDespliegue,
+    moduloUnidadSeisAutomatizacionContenedoresCICD,
+    moduloUnidadSieteSeguridadDespliegue,
   ],
 };
 

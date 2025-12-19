@@ -4,7 +4,7 @@ const moduloRepaso1JavaScript = {
   nombre: "Repaso 1: JavaScript Cliente",
   titulo: "JavaScript",
   descripcion: "Variables, ámbito, tipos, operadores, strings, funciones, promesas, fetch, DOM, React y módulos ES.",
-  esExamen: false,
+  esExamen: true,
   preguntas: [
     {
       id: 12051,

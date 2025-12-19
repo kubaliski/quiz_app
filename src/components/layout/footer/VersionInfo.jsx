@@ -50,7 +50,7 @@ const VersionInfo = memo(function VersionInfo() {
         if (isDevelopment) {
           if (isMountedRef.current) {
             setVersionInfo({
-              version: '2.0.4-dev'
+              version: '2.0.5-dev'
             });
             setIsLoading(false);
           }

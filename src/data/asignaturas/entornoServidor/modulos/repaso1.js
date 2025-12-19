@@ -4,7 +4,7 @@ const moduloRepaso1ExpressEJSFormularios = {
   nombre: "Repaso 1: Express, EJS y Formularios",
   titulo: "Express, EJS y Formularios",
   descripcion: "Métodos HTTP, formularios HTML, plantillas EJS, sesiones, cookies, manejo de datos en Express y validación.",
-  esExamen: false,
+  esExamen: true,
   preguntas: [
     {
       id: 11051,

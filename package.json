@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "eslint -c config/eslint.config.js .",
     "preview": "vite preview",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest --config config/vitest.config.js",
+    "test:watch": "vitest --config config/vitest.config.js --watch",
+    "test:coverage": "vitest run --config config/vitest.config.js --coverage",
     "verify-version": "node scripts/verify-version.js",
     "verify-prod": "node scripts/verify-version.js https://kubaquizapp.netlify.app/",
     "postbuild": "node scripts/netlify-postbuild.js"

@@ -65,7 +65,6 @@ function QuizPageContent({ tipo }) {
     setTipoQuiz,
     preguntaActiva,
     asignatura,
-    asigId: contextAsigId,
     notifyFavoriteToggled
   } = useQuizContext();
 

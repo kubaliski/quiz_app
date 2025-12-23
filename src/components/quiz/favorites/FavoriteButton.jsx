@@ -52,7 +52,8 @@ export default function FavoriteButton({
 
   useEffect(() => {
     let mounted = true;
-    const key = favoritesToggled && preguntaId ? String(favoritesToggled[preguntaId]) : null;
+
+    const key = (favoritesToggled && preguntaId) ? String(favoritesToggled[preguntaId]) : null;
     if (!key) return;
 
     (async () => {
@@ -68,7 +69,7 @@ export default function FavoriteButton({
     })();
 
     return () => { mounted = false; };
-  }, [favoritesToggled && favoritesToggled[preguntaId]]);
+  }, [favoritesToggled, preguntaId, asignaturaId]);
 
   // Determinar tamaño del botón - Círculos más compactos para iOS
   const getSizeClasses = () => {

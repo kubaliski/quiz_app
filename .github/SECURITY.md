@@ -6,7 +6,7 @@ Actualmente, este proyecto es educativo y se encuentra en desarrollo activo. La 
 
 | Versión | Soporte            |
 | ------- | ------------------ |
-| 1.9.0   | :white_check_mark: |
+| 2.1.0   | :white_check_mark: |
 
 ## Reportar una Vulnerabilidad
 

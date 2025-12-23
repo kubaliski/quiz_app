@@ -23,6 +23,8 @@ export const ACTION_TYPES = {
   // Nuevas acciones para navegador de preguntas
   TOGGLE_QUESTION_NAVIGATOR: 'toggle_question_navigator',
   SET_QUESTION_NAVIGATOR_FILTER: 'set_question_navigator_filter'
+  ,
+  FAVORITE_TOGGLED: 'favorite_toggled'
 };
 
 // Estado inicial del quiz
@@ -44,4 +46,7 @@ export const initialState = {
   tipoQuiz: null,
   questionNavigatorOpen: false,
   showOnlyUnanswered: false
+  ,
+  // Map de cambios de favorito para forzar refresco en UI
+  favoritesToggled: {}
 };

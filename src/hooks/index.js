@@ -17,5 +17,6 @@ export {
   useQuizDialogs,
   useQuizLoader,
   useQuizNavigation,
-  useQuizProgress
+  useQuizProgress,
+  useAnswerShortcuts
 } from './quiz';

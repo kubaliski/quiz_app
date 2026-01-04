@@ -82,6 +82,16 @@ function quizReducer(state, action) {
       };
     case ACTION_TYPES.SET_QUESTION_NAVIGATOR_FILTER:
       return { ...state, showOnlyUnanswered: action.payload };
+    case ACTION_TYPES.FAVORITE_TOGGLED: {
+      const { preguntaId, timestamp } = action.payload || {};
+      return {
+        ...state,
+        favoritesToggled: {
+          ...state.favoritesToggled,
+          [preguntaId]: timestamp || Date.now()
+        }
+      };
+    }
     default:
       return state;
   }
@@ -137,6 +147,9 @@ export function QuizProvider({ children }) {
       dispatch({ type: ACTION_TYPES.TOGGLE_QUESTION_NAVIGATOR, payload: isOpen }),
     setShowOnlyUnanswered: (showOnly) =>
       dispatch({ type: ACTION_TYPES.SET_QUESTION_NAVIGATOR_FILTER, payload: showOnly }),
+    // Notificar cambio de favorito para que UI se refresque
+    notifyFavoriteToggled: (preguntaId) =>
+      dispatch({ type: ACTION_TYPES.FAVORITE_TOGGLED, payload: { preguntaId, timestamp: Date.now() } }),
   }), []);
 
   // Propiedades calculadas

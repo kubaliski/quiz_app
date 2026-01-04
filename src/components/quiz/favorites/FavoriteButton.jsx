@@ -15,6 +15,7 @@
  */
 import { useState, useEffect } from 'react';
 import { isFavorite } from '@services/favoritesService';
+import { useQuizContext } from '@hooks';
 
 export default function FavoriteButton({
   asignaturaId,
@@ -40,9 +41,35 @@ export default function FavoriteButton({
         setIsLoading(false);
       }
     };
-
     checkFavoriteStatus();
+
+    // Re-check cuando el contexto notifique cambio de favorito para esta pregunta
+    return undefined; // limpieza no necesaria aquí; manejado en otro effect
   }, [asignaturaId, preguntaId]);
+
+  // Efecto para refrescar cuando el contexto notifica cambio de favorito
+  const { favoritesToggled } = useQuizContext();
+
+  useEffect(() => {
+    let mounted = true;
+
+    const key = (favoritesToggled && preguntaId) ? String(favoritesToggled[preguntaId]) : null;
+    if (!key) return;
+
+    (async () => {
+      setIsLoading(true);
+      try {
+        const status = await isFavorite(asignaturaId, preguntaId);
+        if (mounted) setIsFav(status);
+      } catch (err) {
+        console.error('Error al refrescar favorito:', err);
+      } finally {
+        if (mounted) setIsLoading(false);
+      }
+    })();
+
+    return () => { mounted = false; };
+  }, [favoritesToggled, preguntaId, asignaturaId]);
 
   // Determinar tamaño del botón - Círculos más compactos para iOS
   const getSizeClasses = () => {

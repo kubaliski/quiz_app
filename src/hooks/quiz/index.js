@@ -7,3 +7,4 @@ export { useQuizDialogs } from './useQuizDialog';
 export { useQuizLoader } from './useQuizLoader';
 export { useQuizNavigation } from './useQuizNavigation';
 export { useQuizProgress } from './useQuizProgress';
+export { useAnswerShortcuts } from './useAnswerShortcuts';

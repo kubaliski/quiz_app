@@ -24,6 +24,9 @@ import {
   useQuizNavigation,
   useQuizDialogs
 } from '@hooks';
+import { useAnswerShortcuts } from '@hooks';
+import { addFavorite, removeFavorite, isFavorite } from '@services/favoritesService';
+import { showSuccess, showError } from '@utils/toastUtils';
 
 // Componente interno que usa los hooks y el contexto
 function QuizPageContent({ tipo }) {
@@ -59,7 +62,10 @@ function QuizPageContent({ tipo }) {
     error,
     setRespuesta,
     tipoQuiz: contextTipoQuiz,
-    setTipoQuiz
+    setTipoQuiz,
+    preguntaActiva,
+    asignatura,
+    notifyFavoriteToggled
   } = useQuizContext();
 
   // Establecer el tipo de quiz en el contexto si es quiz de favoritos
@@ -112,6 +118,29 @@ function QuizPageContent({ tipo }) {
     setTimeout(saveQuizProgress, 0);
   };
 
+  // Manejar toggle favorito (usado por atajo 0)
+  const handleToggleFavorite = async () => {
+    if (!preguntaActiva) return;
+
+    try {
+      const already = await isFavorite(asigId, preguntaActiva.id);
+
+      if (already) {
+        await removeFavorite(asigId, preguntaActiva.id);
+        showSuccess('Pregunta eliminada de favoritos');
+        // Notificar al contexto
+        if (typeof notifyFavoriteToggled === 'function') notifyFavoriteToggled(preguntaActiva.id);
+      } else {
+        await addFavorite(asigId, asignatura, preguntaActiva);
+        showSuccess('Pregunta añadida a favoritos');
+        if (typeof notifyFavoriteToggled === 'function') notifyFavoriteToggled(preguntaActiva.id);
+      }
+    } catch (err) {
+      console.error('Error toggle favorite:', err);
+      showError('No se pudo actualizar favorito');
+    }
+  };
+
   // Usar hook para navegación
   const {
     handleNext,
@@ -124,6 +153,9 @@ function QuizPageContent({ tipo }) {
     asignaturaId,
     modId
   });
+
+  // Activar atajos: 1-9 para respuestas, 0 para favorito
+  useAnswerShortcuts({ onSelectAnswer: handleSelectAnswer, onToggleFavorite: handleToggleFavorite });
 
   // Usar hook para diálogos - pasar flag continueFromPending para que sepa si venimos de pendientes
   const {

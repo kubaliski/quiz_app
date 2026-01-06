@@ -20,7 +20,7 @@ export { default as QuizProgress } from './progress/QuizProgress';
 export { default as ResultSummary } from './progress/ResultSummary';
 
 // Gestión de favoritos
-export { default as FavoriteButton } from './favorites/FavoriteButton';
+export { default as FavoriteButton } from '../common/buttons/FavoriteButton';
 export { default as FavoriteQuizzes } from './favorites/FavoriteQuizzes';
 export { default as FavoritesQuizLoader } from './favorites/FavoritesQuizLoader';
 

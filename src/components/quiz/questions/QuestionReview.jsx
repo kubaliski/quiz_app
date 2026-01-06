@@ -21,7 +21,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme, useDeviceType } from '@hooks';
 import ImageResource from '../media/ImageResource';
-import FavoriteButton from '../favorites/FavoriteButton';
+import FavoriteButton from '../../common/buttons/FavoriteButton';
 import { addFavorite, removeFavorite } from '@services/favoritesService';
 import { showToast } from '@utils/toastUtils';
 import { getQuestionReviewStyles } from '@styles/safeStyles';
@@ -194,7 +194,7 @@ export default function QuestionReview({
             preguntaId={pregunta.id}
             onToggle={handleToggleFavorite}
             size="sm"
-            className="ml-2 flex-shrink-0"
+            className="ml-2 shrink-0"
           />
         )}
       </div>

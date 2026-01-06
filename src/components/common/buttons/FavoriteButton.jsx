@@ -12,9 +12,9 @@
  * @param {string} [props.className=''] - Clases CSS adicionales
  * @returns {JSX.Element} Componente FavoriteButton renderizado
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { isFavorite } from '@services/favoritesService';
-import { Button } from '@components/common';
+import { QuizContext } from '@context';
 
 export default function FavoriteButton({
   asignaturaId,
@@ -26,9 +26,13 @@ export default function FavoriteButton({
 }) {
   const [isFav, setIsFav] = useState(initialState);
   const [isLoading, setIsLoading] = useState(true);
+  const quizContext = useContext(QuizContext);
+  const favoritesToggled = quizContext?.favoritesToggled;
 
   // Verificar el estado inicial desde localStorage
   useEffect(() => {
+    if (!asignaturaId || !preguntaId) return;
+
     const checkFavoriteStatus = async () => {
       setIsLoading(true);
       try {
@@ -44,16 +48,51 @@ export default function FavoriteButton({
     checkFavoriteStatus();
   }, [asignaturaId, preguntaId]);
 
-  // Determinar tamaño del botón
+  // Sincronizar con cambios globales de favoritos cuando existe QuizProvider
+  useEffect(() => {
+    if (!favoritesToggled || !preguntaId || !asignaturaId) return;
+
+    const key = favoritesToggled[preguntaId];
+    if (!key) return;
+
+    let mounted = true;
+
+    (async () => {
+      setIsLoading(true);
+      try {
+        const status = await isFavorite(asignaturaId, preguntaId);
+        if (mounted) setIsFav(status);
+      } catch (error) {
+        console.error('Error al refrescar favorito:', error);
+      } finally {
+        if (mounted) setIsLoading(false);
+      }
+    })();
+
+    return () => { mounted = false; };
+  }, [favoritesToggled, asignaturaId, preguntaId]);
+
+  // Determinar tamaño del botón - círculos compactos (heredado del estilo iOS)
   const getSizeClasses = () => {
     switch (size) {
       case 'sm':
-        return 'w-6 h-6';
+        return 'w-8 h-8 min-w-8 min-h-8';
       case 'lg':
-        return 'w-8 h-8';
+        return 'w-12 h-12 min-w-12 min-h-12';
       case 'md':
       default:
-        return 'w-7 h-7';
+        return 'w-10 h-10 min-w-10 min-h-10';
+    }
+  };
+
+  // Tamaño del ícono dentro del círculo
+  const getIconSize = () => {
+    switch (size) {
+      case 'sm':
+      case 'lg':
+      case 'md':
+      default:
+        return '85%';
     }
   };
 
@@ -71,31 +110,49 @@ export default function FavoriteButton({
     }
   };
 
-  // Determinar clases según el estado
+  // Determinar clases según el estado (recupera el estilo más pulido)
   const buttonClasses = `
     ${getSizeClasses()}
     flex items-center justify-center
     rounded-full
     transition-all duration-200
+    cursor-pointer
+    select-none
     ${isFav
-      ? 'bg-yellow-100 text-yellow-500 hover:bg-yellow-200 dark:bg-yellow-900 dark:text-yellow-400 dark:hover:bg-yellow-800'
-      : 'bg-gray-200 text-gray-500 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600'
+      ? 'bg-yellow-100 text-yellow-500 hover:bg-yellow-200 active:bg-yellow-300 dark:bg-yellow-900 dark:text-yellow-400 dark:hover:bg-yellow-800'
+      : 'bg-gray-200 text-gray-500 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600'
     }
     ${className}
     ${isLoading ? 'opacity-60' : ''}
-  `;
+    touch-manipulation
+    transform-gpu
+  `.replace(/\s+/g, ' ').trim();
+
+  const iconSize = getIconSize();
 
   return (
-    <Button
+    <button
       className={buttonClasses}
       onClick={handleClick}
       title={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
       disabled={isLoading}
       aria-pressed={isFav}
       aria-label={isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+      style={{
+        WebkitTapHighlightColor: 'transparent',
+        WebkitTouchCallout: 'none',
+        WebkitUserSelect: 'none',
+        touchAction: 'manipulation'
+      }}
+      type="button"
     >
       {isLoading ? (
-        <span className="animate-pulse">⭐</span>
+        <span
+          className="animate-pulse text-xl"
+          style={{ fontSize: iconSize }}
+        >
+          ⭐
+        </span>
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,8 +160,12 @@ export default function FavoriteButton({
           fill={isFav ? "currentColor" : "none"}
           stroke="currentColor"
           strokeWidth={isFav ? "0" : "2"}
-          className={`${isFav ? 'transform scale-110' : ''}`}
-          style={{ width: '65%', height: '65%' }}
+          className={`${isFav ? 'transform scale-110' : ''} transition-transform duration-200`}
+          style={{
+            width: iconSize,
+            height: iconSize,
+            flexShrink: 0
+          }}
         >
           <path
             strokeLinecap="round"
@@ -113,6 +174,6 @@ export default function FavoriteButton({
           />
         </svg>
       )}
-    </Button>
+    </button>
   );
 }

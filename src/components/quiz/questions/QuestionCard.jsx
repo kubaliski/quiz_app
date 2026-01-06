@@ -20,8 +20,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CodeBlock } from '@components/common';
 import { useTheme, useDeviceType } from '@hooks';
-import ImageResource from '../media/ImageResource';
-import FavoriteButton from '../favorites/FavoriteButton';
+import FavoriteButton from '../../common/buttons/FavoriteButton';
 import { addFavorite, removeFavorite } from '@services/favoritesService';
 import { showToast } from '@utils/toastUtils';
 
@@ -164,7 +163,7 @@ export default function QuestionCard({
             asignaturaId={asignaturaId}
             preguntaId={pregunta.id}
             onToggle={handleToggleFavorite}
-            className="ml-2 flex-shrink-0"
+            className="ml-2 shrink-0"
           />
         )}
       </div>
@@ -187,7 +186,7 @@ export default function QuestionCard({
               onClick={() => handleClickOption(pregunta.id, index)}
             >
               <div className="flex items-start">
-                <div className={`flex-shrink-0 h-5 w-5 rounded-full border ${
+                <div className={`shrink-0 h-5 w-5 rounded-full border ${
                   isSelected
                     ? 'bg-brand-600 border-brand-600'
                     : 'border-gray-400 dark:border-gray-500'

@@ -3,6 +3,7 @@ import moduloUnidadDosCambioClimaticoDescarbonizacion from './modulos/unidadDos.
 import moduloUnidadTresEconomiaCircularAplicacion from './modulos/unidadTres.js';
 import moduloUnidadCuatroConservacionEcosistemas from './modulos/unidadCuatro.js';
 import moduloUnidadCincoEquidadBienestarSocial from './modulos/unidadCinco.js';
+import moduloTestUnoSostenibilidad from './modulos/testUno.js';
 
 export const sostenibilidad = {
     ...info,
@@ -10,7 +11,8 @@ export const sostenibilidad = {
         moduloUnidadDosCambioClimaticoDescarbonizacion,
         moduloUnidadTresEconomiaCircularAplicacion,
         moduloUnidadCuatroConservacionEcosistemas,
-        moduloUnidadCincoEquidadBienestarSocial
+        moduloUnidadCincoEquidadBienestarSocial,
+        moduloTestUnoSostenibilidad
     ]
 
 };

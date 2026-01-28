@@ -24,6 +24,7 @@ import entornoCliente from '../data/asignaturas/entornoCliente';
 import disenoInterfaces from '../data/asignaturas/disenoInterfaces';
 import digitalizacion from "../data/asignaturas/digitalizacion";
 import sostenibilidad from "../data/asignaturas/sostenibilidad";
+import ingles from "../data/asignaturas/ingles";
 
 // Mapa de módulos para acceso rápido por ID (mantenemos la estructura original)
 const modulosMap = {
@@ -49,7 +50,8 @@ const asignaturasCompletasSegundoAno = [
   entornoCliente,
   disenoInterfaces,
   digitalizacion,
-  sostenibilidad
+  sostenibilidad, 
+  ingles
 
 ];
 

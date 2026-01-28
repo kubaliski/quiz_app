@@ -6,6 +6,7 @@ import moduloUnidadCincoConstruccionProyectosEmprendedores from './modulos/unida
 import moduloTestUnoEstrategiasBusqueda from './modulos/testUno.js';
 import moduloTestDosInteligenciaEmocional from './modulos/testDos.js';
 import moduloTestTresEmprendimiento from './modulos/testTres.js';
+import moduloTestCuatroITP2 from './modulos/testCuatro.js';
 
 
 export const itinearioParaLaEmpleabilidad2 = {
@@ -18,6 +19,7 @@ export const itinearioParaLaEmpleabilidad2 = {
         moduloTestUnoEstrategiasBusqueda,
         moduloTestDosInteligenciaEmocional,
         moduloTestTresEmprendimiento,
+        moduloTestCuatroITP2,
     ],
 };
 

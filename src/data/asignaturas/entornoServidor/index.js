@@ -6,6 +6,7 @@ import moduloUnidadCincoMVCyApisRestful from './modulos/unidad5.js';
 import moduloRepaso1ExpressEJSFormularios from './modulos/repaso1.js';
 import moduloRepaso2NodeExpress from './modulos/repaso2.js';
 import moduloTestUnoKahootNodeExpress from './modulos/test1.js';
+import moduloRepaso3NodeExpressDB from './modulos/repaso3.js';
 
 export const entornoServidor = {
     ...info,
@@ -16,7 +17,8 @@ export const entornoServidor = {
         moduloUnidadCincoMVCyApisRestful,
         moduloRepaso1ExpressEJSFormularios,
         moduloRepaso2NodeExpress,
-        moduloTestUnoKahootNodeExpress
+        moduloTestUnoKahootNodeExpress,
+        moduloRepaso3NodeExpressDB
     ],
 };
 export default entornoServidor;

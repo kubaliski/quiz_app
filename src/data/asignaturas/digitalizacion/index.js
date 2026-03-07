@@ -5,6 +5,7 @@ import moduloUnidadCuatroIAyBigData from './modulos/unidadCuatro.js';
 import moduloUnidadCincoValorDelDato from './modulos/unidadCinco.js';
 import moduloUnidadSeisTransformacionDigital from './modulos/unidadSeis.js';
 import moduloTestUnoDigitalizacion from './modulos/testUno.js';
+import moduloTestDosDigitalizacion from './modulos/testDos.js';
 
 export const digitalizacion = {
     ...info,
@@ -15,6 +16,7 @@ export const digitalizacion = {
         moduloUnidadCincoValorDelDato,
         moduloUnidadSeisTransformacionDigital,
         moduloTestUnoDigitalizacion,
+        moduloTestDosDigitalizacion
     ]
 }; 
 export default digitalizacion;

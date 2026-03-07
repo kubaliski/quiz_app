@@ -6,6 +6,7 @@ import moduloUnidadCincoServidoresDespliegue from './modulos/unidadCinco.js';
 import moduloUnidadSeisAutomatizacionContenedoresCICD from './modulos/unidadSeis.js';
 import moduloUnidadSieteSeguridadDespliegue from './modulos/unidadSiete.js';
 import moduloTestUnoDespliegue from './modulos/testUno.js';
+import moduloTestDosDespliegue from './modulos/testDos.js';
 
 export const despliegueDeAplicacionesWeb = {
   ...info,
@@ -17,6 +18,7 @@ export const despliegueDeAplicacionesWeb = {
     moduloUnidadSeisAutomatizacionContenedoresCICD,
     moduloUnidadSieteSeguridadDespliegue,
     moduloTestUnoDespliegue,
+    moduloTestDosDespliegue
   ],
 };
 

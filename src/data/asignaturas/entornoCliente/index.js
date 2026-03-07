@@ -6,6 +6,7 @@ import moduloUnidadCincoServiciosWebIntegracionApis from './modulos/unidad5.js';
 import moduloUnidadSeisXmlSeguridadDespliegue from './modulos/unidad6.js';
 import moduloRepaso1JavaScript from './modulos/repaso1.js';
 import moduloRepaso2JavaScriptReact from './modulos/repaso2.js';
+import moduloRepaso3JavaScriptReact from './modulos/repaso3.js';
 
 
 export const entornoServidor = {
@@ -17,7 +18,8 @@ export const entornoServidor = {
         moduloUnidadCincoServiciosWebIntegracionApis,
         moduloUnidadSeisXmlSeguridadDespliegue,
         moduloRepaso1JavaScript,
-        moduloRepaso2JavaScriptReact
+        moduloRepaso2JavaScriptReact,
+        moduloRepaso3JavaScriptReact
         
     ]
 };

@@ -299,7 +299,7 @@ const moduloTestDosIngles = {
       pregunta: "The salesperson promised to __ with an email tomorrow.",
       opciones: [
         "work out",
-        "work out",
+        "get in touch",
         "break down",
         "follow up"
       ],

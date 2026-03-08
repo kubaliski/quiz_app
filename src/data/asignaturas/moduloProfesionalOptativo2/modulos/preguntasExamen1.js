@@ -277,7 +277,7 @@ const moduloExamenUno = {
         "Iniciar y detener instancias EC2",
         "Ver información de las instancias EC2, pero no modificarlas",
         "Administrar usuarios y grupos de IAM",
-        "Administrar usuarios y grupos de IAM"
+        "Modificar grupos de seguridad y reglas de red en EC2"
       ],
       respuestaCorrecta: 1,
       explicacion: "Las políticas de solo lectura (ReadOnly) permiten operaciones de consulta (Describe, List, Get) pero prohíben modificaciones (Create, Delete, Modify, Start, Stop). El usuario heredará los permisos del grupo que solo permite visualizar información. Este diseño sigue el principio de mínimo privilegio."

@@ -8,6 +8,7 @@ import moduloTestDosInteligenciaEmocional from './modulos/testDos.js';
 import moduloTestTresEmprendimiento from './modulos/testTres.js';
 import moduloTestCuatroITP2 from './modulos/testCuatro.js';
 import moduloTestCincoITP2 from './modulos/testCinco.js';
+import moduloTestSeisITP2 from './modulos/testSeisMayo.js';
 
 
 export const itinearioParaLaEmpleabilidad2 = {
@@ -22,6 +23,7 @@ export const itinearioParaLaEmpleabilidad2 = {
         moduloTestTresEmprendimiento,
         moduloTestCuatroITP2,
         moduloTestCincoITP2,
+        moduloTestSeisITP2,
     ],
 };
 

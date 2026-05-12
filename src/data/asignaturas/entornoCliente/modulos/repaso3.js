@@ -5,7 +5,7 @@ const moduloRepaso3JavaScriptReact = {
   titulo: "DOM, Asincronía y React Avanzado",
   descripcion:
     "Evaluación sobre enrutamiento SPA, hooks de React (useState, useEffect, useContext, useMemo), asincronía con fetch, y manipulación de eventos en el DOM.",
-  esExamen: true,
+  esExamen: false,
   preguntas: [
     {
       id: 12126,

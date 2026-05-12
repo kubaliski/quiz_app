@@ -5,7 +5,7 @@
  * @component
  * @returns {JSX.Element} Componente VersionInfo renderizado
  */
-import { useState, useEffect, useRef, memo } from 'react';
+import { useState, useEffect, useRef, memo } from "react";
 
 // Detectar si estamos en entorno de desarrollo
 const isDevelopment = import.meta.env ? import.meta.env.DEV === true : false;
@@ -50,7 +50,7 @@ const VersionInfo = memo(function VersionInfo() {
         if (isDevelopment) {
           if (isMountedRef.current) {
             setVersionInfo({
-              version: '2.1.1-dev'
+              version: "2.1.3-dev",
             });
             setIsLoading(false);
           }
@@ -63,21 +63,21 @@ const VersionInfo = memo(function VersionInfo() {
             controller.abort();
             // Si aún estamos montados, establecer una versión por defecto
             if (isMountedRef.current) {
-              setVersionInfo({ version: '1.SW' });
+              setVersionInfo({ version: "1.SW" });
               setIsLoading(false);
             }
           }
         }, 3000);
 
         try {
-          const response = await fetch('/version.json', {
-            cache: 'no-store',
+          const response = await fetch("/version.json", {
+            cache: "no-store",
             headers: {
-              'Cache-Control': 'no-cache, no-store, must-revalidate',
-              'Pragma': 'no-cache',
-              'Expires': '0'
+              "Cache-Control": "no-cache, no-store, must-revalidate",
+              Pragma: "no-cache",
+              Expires: "0",
             },
-            signal: controller.signal
+            signal: controller.signal,
           });
 
           // Limpiar el timeout ya que la petición completó
@@ -87,7 +87,10 @@ const VersionInfo = memo(function VersionInfo() {
           }
 
           // Verificar si el componente sigue montado y es el controlador actual
-          if (!isMountedRef.current || abortControllerRef.current !== controller) {
+          if (
+            !isMountedRef.current ||
+            abortControllerRef.current !== controller
+          ) {
             return;
           }
 
@@ -97,12 +100,15 @@ const VersionInfo = memo(function VersionInfo() {
               const text = await response.text();
 
               // Volver a verificar montaje después de operación asíncrona
-              if (!isMountedRef.current || abortControllerRef.current !== controller) {
+              if (
+                !isMountedRef.current ||
+                abortControllerRef.current !== controller
+              ) {
                 return;
               }
 
               // Verificar que tenemos un JSON válido
-              if (text && text.trim() !== '' && text.trim().startsWith('{')) {
+              if (text && text.trim() !== "" && text.trim().startsWith("{")) {
                 try {
                   const data = JSON.parse(text);
                   if (isMountedRef.current) {
@@ -110,27 +116,27 @@ const VersionInfo = memo(function VersionInfo() {
                   }
                 } catch (parseError) {
                   if (isMountedRef.current) {
-                    console.warn('Error al parsear version.json:', parseError);
-                    setVersionInfo({ version: '1.SW' });
+                    console.warn("Error al parsear version.json:", parseError);
+                    setVersionInfo({ version: "1.SW" });
                   }
                 }
               } else {
                 if (isMountedRef.current) {
-                  console.warn('Respuesta no es un JSON válido');
-                  setVersionInfo({ version: '1.SW' });
+                  console.warn("Respuesta no es un JSON válido");
+                  setVersionInfo({ version: "1.SW" });
                 }
               }
             } catch (textError) {
               // Manejar específicamente errores al leer el texto
               if (isMountedRef.current) {
-                console.warn('Error al leer texto de la respuesta:', textError);
-                setVersionInfo({ version: '1.SW' });
+                console.warn("Error al leer texto de la respuesta:", textError);
+                setVersionInfo({ version: "1.SW" });
               }
             }
           } else {
             if (isMountedRef.current) {
-              console.warn('No se pudo obtener la información de versión');
-              setVersionInfo({ version: '1.SW' });
+              console.warn("No se pudo obtener la información de versión");
+              setVersionInfo({ version: "1.SW" });
             }
           }
         } catch (fetchError) {
@@ -141,16 +147,16 @@ const VersionInfo = memo(function VersionInfo() {
           }
 
           // Ignorar errores de tipo AbortError ya que son esperados cuando se cancela
-          if (fetchError.name !== 'AbortError' && isMountedRef.current) {
-            console.error('Error en fetch:', fetchError);
-            setVersionInfo({ version: '1.SW' });
+          if (fetchError.name !== "AbortError" && isMountedRef.current) {
+            console.error("Error en fetch:", fetchError);
+            setVersionInfo({ version: "1.SW" });
           }
         }
       } catch (generalError) {
         // Capturar cualquier otro error inesperado
         if (isMountedRef.current) {
-          console.error('Error general:', generalError);
-          setVersionInfo({ version: '1.SW' });
+          console.error("Error general:", generalError);
+          setVersionInfo({ version: "1.SW" });
         }
       } finally {
         // Limpiar el timeout si aún existe
@@ -188,7 +194,7 @@ const VersionInfo = memo(function VersionInfo() {
   // Extraer solo la parte principal de la versión (sin el hash de git)
   const getCleanVersion = (fullVersion) => {
     if (!fullVersion) return "1.SW";
-    return fullVersion.split('-')[0];
+    return fullVersion.split("-")[0];
   };
 
   // Si aún está cargando o no hay información de versión, no mostramos nada

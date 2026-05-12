@@ -5,7 +5,7 @@ const moduloRepaso3NodeExpressDB = {
   titulo: "Backend con Express y Bases de Datos",
   descripcion:
     "Evaluación sobre manejo de peticiones en Express, métodos HTTP, ORMs, arquitectura MVC, bases de datos relacionales (claves, relaciones, índices) y asincronía.",
-  esExamen: true,
+  esExamen: false,
   preguntas: [
     {
       id: 11141,

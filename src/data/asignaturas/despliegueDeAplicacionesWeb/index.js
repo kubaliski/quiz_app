@@ -1,13 +1,13 @@
-import info from './info.js';
-import moduloUnidadDosArquitecturaYProtocolos from './modulos/unidadDos.js';
-import moduloUnidadTresServidoresWeb from './modulos/unidadTres.js';
-import moduloUnidadCuatroServiciosRed from './modulos/unidadCuatro.js';
-import moduloUnidadCincoServidoresDespliegue from './modulos/unidadCinco.js';
-import moduloUnidadSeisAutomatizacionContenedoresCICD from './modulos/unidadSeis.js';
-import moduloUnidadSieteSeguridadDespliegue from './modulos/unidadSiete.js';
-import moduloTestUnoDespliegue from './modulos/testUno.js';
-import moduloTestDosDespliegue from './modulos/testDos.js';
-
+import info from "./info.js";
+import moduloUnidadDosArquitecturaYProtocolos from "./modulos/unidadDos.js";
+import moduloUnidadTresServidoresWeb from "./modulos/unidadTres.js";
+import moduloUnidadCuatroServiciosRed from "./modulos/unidadCuatro.js";
+import moduloUnidadCincoServidoresDespliegue from "./modulos/unidadCinco.js";
+import moduloUnidadSeisAutomatizacionContenedoresCICD from "./modulos/unidadSeis.js";
+import moduloUnidadSieteSeguridadDespliegue from "./modulos/unidadSiete.js";
+import moduloTestUnoDespliegue from "./modulos/testUno.js";
+import moduloTestDosDespliegue from "./modulos/testDos.js";
+import moduloSimulacroUnoDespliegue from "./modulos/simulacro1.js";
 export const despliegueDeAplicacionesWeb = {
   ...info,
   modulos: [
@@ -18,8 +18,10 @@ export const despliegueDeAplicacionesWeb = {
     moduloUnidadSeisAutomatizacionContenedoresCICD,
     moduloUnidadSieteSeguridadDespliegue,
     moduloTestUnoDespliegue,
-    moduloTestDosDespliegue
+    moduloTestDosDespliegue,
+    moduloSimulacroUnoDespliegue,
   ],
 };
 
 export default despliegueDeAplicacionesWeb;
+

@@ -12,6 +12,8 @@ import moduloTestSeisITP2 from "./modulos/testSeisMayo.js";
 import moduloRepasoII from "./modulos/repasoii.js";
 import moduloRepasoIII from "./modulos/repasoiii.js";
 import moduloRepasoIV from "./modulos/repasoiv.js";
+import moduloSimulacroUno from "./modulos/simulacro1.js";
+import moduloSimulacroDos from "./modulos/simulacro2.js";
 
 export const itinearioParaLaEmpleabilidad2 = {
   ...info,
@@ -29,6 +31,8 @@ export const itinearioParaLaEmpleabilidad2 = {
     moduloRepasoII,
     moduloRepasoIII,
     moduloRepasoIV,
+    moduloSimulacroUno,
+    moduloSimulacroDos
   ],
 };
 

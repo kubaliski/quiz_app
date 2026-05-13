@@ -4,7 +4,7 @@ const moduloSimulacro1CSS3 = {
   nombre: "Simulacro 1: CSS3",
   titulo: "CSS3",
   descripcion: "Selectores, especificidad, pseudoclases, pseudoelementos, BEM, cascada, herencia, variables CSS y unidades.",
-  esExamen: true,
+  esExamen: false,
   preguntas: [
     {
       id: 13061,

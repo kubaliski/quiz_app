@@ -7,6 +7,7 @@ import moduloUnidadSeisPublicacionDistribucionLicencias from "./modulos/unidad6.
 import moduloUnidadSietePruebasCalidad from "./modulos/unidad7.js";
 import moduloSimulacro1CSS3 from "./modulos/simulacro1.js";
 import moduloSimulacro2DisenoInterfacesWeb from "./modulos/simulacro2.js";
+import moduloSimulacro3DisenoInterfacesWeb from "./modulos/simulacro3.js";
 
 export const disenoInterfaces = {
   ...info,
@@ -19,6 +20,7 @@ export const disenoInterfaces = {
     moduloUnidadSietePruebasCalidad,
     moduloSimulacro1CSS3,
     moduloSimulacro2DisenoInterfacesWeb,
+    moduloSimulacro3DisenoInterfacesWeb
   ],
 };
 export default disenoInterfaces;
